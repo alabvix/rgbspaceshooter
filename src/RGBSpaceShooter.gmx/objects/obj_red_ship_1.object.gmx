@@ -28,6 +28,7 @@
             <string>_points = 250
 _hp = 10
 image_speed = 0.2
+vspeed = irandom_range(8,11)
 </string>
           </argument>
         </arguments>
