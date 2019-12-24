@@ -64,7 +64,7 @@ delta = (60/1000000) * delta_time;
 key_right = keyboard_check(vk_right) ;
 key_left  = keyboard_check(vk_left);
 key_up    = keyboard_check(vk_up);
-key_down  =  keyboard_check(vk_down);;
+key_down  = keyboard_check(vk_down);;
 
 // Determines velocity based on delta.
 var v = _velocity * delta;
