@@ -28,7 +28,7 @@
             <string>_anim_speed = 1
 _anim_speed_ratio  = 100000
 _velocity = 6
-
+_hull = 100
 _score = 0
 
 
@@ -122,6 +122,15 @@ if (key_fire_blue) {
     obj_laser_selector.x = obj_hud_laser_blue.x
     instance_create(x-25, y, obj_blue_laser)
     instance_create(x+25, y, obj_blue_laser)
+}
+
+// Handle collisions
+rail_1 = instance_place(x,y,obj_enemy_rail_1)
+if (rail_1 != noone) {
+    _hull -= rail_1._demage
+    instance_create(rail_1.x, rail_1.y, obj_little_explosion)
+    instance_destroy(rail_1)
+    show_debug_message("Hull:" + string(_hull));
 }
 
 </string>

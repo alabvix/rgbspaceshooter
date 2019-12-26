@@ -25,10 +25,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ALARM_TIME = 5
-alarm[0]   = ALARM_TIME * room_speed
+            <string>ALARM_TIME = 0
+alarm[0]   = 0//ALARM_TIME * room_speed
 
-_enemy_type = irandom_range(1, 3)
+_can_create_enemy = true
+
+_enemy_type = irandom_range(4, 5)
+
+_time_counter = 0
+
+// This instance variable is used to control
+// the total of moster killed by player 
+// The next wave of enemies will be lauched 
+// only if thes variable reaches the TOTAL_MOSTERS
+// constant.
+//
+// This variable is incredes in the
+_total_monster_killed = 0
+_total_monsters_created = 0
 
 /*
 _total_enemies = 5
@@ -77,14 +91,84 @@ _enemy_created = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Call the function to create the enemies each ALARM_TIME.
-CreateEnemy(_enemy_type)
+            <string>// Determine next enemy
+//_enemy_type = global.ENEMY_MONSTER//irandom_range(1, 4)
+
+if (_can_create_enemy) {
+    CreateEnemy(_enemy_type)    
+}
+
+
 
 // restart alarm
 alarm[0] = ALARM_TIME * room_speed
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Determine next enemy
 
-// Determine new enemy
-_enemy_type = irandom_range(1, 3)
+
+//if (_can_create_enemy) {
+//    CreateEnemy(_enemy_type)
+//}
+
+_time_counter += 1 * (delta_time / 100000);
+//show_debug_message(string(_time_counter))
+
+if ( round(_time_counter) == 5) {
+
+    if (_enemy_type == global.ENEMY_MONSTER_1) {
+       if (_total_monsters_created &lt; global.TOTAL_MONSTERS_1 ) {
+           CreateEnemy(_enemy_type)    
+           _total_monsters_created ++;
+           _can_create_enemy = false
+       } 
+       if (_total_monster_killed == global.TOTAL_MONSTERS_1) {
+           _total_monsters_created = 0
+           _total_monster_killed = 0
+           _can_create_enemy = true
+       }
+    }
+    
+    if (_enemy_type == global.ENEMY_MONSTER_2) {
+       if (_total_monsters_created &lt; global.TOTAL_MONSTERS_2 ) {
+           CreateEnemy(_enemy_type)    
+           _total_monsters_created ++;
+           _can_create_enemy = false
+       } 
+       if (_total_monster_killed == global.TOTAL_MONSTERS_2) {
+           _total_monsters_created = 0
+           _total_monster_killed = 0
+            _can_create_enemy = true
+       }
+    }
+    
+    _time_counter = 0
+}
+
+if (_can_create_enemy) {
+    _enemy_type = irandom_range(4,5)
+}
+
 </string>
           </argument>
         </arguments>

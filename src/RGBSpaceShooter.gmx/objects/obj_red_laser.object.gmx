@@ -54,13 +54,7 @@ if (enemy) {
     if (enemy._hp &lt; 0) {
         obj_player_ship._score += enemy._points
         show_debug_message("Player Score:" + string(obj_player_ship._score));
-        var name = object_get_name(enemy.object_index);
         instance_destroy(enemy)
-        if (name == "obj_red_monster_1" ) {
-            with(obj_enemy_manager) {
-                _monster_red_killed ++;
-            }
-        }
     }
 }
 

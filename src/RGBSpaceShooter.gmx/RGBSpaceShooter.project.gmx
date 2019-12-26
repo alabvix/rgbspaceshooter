@@ -23,13 +23,17 @@
     <sprite>sprites\spt_red_monster_1</sprite>
     <sprite>sprites\spt_blue_bomb</sprite>
     <sprite>sprites\spt_blue_moster_1</sprite>
+    <sprite>sprites\spt_enemy_rail_1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
     <background>background\background2</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path0</path>
+    <path>paths\path1</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\DefineGlobals.gml</script>
     <script>scripts\CreateEnemy.gml</script>
@@ -55,6 +59,7 @@
     <object>objects\obj_blue_monster_1</object>
     <object>objects\obj_green_base_enemy</object>
     <object>objects\obj_enemy_manager</object>
+    <object>objects\obj_enemy_rail_1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>
