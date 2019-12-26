@@ -30,6 +30,10 @@
     <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\DefineGlobals.gml</script>
+    <script>scripts\CreateEnemy.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_player_ship</object>
     <object>objects\obj_base_laser</object>

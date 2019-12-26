@@ -25,11 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_total_enemies = 5
-_alarm_time = 0
-alarm[0] = _alarm_time
+            <string>ALARM_TIME = 5
+alarm[0]   = ALARM_TIME * room_speed
 
+_enemy_type = irandom_range(1, 3)
 
+/*
+_total_enemies = 5
 ENEMY_ALIEN   = 1
 ENEMY_SHIP    = 2
 ENEMY_BOMB    = 3
@@ -45,9 +47,13 @@ _monster_red_killed=0;
 _monster_blue_created=false;
 _monster_red_created=false;
 
-_enemy_type = irandom_range(1, _total_enemies)
+_enemy_type = ENEMY_BOMB//irandom_range(1, _total_enemies)
+
 MAX_COUNTER = 100
 _step_counter = 0
+
+_enemy_created = false; 
+*/
 
 </string>
           </argument>
@@ -71,247 +77,14 @@ _step_counter = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Create a enemies
+            <string>// Call the function to create the enemies each ALARM_TIME.
+CreateEnemy(_enemy_type)
 
-if (_enemy_type == ENEMY_MONSTER_RED &amp;&amp; ! _monster_red_created) {
-    for (i=0; i &lt;ENEMY_MONSTER_RED_TOTAL; i++) {
-        vx = irandom_range(1, room_width)
-        vy = irandom_range(-100, -room_height)
-        instance_create(vx, vy, obj_red_monster_1)
-    }
-    _monster_red_created = true
-}
+// restart alarm
+alarm[0] = ALARM_TIME * room_speed
 
-if (_enemy_type == ENEMY_MONSTER_BLUE &amp;&amp; ! _monster_blue_created ) {
-    for (i=0; i &lt; ENEMY_MONSTER_BLUE_TOTAL; i++) {
-       vx = irandom_range(1, room_width)
-       vy = irandom_range(-100, -room_height)
-       instance_create(vx, vy, obj_blue_monster_1)
-    }
-    _monster_blue_created = true
-}
-
-if (_enemy_type == ENEMY_BOMB ) {
-    var color = irandom_range(1,2) 
-    if (color == 1) {
-        for (i=0; i &lt; 20; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            instance_create(vx, vy, obj_red_bomb)
-        }
-    }
-    if (color == 2) {
-         for (i=0; i &lt; 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            instance_create(vx, vy, obj_blue_bomb)
-        }
-    }
-}
-
-if (_enemy_type == ENEMY_SHIP ) {
-    var color = irandom_range(1,1) 
-    if (color == 1) {
-        for (i=0; i &lt; 20; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            inst = instance_create(vx, vy, obj_red_ship_1)
-        }
-    }
-    /*if (color == 2) {
-         for (i=0; i &lt; 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -room_height)
-            instance_create(vx, vy, obj_red_ship_1)
-        }
-    }*/
-}
-
-if (_enemy_type == ENEMY_ALIEN ) {
-    var color = irandom_range(1,1) 
-    if (color == 1) {
-        for (i=0; i &lt; 20; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            z = irandom_range(1,2)
-            if (z == 1) {
-                vx += 64
-                vy += 64
-            } else {
-                vx -= 64
-                vy -= 64
-            }
-            inst = instance_create(vx, vy, obj_red_alien_1)
-        }
-    }
-    /*if (color == 2) {
-         for (i=0; i &lt; 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -room_height)
-            instance_create(vx, vy, obj_red_ship_1)
-        }
-    }*/
-}
-
-can_raise_next_enemy = true
-
-// Others enemies must wait destruction of all enemy moster type
-if (_enemy_type == ENEMY_MONSTER_RED ||
-    _enemy_type == ENEMY_MONSTER_BLUE ) {
-    
-    if ( _monster_red_killed == ENEMY_MONSTER_RED_TOTAL) {
-        _monster_red_killed = 0;
-        _monster_red_created = false
-    } else if (_monster_blue_killed == ENEMY_MONSTER_BLUE_TOTAL) {
-        _monster_blue_killed = 0;
-        _monster_blue_created = false
-    } else {
-       can_raise_next_enemy  = false     
-       alarm[0] = _alarm_time
-    }
-
-}
-
-if (can_raise_next_enemy ) {
-    _enemy_type = irandom_range(1, _total_enemies)
-    alarm[0] = _alarm_time
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Create a enemies
-_step_counter ++
-show_debug_message ( string(_step_counter))
-
-if (_step_counter &lt; MAX_COUNTER) {
-    exit
-} else {
-    _step_counter = 0
-}    
-show_debug_message ( "criando inimigos")
-
-
-if (_enemy_type == ENEMY_MONSTER_RED &amp;&amp; ! _monster_red_created) {
-    for (i=0; i &lt;ENEMY_MONSTER_RED_TOTAL; i++) {
-        vx = irandom_range(1, room_width)
-        vy = irandom_range(-100, -room_height)
-        instance_create(vx, vy, obj_red_monster_1)
-    }
-    _monster_red_created = true
-}
-
-if (_enemy_type == ENEMY_MONSTER_BLUE &amp;&amp; ! _monster_blue_created ) {
-    for (i=0; i &lt; ENEMY_MONSTER_BLUE_TOTAL; i++) {
-       vx = irandom_range(1, room_width)
-       vy = irandom_range(-100, -room_height)
-       instance_create(vx, vy, obj_blue_monster_1)
-    }
-    _monster_blue_created = true
-}
-
-if (_enemy_type == ENEMY_BOMB ) {
-    var color = irandom_range(1,2) 
-    if (color == 1) {
-        for (i=0; i &lt; 20; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -1600)
-            instance_create(vx, vy, obj_red_bomb)
-        }
-    }
-    if (color == 2) {
-         for (i=0; i &lt; 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -1600)
-            instance_create(vx, vy, obj_blue_bomb)
-        }
-    }
-}
-
-if (_enemy_type == ENEMY_SHIP ) {
-    var color = irandom_range(1,1) 
-    if (color == 1) {
-        for (i=0; i &lt; 20; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            inst = instance_create(vx, vy, obj_red_ship_1)
-        }
-    }
-    /*if (color == 2) {
-         for (i=0; i &lt; 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -room_height)
-            instance_create(vx, vy, obj_red_ship_1)
-        }
-    }*/
-}
-
-if (_enemy_type == ENEMY_ALIEN ) {
-    var color = irandom_range(1,1) 
-    if (color == 1) {
-        for (i=0; i &lt; 20; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            z = irandom_range(1,2)
-            if (z == 1) {
-                vx += 64
-                vy += 64
-            } else {
-                vx -= 64
-                vy -= 64
-            }
-            inst = instance_create(vx, vy, obj_red_alien_1)
-        }
-    }
-    /*if (color == 2) {
-         for (i=0; i &lt; 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -room_height)
-            instance_create(vx, vy, obj_red_ship_1)
-        }
-    }*/
-}
-
-can_raise_next_enemy = true
-
-// Others enemies must wait destruction of all enemy monster type
-if (_enemy_type == ENEMY_MONSTER_RED ||
-    _enemy_type == ENEMY_MONSTER_BLUE ) {
-    if ( _monster_red_killed == ENEMY_MONSTER_RED_TOTAL) {
-        _monster_red_killed = 0;
-        _monster_red_created = false
-        _step_counter = 90
-    } else if (_monster_blue_killed == ENEMY_MONSTER_BLUE_TOTAL) {
-        _monster_blue_killed = 0;
-        _monster_blue_created = false
-        _step_counter = 90
-    } else {
-       can_raise_next_enemy  = false     
-    }
-}
-
-if (can_raise_next_enemy ) {
-    _enemy_type = irandom_range(1, _total_enemies)
-    //alarm[0] = _alarm_time
-}
+// Determine new enemy
+_enemy_type = irandom_range(1, 3)
 </string>
           </argument>
         </arguments>
