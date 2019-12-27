@@ -32,6 +32,14 @@ y -= _velocity * delta;
 // If goes out of screen.
 if (y &lt; -5) instance_destroy();
 
+// Handle collision with meteor.
+var enemy = instance_place(x,y, obj_meteor_base)
+if (enemy) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
+
 // Handle collision with blue enemies.
 var enemy = instance_place(x,y, obj_blue_base_enemy)
 if (enemy) {

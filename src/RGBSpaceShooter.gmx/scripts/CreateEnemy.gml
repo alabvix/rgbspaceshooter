@@ -1,42 +1,33 @@
-///CreateEnemy(_enemyType)
 
-if (_enemy_type == global.ENEMY_BOMB ) {
+if (argument[0] == global.ENEMY_BOMB ) {
     var color = irandom_range(1,2) 
     if (color == 1) {
-        for (i=0; i < 100; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -1600)
-            instance_create(vx, vy, obj_red_bomb)
-        }
+        vx = irandom_range(1, room_width)
+        vy = irandom_range(-100, -1600)
+        instance_create(vx, vy, obj_red_bomb)
     }
     if (color == 2) {
-         for (i=0; i < 100; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -1600)
-            instance_create(vx, vy, obj_blue_bomb)
-        }
+        vx = irandom_range(1, room_width)
+        vy = irandom_range(-100, -1600)
+        instance_create(vx, vy, obj_blue_bomb)
     }
 }
 
-if (_enemy_type == global.ENEMY_SHIP ) {
+if (argument[0] == global.ENEMY_SHIP ) {
     var color = irandom_range(1,1) 
     if (color == 1) {
-        for (i=0; i < 15; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -600)
-            inst = instance_create(vx, vy, obj_red_ship_1)
-        }
+        vx = irandom_range(1, room_width)
+        vy = irandom_range(-100, -600)
+        inst = instance_create(vx, vy, obj_red_ship_1)
     }
     if (color == 2) {
-         for (i=0; i < 30; i++) {
-            vx = irandom_range(1, room_width)
-            vy = irandom_range(-100, -room_height)
-            instance_create(vx, vy, obj_red_ship_1)
-        }
+        vx = irandom_range(1, room_width)
+        vy = irandom_range(-100, -room_height)
+        instance_create(vx, vy, obj_red_ship_1)
     }
 }
 
-if (_enemy_type == global.ENEMY_ALIEN ) {
+if (argument[0] == global.ENEMY_ALIEN ) {
     var color = irandom_range(1,1) 
     if (color == 1) {
         for (i=0; i < 20; i++) {
@@ -62,7 +53,7 @@ if (_enemy_type == global.ENEMY_ALIEN ) {
     }
 }
 
-if (_enemy_type == global.ENEMY_MONSTER_1 ) {
+if (argument[0] == global.ENEMY_MONSTER_1 ) {
     var color = irandom_range(1,2) 
     if (color == 1) {
         vx = 200
@@ -82,7 +73,7 @@ if (_enemy_type == global.ENEMY_MONSTER_1 ) {
     }
 }
 
-if (_enemy_type == global.ENEMY_MONSTER_2 ) {
+if (argument[0] == global.ENEMY_MONSTER_2 ) {
     var color = irandom_range(1,2) 
     if (color == 1) {
         vx = 800
@@ -101,6 +92,19 @@ if (_enemy_type == global.ENEMY_MONSTER_2 ) {
         }
     }
 }
+
+if (argument[0] == global.ENEMY_METEOR) {
+     var type = irandom_range(1,2) 
+     vx = irandom_range(1, room_width)
+     vy = -130
+     if (type == 1) {
+        instance_create(vx, vy, obj_meteor_1)
+     } else {
+        instance_create(vx, vy, obj_meteor_2)
+     }
+}
+
+
 
 
 /*

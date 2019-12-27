@@ -27,8 +27,34 @@
             <kind>1</kind>
             <string>_points = 45
 _hp = 5
+_speed = irandom_range(45,45)
 image_speed = 0.6
-vspeed = 12
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (obj_enemy_manager) {
+    _total_bomb_destroyed ++
+}
 </string>
           </argument>
         </arguments>
@@ -51,7 +77,8 @@ vspeed = 12
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (y &gt; room_height + 60) {
+            <string>y += _speed * (delta_time / 100000);// move 100 pixels
+if (y &gt; room_height + 60) {
     instance_destroy()
 }
 </string>

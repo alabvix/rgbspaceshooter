@@ -25,83 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ALARM_TIME = 0
-alarm[0]   = 0//ALARM_TIME * room_speed
+            <string>_can_create_enemy = true 
+_can_create_enemy2 = true 
 
-_can_create_enemy = true
+_enemy_type  = irandom_range(2, 5)
+_enemy_type2 = irandom_range(6, 6)
 
-_enemy_type = irandom_range(4, 5)
-
+// time for create an enemy
 _time_counter = 0
+_time_counter2 = 0
 
-// This instance variable is used to control
-// the total of moster killed by player 
-// The next wave of enemies will be lauched 
-// only if thes variable reaches the TOTAL_MOSTERS
-// constant.
-//
-// This variable is incredes in the
-_total_monster_killed = 0
+_total_monster_killed   = 0
 _total_monsters_created = 0
 
-/*
-_total_enemies = 5
-ENEMY_ALIEN   = 1
-ENEMY_SHIP    = 2
-ENEMY_BOMB    = 3
-ENEMY_MONSTER_RED  = 4
-ENEMY_MONSTER_BLUE = 5
+_total_ship_1_created   = 0
+_total_ship_1_destroyed = 0
 
-ENEMY_MONSTER_RED_TOTAL = 7
-ENEMY_MONSTER_BLUE_TOTAL = 8
+_total_bomb_created     = 0
+_total_bomb_destroyed   = 0
 
-_monster_blue_killed=0;
-_monster_red_killed=0;
-
-_monster_blue_created=false;
-_monster_red_created=false;
-
-_enemy_type = ENEMY_BOMB//irandom_range(1, _total_enemies)
-
-MAX_COUNTER = 100
-_step_counter = 0
-
-_enemy_created = false; 
-*/
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Determine next enemy
-//_enemy_type = global.ENEMY_MONSTER//irandom_range(1, 4)
-
-if (_can_create_enemy) {
-    CreateEnemy(_enemy_type)    
-}
+_total_meteor_created = 0
+_total_meteor_destroyed = 0
 
 
-
-// restart alarm
-alarm[0] = ALARM_TIME * room_speed
 </string>
           </argument>
         </arguments>
@@ -124,18 +70,13 @@ alarm[0] = ALARM_TIME * room_speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Determine next enemy
+            <string>
+_time_counter  += 1 * (delta_time / 100000);
+_time_counter2 += 1 * (delta_time / 100000);
 
-
-//if (_can_create_enemy) {
-//    CreateEnemy(_enemy_type)
-//}
-
-_time_counter += 1 * (delta_time / 100000);
 //show_debug_message(string(_time_counter))
 
 if ( round(_time_counter) == 5) {
-
     if (_enemy_type == global.ENEMY_MONSTER_1) {
        if (_total_monsters_created &lt; global.TOTAL_MONSTERS_1 ) {
            CreateEnemy(_enemy_type)    
@@ -148,7 +89,6 @@ if ( round(_time_counter) == 5) {
            _can_create_enemy = true
        }
     }
-    
     if (_enemy_type == global.ENEMY_MONSTER_2) {
        if (_total_monsters_created &lt; global.TOTAL_MONSTERS_2 ) {
            CreateEnemy(_enemy_type)    
@@ -162,12 +102,61 @@ if ( round(_time_counter) == 5) {
        }
     }
     
+    if (_enemy_type == global.ENEMY_SHIP) {
+        if (_total_ship_1_created &lt; global.TOTAL_SHIPS) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_1_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_ship_1_destroyed == global.TOTAL_SHIPS) {
+            _total_ship_1_destroyed = 0
+            _total_ship_1_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
+    if (_enemy_type == global.ENEMY_BOMB) {
+        if (_total_bomb_created &lt; global.TOTAL_BOMBS) {
+            CreateEnemy(_enemy_type)    
+            _total_bomb_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_bomb_destroyed == global.TOTAL_BOMBS) {
+            _total_bomb_destroyed = 0
+            _total_bomb_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
     _time_counter = 0
+    if (_can_create_enemy) {
+       _enemy_type = irandom_range(2,5)
+        show_debug_message(string(_enemy_type))
+    }
+    
 }
 
-if (_can_create_enemy) {
-    _enemy_type = irandom_range(4,5)
+// Second enemies
+if ( round(_time_counter2) == 55) {
+    if (_enemy_type2 == global.ENEMY_METEOR) {
+       if (_total_meteor_created &lt; global.TOTAL_METEORS ) {
+           CreateEnemy(_enemy_type2)    
+           _total_meteor_created ++;
+           _can_create_enemy2 = false
+       } 
+       if (_total_meteor_destroyed == global.TOTAL_METEORS) {
+           _total_meteor_destroyed = 0
+           _total_meteor_created = 0
+           _can_create_enemy2 = true
+       }
+    }
+    _time_counter2 = 0
+    if (_can_create_enemy2) {
+       _enemy_type2 = irandom_range(6,6)
+    }
 }
+
+
 
 </string>
           </argument>

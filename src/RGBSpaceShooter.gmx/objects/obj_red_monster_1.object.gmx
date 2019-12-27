@@ -29,8 +29,9 @@
 _hp = 25
 _speed = 0
 image_speed = 0.2
-ALARM_TIME = 50
-alarm[0] = ALARM_TIME
+
+_time_counter = 0
+_fire_count = 25 // fire velocity in steps
 
 
 </string>
@@ -64,30 +65,6 @@ alarm[0] = ALARM_TIME
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>rail = instance_create(x, y, obj_enemy_rail_1)
-alarm[0] = ALARM_TIME
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -107,6 +84,12 @@ alarm[0] = ALARM_TIME
             <kind>1</kind>
             <string>image_angle = direction
 y += _speed * (delta_time / 100000);// move 100 pixels
+
+_time_counter += 1 * (delta_time / 100000);
+if (  round(_time_counter) == _fire_count) {
+    rail = instance_create(x, y, obj_enemy_rail_1)
+    _time_counter = 0
+}
 
 </string>
           </argument>
