@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>_demage = 20
 _speed  = 25
+_type   = 0
 </string>
           </argument>
         </arguments>
