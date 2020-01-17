@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spt_player_ship</sprite>
+    <sprite>sprites\spt_ship_fire</sprite>
     <sprite>sprites\spt_star_1</sprite>
     <sprite>sprites\spt_red_laser</sprite>
     <sprite>sprites\spt_green_laser</sprite>
@@ -26,6 +27,7 @@
     <sprite>sprites\spt_enemy_rail_1</sprite>
     <sprite>sprites\spt_meteor_1</sprite>
     <sprite>sprites\spt_meteor_2</sprite>
+    <sprite>sprites\spt_green_monster_1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -60,11 +62,13 @@
     <object>objects\obj_blue_bomb</object>
     <object>objects\obj_blue_monster_1</object>
     <object>objects\obj_green_base_enemy</object>
+    <object>objects\obj_green_monster_1</object>
     <object>objects\obj_enemy_manager</object>
     <object>objects\obj_enemy_rail_1</object>
     <object>objects\obj_meteor_base</object>
     <object>objects\obj_meteor_1</object>
     <object>objects\obj_meteor_2</object>
+    <object>objects\obj_ship_fire</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>

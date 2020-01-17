@@ -1,3 +1,4 @@
+// argument[0]: enemy type
 
 if (argument[0] == global.ENEMY_BOMB ) {
     var color = irandom_range(1,2) 
@@ -54,7 +55,7 @@ if (argument[0] == global.ENEMY_ALIEN ) {
 }
 
 if (argument[0] == global.ENEMY_MONSTER_1 ) {
-    var color = irandom_range(1,2) 
+    var color = irandom_range(1,3) 
     if (color == 1) {
         vx = 200
         vy = -32
@@ -71,10 +72,18 @@ if (argument[0] == global.ENEMY_MONSTER_1 ) {
             path_start(path0, 8, path_action_continue, 0)
         }
     }
+    if (color == 3) {
+        vx = 200
+        vy = -32
+        monster = instance_create(vx, vy, obj_green_monster_1)
+        with (monster){
+            path_start(path0, 8, path_action_continue, 0)
+        }
+    }
 }
 
 if (argument[0] == global.ENEMY_MONSTER_2 ) {
-    var color = irandom_range(1,2) 
+    var color = irandom_range(1,3) 
     if (color == 1) {
         vx = 800
         vy = -32
@@ -87,6 +96,14 @@ if (argument[0] == global.ENEMY_MONSTER_2 ) {
         vx = 800
         vy = -32
         monster = instance_create(vx, vy, obj_blue_monster_1)
+        with (monster){
+            path_start(path1, 8, path_action_continue, 0)
+        }
+    }
+    if (color == 3) {
+        vx = 800
+        vy = -32
+        monster = instance_create(vx, vy, obj_green_monster_1)
         with (monster){
             path_start(path1, 8, path_action_continue, 0)
         }

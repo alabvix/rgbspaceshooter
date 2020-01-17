@@ -90,6 +90,9 @@ if (key_up) {
 }
 if (py &gt; 0 &amp;&amp; py &lt;= room_height) y = py;
 
+obj_ship_fire.x = px
+obj_ship_fire.y = py + 60
+
 // Calculate the first and the last value of y to prevent the ship goes offscreen.
 y = clamp(y, 0 + sprite_height/2, room_height - sprite_height/2);
 
