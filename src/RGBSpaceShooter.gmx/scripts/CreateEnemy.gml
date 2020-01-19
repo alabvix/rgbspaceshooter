@@ -1,5 +1,13 @@
 // argument[0]: enemy type
 
+if (argument[0] == global.ENEMY_SHIP_2) {
+    var ship2 = instance_create(928, -100, obj_green_disk)
+    show_debug_message("Ships 2 instance created:")
+    with (ship2){
+        path_start(path2, 8, path_action_continue, 0)
+    }
+}
+
 if (argument[0] == global.ENEMY_BOMB ) {
     var color = irandom_range(1,2) 
     if (color == 1) {
@@ -30,20 +38,13 @@ if (argument[0] == global.ENEMY_SHIP ) {
 
 if (argument[0] == global.ENEMY_ALIEN ) {
     var color = irandom_range(1,1) 
+    var vx = obj_player_ship.x
+    
     if (color == 1) {
-        for (i=0; i < 20; i++) {
-            vx = irandom_range(1, room_width)
+        //for (i=0; i < global.TOTAL_ALIEN; i++) {
             vy = irandom_range(-100, -600)
-            z = irandom_range(1,2)
-            if (z == 1) {
-                vx += 64
-                vy += 64
-            } else {
-                vx -= 64
-                vy -= 64
-            }
             inst = instance_create(vx, vy, obj_red_alien_1)
-        }
+        //}
     }
     if (color == 2) {
          for (i=0; i < 30; i++) {

@@ -28,8 +28,11 @@
             <string>_can_create_enemy = true 
 _can_create_enemy2 = true 
 
-_enemy_type  = irandom_range(2, 5)
+
 _enemy_type2 = irandom_range(6, 6)
+
+_enemy_index = 0 // the enemy index in the stage enemy array
+_enemy_type  = global.STAGE_ENEMIES[global.game_stage,_enemy_index] //irandom_range(2, 5)
 
 // time for create an enemy
 _time_counter = 0
@@ -41,12 +44,17 @@ _total_monsters_created = 0
 _total_ship_1_created   = 0
 _total_ship_1_destroyed = 0
 
+_total_ship_2_created   = 0
+_total_ship_2_destroyed = 0
+
 _total_bomb_created     = 0
 _total_bomb_destroyed   = 0
 
 _total_meteor_created = 0
 _total_meteor_destroyed = 0
 
+_total_alien_created = 0
+_total_alien_destroyed = 0
 
 </string>
           </argument>
@@ -70,11 +78,8 @@ _total_meteor_destroyed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-_time_counter  += 1 * (delta_time / 100000);
+            <string>_time_counter  += 1 * (delta_time / 100000);
 _time_counter2 += 1 * (delta_time / 100000);
-
-//show_debug_message(string(_time_counter))
 
 if ( round(_time_counter) == 5) {
     if (_enemy_type == global.ENEMY_MONSTER_1) {
@@ -115,6 +120,20 @@ if ( round(_time_counter) == 5) {
         }
     }
     
+    if (_enemy_type == global.ENEMY_SHIP_2) {
+        if (_total_ship_2_created &lt; global.TOTAL_SHIPS_2) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_2_created ++
+            show_debug_message("Ships 2 created:" + string(_total_ship_2_created))
+            _can_create_enemy = false
+        }
+        if (_total_ship_2_destroyed == global.TOTAL_SHIPS_2) {
+            _total_ship_2_destroyed = 0
+            _total_ship_2_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
     if (_enemy_type == global.ENEMY_BOMB) {
         if (_total_bomb_created &lt; global.TOTAL_BOMBS) {
             CreateEnemy(_enemy_type)    
@@ -128,10 +147,29 @@ if ( round(_time_counter) == 5) {
         }
     }
     
+    if (_enemy_type == global.ENEMY_ALIEN) {
+        if (_total_alien_created &lt; global.TOTAL_ALIEN) {
+            CreateEnemy(_enemy_type)    
+            _total_alien_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_alien_destroyed == global.TOTAL_ALIEN) {
+            _total_alien_destroyed = 0
+            _total_alien_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
     // Determine enemy type
     _time_counter = 0
     if (_can_create_enemy) {
-       _enemy_type = irandom_range(2,5)
+       //_enemy_type = irandom_range(1,5)
+       _enemy_index ++
+       if (_enemy_index == array_length_2d(global.STAGE_ENEMIES, global.game_stage)){
+          // end of stage
+          _enemy_index = 0
+       }
+       _enemy_type = global.STAGE_ENEMIES[global.game_stage, _enemy_index]
         show_debug_message(string(_enemy_type))
     }
     

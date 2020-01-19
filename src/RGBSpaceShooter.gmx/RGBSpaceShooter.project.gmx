@@ -28,15 +28,18 @@
     <sprite>sprites\spt_meteor_1</sprite>
     <sprite>sprites\spt_meteor_2</sprite>
     <sprite>sprites\spt_green_monster_1</sprite>
+    <sprite>sprites\spt_green_disk</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
     <background>background\background2</background>
+    <background>background\background3</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
     <path>paths\path1</path>
+    <path>paths\path2</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\DefineGlobals.gml</script>
@@ -69,6 +72,7 @@
     <object>objects\obj_meteor_1</object>
     <object>objects\obj_meteor_2</object>
     <object>objects\obj_ship_fire</object>
+    <object>objects\obj_green_disk</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>

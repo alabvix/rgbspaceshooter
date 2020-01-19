@@ -93,41 +93,7 @@ if (py &gt; 0 &amp;&amp; py &lt;= room_height) y = py;
 obj_ship_fire.x = px
 obj_ship_fire.y = py + 60
 
-// Calculate the first and the last value of y to prevent the ship goes offscreen.
-y = clamp(y, 0 + sprite_height/2, room_height - sprite_height/2);
-
-
-key_fire_red   = keyboard_check_pressed(ord('A'))
-key_fire_green = keyboard_check_pressed(ord('S'))
-key_fire_blue  = keyboard_check_pressed(ord('D'))
-
-if (key_fire_red) {
-    obj_laser_selector.x = obj_hud_laser_red.x
-}
-if (key_fire_green) {
-    obj_laser_selector.x = obj_hud_laser_green.x
-}
-if (key_fire_blue) {
-    obj_laser_selector.x = obj_hud_laser_blue.x
-}
-
-if (key_fire_red) {
-    obj_laser_selector.x = obj_hud_laser_red.x
-    instance_create(x-25, y, obj_red_laser)
-    instance_create(x+25, y, obj_red_laser)
-}
-if (key_fire_green) {
-    obj_laser_selector.x = obj_hud_laser_green.x
-    instance_create(x-25, y, obj_green_laser)
-    instance_create(x+25, y, obj_green_laser)
-}
-if (key_fire_blue) {
-    obj_laser_selector.x = obj_hud_laser_blue.x
-    instance_create(x-25, y, obj_blue_laser)
-    instance_create(x+25, y, obj_blue_laser)
-}
-
-// Handle collisions
+// Handle collisions with enemy shot
 rail_1 = instance_place(x,y,obj_enemy_rail_1)
 if (rail_1 != noone) {
     _hull -= rail_1._demage
@@ -135,6 +101,51 @@ if (rail_1 != noone) {
     instance_destroy(rail_1)
     show_debug_message("Hull:" + string(_hull));
 }
+
+// Calculate the first and the last value of y to prevent the ship goes offscreen.
+y = clamp(y, 0 + sprite_height/2, room_height - sprite_height/2);
+
+key_fire_red   = keyboard_check_pressed(ord('A'))
+key_fire_green = keyboard_check_pressed(ord('S'))
+key_fire_blue  = keyboard_check_pressed(ord('D'))
+
+// exit condition: all keys pressed
+if (
+        (key_fire_red &amp;&amp; key_fire_green &amp;&amp; key_fire_blue)
+        || (key_fire_red &amp;&amp; key_fire_green) 
+        || (key_fire_red &amp;&amp; key_fire_blue)
+        || (key_fire_green &amp;&amp; key_fire_blue)
+       ) {
+    exit
+}
+
+if (key_fire_red) {
+    obj_laser_selector.x = obj_hud_laser_red.x
+}
+if (key_fire_green) {
+    obj_laser_selector.x = obj_hud_laser_green.x
+}
+if (key_fire_blue) {
+    obj_laser_selector.x = obj_hud_laser_blue.x
+}
+
+if (key_fire_red) {
+    obj_laser_selector.x = obj_hud_laser_red.x
+    instance_create(x-25, y + irandom_range(1,5), obj_red_laser)
+    instance_create(x+25, y + irandom_range(1,5), obj_red_laser)
+}
+if (key_fire_green) {
+    obj_laser_selector.x = obj_hud_laser_green.x
+    instance_create(x-25, y + irandom_range(1,5), obj_green_laser)
+    instance_create(x+25, y + irandom_range(1,5), obj_green_laser)
+}
+if (key_fire_blue) {
+    obj_laser_selector.x = obj_hud_laser_blue.x
+    instance_create(x-25, y + irandom_range(1,5), obj_blue_laser)
+    instance_create(x+25, y + irandom_range(1,5), obj_blue_laser)
+}
+
+
 
 </string>
           </argument>
