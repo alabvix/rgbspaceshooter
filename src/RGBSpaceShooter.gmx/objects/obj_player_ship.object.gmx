@@ -94,7 +94,7 @@ obj_ship_fire.x = px
 obj_ship_fire.y = py + 60
 
 // Handle collisions with enemy shot
-rail_1 = instance_place(x,y,obj_enemy_rail_1)
+rail_1 = instance_place(x,y,obj_enemy_rail_base)
 if (rail_1 != noone) {
     _hull -= rail_1._demage
     instance_create(rail_1.x, rail_1.y, obj_little_explosion)

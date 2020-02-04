@@ -14,7 +14,7 @@ global.TOTAL_ALIEN      = 20
 global.TOTAL_SHIPS_2    = 1
 
 // enemies in second wave
-global.ENEMY_METEOR = 6
+global.ENEMY_METEOR = 20
 global.TOTAL_METEORS= 2
 
 global.game_stage = 1

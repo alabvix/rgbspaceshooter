@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_points = 80
+            <string>_points = 5
 _hp = 15
 _speed = 0
 image_speed = 0.2

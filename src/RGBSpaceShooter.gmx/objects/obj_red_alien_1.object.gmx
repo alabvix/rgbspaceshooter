@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_points = 150
+            <string>_points = 15
 _hp = 50
 image_speed = 0.2
 vspeed = irandom_range(10,14)

@@ -112,14 +112,14 @@ if (argument[0] == global.ENEMY_MONSTER_2 ) {
 }
 
 if (argument[0] == global.ENEMY_METEOR) {
-     var type = irandom_range(1,2) 
+     //var type = irandom_range(1,2) 
      vx = irandom_range(1, room_width)
      vy = -130
-     if (type == 1) {
+     //if (type == 1) {
         instance_create(vx, vy, obj_meteor_1)
-     } else {
-        instance_create(vx, vy, obj_meteor_2)
-     }
+     //} else {
+       // instance_create(vx, vy, obj_meteor_2)
+     //}
 }
 
 
