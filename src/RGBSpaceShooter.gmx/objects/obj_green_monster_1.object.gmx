@@ -25,13 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_points = 8
-_hp = 15
-_speed = 0
+            <string>event_inherited()
+
 image_speed = 0.3
 
-_time_counter = 0
-_fire_count = 25 // fire velocity in steps
+_points  = 8
+_hp      = 15
+_speed_y = 0
+
+_shoot_in    = 18 // fires in each n seconds 
+_weapon_type = 1 
+
 
 
 </string>
@@ -82,15 +86,7 @@ _fire_count = 25 // fire velocity in steps
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = direction
-y += _speed * (delta_time / 100000);// move 100 pixels
-
-_time_counter += 1 * (delta_time / 100000);
-if (  round(_time_counter) == _fire_count) {
-    rail = instance_create(x, y, obj_enemy_rail_1)
-    _time_counter = 0
-}
-
+            <string>event_inherited()
 </string>
           </argument>
         </arguments>

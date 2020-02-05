@@ -25,13 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_points = 5
-_hp = 20
-_speed = irandom_range(25,35)
+            <string>event_inherited()
+
 image_speed = 0.2
 
-_time_counter = 0
-_fire_count = 20 // fire velocity in steps
+_points  = 5
+_hp      = 20
+_speed_y = irandom_range(25,35)
+
+_shoot_in    = 25 // fires in each n seconds 
+_weapon_type = 1 
 
 
 </string>
@@ -81,17 +84,12 @@ _fire_count = 20 // fire velocity in steps
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y += _speed * (delta_time / 100000);// move 100 pixels
+            <string>event_inherited()
 
 if (y &gt; room_height + 60) {
     instance_destroy()
 }
 
-_time_counter += 1 * (delta_time / 100000);
-if (  round(_time_counter) == _fire_count) {
-    instance_create(x, y, obj_enemy_rail_1)
-    _time_counter = 0
-}
 
 </string>
           </argument>

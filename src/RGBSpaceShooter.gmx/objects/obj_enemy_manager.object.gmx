@@ -47,6 +47,9 @@ _total_ship_1_destroyed = 0
 _total_ship_2_created   = 0
 _total_ship_2_destroyed = 0
 
+_total_ship_3_created   = 0
+_total_ship_3_destroyed = 0
+
 _total_bomb_created     = 0
 _total_bomb_destroyed   = 0
 
@@ -78,10 +81,21 @@ _total_alien_destroyed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_time_counter  += 1 * (delta_time / 100000);
-_time_counter2 += 1 * (delta_time / 100000);
+            <string>//_time_counter  += 1 * (delta_time / 100000);
+//_time_counter2 += 1 * (delta_time / 100000);
 
-if ( round(_time_counter) == 5) {
+_time_counter  += 1 //* room_speed * 10
+_time_counter2 += 1 // room_speed
+
+
+// adjust time counter
+if (_time_counter &gt; 10) {
+    time_counter = 10
+}
+
+show_debug_message(string(_time_counter ))
+
+if ( round(_time_counter) == 10) {
     if (_enemy_type == global.ENEMY_MONSTER_1) {
        if (_total_monsters_created &lt; global.TOTAL_MONSTERS_1 ) {
            CreateEnemy(_enemy_type)    
@@ -130,6 +144,20 @@ if ( round(_time_counter) == 5) {
         if (_total_ship_2_destroyed == global.TOTAL_SHIPS_2) {
             _total_ship_2_destroyed = 0
             _total_ship_2_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
+    if (_enemy_type == global.ENEMY_SHIP_3) {
+        if (_total_ship_3_created &lt; global.TOTAL_SHIPS_3) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_3_created ++
+            show_debug_message("Ships 3 created:" + string(_total_ship_3_created))
+            _can_create_enemy = false
+        }
+        if (_total_ship_3_destroyed == global.TOTAL_SHIPS_3) {
+            _total_ship_3_destroyed = 0
+            _total_ship_3_created = 0
             _can_create_enemy = true
         }
     }

@@ -8,6 +8,14 @@ if (argument[0] == global.ENEMY_SHIP_2) {
     }
 }
 
+if (argument[0] == global.ENEMY_SHIP_3) {
+    var ship3 = instance_create(90, -100, obj_red_ship_3)
+    show_debug_message("Ships 3 instance created:")
+    with (ship3){
+        path_start(path3, 8, path_action_reverse, 0)
+    }
+}
+
 if (argument[0] == global.ENEMY_BOMB ) {
     var color = irandom_range(1,2) 
     if (color == 1) {

@@ -22,14 +22,19 @@
     <sprite>sprites\spt_little_explosion</sprite>
     <sprite>sprites\spt_red_bomb</sprite>
     <sprite>sprites\spt_red_monster_1</sprite>
+    <sprite>sprites\spt_ship_2</sprite>
+    <sprite>sprites\spt_red_ship_3</sprite>
     <sprite>sprites\spt_blue_bomb</sprite>
+    <sprite>sprites\spt_green_disk</sprite>
     <sprite>sprites\spt_blue_moster_1</sprite>
-    <sprite>sprites\spt_enemy_rail_1</sprite>
+    <sprite>sprites\spt_enemy_weapon_1</sprite>
     <sprite>sprites\spt_meteor_1</sprite>
     <sprite>sprites\spt_meteor_2</sprite>
     <sprite>sprites\spt_green_monster_1</sprite>
-    <sprite>sprites\spt_green_disk</sprite>
-    <sprite>sprites\spt_ship_2</sprite>
+    <sprite>sprites\spt_enemy_weapon_2</sprite>
+    <sprite>sprites\spt_base_obj</sprite>
+    <sprite>sprites\spt_player_ship_2</sprite>
+    <sprite>sprites\spt_player_ship_3</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -41,6 +46,7 @@
     <path>paths\path0</path>
     <path>paths\path1</path>
     <path>paths\path2</path>
+    <path>paths\path3</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\DefineGlobals.gml</script>
@@ -48,6 +54,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
+    <font>fonts\font_23</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_player_ship</object>
@@ -59,29 +66,36 @@
     <object>objects\obj_hud_laser_green</object>
     <object>objects\obj_hud_laser_blue</object>
     <object>objects\obj_laser_selector</object>
-    <object>objects\obj_red_base_enemy</object>
-    <object>objects\obj_red_ship_1</object>
     <object>objects\obj_red_alien_1</object>
     <object>objects\obj_little_explosion</object>
-    <object>objects\obj_red_bomb</object>
-    <object>objects\obj_red_monster_1</object>
-    <object>objects\obj_blue_base_enemy</object>
-    <object>objects\obj_blue_bomb</object>
-    <object>objects\obj_blue_monster_1</object>
-    <object>objects\obj_green_base_enemy</object>
-    <object>objects\obj_green_monster_1</object>
     <object>objects\obj_enemy_manager</object>
     <object>objects\obj_meteor_base</object>
     <object>objects\obj_meteor_1</object>
     <object>objects\obj_meteor_2</object>
     <object>objects\obj_ship_fire</object>
-    <object>objects\obj_green_disk</object>
-    <object>objects\obj_enemy_rail_base</object>
-    <object>objects\obj_enemy_rail_1</object>
     <objects name="hud">
       <object>objects\obj_draw_hud</object>
     </objects>
     <object>objects\obj_ship_2</object>
+    <objects name="enemy">
+      <object>objects\obj_base_enemy</object>
+      <object>objects\obj_red_base_enemy</object>
+      <object>objects\obj_red_monster_1</object>
+      <object>objects\obj_red_ship_1</object>
+      <object>objects\obj_red_bomb</object>
+      <object>objects\obj_red_ship_3</object>
+      <object>objects\obj_blue_base_enemy</object>
+      <object>objects\obj_blue_monster_1</object>
+      <object>objects\obj_blue_bomb</object>
+      <object>objects\obj_green_base_enemy</object>
+      <object>objects\obj_green_monster_1</object>
+      <object>objects\obj_green_disk</object>
+    </objects>
+    <objects name="enemy_weapon">
+      <object>objects\obj_enemy_weapon_base</object>
+      <object>objects\obj_enemy_weapon_1</object>
+      <object>objects\obj_enemy_weapon_2</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>

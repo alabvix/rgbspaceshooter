@@ -25,10 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_points = 3
-_hp = 5
-_speed = irandom_range(45,45)
+            <string>event_inherited()
+
 image_speed = 0.6
+
+_points  = 3
+_hp      = 5
+_speed_y = irandom_range(45,45)
+
+
 
 </string>
           </argument>
@@ -77,7 +82,8 @@ image_speed = 0.6
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y += _speed * (delta_time / 100000);// move 100 pixels
+            <string>event_inherited()
+
 if (y &gt; room_height + 60) {
     instance_destroy()
 }
