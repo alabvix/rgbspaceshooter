@@ -68,7 +68,7 @@ y += _speed_y * (delta_time / 100000);// move 100 pixels
 if (_shoot_in != 0 )
 {
     _shoot_counter += 1 * (delta_time / 100000);
-    show_debug_message("Enemy red 1 shoot count:" +string(_shoot_counter));
+    //show_debug_message("Enemy red 1 shoot count:" +string(_shoot_counter));
     if ( round(_shoot_counter) == _shoot_in) {
         switch (_weapon_type) 
         {
@@ -82,6 +82,15 @@ if (_shoot_in != 0 )
         _shoot_counter = 0
     }
 }    
+
+// Collision with player laser red-fire
+inst = instance_place(x, y, obj_red_fire_concetrate) 
+if (inst != noone) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}    
+
+
 </string>
           </argument>
         </arguments>

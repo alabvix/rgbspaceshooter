@@ -10,11 +10,14 @@
     <sprite>sprites\spt_ship_fire</sprite>
     <sprite>sprites\spt_star_1</sprite>
     <sprite>sprites\spt_red_laser</sprite>
+    <sprite>sprites\spt_red_laser_concetrate</sprite>
     <sprite>sprites\spt_green_laser</sprite>
     <sprite>sprites\spt_blue_laser</sprite>
     <sprite>sprites\spt_hud_laser_red</sprite>
     <sprite>sprites\spt_hud_laser_green</sprite>
     <sprite>sprites\spt_hud_laser_blue</sprite>
+    <sprite>sprites\spt_hud_laser_greend</sprite>
+    <sprite>sprites\spt_hud_laser_blued</sprite>
     <sprite>sprites\spt_laser_selector</sprite>
     <sprite>sprites\spt_red_enemy_1</sprite>
     <sprite>sprites\spt_enemy_red_laser</sprite>
@@ -55,6 +58,7 @@
   <fonts name="fonts">
     <font>fonts\font_20</font>
     <font>fonts\font_23</font>
+    <font>fonts\font_10</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_player_ship</object>
@@ -96,6 +100,7 @@
       <object>objects\obj_enemy_weapon_1</object>
       <object>objects\obj_enemy_weapon_2</object>
     </objects>
+    <object>objects\obj_red_fire_concetrate</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>
