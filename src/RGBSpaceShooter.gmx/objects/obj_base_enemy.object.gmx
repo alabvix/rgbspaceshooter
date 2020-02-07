@@ -83,12 +83,7 @@ if (_shoot_in != 0 )
     }
 }    
 
-// Collision with player laser red-fire
-inst = instance_place(x, y, obj_red_fire_concetrate) 
-if (inst != noone) {
-    instance_create(x, y, obj_little_explosion)
-    instance_destroy()
-}    
+
 
 
 </string>
