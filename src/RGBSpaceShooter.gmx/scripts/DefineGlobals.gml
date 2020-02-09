@@ -30,4 +30,6 @@ global.STAGE_ENEMIES[1,4] = global.ENEMY_SHIP
 global.STAGE_ENEMIES[1,5] = global.ENEMY_MONSTER_2
 global.STAGE_ENEMIES[1,6] = global.ENEMY_ALIEN
 
+global.selected_planet = 0
+
 

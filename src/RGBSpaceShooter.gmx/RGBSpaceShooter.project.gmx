@@ -12,6 +12,7 @@
     <sprite>sprites\spt_red_laser</sprite>
     <sprite>sprites\spt_red_laser_concetrate</sprite>
     <sprite>sprites\spt_blue_laser_concetrate</sprite>
+    <sprite>sprites\spt_green_laser_concetrate</sprite>
     <sprite>sprites\spt_green_laser</sprite>
     <sprite>sprites\spt_blue_laser</sprite>
     <sprite>sprites\spt_hud_laser_red</sprite>
@@ -39,6 +40,15 @@
     <sprite>sprites\spt_base_obj</sprite>
     <sprite>sprites\spt_player_ship_2</sprite>
     <sprite>sprites\spt_player_ship_3</sprite>
+    <sprites name="planets">
+      <sprite>sprites\spt_planet_aurora</sprite>
+      <sprite>sprites\spt_planet_mirandha</sprite>
+      <sprite>sprites\spt_planet_nedomia_v</sprite>
+      <sprite>sprites\sprite37</sprite>
+      <sprite>sprites\spt_planet_selector</sprite>
+    </sprites>
+    <sprite>sprites\player_ship_selection</sprite>
+    <sprite>sprites\spt_dialog_frame</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -80,6 +90,7 @@
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
       <object>objects\obj_draw_hud</object>
+      <object>objects\obj_room_planet_hud</object>
     </objects>
     <object>objects\obj_ship_2</object>
     <objects name="enemy">
@@ -103,10 +114,24 @@
     </objects>
     <object>objects\obj_red_fire_concetrate</object>
     <object>objects\obj_blue_fire_concetrate</object>
+    <object>objects\obj_green_fire_concetrate</object>
+    <objects name="planets">
+      <object>objects\obj_planet_base</object>
+      <object>objects\obj_planet_aurora</object>
+      <object>objects\obj_planet_mirandha</object>
+      <object>objects\obj_planet_nedomia_v</object>
+      <object>objects\obj_planet_selector</object>
+    </objects>
+    <object>objects\obj_player_shio_selector</object>
+    <object>objects\object43</object>
+    <objects name="ui">
+      <object>objects\obj_frame_1</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>
     <room>rooms\room_game</room>
+    <room>rooms\room_planet_selection</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -103,8 +103,6 @@ if (key_up) {
 }
 if (py &gt; 0 &amp;&amp; py &lt;= room_height) y = py;
 
-//obj_ship_fire.x = px
-//obj_ship_fire.y = py + 60
 
 // Handle collisions with enemy shot
 shoot = instance_place(x,y,obj_enemy_weapon_base)
@@ -136,10 +134,12 @@ if (
 if keyboard_check(ord('A')) {
     show_debug_message("Key A held down")
     _fire_red_held_down ++
-    if (_fire_red_held_down &gt; 20) {
+    if (_fire_red_held_down &gt; 20 &amp;&amp; _red_ammo &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_red_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_red_fire_concetrate)
-        _red_ammo --
+        if (_red_ammo &gt; 0) {
+            _red_ammo --
+        }    
         exit
     }
 } else {
@@ -151,15 +151,32 @@ if keyboard_check(ord('A')) {
 if keyboard_check(ord('D')) {
     show_debug_message("Key D held down")
     _fire_blue_held_down ++
-    if (_fire_blue_held_down &gt; 20) {
+    if (_fire_blue_held_down &gt; 20 &amp;&amp; _blue_ammo &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_blue_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_blue_fire_concetrate)
-        _blue_ammo --
+        if (_blue_ammo &gt; 0) {
+           _blue_ammo --
+        }
         exit
     }
 } else {
     _fire_blue_held_down = 0
     instance_destroy(obj_blue_fire_concetrate)
+}
+
+// Held down green fire key
+if keyboard_check(ord('S')) {
+    show_debug_message("Key S held down")
+    _fire_green_held_down ++
+    if (_fire_green_held_down &gt; 20) {
+        instance_create(x-25, y + irandom_range(1,5), obj_green_fire_concetrate)
+        instance_create(x+25, y + irandom_range(1,5), obj_green_fire_concetrate)
+        _green_ammo --
+        exit
+    }
+} else {
+    _fire_green_held_down = 0
+    instance_destroy(obj_green_fire_concetrate)
 }
 
 

@@ -12,7 +12,8 @@
   <showcolour>-1</showcolour>
   <code>randomize();
 DefineGlobals()
-room_goto(room_game);</code>
+//room_goto(room_game);
+room_goto(room_planet_selection);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
