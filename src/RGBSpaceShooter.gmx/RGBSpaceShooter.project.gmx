@@ -49,6 +49,13 @@
     </sprites>
     <sprite>sprites\player_ship_selection</sprite>
     <sprite>sprites\spt_dialog_frame</sprite>
+    <sprites name="ui">
+      <sprite>sprites\spt_btn_new_game</sprite>
+      <sprite>sprites\spt_btn_tutorial</sprite>
+      <sprite>sprites\spt_btn_continue</sprite>
+      <sprite>sprites\spt_game_title</sprite>
+      <sprite>sprites\sprite45</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -90,7 +97,6 @@
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
       <object>objects\obj_draw_hud</object>
-      <object>objects\obj_room_planet_hud</object>
     </objects>
     <object>objects\obj_ship_2</object>
     <objects name="enemy">
@@ -123,13 +129,19 @@
       <object>objects\obj_planet_selector</object>
     </objects>
     <object>objects\obj_player_shio_selector</object>
-    <object>objects\object43</object>
     <objects name="ui">
       <object>objects\obj_frame_1</object>
+      <object>objects\obj_room_main_menu</object>
+      <object>objects\obj_room_planet_selection</object>
+      <object>objects\obj_menu_new_game</object>
+      <object>objects\obj_menu_tutorial</object>
+      <object>objects\obj_menu_continue</object>
+      <object>objects\obj_game_title</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>
+    <room>rooms\room_main_menu</room>
     <room>rooms\room_game</room>
     <room>rooms\room_planet_selection</room>
   </rooms>

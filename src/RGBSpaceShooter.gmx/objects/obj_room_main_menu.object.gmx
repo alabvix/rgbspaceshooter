@@ -28,58 +28,18 @@
             <string>var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
 
-
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_aqua);
-draw_set_font( font_20 );
+draw_set_font(font_23);
 
-//show_debug_message( string(_selected_planet))
-
-if (instance_exists(obj_planet_selector))
-{
-    var planet_name = ""
-    if (global.selected_planet == 1) {
-        planet_name = "Aurora"
-        background_hspeed[0] = 2;
-        background_vspeed[0] = 0;
-    }    
-    if (global.selected_planet == 2) {
-        planet_name = "Mirandha"
-        background_hspeed[0] = 2;
-        background_vspeed[0] = 2;
-    }
-    if (global.selected_planet == 3) {
-        planet_name = "Nedomia V"
-        background_hspeed[0] = 0;
-        background_vspeed[0] = 2;
-
-    }
-    draw_text(
-         obj_planet_selector.x, 
-         obj_planet_selector.y + 80,
-         planet_name
-    )
-    
-    draw_set_font( font_10 );
-    instance_create(centro_room_x, centro_room_y + 100, obj_frame_1)
-    draw_text(
-         centro_room_x, 
-         centro_room_y + 70,
-         "Proceed to " + planet_name + "?"
-    )
-    
-}
-
-draw_set_color(c_white);
-draw_set_font( font_20 );
-
+/*
 draw_text(
-         centro_room_x, 
-         20,
-         "Choose a planet to set free"
-    )
+     centro_room_x, 
+     centro_room_y,
+     "RGB Starfighter"
+)
+*/
 </string>
           </argument>
         </arguments>
