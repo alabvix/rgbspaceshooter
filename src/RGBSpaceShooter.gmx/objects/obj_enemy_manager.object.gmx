@@ -193,11 +193,11 @@ if ( round(_time_counter) == 10) {
     if (_can_create_enemy) {
        //_enemy_type = irandom_range(1,5)
        _enemy_index ++
-       if (_enemy_index == array_length_2d(global.STAGE_ENEMIES, global.game_stage)){
+       if (_enemy_index == array_length_2d(global.STAGE_ENEMIES, global.selected_planet)){
           // end of stage
           _enemy_index = 0
        }
-       _enemy_type = global.STAGE_ENEMIES[global.game_stage, _enemy_index]
+       _enemy_type = global.STAGE_ENEMIES[global.selected_planet, _enemy_index]
         show_debug_message(string(_enemy_type))
     }
     

@@ -60,6 +60,7 @@ if (instance_exists(obj_planet_selector))
          planet_name
     )
     
+    // Draw text in the dialog box
     draw_set_font( font_10 );
     instance_create(centro_room_x, centro_room_y + 100, obj_frame_1)
     draw_text(
@@ -67,7 +68,12 @@ if (instance_exists(obj_planet_selector))
          centro_room_y + 70,
          "Proceed to " + planet_name + "?"
     )
-    
+    // button
+    if ( global.selected_planet == 1) {
+        instance_create(centro_room_x, centro_room_y + 115, obj_btn_go)
+    } else {
+        instance_destroy(obj_btn_go)
+    }
 }
 
 draw_set_color(c_white);

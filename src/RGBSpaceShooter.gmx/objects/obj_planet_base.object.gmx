@@ -112,6 +112,7 @@ if (global.selected_planet == 3) {
     angle = point_direction( obj_planet_nedomia_v.x, obj_planet_nedomia_v.y,obj_player_shio_selector.x, obj_player_shio_selector.y)
 }
 
+// Flip the ship indicator to the planet
 obj_player_shio_selector.image_angle = angle
 
 
