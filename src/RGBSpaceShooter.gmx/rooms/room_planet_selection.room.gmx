@@ -10,7 +10,9 @@
   <persistent>0</persistent>
   <colour>4194304</colour>
   <showcolour>-1</showcolour>
-  <code>background_hspeed[0] = 2;
+  <code>instance_destroy(obj_transiction)
+
+background_hspeed[0] = 2;
 //background_vspeed[0] = 2;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

@@ -66,9 +66,6 @@ radius = 0
                 point_distance(x,y,room_width, room_height))) {
                 
                 transiction = trans.in;
-                if (room == room_planet_selection) {
-                    room_goto(room_game)
-                } 
                 
                 if (room == room_main_menu) {
                     room_goto(room_planet_selection)

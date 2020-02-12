@@ -34,9 +34,13 @@ _enemy_type2 = irandom_range(6, 6)
 _enemy_index = 0 // the enemy index in the stage enemy array
 _enemy_type  = global.STAGE_ENEMIES[global.game_stage,_enemy_index] //irandom_range(2, 5)
 
-// time for create an enemy
+// counter for create an enemy
 _time_counter = 0
 _time_counter2 = 0
+
+// counter for firs wave
+_wave_counter = true
+_first_wave_counter = 0
 
 _total_monster_killed   = 0
 _total_monsters_created = 0
@@ -81,8 +85,19 @@ _total_alien_destroyed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//_time_counter  += 1 * (delta_time / 100000);
-//_time_counter2 += 1 * (delta_time / 100000);
+            <string>
+
+// Count time for lauch first wave
+if (_wave_counter) {
+    _first_wave_counter += 1
+    show_debug_message(string(_first_wave_counter ))
+    if ( _first_wave_counter &lt;= 100) {
+        exit
+    } else {
+        _wave_counter = false
+        _first_wave_counter = 0
+    }
+}
 
 _time_counter  += 1 //* room_speed * 10
 _time_counter2 += 1 // room_speed
@@ -93,7 +108,7 @@ if (_time_counter &gt; 10) {
     time_counter = 10
 }
 
-show_debug_message(string(_time_counter ))
+//show_debug_message(string(_time_counter ))
 
 if ( round(_time_counter) == 10) {
     if (_enemy_type == global.ENEMY_MONSTER_1) {

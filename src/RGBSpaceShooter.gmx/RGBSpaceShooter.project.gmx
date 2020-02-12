@@ -97,7 +97,7 @@
     <object>objects\obj_meteor_2</object>
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
-      <object>objects\obj_draw_hud</object>
+      <object>objects\obj_game_hud</object>
     </objects>
     <object>objects\obj_ship_2</object>
     <objects name="enemy">

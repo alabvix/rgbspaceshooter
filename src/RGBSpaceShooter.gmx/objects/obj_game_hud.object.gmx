@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>obj_draw_hud</whoName>
+        <whoName>obj_game_hud</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -58,6 +58,14 @@ draw_set_font( font_10 );
 draw_text_transformed(28,  50, obj_player_ship._red_ammo,1,1,0 );
 draw_text_transformed(80,  50, obj_player_ship._green_ammo,1,1,0 );
 draw_text_transformed(133, 50, obj_player_ship._blue_ammo,1,1,0 );
+
+// Destination planet
+switch (global.selected_planet) {
+    case 1:
+        draw_text_transformed(510,  50, "Destination: Aurora",1,1,0 );        
+}
+
+
 
 
 </string>

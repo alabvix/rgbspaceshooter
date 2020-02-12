@@ -58,6 +58,7 @@ radius = 0
           <argument>
             <kind>1</kind>
             <string>switch (transiction) {
+
     case trans2.out:
         if (radius &gt;= max(
                 point_distance(x,y,0,0),
@@ -72,7 +73,8 @@ radius = 0
                 
         }
         radius += 20
-    break
+        break
+        
     case trans2.in:
         if (instance_exists(target)) {
             x = target.x
@@ -83,7 +85,7 @@ radius = 0
         } else {
             radius -= 20
         }
-    break
+        break
 
 }
 </string>
@@ -91,7 +93,7 @@ radius = 0
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
