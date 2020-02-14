@@ -65,7 +65,7 @@ image_angle = direction
 y += _speed_y * (delta_time / 100000);// move 100 pixels
 
 // Shoot control
-if (_shoot_in != 0 )
+if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
 {
     _shoot_counter += 1 * (delta_time / 100000);
     //show_debug_message("Enemy red 1 shoot count:" +string(_shoot_counter));

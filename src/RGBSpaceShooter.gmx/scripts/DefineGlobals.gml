@@ -1,4 +1,16 @@
 ///DefineGlobals
+
+// Game States
+global.GAME_STATE_MAIN_MENU      = 1
+global.GAME_STATE_SELECT_PLANET  = 2
+global.GAME_STATE_PLAY           = 3
+global.GAME_STATE_SHIP_DESTROYED = 4
+global.GAME_STATE_GAME_OVER      = 99
+
+global.game_state = global.GAME_STATE_MAIN_MENU
+
+
+// Enemy Types
 global.ENEMY_ALIEN        = 1
 global.ENEMY_SHIP         = 2
 global.ENEMY_BOMB         = 3
@@ -31,5 +43,8 @@ global.STAGE_ENEMIES[1,5] = global.ENEMY_MONSTER_2
 global.STAGE_ENEMIES[1,6] = global.ENEMY_ALIEN
 
 global.selected_planet = 0
+
+// player
+global.player_lives = 2
 
 

@@ -65,6 +65,15 @@ switch (global.selected_planet) {
         draw_text_transformed(510,  50, "Destination: Aurora",1,1,0 );        
 }
 
+// lives
+draw_set_font( font_12 );
+draw_text_transformed(995, 25, "x" + string(global.player_lives),1,1,0 );
+
+if (global.game_state == global.GAME_STATE_GAME_OVER) {
+    draw_set_color(c_aqua);
+    draw_set_font( font_40 );
+    draw_text_transformed(centro_room_x, centro_room_y, "GAME OVER",1,1,0 );
+}
 
 
 

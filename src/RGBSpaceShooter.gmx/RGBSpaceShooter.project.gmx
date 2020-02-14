@@ -7,6 +7,8 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spt_player_ship</sprite>
+    <sprite>sprites\spt_player_ship_icon</sprite>
+    <sprite>sprites\spt_player_ship_explosion</sprite>
     <sprite>sprites\spt_ship_fire</sprite>
     <sprite>sprites\spt_star_1</sprite>
     <sprite>sprites\spt_red_laser</sprite>
@@ -74,11 +76,15 @@
   <scripts name="scripts">
     <script>scripts\DefineGlobals.gml</script>
     <script>scripts\CreateEnemy.gml</script>
+    <script>scripts\SetGameState.gml</script>
+    <script>scripts\SetShipExplosion.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
+    <font>fonts\font_40</font>
     <font>fonts\font_23</font>
     <font>fonts\font_10</font>
+    <font>fonts\font_12</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_player_ship</object>
@@ -98,6 +104,7 @@
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
       <object>objects\obj_game_hud</object>
+      <object>objects\obj_ship_icon</object>
     </objects>
     <object>objects\obj_ship_2</object>
     <objects name="enemy">
@@ -142,6 +149,7 @@
     </objects>
     <objects name="managers">
       <object>objects\obj_enemy_manager</object>
+      <object>objects\obj_game_manager</object>
     </objects>
     <objects name="efx">
       <object>objects\obj_transiction</object>

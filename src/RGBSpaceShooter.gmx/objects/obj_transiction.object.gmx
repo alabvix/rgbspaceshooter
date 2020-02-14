@@ -69,6 +69,7 @@ radius = 0
                 
                 if (room == room_main_menu) {
                     room_goto(room_planet_selection)
+                    SetGameState(global.GAME_STATE_SELECT_PLANET)
                 } 
         }
         radius += 20

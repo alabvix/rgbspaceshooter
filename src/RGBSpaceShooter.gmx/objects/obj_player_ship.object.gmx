@@ -30,8 +30,10 @@
 _anim_speed = 1
 _anim_speed_ratio  = 100000
 _velocity = 6
+
 _hull = 100
 _hull_max = 100
+
 _score = 0
 
 _blue_ammo = 500
@@ -67,7 +69,13 @@ _fire_blue_held_down = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Configures the animation speed based um delta variation;
+            <string>if (
+    global.game_state == global.GAME_STATE_GAME_OVER ||
+    global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
+    exit
+}
+
+// Configures the animation speed based um delta variation;
 image_speed = _anim_speed * (delta_time/_anim_speed_ratio);
 
 // make sure 60 pfs
@@ -111,6 +119,24 @@ if (shoot != noone) {
     instance_create(shoot.x, shoot.y, obj_little_explosion)
     instance_destroy(shoot)
     show_debug_message("Ship Hull:" + string(_hull));
+    
+    // Ship destroyed
+    if (_hull &lt; 0) {
+        _hull = 0
+        SetShipExplosion()
+    }
+}
+
+// Ship is destroyed if collides with meteor or other ship
+enemy = instance_place(x,y,obj_base_enemy)
+if (enemy != noone) {
+    _hull = 0
+    SetShipExplosion()
+}
+meteor = instance_place(x,y,obj_meteor_base)
+if (meteor != noone) {
+    _hull = 0
+    SetShipExplosion()
 }
 
 // Calculate the first and the last value of y to prevent the ship goes offscreen.
@@ -222,6 +248,40 @@ if (key_fire_blue &amp;&amp; _blue_ammo &gt; 0) {
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (sprite_index == spt_player_ship_explosion) {
+    image_speed = 0;
+    image_index = 5;
+} 
+
+/*
+if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
+    if( image_index == image_number ){ // This will check if the image is the last image of the sprite
+         image_speed = 0;
+    }
+}
+*/
 </string>
           </argument>
         </arguments>

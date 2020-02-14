@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-999</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,16 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enum trans2 {
-    in,
-    out
-}
-
-transiction = trans2.out;
-
-steps = 32
-radius = 0
-
+            <string>// Counter for respaw player ship
+_respaw_count = 0
 </string>
           </argument>
         </arguments>
@@ -57,69 +49,23 @@ radius = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (transiction) {
-
-    case trans2.out:
-        if (radius &gt;= max(
-                point_distance(x,y,0,0),
-                point_distance(x,y, room_width,0),
-                point_distance(x,y, 0, room_height),
-                point_distance(x,y,room_width, room_height))) {
-                
-                transiction = trans2.in;
-                if (room == room_planet_selection) {
-                    room_goto(room_game)
-                    SetGameState(global.GAME_STATE_PLAY)
-                } 
-                
+            <string>if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
+    _respaw_count += 1
+    if (_respaw_count == 150) {
+    
+        global.player_lives --
+        if (global.player_lives &lt; 0) {
+            global.player_lives = 0
+            SetGameState(global.GAME_STATE_GAME_OVER)
+            _respaw_count = 0
+            exit
         }
-        radius += 20
-        break
-        
-    case trans2.in:
-        if (instance_exists(target)) {
-            x = target.x
-            y = target.y
-        }
-        if (radius &lt;=0 ) {
-            instance_destroy(self)
-        } else {
-            radius -= 20
-        }
-        break
-
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (radius &gt; 0) {
-    steps = 32 * radius div 16
-    draw_set_color(make_color_rgb(30,28,199))
-    draw_primitive_begin(pr_trianglefan)
-    for (i=0; i&lt;steps; i+=1) {
-        draw_vertex(x + lengthdir_x(radius, 360*i/steps), y + lengthdir_y(radius, 360*i/steps))
-        
+    
+        _respaw_count = 0
+        room_restart();
+        SetGameState(global.GAME_STATE_PLAY)
     }
-    draw_primitive_end()
+
 }
 </string>
           </argument>
