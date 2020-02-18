@@ -1,7 +1,7 @@
 // argument[0]: enemy type
 
 if (argument[0] == global.ENEMY_SHIP_2) {
-    var ship2 = instance_create(928, -100, obj_green_disk)
+    var ship2 = instance_create(928, -100, obj_green_ship_2)
     show_debug_message("Ships 2 instance created:")
     with (ship2){
         path_start(path2, 8, path_action_continue, 0)
@@ -14,6 +14,13 @@ if (argument[0] == global.ENEMY_SHIP_3) {
     with (ship3){
         path_start(path3, 8, path_action_reverse, 0)
     }
+}
+
+if (argument[0] == global.ENEMY_SHIP_4) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -1600)
+    instance_create(vx, vy, obj_green_ship_4)
+    show_debug_message("Ships 4 instance created:")
 }
 
 if (argument[0] == global.ENEMY_BOMB ) {
@@ -96,7 +103,7 @@ if (argument[0] == global.ENEMY_MONSTER_2 ) {
     if (color == 1) {
         vx = 800
         vy = -32
-        monster = instance_create(vx, vy, obj_red_monster_1)
+        monster = instance_create(vx, vy, obj_red_monster_2)
         with (monster){
             path_start(path1, 8, path_action_continue, 0)
         }
