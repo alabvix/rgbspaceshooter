@@ -100,6 +100,7 @@ if (argument[0] == global.ENEMY_MONSTER_1 ) {
 
 if (argument[0] == global.ENEMY_MONSTER_2 ) {
     var color = irandom_range(1,3) 
+    color = 1
     if (color == 1) {
         vx = 800
         vy = -32

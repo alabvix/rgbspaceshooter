@@ -99,7 +99,6 @@
     <object>objects\obj_hud_laser_green</object>
     <object>objects\obj_hud_laser_blue</object>
     <object>objects\obj_laser_selector</object>
-    <object>objects\obj_red_alien_1</object>
     <object>objects\obj_little_explosion</object>
     <object>objects\obj_meteor_base</object>
     <object>objects\obj_meteor_1</object>
@@ -113,11 +112,12 @@
     <objects name="enemy">
       <object>objects\obj_base_enemy</object>
       <object>objects\obj_red_base_enemy</object>
+      <object>objects\obj_red_alien_1</object>
       <object>objects\obj_red_monster_1</object>
       <object>objects\obj_red_monster_2</object>
       <object>objects\obj_red_ship_1</object>
-      <object>objects\obj_red_bomb</object>
       <object>objects\obj_red_ship_3</object>
+      <object>objects\obj_red_bomb</object>
       <object>objects\obj_blue_base_enemy</object>
       <object>objects\obj_blue_monster_1</object>
       <object>objects\obj_blue_bomb</object>

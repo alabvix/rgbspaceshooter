@@ -61,8 +61,10 @@ _weapon_type = 2
             <kind>1</kind>
             <string>with(obj_enemy_manager) {
     _total_monster_2_killed ++
-    show_debug_message("Total monster killed " + string(_total_monster_killed))
+    show_debug_message("Total monster 2 killed " + string(_total_monster_2_killed))
 }
+
+
 </string>
           </argument>
         </arguments>

@@ -37,7 +37,7 @@ global.TOTAL_METEORS= 2
 global.game_stage = 1
 
 // Enemy Waves on planets
-global.STAGE_ENEMIES[1,0] = global.ENEMY_SHIP_4 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
+global.STAGE_ENEMIES[1,0] = global.ENEMY_MONSTER_2 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
 global.STAGE_ENEMIES[1,1] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[1,2] = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[1,3] = global.ENEMY_SHIP_3

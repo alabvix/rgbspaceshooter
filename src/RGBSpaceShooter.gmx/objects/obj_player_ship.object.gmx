@@ -36,9 +36,9 @@ _hull_max = 100
 
 _score = 0
 
-_blue_ammo = 500
-_red_ammo  = 500
-_green_ammo = 500
+_blue_ammo  = 200
+_red_ammo   = 200
+_green_ammo = 200
 
 _power = 0
 _power_max = 0
