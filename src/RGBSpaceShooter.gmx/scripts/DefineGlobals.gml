@@ -28,7 +28,7 @@ global.TOTAL_BOMBS      = 30
 global.TOTAL_ALIEN      = 20
 global.TOTAL_SHIPS_2    = 6
 global.TOTAL_SHIPS_3    = 6
-global.TOTAL_SHIPS_4    = 10
+global.TOTAL_SHIPS_4    = 5
 
 // enemies in second wave
 global.ENEMY_METEOR = 20
@@ -37,7 +37,7 @@ global.TOTAL_METEORS= 2
 global.game_stage = 1
 
 // Enemy Waves on planets
-global.STAGE_ENEMIES[1,0] = global.ENEMY_MONSTER_2 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
+global.STAGE_ENEMIES[1,0] = global.ENEMY_SHIP_4 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
 global.STAGE_ENEMIES[1,1] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[1,2] = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[1,3] = global.ENEMY_SHIP_3

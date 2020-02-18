@@ -61,6 +61,8 @@
     </sprites>
     <sprite>sprites\spt_green_ship_4</sprite>
     <sprite>sprites\spt_red_monster_2</sprite>
+    <sprite>sprites\spt_red_ship_4</sprite>
+    <sprite>sprites\spt_blue_ship_4</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -117,6 +119,7 @@
       <object>objects\obj_red_monster_2</object>
       <object>objects\obj_red_ship_1</object>
       <object>objects\obj_red_ship_3</object>
+      <object>objects\obj_red_ship_4</object>
       <object>objects\obj_red_bomb</object>
       <object>objects\obj_blue_base_enemy</object>
       <object>objects\obj_blue_monster_1</object>
@@ -125,6 +128,7 @@
       <object>objects\obj_green_monster_1</object>
       <object>objects\obj_green_ship_2</object>
       <object>objects\obj_green_ship_4</object>
+      <object>objects\obj_blue_ship_4</object>
     </objects>
     <objects name="enemy_weapon">
       <object>objects\obj_enemy_weapon_base</object>
