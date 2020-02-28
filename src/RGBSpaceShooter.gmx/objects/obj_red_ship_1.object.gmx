@@ -30,11 +30,11 @@
 image_speed = 0.2
 
 _points  = 5
-_hp      = 20
-_speed_y = irandom_range(25,35)
+_hp      = 5
+_speed_y = irandom_range(15,25)
 
-_shoot_in    = 25 // fires in each n seconds 
-_weapon_type = 1 
+_shoot_in    = 30 // fires in each n seconds 
+_weapon_type = global.WEAPON_ENERGY_BALL 
 
 
 </string>

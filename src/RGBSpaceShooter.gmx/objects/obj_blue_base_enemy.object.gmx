@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited()
 
-// Collision with player laser concetrate red-fire
+// Collision with player laser concetrate Fire
 inst = instance_place(x, y, obj_blue_fire_concetrate) 
 if (inst != noone) {
     obj_player_ship._score += _points

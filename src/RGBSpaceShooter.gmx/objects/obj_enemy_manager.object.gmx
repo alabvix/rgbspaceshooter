@@ -28,7 +28,6 @@
             <string>_can_create_enemy = true 
 _can_create_enemy2 = true 
 
-
 _enemy_type2 = irandom_range(6, 6)
 
 _enemy_index = 0 // the enemy index in the stage enemy array
@@ -37,6 +36,7 @@ _enemy_type  = global.STAGE_ENEMIES[global.game_stage,_enemy_index] //irandom_ra
 // counter for create an enemy
 _time_counter = 0
 _time_counter2 = 0
+_time_counter3 = 0
 
 // counter for firs wave
 _wave_counter = true
@@ -108,9 +108,9 @@ if (_wave_counter) {
     }
 }
 
-_time_counter  += 1 //* room_speed * 10
-_time_counter2 += 1 // room_speed
-
+_time_counter  += 1 
+_time_counter2 += 1 
+_time_counter3 += 1 
 
 // adjust time counter
 if (_time_counter &gt; 10) {
@@ -258,7 +258,7 @@ if ( round(_time_counter) == 10) {
 
 // Second enemies
 if ( round(_time_counter2) == 55) {
-    if (_enemy_type2 == global.ENEMY_METEOR) {
+    if (_enemy_type2 == global.SECOND_WAVE_ENEMY_METEOR) {
        if (_total_meteor_created &lt; global.TOTAL_METEORS ) {
            CreateEnemy(_enemy_type2)    
            _total_meteor_created ++;
@@ -275,6 +275,13 @@ if ( round(_time_counter2) == 55) {
        _enemy_type2 = irandom_range(20,20)//just meteor
     }
 }
+
+// Special ships
+if (round(_time_counter3) == 200) {
+    CreateEnemy(global.SPECIAL_CARGO_SHIP) 
+    _time_counter3 = 0
+}
+
 
 
 

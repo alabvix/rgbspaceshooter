@@ -31,7 +31,7 @@ image_speed = 0.6
 
 _points  = 3
 _hp      = 5
-_speed_y = irandom_range(45,45)
+_speed_y = irandom_range(21,28)
 
 
 

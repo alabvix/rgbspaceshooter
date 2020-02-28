@@ -26,9 +26,10 @@
     <sprite>sprites\spt_enemy_red_laser</sprite>
     <sprite>sprites\spt_little_explosion</sprite>
     <sprite>sprites\spt_enemy_weapon_1</sprite>
+    <sprite>sprites\spt_enemy_weapon_2</sprite>
+    <sprite>sprites\spt_enemy_weapon_3</sprite>
     <sprite>sprites\spt_meteor_1</sprite>
     <sprite>sprites\spt_meteor_2</sprite>
-    <sprite>sprites\spt_enemy_weapon_2</sprite>
     <sprite>sprites\spt_base_obj</sprite>
     <sprite>sprites\spt_player_ship_2</sprite>
     <sprite>sprites\spt_player_ship_3</sprite>
@@ -52,24 +53,35 @@
     <sprites name="enemies">
       <sprites name="red">
         <sprite>sprites\spt_red_ship_1</sprite>
+        <sprite>sprites\spt_red_ship_2</sprite>
         <sprite>sprites\spt_red_ship_3</sprite>
         <sprite>sprites\spt_red_ship_4</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_bomb</sprite>
         <sprite>sprites\spr_red_alien_1</sprite>
+        <sprite>sprites\spt_red_cargo_ship</sprite>
       </sprites>
       <sprites name="green">
-        <sprite>sprites\spt_green_ship_5</sprite>
+        <sprite>sprites\spt_green_ship_1</sprite>
+        <sprite>sprites\spt_green_ship_2</sprite>
         <sprite>sprites\spt_green_ship_4</sprite>
+        <sprite>sprites\spt_green_ship_5</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
+        <sprite>sprites\spt_green_cargo_ship</sprite>
       </sprites>
       <sprites name="blue">
-        <sprite>sprites\spt_blue_bomb</sprite>
+        <sprite>sprites\spt_blue_ship_1</sprite>
+        <sprite>sprites\spt_blue_ship_2</sprite>
         <sprite>sprites\spt_blue_ship_4</sprite>
+        <sprite>sprites\spt_blue_bomb</sprite>
         <sprite>sprites\spt_blue_moster_1</sprite>
+        <sprite>sprites\spt_blue_cargo_ship</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spt_blue_laser_refil</sprite>
+    <sprite>sprites\spt_red_laser_refil</sprite>
+    <sprite>sprites\spt_green_laser_refil</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -90,6 +102,7 @@
     <script>scripts\CreateEnemy.gml</script>
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
+    <script>scripts\LiberateIten.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -99,26 +112,18 @@
     <font>fonts\font_12</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_player_ship</object>
-    <object>objects\obj_base_laser</object>
-    <object>objects\obj_red_laser</object>
-    <object>objects\obj_green_laser</object>
-    <object>objects\obj_blue_laser</object>
-    <object>objects\obj_hud_laser_red</object>
-    <object>objects\obj_hud_laser_green</object>
-    <object>objects\obj_hud_laser_blue</object>
+    <object>objects\obj_meteor_1</object>
     <object>objects\obj_laser_selector</object>
     <object>objects\obj_little_explosion</object>
     <object>objects\obj_meteor_base</object>
-    <object>objects\obj_meteor_1</object>
-    <object>objects\obj_green_fire_concetrate</object>
     <object>objects\obj_meteor_2</object>
     <object>objects\obj_player_shio_selector</object>
-    <object>objects\obj_blue_fire_concetrate</object>
-    <object>objects\obj_red_fire_concetrate</object>
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
       <object>objects\obj_game_hud</object>
+      <object>objects\obj_hud_laser_red</object>
+      <object>objects\obj_hud_laser_green</object>
+      <object>objects\obj_hud_laser_blue</object>
       <object>objects\obj_ship_icon</object>
     </objects>
     <objects name="enemies">
@@ -126,30 +131,39 @@
       <objects name="red">
         <object>objects\obj_red_base_enemy</object>
         <object>objects\obj_red_ship_1</object>
+        <object>objects\obj_red_ship_2</object>
         <object>objects\obj_red_ship_3</object>
         <object>objects\obj_red_ship_4</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
         <object>objects\obj_red_bomb</object>
+        <object>objects\obj_red_cargo_ship</object>
       </objects>
       <objects name="green">
         <object>objects\obj_green_base_enemy</object>
+        <object>objects\obj_green_ship_1</object>
+        <object>objects\obj_green_ship_2</object>
         <object>objects\obj_green_ship_4</object>
         <object>objects\obj_green_ship_5</object>
         <object>objects\obj_green_monster_1</object>
+        <object>objects\obj_green_cargo_ship</object>
       </objects>
       <objects name="blue">
         <object>objects\obj_blue_base_enemy</object>
+        <object>objects\obj_blue_ship_1</object>
+        <object>objects\obj_blue_ship_2</object>
         <object>objects\obj_blue_ship_4</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_bomb</object>
+        <object>objects\obj_blue_cargo_ship</object>
       </objects>
     </objects>
     <objects name="enemy_weapon">
       <object>objects\obj_enemy_weapon_base</object>
       <object>objects\obj_enemy_weapon_1</object>
       <object>objects\obj_enemy_weapon_2</object>
+      <object>objects\obj_enemy_weapon_3</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_planet_base</object>
@@ -175,6 +189,20 @@
     <objects name="efx">
       <object>objects\obj_transiction</object>
       <object>objects\obj_transiction_2</object>
+    </objects>
+    <objects name="player">
+      <object>objects\obj_player_ship</object>
+      <object>objects\obj_base_laser</object>
+      <object>objects\obj_red_laser</object>
+      <object>objects\obj_blue_laser</object>
+      <object>objects\obj_green_laser</object>
+      <object>objects\obj_red_fire_concetrate</object>
+      <object>objects\obj_green_fire_concetrate</object>
+      <object>objects\obj_blue_fire_concetrate</object>
+      <object>objects\obj_base_laser_refil</object>
+      <object>objects\obj_red_laser_refil</object>
+      <object>objects\obj_blue_laser_refil</object>
+      <object>objects\obj_green_laser_refil</object>
     </objects>
   </objects>
   <rooms name="rooms">

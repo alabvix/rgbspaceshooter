@@ -31,6 +31,10 @@ if (meteor != noone) {
     instance_create(x, y, obj_little_explosion)
     instance_destroy()
 }
+
+if (y &lt; -20 || x &gt; room_width + 10) {
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>

@@ -8,9 +8,11 @@
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
-  <colour>4194304</colour>
+  <colour>2359296</colour>
   <showcolour>-1</showcolour>
-  <code>if (global.selected_planet == 1) {
+  <code>window_set_cursor(cr_none);
+
+if (global.selected_planet == 1) {
     background_index[0] = bkg_aurora_1
     background_index[1] = bkg_aurora_2
 }</code>

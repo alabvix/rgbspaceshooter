@@ -218,32 +218,74 @@ if (key_fire_blue) {
 }
 */
 
+// Fire
+var fire_cost = 1;
 if (key_fire_red &amp;&amp; _red_ammo &gt; 0) {
-//    obj_laser_selector.x = obj_hud_laser_red.x
-    instance_create(x-25, y + irandom_range(1,5), obj_red_laser)
-    instance_create(x+25, y + irandom_range(1,5), obj_red_laser)
-    _red_ammo --;
+    if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
+        instance_create(x, y - 60, obj_red_laser)
+    }
+    if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
+        instance_create(x-25, y + irandom_range(1,5), obj_red_laser)
+        instance_create(x+25, y + irandom_range(1,5), obj_red_laser)
+        fire_cost = 2
+    }
+    _red_ammo -= fire_cost;
     if (_red_ammo &lt; 0) {
         _red_ammo = 0
     }
 }
 if (key_fire_green &amp;&amp; _green_ammo &gt; 0) {
- //   obj_laser_selector.x = obj_hud_laser_green.x
-    instance_create(x-25, y + irandom_range(1,5), obj_green_laser)
-    instance_create(x+25, y + irandom_range(1,5), obj_green_laser)
-    _green_ammo --;
+    if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
+        instance_create(x, y - 60, obj_green_laser)
+    }
+    if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
+        instance_create(x-25, y + irandom_range(1,5), obj_green_laser)
+        instance_create(x+25, y + irandom_range(1,5), obj_green_laser)
+        fire_cost = 2
+    }
+    _green_ammo -= fire_cost;
     if (_green_ammo &lt; 0) {
         _green_ammo = 0
     }
 }
 if (key_fire_blue &amp;&amp; _blue_ammo &gt; 0) {
- //   obj_laser_selector.x = obj_hud_laser_blue.x
-    instance_create(x-25, y + irandom_range(1,5), obj_blue_laser)
-    instance_create(x+25, y + irandom_range(1,5), obj_blue_laser)
-    _blue_ammo --;
+    if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
+        instance_create(x, y - 60, obj_blue_laser)
+    }
+    if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
+        instance_create(x-25, y + irandom_range(1,5), obj_blue_laser)
+        instance_create(x+25, y + irandom_range(1,5), obj_blue_laser)
+        fire_cost = 2
+    }
+    _blue_ammo -= fire_cost;
     if (_blue_ammo &lt; 0) {
         _blue_ammo = 0
     }
+}
+
+var refil = instance_place(x,y, obj_red_laser_refil)
+if (refil != noone) {
+    _red_ammo += refil._ammo
+    if (_red_ammo &gt; 200) {
+        _red_ammo = 200
+    }
+    instance_destroy(refil)
+}
+refil = instance_place(x,y, obj_green_laser_refil)
+if (refil != noone) {
+    _green_ammo += refil._ammo
+    if (_green_ammo &gt; 200) {
+        _green_ammo = 200
+    }
+    instance_destroy(refil);
+}
+refil = instance_place(x,y, obj_blue_laser_refil)
+if (refil != noone) {
+    _blue_ammo += refil._ammo
+    if (_blue_ammo &gt; 200) {
+        _blue_ammo = 200
+    }
+    instance_destroy(refil);
 }
 
 
