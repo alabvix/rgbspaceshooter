@@ -9,7 +9,8 @@ global.GAME_STATE_MAIN_MENU      = 1
 global.GAME_STATE_SELECT_PLANET  = 2
 global.GAME_STATE_PLAY           = 3
 global.GAME_STATE_SHIP_DESTROYED = 4
-global.GAME_STATE_GAME_OVER      = 99
+global.GAME_STATE_WEAPON_SELECTION = 5
+global.GAME_STATE_GAME_OVER        = 99
 
 global.game_state = global.GAME_STATE_MAIN_MENU
 
@@ -71,6 +72,7 @@ global.STAGE_ENEMIES[1,7]  = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[1,8]  = global.ENEMY_ALIEN
 global.STAGE_ENEMIES[1,9]  = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[1,10] = global.ENEMY_BOMB
+global.STAGE_ENEMIES[1,11] = global.ENEMY_SHIP_4
 
 global.selected_planet = 0
 
@@ -82,8 +84,12 @@ global.WEAPON_ENERGY_BALL_STAR  = 3
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 
-// player
+// player 
 global.player_lives = 2
 global.player_weapon = global.PLAYER_SINGLE_LASER
+
+
+global.SPECIAL_WEAPON_1 = 1
+global.player_weapon_special = global.SPECIAL_WEAPON_1
 
 

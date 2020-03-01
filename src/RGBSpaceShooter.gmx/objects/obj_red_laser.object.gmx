@@ -66,6 +66,7 @@ if (enemy) {
             LiberateIten(global.RED,x,y)
         }
         instance_destroy(enemy)
+        instance_create(x,y, obj_rainbow_energy)
     }
 }
 

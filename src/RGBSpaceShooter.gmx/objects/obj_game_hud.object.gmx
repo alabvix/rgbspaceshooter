@@ -50,8 +50,8 @@ hull_value = (obj_player_ship._hull / obj_player_ship._hull_max) * 100;
 draw_healthbar(220,20,420,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
 
 // Player Ship power bar
-value = (obj_player_ship._power / obj_player_ship._power_max) * 100;
-draw_healthbar(610,20,810,35, value, c_dkgray, c_dkgray, c_red, 0, true, true); 
+value = (obj_player_ship._rainbow_energy / obj_player_ship._rainbow_energy_max) * 100;
+draw_healthbar(610,20,810,35, value, c_dkgray, c_dkgray, c_yellow, 0, true, true); 
 
 // Total ammo
 draw_set_font( font_10 );

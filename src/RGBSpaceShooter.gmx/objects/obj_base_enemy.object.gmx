@@ -37,6 +37,7 @@ _hp            = 0 // Health points
 _type          = 0 // ship_1, ship_2, monster, etc...
 
 _is_cargo_ship = false
+_color         = 0
 
 </string>
           </argument>

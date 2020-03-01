@@ -272,7 +272,7 @@ if ( round(_time_counter2) == 55) {
     }
     _time_counter2 = 0
     if (_can_create_enemy2) {
-       _enemy_type2 = irandom_range(20,20)//just meteor
+       _enemy_type2 = global.SECOND_WAVE_ENEMY_METEOR//just meteor
     }
 }
 

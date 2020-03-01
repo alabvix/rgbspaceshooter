@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>
-
 _anim_speed = 1
 _anim_speed_ratio  = 100000
 _velocity = 6
@@ -34,14 +33,14 @@ _velocity = 6
 _hull = 100
 _hull_max = 100
 
+_rainbow_energy     = 0
+_rainbow_energy_max = 100
+
 _score = 0
 
 _blue_ammo  = 200
 _red_ammo   = 200
 _green_ammo = 200
-
-_power = 0
-_power_max = 0
 
 _fire_red_held_down = 0
 _fire_blue_held_down = 0
@@ -142,9 +141,10 @@ if (meteor != noone) {
 // Calculate the first and the last value of y to prevent the ship goes offscreen.
 y = clamp(y, 0 + sprite_height/2, room_height - sprite_height/2);
 
-key_fire_red   = keyboard_check_pressed(ord('A'))
-key_fire_green = keyboard_check_pressed(ord('S'))
-key_fire_blue  = keyboard_check_pressed(ord('D'))
+key_fire_red     = keyboard_check_pressed(ord('A'))
+key_fire_green   = keyboard_check_pressed(ord('S'))
+key_fire_blue    = keyboard_check_pressed(ord('D'))
+key_fire_special = keyboard_check_pressed(ord('X'))
 
 // exit condition: all keys pressed
 if (
@@ -263,6 +263,7 @@ if (key_fire_blue &amp;&amp; _blue_ammo &gt; 0) {
     }
 }
 
+// Colision with basic weapon refils
 var refil = instance_place(x,y, obj_red_laser_refil)
 if (refil != noone) {
     _red_ammo += refil._ammo
@@ -286,6 +287,21 @@ if (refil != noone) {
         _blue_ammo = 200
     }
     instance_destroy(refil);
+}
+
+// Special weapon fired
+if (key_fire_special) {
+    if (_rainbow_energy &lt;= 0) {
+        exit
+    }    
+    switch (global.player_weapon_special) {
+        case global.SPECIAL_WEAPON_1:
+            var weapon = instance_create(x,y-20, obj_special_weapon_1_fire)
+            _rainbow_energy =  _rainbow_energy - weapon._cost
+            if (_rainbow_energy &lt;=0) {
+                _rainbow_energy = 0
+            }
+    }        
 }
 
 

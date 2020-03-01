@@ -38,6 +38,8 @@ _speed_y = 10
 _shoot_in    = 35 // fires in each n seconds 
 _weapon_type = global.WEAPON_ENERGY_BALL 
 
+_color = global.RED
+
 
 </string>
           </argument>
