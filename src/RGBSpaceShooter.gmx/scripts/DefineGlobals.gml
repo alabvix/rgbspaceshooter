@@ -4,6 +4,12 @@ global.RED   = 1
 global.GREEN = 2
 global.BLUE  = 3
 
+global.ITEM_RED_AMMO     = 1
+global.ITEM_GREEN_AMMO   = 2
+global.ITEM_BLUE_AMMO    = 3
+global.ITEM_SINGLE_LASER = 4
+global.ITEM_DOUBLE_LASER = 5
+
 // Game States
 global.GAME_STATE_MAIN_MENU      = 1
 global.GAME_STATE_SELECT_PLANET  = 2
@@ -57,6 +63,7 @@ global.TOTAL_METEORS= 2
 
 // Special enemies
 global.SPECIAL_CARGO_SHIP = 200
+global.AMMUNITION = 201
 
 global.game_stage = 1
 

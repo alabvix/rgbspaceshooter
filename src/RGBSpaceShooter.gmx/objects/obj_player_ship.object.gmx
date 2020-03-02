@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>_message = ""
+_count_to_clean_message = 0
+
 _anim_speed = 1
 _anim_speed_ratio  = 100000
 _velocity = 6
@@ -74,6 +76,11 @@ _fire_blue_held_down = 0
     exit
 }
 
+if (_count_to_clean_message == 50) {
+    _count_to_clean_message = 0
+    _message = ""
+}
+
 // Configures the animation speed based um delta variation;
 image_speed = _anim_speed * (delta_time/_anim_speed_ratio);
 
@@ -96,7 +103,9 @@ if (key_right) {
 } else if (key_left) {
     px -= v;
 }
-if (px &gt; 0 &amp;&amp; px &lt;= room_width) x = px;
+if (px &gt; 0 &amp;&amp; px &lt;= room_width) {
+    x = px;
+}
 
 // Calculate the first and the last value of x to prevent the ship goes offscreen.
 x = clamp(x, 0 + sprite_width/2, room_width - sprite_width/2);
@@ -132,6 +141,7 @@ if (enemy != noone) {
     _hull = 0
     SetShipExplosion()
 }
+
 meteor = instance_place(x,y,obj_meteor_base)
 if (meteor != noone) {
     _hull = 0
@@ -152,9 +162,7 @@ if (
         || (key_fire_red &amp;&amp; key_fire_green) 
         || (key_fire_red &amp;&amp; key_fire_blue)
         || (key_fire_green &amp;&amp; key_fire_blue)
-       ) {
-    exit
-}
+       ) { exit } 
 
 // Held down red fire key
 if keyboard_check(ord('A')) {
@@ -205,19 +213,6 @@ if keyboard_check(ord('S')) {
     instance_destroy(obj_green_fire_concetrate)
 }
 
-
-/*
-if (key_fire_red) {
-    obj_laser_selector.x = obj_hud_laser_red.x
-}
-if (key_fire_green) {
-    obj_laser_selector.x = obj_hud_laser_green.x
-}
-if (key_fire_blue) {
-    obj_laser_selector.x = obj_hud_laser_blue.x
-}
-*/
-
 // Fire
 var fire_cost = 1;
 if (key_fire_red &amp;&amp; _red_ammo &gt; 0) {
@@ -263,8 +258,8 @@ if (key_fire_blue &amp;&amp; _blue_ammo &gt; 0) {
     }
 }
 
-// Colision with basic weapon refils
-var refil = instance_place(x,y, obj_red_laser_refil)
+// Collision with itens
+var refil = instance_place(x,y, obj_item_red_ammo)
 if (refil != noone) {
     _red_ammo += refil._ammo
     if (_red_ammo &gt; 200) {
@@ -272,7 +267,7 @@ if (refil != noone) {
     }
     instance_destroy(refil)
 }
-refil = instance_place(x,y, obj_green_laser_refil)
+refil = instance_place(x,y, obj_item_green_ammo)
 if (refil != noone) {
     _green_ammo += refil._ammo
     if (_green_ammo &gt; 200) {
@@ -280,13 +275,28 @@ if (refil != noone) {
     }
     instance_destroy(refil);
 }
-refil = instance_place(x,y, obj_blue_laser_refil)
+refil = instance_place(x,y, obj_item_blue_ammo)
 if (refil != noone) {
     _blue_ammo += refil._ammo
     if (_blue_ammo &gt; 200) {
         _blue_ammo = 200
     }
     instance_destroy(refil);
+}
+
+// colliosn with weapon
+double_laser = instance_place(x,y, obj_item_double_laser) 
+if (double_laser) {
+    _message = "Double Laser" 
+    global.player_weapon = global.PLAYER_DOUBLE_LASER
+    instance_destroy(double_laser);
+}
+
+single_laser = instance_place(x,y, obj_item_single_laser) 
+if (single_laser) {
+    _message = "Single Laser" 
+    global.player_weapon = global.PLAYER_SINGLE_LASER
+    instance_destroy(single_laser);
 }
 
 // Special weapon fired
@@ -303,8 +313,6 @@ if (key_fire_special) {
             }
     }        
 }
-
-
 
 </string>
           </argument>
@@ -340,6 +348,44 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     }
 }
 */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var centro_room_x = room_width/2;
+var centro_room_y = room_height/2;
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_aqua);
+draw_set_font( font_30 );
+
+if (_message != "" ) {
+    draw_text(
+         centro_room_x, 
+         centro_room_y - 100,
+         _message
+    )
+   _count_to_clean_message ++
+}
 </string>
           </argument>
         </arguments>

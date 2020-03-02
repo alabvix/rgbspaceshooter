@@ -34,6 +34,21 @@
       <sprite>sprites\sprite45</sprite>
       <sprite>sprites\spt_btn_go</sprite>
     </sprites>
+    <sprites name="player">
+      <sprite>sprites\spt_player_ship_explosion</sprite>
+      <sprite>sprites\player_ship_selection</sprite>
+      <sprite>sprites\spt_player_ship_3</sprite>
+      <sprite>sprites\spt_green_laser_concetrate</sprite>
+      <sprite>sprites\spt_red_laser_concetrate</sprite>
+      <sprite>sprites\spt_blue_laser_concetrate</sprite>
+      <sprite>sprites\spt_player_ship_2</sprite>
+      <sprite>sprites\spt_player_ship</sprite>
+      <sprite>sprites\spt_red_laser</sprite>
+      <sprite>sprites\spt_green_laser</sprite>
+      <sprite>sprites\spt_blue_laser</sprite>
+      <sprite>sprites\spt_weapon_1_fire</sprite>
+      <sprite>sprites\spt_rainbow_energy</sprite>
+    </sprites>
     <sprites name="enemies">
       <sprites name="red">
         <sprite>sprites\spt_red_ship_1</sprite>
@@ -63,24 +78,6 @@
         <sprite>sprites\spt_blue_cargo_ship</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spt_blue_laser_refil</sprite>
-    <sprite>sprites\spt_red_laser_refil</sprite>
-    <sprite>sprites\spt_green_laser_refil</sprite>
-    <sprites name="player">
-      <sprite>sprites\spt_player_ship_explosion</sprite>
-      <sprite>sprites\player_ship_selection</sprite>
-      <sprite>sprites\spt_player_ship_3</sprite>
-      <sprite>sprites\spt_green_laser_concetrate</sprite>
-      <sprite>sprites\spt_red_laser_concetrate</sprite>
-      <sprite>sprites\spt_blue_laser_concetrate</sprite>
-      <sprite>sprites\spt_player_ship_2</sprite>
-      <sprite>sprites\spt_player_ship</sprite>
-      <sprite>sprites\spt_red_laser</sprite>
-      <sprite>sprites\spt_green_laser</sprite>
-      <sprite>sprites\spt_blue_laser</sprite>
-      <sprite>sprites\spt_weapon_1_fire</sprite>
-      <sprite>sprites\spt_rainbow_energy</sprite>
-    </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
       <sprite>sprites\spt_hud_laser_red</sprite>
@@ -97,6 +94,13 @@
       <sprite>sprites\spt_weapon_6_icon</sprite>
       <sprite>sprites\spt_weapon_7_icon</sprite>
       <sprite>sprites\spt_weapon_8_icon</sprite>
+    </sprites>
+    <sprites name="itens">
+      <sprite>sprites\spt_blue_laser_refil</sprite>
+      <sprite>sprites\spt_red_laser_refil</sprite>
+      <sprite>sprites\spt_green_laser_refil</sprite>
+      <sprite>sprites\spt_double_laser</sprite>
+      <sprite>sprites\spt_single_laser</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -119,10 +123,12 @@
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
     <script>scripts\LiberateIten.gml</script>
+    <script>scripts\GenerateRandomItem.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
     <font>fonts\font_40</font>
+    <font>fonts\font_30</font>
     <font>fonts\font_23</font>
     <font>fonts\font_10</font>
     <font>fonts\font_12</font>
@@ -226,13 +232,17 @@
       <object>objects\obj_red_fire_concetrate</object>
       <object>objects\obj_green_fire_concetrate</object>
       <object>objects\obj_blue_fire_concetrate</object>
-      <object>objects\obj_base_laser_refil</object>
-      <object>objects\obj_red_laser_refil</object>
-      <object>objects\obj_blue_laser_refil</object>
-      <object>objects\obj_green_laser_refil</object>
       <object>objects\obj_rainbow_energy</object>
       <object>objects\obj_special_weapon_base</object>
       <object>objects\obj_special_weapon_1_fire</object>
+    </objects>
+    <objects name="itens">
+      <object>objects\obj_item_base</object>
+      <object>objects\obj_item_blue_ammo</object>
+      <object>objects\obj_item_green_ammo</object>
+      <object>objects\obj_item_red_ammo</object>
+      <object>objects\obj_item_double_laser</object>
+      <object>objects\obj_item_single_laser</object>
     </objects>
   </objects>
   <rooms name="rooms">

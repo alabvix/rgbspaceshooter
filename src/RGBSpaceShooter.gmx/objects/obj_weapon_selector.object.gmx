@@ -48,7 +48,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if keyboard_check_pressed(ord('W')){
+            <string>if (global.game_state == global.GAME_STATE_GAME_OVER ){
+    exit
+}
+
+if keyboard_check_pressed(ord('W')){
     global.game_state = global.GAME_STATE_WEAPON_SELECTION
     instance_deactivate_all(1);
     _frame = instance_create(400,400, obj_frame_sel_weapon)

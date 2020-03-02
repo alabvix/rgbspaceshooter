@@ -54,6 +54,7 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     _respaw_count += 1
     if (_respaw_count == 150) {
     
+        // End of game
         global.player_lives --
         if (global.player_lives &lt; 0) {
             global.player_lives = 0
@@ -62,7 +63,9 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
             exit
         }
     
+        // Next player life
         _respaw_count = 0
+        global.player_weapon = global.PLAYER_SINGLE_LASER
         room_restart();
         SetGameState(global.GAME_STATE_PLAY)
     }
