@@ -33,6 +33,8 @@
       <sprite>sprites\spt_game_title</sprite>
       <sprite>sprites\sprite45</sprite>
       <sprite>sprites\spt_btn_go</sprite>
+      <sprite>sprites\spt_btn_game_over_continue</sprite>
+      <sprite>sprites\spt_btn_game_over_go_menu</sprite>
     </sprites>
     <sprites name="player">
       <sprite>sprites\spt_player_ship_explosion</sprite>
@@ -124,6 +126,9 @@
     <script>scripts\SetShipExplosion.gml</script>
     <script>scripts\LiberateIten.gml</script>
     <script>scripts\GenerateRandomItem.gml</script>
+    <script>scripts\MoveShipIndicatorToPlanet.gml</script>
+    <script>scripts\ContinueGame.gml</script>
+    <script>scripts\InitGameVars.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -139,7 +144,6 @@
     <object>objects\obj_little_explosion</object>
     <object>objects\obj_meteor_base</object>
     <object>objects\obj_meteor_2</object>
-    <object>objects\obj_player_shio_selector</object>
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
       <object>objects\obj_game_hud</object>
@@ -212,7 +216,9 @@
       <object>objects\obj_menu_continue</object>
       <object>objects\obj_game_title</object>
       <object>objects\obj_btn_go</object>
-      <object>objects\obj_frame_sel_weapon</object>
+      <object>objects\obj_frame_medium</object>
+      <object>objects\obj_btn_game_over_continue</object>
+      <object>objects\obj_btn_game_over_main_menu</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_enemy_manager</object>
@@ -225,6 +231,7 @@
     </objects>
     <objects name="player">
       <object>objects\obj_player_ship</object>
+      <object>objects\obj_player_shio_selector</object>
       <object>objects\obj_base_laser</object>
       <object>objects\obj_red_laser</object>
       <object>objects\obj_blue_laser</object>

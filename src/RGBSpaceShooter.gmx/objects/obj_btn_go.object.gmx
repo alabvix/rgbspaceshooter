@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>image_speed=0;
+_transition = false
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 0
+            <string>if (_transition) { exit }
+image_index = 0
 window_set_cursor(cr_default)
 </string>
           </argument>
@@ -72,7 +74,8 @@ window_set_cursor(cr_default)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 1
+            <string>if (_transition) { exit }
+image_index = 1
 window_set_cursor(cr_handpoint)
 </string>
           </argument>
@@ -96,9 +99,8 @@ window_set_cursor(cr_handpoint)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//room_goto(room_game)
-var inst = instance_create(x,y, obj_transiction_2);
-inst.target = obj_player_ship
+            <string>obj_room_planet_selection._going_to_planet = true
+MoveShipIndicatorToPlanet()
 </string>
           </argument>
         </arguments>
