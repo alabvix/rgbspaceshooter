@@ -104,6 +104,9 @@
       <sprite>sprites\spt_double_laser</sprite>
       <sprite>sprites\spt_single_laser</sprite>
     </sprites>
+    <sprites name="boss">
+      <sprite>sprites\spt_sub_boss_1</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -112,6 +115,7 @@
     <background>background\background1</background>
     <background>background\background2</background>
     <background>background\background3</background>
+    <background>background\bk_planet_1</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -251,12 +255,19 @@
       <object>objects\obj_item_double_laser</object>
       <object>objects\obj_item_single_laser</object>
     </objects>
+    <objects name="boss">
+      <object>objects\obj_sub_boss_1</object>
+    </objects>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tl_sub_boss_1</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\room_init</room>
     <room>rooms\room_main_menu</room>
     <room>rooms\room_game</room>
     <room>rooms\room_planet_selection</room>
+    <room>rooms\room_inside_planet</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
