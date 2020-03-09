@@ -73,6 +73,9 @@ _total_meteor_destroyed = 0
 _total_alien_created = 0
 _total_alien_destroyed = 0
 
+_total_sub_boss_1_created = 0
+_total_sub_boss_1_destroyed = 0
+
 </string>
           </argument>
         </arguments>
@@ -121,6 +124,21 @@ if (_time_counter &gt; 10) {
 //show_debug_message(string(_time_counter ))
 
 if ( round(_time_counter) == 10) {
+
+    if (_enemy_type == global.SUB_BOSS_1) {
+       if (_total_sub_boss_1_created &lt; global.TOTAL_SUB_BOSS_1 ) {
+           CreateEnemy(_enemy_type)    
+           _total_sub_boss_1_created ++;
+           _can_create_enemy = false
+           show_debug_message("Sub boss 1 created")
+       } 
+       if (_total_sub_boss_1_destroyed == global.TOTAL_SUB_BOSS_1 ) {
+           _total_sub_boss_1_created = 0
+           _total_sub_boss_1_destroyed = 0
+           _can_create_enemy = true
+       }
+    }
+
     if (_enemy_type == global.ENEMY_MONSTER_1) {
        if (_total_monsters_created &lt; global.TOTAL_MONSTERS_1 ) {
            CreateEnemy(_enemy_type)    
@@ -252,7 +270,7 @@ if ( round(_time_counter) == 10) {
           _enemy_index = 0
        }
        _enemy_type = global.STAGE_ENEMIES[global.selected_planet, _enemy_index]
-        show_debug_message(string(_enemy_type))
+       show_debug_message(string(_enemy_type))
     }
     
 }

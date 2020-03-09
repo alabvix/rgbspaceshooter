@@ -101,8 +101,9 @@
       <sprite>sprites\spt_blue_laser_refil</sprite>
       <sprite>sprites\spt_red_laser_refil</sprite>
       <sprite>sprites\spt_green_laser_refil</sprite>
-      <sprite>sprites\spt_double_laser</sprite>
       <sprite>sprites\spt_single_laser</sprite>
+      <sprite>sprites\spt_double_laser</sprite>
+      <sprite>sprites\spt_tri_laser</sprite>
     </sprites>
     <sprites name="boss">
       <sprite>sprites\spt_sub_boss_1</sprite>
@@ -254,6 +255,7 @@
       <object>objects\obj_item_red_ammo</object>
       <object>objects\obj_item_double_laser</object>
       <object>objects\obj_item_single_laser</object>
+      <object>objects\obj_item_tri_laser</object>
     </objects>
     <objects name="boss">
       <object>objects\obj_sub_boss_1</object>

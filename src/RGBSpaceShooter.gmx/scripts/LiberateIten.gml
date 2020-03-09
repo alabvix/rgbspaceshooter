@@ -27,6 +27,9 @@ switch (item) {
    case global.ITEM_DOUBLE_LASER:
         instance_create(vx, vy, obj_item_double_laser)
         break;                        
+   case global.ITEM_TRI_LASER:
+        instance_create(vx, vy, obj_item_tri_laser)
+        break;                                
              
 }
 

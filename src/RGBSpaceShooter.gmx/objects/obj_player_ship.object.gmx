@@ -73,6 +73,7 @@ _fire_blue_held_down = 0
             <string>if (
     global.game_state == global.GAME_STATE_GAME_OVER ||
     global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
+    _message = ""
     exit
 }
 
@@ -224,6 +225,14 @@ if (key_fire_red &amp;&amp; _red_ammo &gt; 0) {
         instance_create(x+25, y + irandom_range(1,5), obj_red_laser)
         fire_cost = 2
     }
+    if (global.player_weapon == global.PLAYER_TRI_LASER) {
+        instance_create(x, y - 60, obj_red_laser)
+        ml = instance_create(x-45, y + 15, obj_red_laser)
+        mr = instance_create(x+45, y + 15, obj_red_laser)
+        ml._move_left = true
+        mr._move_right = true
+        fire_cost = 3
+    }
     _red_ammo -= fire_cost;
     if (_red_ammo &lt; 0) {
         _red_ammo = 0
@@ -238,6 +247,14 @@ if (key_fire_green &amp;&amp; _green_ammo &gt; 0) {
         instance_create(x+25, y + irandom_range(1,5), obj_green_laser)
         fire_cost = 2
     }
+    if (global.player_weapon == global.PLAYER_TRI_LASER) {
+        instance_create(x, y - 60, obj_green_laser)
+        ml = instance_create(x-45, y + 15, obj_green_laser)
+        mr = instance_create(x+45, y + 15, obj_green_laser)
+        ml._move_left = true
+        mr._move_right = true
+        fire_cost = 3
+    }
     _green_ammo -= fire_cost;
     if (_green_ammo &lt; 0) {
         _green_ammo = 0
@@ -251,6 +268,14 @@ if (key_fire_blue &amp;&amp; _blue_ammo &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_blue_laser)
         instance_create(x+25, y + irandom_range(1,5), obj_blue_laser)
         fire_cost = 2
+    }
+    if (global.player_weapon == global.PLAYER_TRI_LASER) {
+        instance_create(x, y - 60, obj_blue_laser)
+        ml = instance_create(x-45, y + 15, obj_blue_laser)
+        mr = instance_create(x+45, y + 15, obj_blue_laser)
+        ml._move_left = true
+        mr._move_right = true
+        fire_cost = 3
     }
     _blue_ammo -= fire_cost;
     if (_blue_ammo &lt; 0) {
@@ -284,7 +309,7 @@ if (refil != noone) {
     instance_destroy(refil);
 }
 
-// colliosn with weapon
+// collision with weapon itens
 double_laser = instance_place(x,y, obj_item_double_laser) 
 if (double_laser) {
     _message = "Double Laser" 
@@ -297,6 +322,13 @@ if (single_laser) {
     _message = "Single Laser" 
     global.player_weapon = global.PLAYER_SINGLE_LASER
     instance_destroy(single_laser);
+}
+
+tri_laser = instance_place(x,y, obj_item_tri_laser) 
+if (tri_laser) {
+    _message = "Tri Laser" 
+    global.player_weapon = global.PLAYER_TRI_LASER
+    instance_destroy(tri_laser);
 }
 
 // Special weapon fired

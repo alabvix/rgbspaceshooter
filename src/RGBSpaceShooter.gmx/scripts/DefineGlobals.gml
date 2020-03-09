@@ -9,6 +9,7 @@ global.ITEM_GREEN_AMMO   = 2
 global.ITEM_BLUE_AMMO    = 3
 global.ITEM_SINGLE_LASER = 4
 global.ITEM_DOUBLE_LASER = 5
+global.ITEM_TRI_LASER    = 6
 
 // Game States
 global.GAME_STATE_MAIN_MENU      = 1
@@ -45,6 +46,11 @@ global.ENEMY_MONSTER_10  = 20
 global.ENEMY_BOMB        = 21
 global.ENEMY_ALIEN       = 22
 
+global.BOSS_1     = 500
+global.SUB_BOSS_1 = 501
+global.TOTAL_SUB_BOSS_1 = 1
+
+
 // TODO: needs to be a array
 global.TOTAL_SHIPS_1 = 6
 global.TOTAL_SHIPS_2 = 2
@@ -68,7 +74,11 @@ global.AMMUNITION = 201
 global.game_stage = 1
 
 // Enemy Waves on planets
-global.STAGE_ENEMIES[1,0]  = global.ENEMY_SHIP_1 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
+//global.STAGE_ENEMIES[1,0]  = global.ENEMY_SHIP_1 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
+
+global.STAGE_ENEMIES[1,0]  = global.SUB_BOSS_1
+
+
 global.STAGE_ENEMIES[1,1]  = global.ENEMY_BOMB
 global.STAGE_ENEMIES[1,2]  = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[1,3]  = global.ENEMY_SHIP_3
@@ -90,6 +100,7 @@ global.WEAPON_ENERGY_BALL_STAR  = 3
 
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
+global.PLAYER_TRI_LASER    = 3
 
 // player 
 global.player_lives = 2
