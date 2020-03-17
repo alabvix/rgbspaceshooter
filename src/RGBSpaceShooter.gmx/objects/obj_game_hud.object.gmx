@@ -68,6 +68,19 @@ switch (global.selected_planet) {
 // lives
 draw_set_font( font_12 );
 draw_text_transformed(995, 25, "x" + string(global.player_lives),1,1,0 )
+
+// Boss life
+if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
+    switch (global.game_stage) {
+        case 1:
+            hp = (obj_sub_boss_1._hp_current / obj_sub_boss_1._hp_max) * 100;
+            draw_healthbar(300,80,700,93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 105, obj_sub_boss_1._name,1,1,0 )
+            break
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>_can_create_enemy = true 
 _can_create_enemy2 = true 
+_boss_fight = false
+_boss_created = false
+_draw_sub_boss_message = false
+
+SUB_BOSS_MESSAGE = "WARNING: ENEMY SQUAD LEADER IN COMBAT RANGE"
 
 _enemy_type2 = irandom_range(6, 6)
 
@@ -38,6 +43,7 @@ _time_counter = 0
 _time_counter2 = 0
 _time_counter3 = 0
 _time_counter4 = 0
+_boss_fight_counter = 0
 
 // counter for firs wave
 _wave_counter = true
@@ -73,8 +79,8 @@ _total_meteor_destroyed = 0
 _total_alien_created = 0
 _total_alien_destroyed = 0
 
-_total_sub_boss_1_created = 0
-_total_sub_boss_1_destroyed = 0
+_total_sub_boss_created = 0
+_total_sub_boss_destroyed = 0
 
 </string>
           </argument>
@@ -112,8 +118,11 @@ if (_wave_counter) {
 }
 
 _time_counter  += 1 
-_time_counter2 += 1 
-_time_counter3 += 1 
+if !(_boss_fight) {
+    _time_counter2 += 1 // second enemies
+    _time_counter3 += 1 // meteors
+}
+
 _time_counter4 += 1 
 
 // adjust time counter
@@ -125,18 +134,35 @@ if (_time_counter &gt; 10) {
 
 if ( round(_time_counter) == 10) {
 
-    if (_enemy_type == global.SUB_BOSS_1) {
-       if (_total_sub_boss_1_created &lt; global.TOTAL_SUB_BOSS_1 ) {
-           CreateEnemy(_enemy_type)    
-           _total_sub_boss_1_created ++;
-           _can_create_enemy = false
-           show_debug_message("Sub boss 1 created")
-       } 
-       if (_total_sub_boss_1_destroyed == global.TOTAL_SUB_BOSS_1 ) {
-           _total_sub_boss_1_created = 0
-           _total_sub_boss_1_destroyed = 0
-           _can_create_enemy = true
-       }
+    if (_enemy_type == global.SUB_BOSS) {
+        _boss_fight_counter ++
+        
+               _can_create_enemy = false
+       
+        if ( _boss_fight_counter == 30) {
+            _draw_sub_boss_message = true
+            _boss_fight = true    
+            
+        }
+        if (_boss_fight) {
+            //if (_total_sub_boss_created &lt; global.TOTAL_SUB_BOSS ) {
+            if (!_boss_created) {
+                _draw_sub_boss_message = false
+                SetGameState(global.GAME_STATE_BOSS_FIGHT)
+                CreateEnemy(_enemy_type)    
+                _boss_created = true
+                
+                _total_sub_boss_created ++;
+                _can_create_enemy = false
+                show_debug_message("Sub boss 1 created")
+            }    
+            //} 
+            if (_total_sub_boss_destroyed == global.TOTAL_SUB_BOSS ) {
+                 _total_sub_boss_created = 0
+                 _total_sub_boss_destroyed = 0
+                 _can_create_enemy = true
+            }
+        }
     }
 
     if (_enemy_type == global.ENEMY_MONSTER_1) {
@@ -310,6 +336,41 @@ if (round(_time_counter4) == 400) {
     _time_counter4 = 0
 }
 
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+var centro_room_x = room_width/2;
+var centro_room_y = room_height/2;
+
+if (_draw_sub_boss_message) {
+    draw_set_color(c_red);
+    draw_set_font( font_20 );
+    draw_text_transformed(centro_room_x-1,centro_room_y , SUB_BOSS_MESSAGE,1,1,0 );
+}
 
 
 </string>

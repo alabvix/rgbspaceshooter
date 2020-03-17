@@ -58,6 +58,14 @@ if (enemy) {
     }
 }
 
+var blue_weapon = instance_place(x,y, obj_enemy_weapon_5)
+if (blue_weapon) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+    instance_destroy(blue_weapon)
+}
+
+
 </string>
           </argument>
         </arguments>

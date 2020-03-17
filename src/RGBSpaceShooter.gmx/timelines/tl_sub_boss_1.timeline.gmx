@@ -20,7 +20,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Move Foward
-_state = STATE_MOVE_FOWARD
+_action = MOVE_FORWARD
 </string>
           </argument>
         </arguments>
@@ -28,7 +28,7 @@ _state = STATE_MOVE_FOWARD
     </event>
   </entry>
   <entry>
-    <step>120</step>
+    <step>50</step>
     <event>
       <action>
         <libid>1</libid>
@@ -46,8 +46,8 @@ _state = STATE_MOVE_FOWARD
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Move Left
-_state = STATE_MOVE_LEFT
+            <string>/// PREPARE_TO_ATTACK
+_action = PREPARE_TO_ATTACK
 </string>
           </argument>
         </arguments>
@@ -55,7 +55,7 @@ _state = STATE_MOVE_LEFT
     </event>
   </entry>
   <entry>
-    <step>180</step>
+    <step>60</step>
     <event>
       <action>
         <libid>1</libid>
@@ -73,8 +73,8 @@ _state = STATE_MOVE_LEFT
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Attack
-_state = STATE_ATTACK
+            <string>/// Do Attack 1
+_action = DO_ATTACK_1
 </string>
           </argument>
         </arguments>
@@ -82,7 +82,7 @@ _state = STATE_ATTACK
     </event>
   </entry>
   <entry>
-    <step>200</step>
+    <step>100</step>
     <event>
       <action>
         <libid>1</libid>
@@ -100,8 +100,62 @@ _state = STATE_ATTACK
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Move Right
-_state = STATE_MOVE_RIGHT
+            <string>/// Move to Left
+_action = MOVE_LEFT
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>150</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// PREPARE_TO_ATTACK
+_action = PREPARE_TO_ATTACK
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>350</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Do Attack 2
+_action = DO_ATTACK_2
 </string>
           </argument>
         </arguments>

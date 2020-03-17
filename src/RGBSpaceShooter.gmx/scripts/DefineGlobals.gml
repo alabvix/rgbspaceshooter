@@ -16,11 +16,14 @@ global.GAME_STATE_MAIN_MENU      = 1
 global.GAME_STATE_SELECT_PLANET  = 2
 global.GAME_STATE_PLAY           = 3
 global.GAME_STATE_SHIP_DESTROYED = 4
-global.GAME_STATE_WEAPON_SELECTION = 5
-global.GAME_STATE_GAME_OVER        = 99
+global.GAME_STATE_WEAPON_SELECTION   = 5
+global.GAME_STATE_BOSS_FIGHT         = 6
+global.GAME_STATE_PREPARE_BOSS_FIGHT = 7
+global.GAME_STATE_SUB_BOSS_DEFEATED  = 8
+global.GAME_STATE_BOSS_DEFEATED      = 9
+global.GAME_STATE_GAME_OVER          = 99
 
 global.game_state = global.GAME_STATE_MAIN_MENU
-
 
 // Enemy Types
 global.ENEMY_SHIP_1      = 1
@@ -46,9 +49,9 @@ global.ENEMY_MONSTER_10  = 20
 global.ENEMY_BOMB        = 21
 global.ENEMY_ALIEN       = 22
 
-global.BOSS_1     = 500
-global.SUB_BOSS_1 = 501
-global.TOTAL_SUB_BOSS_1 = 1
+global.BOSS       = 500
+global.SUB_BOSS   = 501
+global.TOTAL_SUB_BOSS = 1
 
 
 // TODO: needs to be a array
@@ -74,12 +77,10 @@ global.AMMUNITION = 201
 global.game_stage = 1
 
 // Enemy Waves on planets
-//global.STAGE_ENEMIES[1,0]  = global.ENEMY_SHIP_1 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
-
-global.STAGE_ENEMIES[1,0]  = global.SUB_BOSS_1
-
-
-global.STAGE_ENEMIES[1,1]  = global.ENEMY_BOMB
+global.STAGE_ENEMIES[1,0]  = global.ENEMY_SHIP_1 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
+//global.STAGE_ENEMIES[1,1]  = global.ENEMY_BOMB
+global.STAGE_ENEMIES[1,1]  = global.SUB_BOSS
+/*
 global.STAGE_ENEMIES[1,2]  = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[1,3]  = global.ENEMY_SHIP_3
 global.STAGE_ENEMIES[1,4]  = global.ENEMY_SHIP_1
@@ -90,13 +91,17 @@ global.STAGE_ENEMIES[1,8]  = global.ENEMY_ALIEN
 global.STAGE_ENEMIES[1,9]  = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[1,10] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[1,11] = global.ENEMY_SHIP_4
+global.STAGE_ENEMIES[1,12] = global.SUB_BOSS
+*/
 
 global.selected_planet = 0
 
+// enemy weapons
 global.WEAPON_ENERGY_BALL       = 1
 global.WEAPON_ENERGY_BALL_SPIN  = 2
 global.WEAPON_ENERGY_BALL_STAR  = 3
-
+global.WEAPON_BIO_BALL          = 4
+global.WEAPON_BIO_VERM          = 5
 
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
@@ -106,8 +111,31 @@ global.PLAYER_TRI_LASER    = 3
 global.player_lives = 2
 global.player_weapon = global.PLAYER_SINGLE_LASER
 
+// boss names
+global.BOSS_1_NAME = "Visontroy"
+
 
 global.SPECIAL_WEAPON_1 = 1
 global.player_weapon_special = global.SPECIAL_WEAPON_1
+
+global.dir_array[0] = 0
+global.dir_array[1] = 30
+global.dir_array[2] = 45
+global.dir_array[3] = 60
+global.dir_array[4] = 90
+global.dir_array[5] = 120
+global.dir_array[6] = 135
+global.dir_array[7] = 150
+global.dir_array[8] = 180
+global.dir_array[9] = 210
+global.dir_array[10] = 225
+global.dir_array[11] = 240
+global.dir_array[12] = 270
+global.dir_array[13] = 300
+global.dir_array[14] = 315
+global.dir_array[15] = 330
+
+global.dir_array_lenght = array_length_1d(global.dir_array)
+
 
 

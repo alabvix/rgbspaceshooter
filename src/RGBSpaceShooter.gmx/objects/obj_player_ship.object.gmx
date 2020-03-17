@@ -3,7 +3,7 @@
   <spriteName>spt_player_ship</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>10</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -72,7 +72,8 @@ _fire_blue_held_down = 0
             <kind>1</kind>
             <string>if (
     global.game_state == global.GAME_STATE_GAME_OVER ||
-    global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
+    global.game_state == global.GAME_STATE_SHIP_DESTROYED ||
+    global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED ) {
     _message = ""
     exit
 }

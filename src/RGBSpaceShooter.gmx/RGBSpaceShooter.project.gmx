@@ -10,10 +10,6 @@
     <sprite>sprites\spt_star_1</sprite>
     <sprite>sprites\spt_laser_selector</sprite>
     <sprite>sprites\spt_enemy_red_laser</sprite>
-    <sprite>sprites\spt_little_explosion</sprite>
-    <sprite>sprites\spt_enemy_weapon_1</sprite>
-    <sprite>sprites\spt_enemy_weapon_2</sprite>
-    <sprite>sprites\spt_enemy_weapon_3</sprite>
     <sprite>sprites\spt_meteor_1</sprite>
     <sprite>sprites\spt_meteor_2</sprite>
     <sprite>sprites\spt_base_obj</sprite>
@@ -79,6 +75,11 @@
         <sprite>sprites\spt_blue_moster_1</sprite>
         <sprite>sprites\spt_blue_cargo_ship</sprite>
       </sprites>
+      <sprite>sprites\spt_enemy_weapon_1</sprite>
+      <sprite>sprites\spt_enemy_weapon_3</sprite>
+      <sprite>sprites\spt_enemy_weapon_2</sprite>
+      <sprite>sprites\spt_enemy_bio_shot</sprite>
+      <sprite>sprites\spt_enemy_verm</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -107,6 +108,12 @@
     </sprites>
     <sprites name="boss">
       <sprite>sprites\spt_sub_boss_1</sprite>
+      <sprite>sprites\spt_sub_boss_1_prepare</sprite>
+      <sprite>sprites\spt_force_field</sprite>
+    </sprites>
+    <sprites name="explosion">
+      <sprite>sprites\spt_little_explosion</sprite>
+      <sprite>sprites\spt_bio_explosion</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -123,6 +130,7 @@
     <path>paths\path1</path>
     <path>paths\path2</path>
     <path>paths\path3</path>
+    <path>paths\path_sub_boss_1</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\DefineGlobals.gml</script>
@@ -134,6 +142,14 @@
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
     <script>scripts\ContinueGame.gml</script>
     <script>scripts\InitGameVars.gml</script>
+    <script>scripts\CalculateParabole1.gml</script>
+    <script>scripts\FireBossWeapon.gml</script>
+    <script>scripts\CreateRegularEnemies.gml</script>
+    <script>scripts\CreateSecondaryEnemies.gml</script>
+    <script>scripts\CreateCargoShips.gml</script>
+    <script>scripts\CreateAmmo.gml</script>
+    <script>scripts\CreateBoss.gml</script>
+    <script>scripts\GetPlanetForEnter.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -144,11 +160,10 @@
     <font>fonts\font_12</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_meteor_1</object>
-    <object>objects\obj_laser_selector</object>
-    <object>objects\obj_little_explosion</object>
     <object>objects\obj_meteor_base</object>
+    <object>objects\obj_meteor_1</object>
     <object>objects\obj_meteor_2</object>
+    <object>objects\obj_laser_selector</object>
     <object>objects\obj_ship_fire</object>
     <objects name="hud">
       <object>objects\obj_game_hud</object>
@@ -204,6 +219,8 @@
       <object>objects\obj_enemy_weapon_1</object>
       <object>objects\obj_enemy_weapon_2</object>
       <object>objects\obj_enemy_weapon_3</object>
+      <object>objects\obj_enemy_weapon_4</object>
+      <object>objects\obj_enemy_weapon_5</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_planet_base</object>
@@ -226,7 +243,6 @@
       <object>objects\obj_btn_game_over_main_menu</object>
     </objects>
     <objects name="managers">
-      <object>objects\obj_enemy_manager</object>
       <object>objects\obj_game_manager</object>
       <object>objects\obj_weapon_selector</object>
     </objects>
@@ -258,12 +274,15 @@
       <object>objects\obj_item_tri_laser</object>
     </objects>
     <objects name="boss">
+      <object>objects\obj_boss_base</object>
       <object>objects\obj_sub_boss_1</object>
+      <object>objects\obj_boss_force_field</object>
+    </objects>
+    <objects name="explosion">
+      <object>objects\obj_little_explosion</object>
+      <object>objects\obj_bio_explosion</object>
     </objects>
   </objects>
-  <timelines name="timelines">
-    <timeline>timelines\tl_sub_boss_1</timeline>
-  </timelines>
   <rooms name="rooms">
     <room>rooms\room_init</room>
     <room>rooms\room_main_menu</room>

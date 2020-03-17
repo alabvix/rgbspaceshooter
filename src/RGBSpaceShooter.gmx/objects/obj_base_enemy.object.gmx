@@ -83,76 +83,11 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
                 instance_create(x, y, obj_enemy_weapon_2)
                 break
             case global.WEAPON_ENERGY_BALL_STAR:
-                sphere1 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere2 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere3 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere4 = instance_create(x, y, obj_enemy_weapon_3)
-                
-                sphere5 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere6 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere7 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere8 = instance_create(x, y, obj_enemy_weapon_3)
-                
-                sphere9  = instance_create(x, y, obj_enemy_weapon_3)
-                sphere10 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere11 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere12 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere13 = instance_create(x, y, obj_enemy_weapon_3)
-                
-                sphere14  = instance_create(x, y, obj_enemy_weapon_3)
-                sphere15 = instance_create(x, y, obj_enemy_weapon_3)
-                sphere16 = instance_create(x, y, obj_enemy_weapon_3)
-                
-                sspeed = 7
-                
-                sphere1.direction = 0
-                sphere1.speed = sspeed
-                
-                sphere14.direction = 30
-                sphere14.speed = sspeed
-                
-                sphere5.direction = 45
-                sphere5.speed = sspeed
-                
-                sphere9.direction = 60
-                sphere9.speed = sspeed
-                                
-                sphere2.direction = 90
-                sphere2.speed = sspeed
-                
-                sphere10.direction = 120
-                sphere10.speed = sspeed
-                
-                sphere6.direction = 135
-                sphere6.speed = sspeed
-                
-                sphere11.direction = 150
-                sphere11.speed = sspeed
-                                
-                sphere3.direction = 180
-                sphere3.speed = sspeed
-                
-                sphere15.direction = 210
-                sphere15.speed = sspeed
-                
-                sphere7.direction = 240
-                sphere7.speed = sspeed
-                
-                sphere12.direction = 225
-                sphere12.speed = sspeed
-                
-                sphere4.direction = 270
-                sphere4.speed = sspeed
-                
-                sphere16.direction = 300
-                sphere16.speed = sspeed
-                
-                sphere8.direction = 315
-                sphere8.speed = sspeed
-                
-                sphere13.direction = 330
-                sphere13.speed = sspeed
-                
+                for (i=0; i &lt; global.dir_array_lenght; i++) {
+                    sphere = instance_create(x, y, obj_enemy_weapon_3)
+                    sphere.speed = 7
+                    sphere.direction = global.dir_array[i]
+                }
                 break;         
         }
         _shoot_counter = 0

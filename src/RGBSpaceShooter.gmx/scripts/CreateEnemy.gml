@@ -2,10 +2,6 @@
 
 var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
-
-if (argument[0] == global.SUB_BOSS_1) {
-    instance_create(centro_room_x, -100, obj_sub_boss_1)
-}
  
 if (argument[0] == global.SPECIAL_CARGO_SHIP) {
     var color = irandom_range(1,3) 

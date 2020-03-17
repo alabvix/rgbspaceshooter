@@ -27,6 +27,73 @@
             <kind>1</kind>
             <string>// Counter for respaw player ship
 _respaw_count = 0
+
+//_can_create_enemy = true 
+_can_create_enemy2 = true 
+//_boss_fight = false
+//_boss_created = false
+
+SUB_BOSS_MESSAGE = "WARNING: ENEMY SQUAD LEADER IN COMBAT RANGE"
+
+_enemy_type2 = irandom_range(6, 6)
+
+_enemy_index = 0 // the enemy index in the stage enemy array
+_enemy_type  = global.STAGE_ENEMIES[global.game_stage,_enemy_index] //irandom_range(2, 5)
+
+// counter for create an enemy
+_counter_create_enemy = 0
+_counter_create_sec_enemy = 0
+_counter_create_cargo_ships = 0
+_counter_create_ammo = 0
+_counter_show_boss_warning = 0
+_counter_boss_fighting = 0
+_show_boss_warning_msg = false
+_counter_for_boss = false
+
+_show_planet = false
+_counter_enter_planet_flag = true
+_counter_enter_planet = 0
+
+_planet = 0
+
+
+// counter for firs wave
+_wave_counter = true
+_first_wave_counter = 0
+
+_total_monster_killed   = 0
+_total_monsters_created = 0
+
+_total_monster_2_killed   = 0
+_total_monsters_2_created = 0
+
+_total_ship_1_created   = 0
+_total_ship_1_destroyed = 0
+
+_total_ship_2_created   = 0
+_total_ship_2_destroyed = 0
+
+_total_ship_3_created   = 0
+_total_ship_3_destroyed = 0
+
+_total_ship_4_created   = 0
+_total_ship_4_destroyed = 0
+
+_total_ship_5_created   = 0
+_total_ship_5_destroyed = 0
+
+_total_bomb_created     = 0
+_total_bomb_destroyed   = 0
+
+_total_meteor_created = 0
+_total_meteor_destroyed = 0
+
+_total_alien_created = 0
+_total_alien_destroyed = 0
+
+_total_sub_boss_created = 0
+_total_sub_boss_destroyed = 0
+
 </string>
           </argument>
         </arguments>
@@ -49,11 +116,13 @@ _respaw_count = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// counts to respaw player ship 
+            <string>
+global.game_state = global.GAME_STATE_SUB_BOSS_DEFEATED
+
+// counts to respaw player ship 
 if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     _respaw_count += 1
     if (_respaw_count == 150) {
-    
         // End of game
         global.player_lives --
         if (global.player_lives &lt; 0) {
@@ -62,15 +131,116 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
             _respaw_count = 0
             exit
         }
-    
         // Next player life
         _respaw_count = 0
         global.player_weapon = global.PLAYER_SINGLE_LASER
         room_restart();
         SetGameState(global.GAME_STATE_PLAY)
     }
+}
+
+if (global.game_state == global.GAME_STATE_PLAY) {
+    // Count time for lauch first wave
+    if (_wave_counter) {
+        _first_wave_counter += 1
+        show_debug_message(string(_first_wave_counter ))
+        if ( _first_wave_counter &lt;= 100) {
+            exit
+        } else {
+            _wave_counter = false
+            _first_wave_counter = 0
+        }
+    }
+    var isBoss = CreateRegularEnemies()
+    if (isBoss) {
+        SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)
+    } else {
+        CreateSecondaryEnemies()
+        CreateCargoShips()
+        CreateAmmo()
+    }
+}
+
+if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
+    if ( ! _show_boss_warning_msg) {
+        _counter_show_boss_warning ++    
+        show_debug_message("couter boss message:" + string(_counter_show_boss_warning))
+    }
+    if (_counter_show_boss_warning == 160 &amp;&amp; ! _counter_for_boss) {
+        _show_boss_warning_msg = true
+        _counter_show_boss_warning = 0
+        _counter_for_boss = true
+    }
+    if (_counter_for_boss) {
+        _counter_boss_fighting ++
+        show_debug_message("couter boss fight:" + string(_counter_boss_fighting))
+    }
+    if (_counter_boss_fighting == 140) {
+        _show_boss_warning_msg = false
+        _counter_for_boss = false
+        SetGameState(global.GAME_STATE_BOSS_FIGHT)
+        _counter_boss_fighting = 0
+        _counter_for_boss = 0
+        CreateBoss()
+    }
+}
+
+if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
+    CreateAmmo()
+}
+
+if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
+
+    if (_counter_enter_planet_flag) {
+        _counter_enter_planet ++
+        show_debug_message("couter :" + string(_counter_enter_planet))
+    }
+        
+    if ( _counter_enter_planet == 100) {
+        _counter_enter_planet_flag = false
+        if (_planet == 0) {
+            _planet = GetPlanetForEnter()
+        }
+    }
+        
+    if (_planet != 0 &amp;&amp; _planet.image_xscale &lt; 3.00) {
+        _planet.y += 1  
+        _planet.image_xscale += 0.01
+        _planet.image_yscale += 0.01
+        
+       //  obj_player_ship.y -= 1     
+        
+        show_debug_message("planet xscale :" + string(_planet.image_xscale))
+               
+    }
+    
+    if (_planet != 0 &amp;&amp; _planet.image_xscale &gt;= 3.00 ) {
+        obj_player_ship.y -= 1
+        obj_player_ship.image_xscale -= 0.01;
+        obj_player_ship.image_yscale -= 0.01;
+    }
+    
+    //_planet = GetPlanetForEnter()
+    //with (_planet) {
+    //    y += 1
+    //    image_xscale += 0.01
+    //    image_yscale += 0.01
+    //    show_debug_message("Planet y:" + string(y))
+   // }
+        
+
+//    if (! _enter_planet) {
+  //      _counter_enter_planet ++
+    //    _enter_planet = false
+//    }
+  //  if (_counter_enter_planet == 100) {
+        // Move player ship to center
+    
+//    }
 
 }
+
+
 </string>
           </argument>
         </arguments>
@@ -109,6 +279,16 @@ if (global.game_state == global.GAME_STATE_GAME_OVER) {
     instance_create(centro_room_x - 100,  centro_room_y + 40, obj_btn_game_over_continue)
     instance_create(centro_room_x + 50,   centro_room_y + 40, obj_btn_game_over_main_menu)
 }
+
+if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
+    if (_show_boss_warning_msg) {
+        draw_set_color(c_red);
+        draw_set_font( font_20 );
+        draw_text_transformed(centro_room_x-1,centro_room_y , SUB_BOSS_MESSAGE,1,1,0 );
+    }
+}
+
+
 </string>
           </argument>
         </arguments>

@@ -53,7 +53,7 @@ vspeed = irandom_range(10,14)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(obj_enemy_manager) {
+            <string>with(obj_game_manager) {
     _total_alien_destroyed ++
 }
 </string>

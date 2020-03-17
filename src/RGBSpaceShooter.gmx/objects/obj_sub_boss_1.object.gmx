@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_boss_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,25 +25,54 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>STATE_INIT           = 0
-STATE_MOVE_FOWARD    = 1
-STATE_STOP           = 2
-STATE_MOVE_LEFT      = 3
-STATE_MOVE_RIGHT     = 4
-STATE_ATTACK         = 5
-STATE_MOVE_TO_PLAYER = 6
-STATE_TURN_OFF_SHILD = 7
-STATE_TURN_ON_SHILD  = 8
+            <string>event_inherited()
+_name  = global.BOSS_1_NAME
+_pontos = 300
 
-_state = STATE_INIT
+_hp_max = 800
+_hp_current = _hp_max
+
+INIT              = 0
+MOVE_FORWARD      = 1
+PREPARE_TO_ATTACK = 2
+MOVE_LEFT         = 3
+MOVE_RIGHT        = 4
+DO_ATTACK_1       = 5
+DO_ATTACK_2       = 6
+MOVE_TO_PLAYER    = 7
+MOVE_CENTER       = 8
+SPECIAL_MOVE      = 9
+
+_actions[0]  = INIT
+_actions[1]  = PREPARE_TO_ATTACK
+_actions[2]  = DO_ATTACK_1
+_actions[3]  = MOVE_LEFT
+_actions[4]  = PREPARE_TO_ATTACK
+_actions[5]  = DO_ATTACK_2
+_actions[6]  = PREPARE_TO_ATTACK
+_actions[7]  = SPECIAL_MOVE
+_actions[8]  = MOVE_CENTER
+_actions[9]  = PREPARE_TO_ATTACK
+_actions[10] = DO_ATTACK_1
+_actions[11] = MOVE_LEFT
+_actions[12] = PREPARE_TO_ATTACK
+_actions[13] = DO_ATTACK_2
+_actions[14] = MOVE_CENTER
+
+
+_action = INIT
+_index  = 0
+_counter = 0
 
 image_speed = 0.2
 _velocity = 4
 
-timeline_index    = tl_sub_boss_1
-timeline_position = 0
-timeline_running  = true
-timeline_loop     = false
+_mx = x
+_my = y
+
+_previus_action = 0
+_fire_count_1 = 0
+
 
 </string>
           </argument>
@@ -67,33 +96,133 @@ timeline_loop     = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>delta = (60/1000000) * delta_time;
+            <string>
+delta = (60/1000000) * delta_time;
 
-switch (_state) {
-    case STATE_INIT:
-        break
-    case STATE_STOP:
-        speed = 0
-        break    
-    case STATE_MOVE_FOWARD:
+_get_next_action = false
+
+switch (_action) {
+    case INIT:
+        show_debug_message("Init")
         y += _velocity * delta;
-        if ( y &gt; (room_height/2) - 50) {
-            _state = STATE_STOP
+        if ( y &gt;= 200) {
+            _get_next_action = true
+        }
+        break
+    case PREPARE_TO_ATTACK:
+        show_debug_message("Prepare to Attack")
+        instance_destroy(obj_boss_force_field)
+        sprite_index = spt_sub_boss_1_prepare
+        speed = 0
+        _counter ++
+        if (_counter == 100) {
+            _counter =0
+            sprite_index = spt_sub_boss_1
+            _get_next_action = true
+            instance_create(x, y, obj_boss_force_field)
+        }       
+        break    
+    case MOVE_CENTER:
+        show_debug_message("move center")
+        if (_previus_action == MOVE_LEFT) {
+            x += _velocity * delta
+            if (x &gt;= _mx) {
+                _get_next_action = true
+            }        
+        }
+        if (_previus_action == MOVE_RIGHT || 
+             _previus_action == SPECIAL_MOVE) {
+            x -= _velocity * delta
+            if (x &lt;= _mx) {
+                _get_next_action = true
+            }        
         }
         break;
-    case STATE_MOVE_LEFT:    
-        if ( x &gt;= 100 ) {
-            x -= _velocity * delta
+    case MOVE_LEFT:    
+        show_debug_message("move left")
+        x -= _velocity * delta
+        if (x &lt;= 100) {
+            _previus_action = _action
+            _get_next_action = true
         }
         break;    
-    case STATE_ATTACK:    
+    case MOVE_RIGHT:    
+        show_debug_message("move right")
+        x += _velocity * delta
+        if (x &gt;= room_width - 100) {
+            _previus_action = _action
+            _get_next_action = true
+        }
+        break;            
+    case DO_ATTACK_1:    
+        show_debug_message("attack 1")
+        _fire_count_1 ++;
+        if (_fire_count_1 == 5) {
+            FireBossWeapon(global.BOSS_1_NAME, global.WEAPON_BIO_BALL)
+            _fire_count_1 = 0
+        }
+        _counter ++
+        if (_counter == 100) {
+            _fire_count_1 = 0
+            _counter = 0
+            _get_next_action = true
+        }       
         break;        
-    case STATE_MOVE_RIGHT:    
-        if ( x &lt;= room_width - 100 ) {
-            x += _velocity * delta
+    case DO_ATTACK_2:    
+        show_debug_message("attack 2")
+        _fire_count_1 ++;
+        if (_fire_count_1 == 8) {
+            FireBossWeapon(global.BOSS_1_NAME, global.WEAPON_BIO_VERM)
+            _fire_count_1 = 0
+            _counter ++
+        }
+        // Fire 15 shots
+        if (_counter == 15) {
+            _counter =0
+            _get_next_action = true
+            _fire_count_1 = 0
+        }       
+        break;                
+     case SPECIAL_MOVE:
+        show_debug_message("special move")
+        show_debug_message(string(path_position))
+        if (path_position == 1) {
+            path_end()
+            path_position = 0
+            _previus_action = _action
+            _get_next_action = true
+        } else {
+            if (path_index == -1) {
+                path_start(path_sub_boss_1, 8, path_action_stop, 0)
+            } 
         }
         break;    
 }    
+
+if ( instance_exists(obj_boss_force_field) ) {
+    obj_boss_force_field.x = x
+    obj_boss_force_field.y = y
+    obj_boss_force_field.speed  = speed
+}
+
+if (_get_next_action) {
+    _index ++;
+    if ( _index &gt;= array_length_1d(_actions)) {
+        _index = 1
+    }
+    _action = _actions[_index]
+}
+
+var basic_player_shot = instance_place(x,y, obj_base_laser)
+if (basic_player_shot) {
+    _hp_current -= basic_player_shot._demage
+    instance_create(basic_player_shot.x, basic_player_shot.y, obj_bio_explosion)
+    instance_destroy(basic_player_shot)
+    event_inherited()
+}
+
+
+
             
 </string>
           </argument>
