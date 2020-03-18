@@ -124,6 +124,8 @@
     <background>background\background2</background>
     <background>background\background3</background>
     <background>background\bk_planet_1</background>
+    <background>background\bkg_planet_aurora</background>
+    <background>background\background8</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -286,9 +288,9 @@
   <rooms name="rooms">
     <room>rooms\room_init</room>
     <room>rooms\room_main_menu</room>
-    <room>rooms\room_game</room>
     <room>rooms\room_planet_selection</room>
-    <room>rooms\room_inside_planet</room>
+    <room>rooms\room_planet_aurora_space</room>
+    <room>rooms\room_planet_aurora_land</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

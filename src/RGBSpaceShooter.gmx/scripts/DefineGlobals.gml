@@ -74,27 +74,32 @@ global.TOTAL_METEORS= 2
 global.SPECIAL_CARGO_SHIP = 200
 global.AMMUNITION = 201
 
-global.game_stage = 1
-
-// Enemy Waves on planets
-global.STAGE_ENEMIES[1,0]  = global.ENEMY_SHIP_1 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
-//global.STAGE_ENEMIES[1,1]  = global.ENEMY_BOMB
-global.STAGE_ENEMIES[1,1]  = global.SUB_BOSS
-/*
-global.STAGE_ENEMIES[1,2]  = global.ENEMY_MONSTER_1
-global.STAGE_ENEMIES[1,3]  = global.ENEMY_SHIP_3
-global.STAGE_ENEMIES[1,4]  = global.ENEMY_SHIP_1
-global.STAGE_ENEMIES[1,5]  = global.ENEMY_MONSTER_2
-global.STAGE_ENEMIES[1,6]  = global.ENEMY_SHIP_2
-global.STAGE_ENEMIES[1,7]  = global.ENEMY_MONSTER_1
-global.STAGE_ENEMIES[1,8]  = global.ENEMY_ALIEN
-global.STAGE_ENEMIES[1,9]  = global.ENEMY_SHIP_1
-global.STAGE_ENEMIES[1,10] = global.ENEMY_BOMB
-global.STAGE_ENEMIES[1,11] = global.ENEMY_SHIP_4
-global.STAGE_ENEMIES[1,12] = global.SUB_BOSS
-*/
+//global.game_stage = 1
 
 global.selected_planet = 0
+global.PLANET_AURORA_SPACE = 1
+global.PLANET_AURORA_LAND  = 2
+
+
+// Enemy Waves on planets
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,0]  = global.ENEMY_SHIP_1 //global.ENEMY_SHIP //global.ENEMY_MONSTER_1 //global.ENEMY_SHIP_2
+//global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,1]  = global.ENEMY_BOMB
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,1]  = global.SUB_BOSS
+/*
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,2]  = global.ENEMY_MONSTER_1
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,3]  = global.ENEMY_SHIP_3
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,4]  = global.ENEMY_SHIP_1
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,5]  = global.ENEMY_MONSTER_2
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,6]  = global.ENEMY_SHIP_2
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,7]  = global.ENEMY_MONSTER_1
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,8]  = global.ENEMY_ALIEN
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,9]  = global.ENEMY_SHIP_1
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,10] = global.ENEMY_BOMB
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,11] = global.ENEMY_SHIP_4
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,12] = global.SUB_BOSS
+*/
+
+
 
 // enemy weapons
 global.WEAPON_ENERGY_BALL       = 1

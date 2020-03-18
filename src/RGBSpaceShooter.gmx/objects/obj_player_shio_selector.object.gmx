@@ -59,7 +59,9 @@ if ( speed &gt; 0 ) {
         if (planet) {
             SetGameState(global.GAME_STATE_PLAY)
             InitGameVars()
-            room_goto(room_game)
+            if (planet._planet_name == "aurora") {
+                room_goto(room_planet_aurora_space)
+            }
         } 
     }
 }

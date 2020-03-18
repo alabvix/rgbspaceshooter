@@ -49,10 +49,12 @@ _counter_show_boss_warning = 0
 _counter_boss_fighting = 0
 _show_boss_warning_msg = false
 _counter_for_boss = false
+_move_player_ship = true
 
 _show_planet = false
 _counter_enter_planet_flag = true
 _counter_enter_planet = 0
+_counter_for_landing = 0
 
 _planet = 0
 
@@ -117,7 +119,7 @@ _total_sub_boss_destroyed = 0
           <argument>
             <kind>1</kind>
             <string>
-global.game_state = global.GAME_STATE_SUB_BOSS_DEFEATED
+//global.game_state = global.GAME_STATE_SUB_BOSS_DEFEATED
 
 // counts to respaw player ship 
 if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
@@ -190,7 +192,17 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
 }
 
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
-
+    if (_move_player_ship) {
+        with(obj_player_ship) {
+           move_towards_point( 512, 384, 4 )
+        }
+        if (obj_player_ship.x == 512 &amp;&amp; obj_player_ship.y == 384) {
+            obj_player_ship.speed = 0
+            show_debug_message("chegou")
+            _move_player_ship = false
+        } 
+    }
+    
     if (_counter_enter_planet_flag) {
         _counter_enter_planet ++
         show_debug_message("couter :" + string(_counter_enter_planet))
@@ -203,22 +215,34 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
         }
     }
         
-    if (_planet != 0 &amp;&amp; _planet.image_xscale &lt; 3.00) {
+    if (_planet != 0 &amp;&amp; _planet.image_xscale &lt; 3.50) {
         _planet.y += 1  
         _planet.image_xscale += 0.01
         _planet.image_yscale += 0.01
-        
-       //  obj_player_ship.y -= 1     
-        
-        show_debug_message("planet xscale :" + string(_planet.image_xscale))
-               
     }
-    
-    if (_planet != 0 &amp;&amp; _planet.image_xscale &gt;= 3.00 ) {
-        obj_player_ship.y -= 1
+        
+    if (_planet != 0 &amp;&amp; _planet.image_xscale &gt;= 3.50 &amp;&amp; obj_player_ship.image_xscale &gt; 0.00) {
+        obj_player_ship.y -= 2
         obj_player_ship.image_xscale -= 0.01;
         obj_player_ship.image_yscale -= 0.01;
+        show_debug_message("ship xscale :" + string(obj_player_ship.y))
     }
+    
+    if (obj_player_ship.image_xscale == 0.00) {
+        _counter_for_landing ++
+        if (_counter_for_landing == 80) {
+            instance_destroy(_planet)
+            _move_player_ship = true
+            _counter_enter_planet_flag = true
+            _counter_enter_planet = 0
+            _counter_for_landing = 0
+            SetGameState(global.GAME_STATE_PLAY)
+            if (global.selected_planet == 1) {
+                room_goto(room_planet_aurora_land)
+            }
+        }
+    }
+    
     
     //_planet = GetPlanetForEnter()
     //with (_planet) {
