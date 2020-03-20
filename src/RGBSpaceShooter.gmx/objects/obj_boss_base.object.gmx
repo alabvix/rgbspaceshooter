@@ -55,6 +55,9 @@ if (_hp_current &lt;=0) {
     SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
     obj_player_ship._score += _points
     instance_destroy()
+    if (_name == global.BOSS_1_NAME) {
+        instance_destroy(obj_boss_force_field)
+    }
 }
 </string>
           </argument>

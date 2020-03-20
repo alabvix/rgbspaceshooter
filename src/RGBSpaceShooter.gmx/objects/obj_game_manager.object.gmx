@@ -50,6 +50,7 @@ _counter_boss_fighting = 0
 _show_boss_warning_msg = false
 _counter_for_boss = false
 _move_player_ship = true
+_move_player_ship_to_planet = false
 
 _show_planet = false
 _counter_enter_planet_flag = true
@@ -142,6 +143,7 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
 }
 
 if (global.game_state == global.GAME_STATE_PLAY) {
+
     // Count time for lauch first wave
     if (_wave_counter) {
         _first_wave_counter += 1
@@ -196,6 +198,8 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
         with(obj_player_ship) {
            move_towards_point( 512, 384, 4 )
         }
+        
+        // Location for player ship goes to planet
         if (obj_player_ship.x == 512 &amp;&amp; obj_player_ship.y == 384) {
             obj_player_ship.speed = 0
             show_debug_message("chegou")
@@ -214,20 +218,32 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
             _planet = GetPlanetForEnter()
         }
     }
-        
+     
+    // Move the planet   
     if (_planet != 0 &amp;&amp; _planet.image_xscale &lt; 3.50) {
         _planet.y += 1  
         _planet.image_xscale += 0.01
         _planet.image_yscale += 0.01
+    } else if ( _planet != 0 &amp;&amp; _planet.image_xscale == 3.50) {
+        if ( ! _move_player_ship_to_planet) {
+            _move_player_ship_to_planet = true
+        }
     }
-        
-    if (_planet != 0 &amp;&amp; _planet.image_xscale &gt;= 3.50 &amp;&amp; obj_player_ship.image_xscale &gt; 0.00) {
+    
+    // Move ship dp planet    
+ //   if (_planet != 0 &amp;&amp; _planet.image_xscale &gt;= 3.50 &amp;&amp; obj_player_ship.image_xscale &gt; 0.00) {
+    if (_move_player_ship_to_planet) {
         obj_player_ship.y -= 2
         obj_player_ship.image_xscale -= 0.01;
         obj_player_ship.image_yscale -= 0.01;
-        show_debug_message("ship xscale :" + string(obj_player_ship.y))
+        show_debug_message("ship y :" + string(obj_player_ship.y))
+        if (obj_player_ship.image_xscale &lt;= 0.00) {
+            obj_player_ship.image_xscale = 0.00
+            _move_player_ship_to_planet = false
+        }
     }
     
+    // Advance to next room
     if (obj_player_ship.image_xscale == 0.00) {
         _counter_for_landing ++
         if (_counter_for_landing == 80) {
