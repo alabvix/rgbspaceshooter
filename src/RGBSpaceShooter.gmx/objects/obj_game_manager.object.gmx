@@ -38,7 +38,7 @@ SUB_BOSS_MESSAGE = "WARNING: ENEMY SQUAD LEADER IN COMBAT RANGE"
 _enemy_type2 = irandom_range(6, 6)
 
 _enemy_index = 0 // the enemy index in the stage enemy array
-_enemy_type  = global.STAGE_ENEMIES[global.game_stage,_enemy_index] //irandom_range(2, 5)
+_enemy_type  = global.STAGE_ENEMIES[global.selected_planet,_enemy_index] //irandom_range(2, 5)
 
 // counter for create an enemy
 _counter_create_enemy = 0
@@ -49,15 +49,21 @@ _counter_show_boss_warning = 0
 _counter_boss_fighting = 0
 _show_boss_warning_msg = false
 _counter_for_boss = false
-_move_player_ship = true
-_move_player_ship_to_planet = false
 
-_show_planet = false
-_counter_enter_planet_flag = true
-_counter_enter_planet = 0
-_counter_for_landing = 0
-
+// ANIMATIONS FOR GAME_STATE_SUB_BOSS_DEFEATED
+//_player_ship_centralized = false
+_planet_moved = false
+_player_ship_landed = false
+//_player_ship_has_moved = false
 _planet = 0
+//---------
+
+
+// nb_show_planet = false
+//_counter_enter_planet_flag = true
+//_counter_enter_planet = 0
+//_counter_for_landing = 0
+
 
 
 // counter for firs wave
@@ -120,8 +126,6 @@ _total_sub_boss_destroyed = 0
           <argument>
             <kind>1</kind>
             <string>
-//global.game_state = global.GAME_STATE_SUB_BOSS_DEFEATED
-
 // counts to respaw player ship 
 if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     _respaw_count += 1
@@ -163,6 +167,8 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         CreateCargoShips()
         CreateAmmo()
     }
+    
+   
 }
 
 if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
@@ -194,93 +200,40 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
 }
 
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
-    if (_move_player_ship) {
-        with(obj_player_ship) {
-           move_towards_point( 512, 384, 4 )
-        }
-        
-        // Location for player ship goes to planet
-        if (obj_player_ship.x == 512 &amp;&amp; obj_player_ship.y == 384) {
-            obj_player_ship.speed = 0
-            show_debug_message("chegou")
-            _move_player_ship = false
-        } 
-    }
-    
-    if (_counter_enter_planet_flag) {
-        _counter_enter_planet ++
-        show_debug_message("couter :" + string(_counter_enter_planet))
-    }
-        
-    if ( _counter_enter_planet == 100) {
-        _counter_enter_planet_flag = false
+    // Moves the planet    
+    if (! _planet_moved) {
         if (_planet == 0) {
             _planet = GetPlanetForEnter()
         }
-    }
-     
-    // Move the planet   
-    if (_planet != 0 &amp;&amp; _planet.image_xscale &lt; 3.50) {
         _planet.y += 1  
         _planet.image_xscale += 0.01
         _planet.image_yscale += 0.01
-    } else if ( _planet != 0 &amp;&amp; _planet.image_xscale == 3.50) {
-        if ( ! _move_player_ship_to_planet) {
-            _move_player_ship_to_planet = true
+        if (_planet.y == 200) {
+            _planet_moved = true   
+           show_debug_message("planet moved and preparaed")
         }
     }
-    
-    // Move ship dp planet    
- //   if (_planet != 0 &amp;&amp; _planet.image_xscale &gt;= 3.50 &amp;&amp; obj_player_ship.image_xscale &gt; 0.00) {
-    if (_move_player_ship_to_planet) {
-        obj_player_ship.y -= 2
+    // Move the player ship into the planet
+    if (_planet_moved) {
+        MoveShipToPlanet()
         obj_player_ship.image_xscale -= 0.01;
         obj_player_ship.image_yscale -= 0.01;
         show_debug_message("ship y :" + string(obj_player_ship.y))
-        if (obj_player_ship.image_xscale &lt;= 0.00) {
-            obj_player_ship.image_xscale = 0.00
-            _move_player_ship_to_planet = false
+        if (obj_player_ship.image_xscale == 0.00) {
+           _player_ship_landed = true
         }
     }
-    
-    // Advance to next room
-    if (obj_player_ship.image_xscale == 0.00) {
-        _counter_for_landing ++
-        if (_counter_for_landing == 80) {
-            instance_destroy(_planet)
-            _move_player_ship = true
-            _counter_enter_planet_flag = true
-            _counter_enter_planet = 0
-            _counter_for_landing = 0
-            SetGameState(global.GAME_STATE_PLAY)
-            if (global.selected_planet == 1) {
-                room_goto(room_planet_aurora_land)
-            }
-        }
+    // Player ship landed on planet. Move to next stage
+    if (_player_ship_landed) {
+        instance_destroy(_planet)
+        SetGameState(global.GAME_STATE_PLAY)
+        _planet_moved = false
+        _player_ship_landed = false
+        MoveToNextStage()
+        exit
     }
-    
-    
-    //_planet = GetPlanetForEnter()
-    //with (_planet) {
-    //    y += 1
-    //    image_xscale += 0.01
-    //    image_yscale += 0.01
-    //    show_debug_message("Planet y:" + string(y))
-   // }
-        
-
-//    if (! _enter_planet) {
-  //      _counter_enter_planet ++
-    //    _enter_planet = false
-//    }
-  //  if (_counter_enter_planet == 100) {
-        // Move player ship to center
-    
-//    }
-
+ 
 }
-
-
 </string>
           </argument>
         </arguments>

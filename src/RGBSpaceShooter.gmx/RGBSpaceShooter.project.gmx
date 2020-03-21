@@ -39,8 +39,8 @@
       <sprite>sprites\spt_green_laser_concetrate</sprite>
       <sprite>sprites\spt_red_laser_concetrate</sprite>
       <sprite>sprites\spt_blue_laser_concetrate</sprite>
-      <sprite>sprites\spt_player_ship_2</sprite>
       <sprite>sprites\spt_player_ship</sprite>
+      <sprite>sprites\spt_player_ship_shadow</sprite>
       <sprite>sprites\spt_red_laser</sprite>
       <sprite>sprites\spt_green_laser</sprite>
       <sprite>sprites\spt_blue_laser</sprite>
@@ -115,6 +115,10 @@
       <sprite>sprites\spt_little_explosion</sprite>
       <sprite>sprites\spt_bio_explosion</sprite>
     </sprites>
+    <sprites name="buidings">
+      <sprite>sprites\spt_aurora_bulding_1</sprite>
+      <sprite>sprites\spt_aurora_building_2</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -152,6 +156,9 @@
     <script>scripts\CreateAmmo.gml</script>
     <script>scripts\CreateBoss.gml</script>
     <script>scripts\GetPlanetForEnter.gml</script>
+    <script>scripts\MoveToNextStage.gml</script>
+    <script>scripts\MoveShipToPlanet.gml</script>
+    <script>scripts\GotoPlanet.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -265,6 +272,7 @@
       <object>objects\obj_rainbow_energy</object>
       <object>objects\obj_special_weapon_base</object>
       <object>objects\obj_special_weapon_1_fire</object>
+      <object>objects\obj_player_ship_shadow</object>
     </objects>
     <objects name="itens">
       <object>objects\obj_item_base</object>
@@ -283,6 +291,10 @@
     <objects name="explosion">
       <object>objects\obj_little_explosion</object>
       <object>objects\obj_bio_explosion</object>
+    </objects>
+    <objects name="buildings">
+      <object>objects\obj_aurora_building_1</object>
+      <object>objects\object95</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -47,6 +47,13 @@ _green_ammo = 200
 _fire_red_held_down = 0
 _fire_blue_held_down = 0
 
+ // Player ship shadow
+    if (global.selected_planet == global.PLANET_AURORA_LAND) {
+        instance_create(obj_player_ship.x + 50, obj_player_ship.y + 50,obj_player_ship_shadow)
+    }
+    
+
+
 
 </string>
           </argument>
@@ -121,6 +128,10 @@ if (key_up) {
 }
 if (py &gt; 0 &amp;&amp; py &lt;= room_height) y = py;
 
+if (instance_exists(obj_player_ship_shadow)) {
+    obj_player_ship_shadow.x = obj_player_ship.x + 50
+    obj_player_ship_shadow.y = obj_player_ship.y + 50   
+}
 
 // Handle collisions with enemy shot
 shoot = instance_place(x,y,obj_enemy_weapon_base)

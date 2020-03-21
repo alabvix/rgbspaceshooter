@@ -30,6 +30,10 @@ _demage = 8
 
 _move_right = false
 _move_left = false
+
+if (global.test_super_hit) {
+    _demage = 1000
+}
 </string>
           </argument>
         </arguments>

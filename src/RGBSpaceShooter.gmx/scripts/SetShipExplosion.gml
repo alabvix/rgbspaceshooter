@@ -6,3 +6,7 @@ SetGameState(global.GAME_STATE_SHIP_DESTROYED)
 image_speed = 0.2
 sprite_index = spt_player_ship_explosion
 
+if (instance_exists(obj_player_ship_shadow)) {
+    instance_destroy(obj_player_ship_shadow)
+}
+
