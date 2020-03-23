@@ -79,6 +79,9 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
             case global.WEAPON_ENERGY_BALL:    
                 instance_create(x, y, obj_enemy_weapon_1)
                 break
+            case global.WEAPON_ENERGY_BALL_V:    
+                instance_create(x, y, obj_enemy_weapon_6)
+                break    
             case global.WEAPON_ENERGY_BALL_SPIN:    
                 instance_create(x, y, obj_enemy_weapon_2)
                 break

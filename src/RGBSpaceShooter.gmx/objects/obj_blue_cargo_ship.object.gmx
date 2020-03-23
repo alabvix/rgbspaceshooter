@@ -32,7 +32,7 @@ image_speed = 0.2
 _is_cargo_ship = true
 
 _points  = 3
-_hp      = 3
+_hp      = 20
 _speed_y = 10
 
 _shoot_in    = 35 // fires in each n seconds 

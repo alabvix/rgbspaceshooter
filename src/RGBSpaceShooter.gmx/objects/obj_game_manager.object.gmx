@@ -28,7 +28,7 @@
             <string>// Counter for respaw player ship
 _respaw_count = 0
 
-//_can_create_enemy = true 
+_can_create_enemy = true 
 _can_create_enemy2 = true 
 //_boss_fight = false
 //_boss_created = false
@@ -91,6 +91,9 @@ _total_ship_4_destroyed = 0
 _total_ship_5_created   = 0
 _total_ship_5_destroyed = 0
 
+_total_ship_6_created   = 0
+_total_ship_6_destroyed = 0
+
 _total_bomb_created     = 0
 _total_bomb_destroyed   = 0
 
@@ -147,6 +150,8 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
 }
 
 if (global.game_state == global.GAME_STATE_PLAY) {
+
+    //show_debug_message("Ships 6 destroyed:" + string(_total_ship_6_destroyed))
 
     // Count time for lauch first wave
     if (_wave_counter) {
