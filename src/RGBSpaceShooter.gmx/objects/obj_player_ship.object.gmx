@@ -46,11 +46,12 @@ _green_ammo = 200
 
 _fire_red_held_down = 0
 _fire_blue_held_down = 0
+_fire_green_held_down = 0
 
- // Player ship shadow
-    if (global.selected_planet == global.PLANET_AURORA_LAND) {
-        instance_create(obj_player_ship.x + 50, obj_player_ship.y + 50,obj_player_ship_shadow)
-    }
+// Player ship shadow
+if (global.selected_planet == global.PLANET_AURORA_LAND) {
+    instance_create(obj_player_ship.x + 50, obj_player_ship.y + 50,obj_player_ship_shadow)
+}
     
 
 
@@ -184,14 +185,12 @@ if keyboard_check(ord('A')) {
     if (_fire_red_held_down &gt; 20 &amp;&amp; _red_ammo &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_red_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_red_fire_concetrate)
-        if (_red_ammo &gt; 0) {
-            _red_ammo --
-        }    
+        _red_ammo -= 2
+        if (_red_ammo &lt; 0) _red_ammo = 0   
         exit
-    }
+    } 
 } else {
     _fire_red_held_down = 0
-    instance_destroy(obj_red_fire_concetrate)
 }
 
 // Held down blue fire key
@@ -201,14 +200,12 @@ if keyboard_check(ord('D')) {
     if (_fire_blue_held_down &gt; 20 &amp;&amp; _blue_ammo &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_blue_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_blue_fire_concetrate)
-        if (_blue_ammo &gt; 0) {
-           _blue_ammo --
-        }
+        _blue_ammo -= 2
+        if (_blue_ammo &lt; 0) _blue_ammo = 0
         exit
     }
 } else {
     _fire_blue_held_down = 0
-    instance_destroy(obj_blue_fire_concetrate)
 }
 
 // Held down green fire key
@@ -218,12 +215,11 @@ if keyboard_check(ord('S')) {
     if (_fire_green_held_down &gt; 20) {
         instance_create(x-25, y + irandom_range(1,5), obj_green_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_green_fire_concetrate)
-        _green_ammo --
+        if (_green_ammo &lt; 0) _green_ammo = 0
         exit
     }
 } else {
     _fire_green_held_down = 0
-    instance_destroy(obj_green_fire_concetrate)
 }
 
 // Fire

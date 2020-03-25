@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>100</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_building_base</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vspeed = 3
+            <string>event_inherited()
+
 </string>
           </argument>
         </arguments>
@@ -48,9 +49,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (y &gt; room_height + 32) {
-    y = -70
-}
+            <string>event_inherited()
 </string>
           </argument>
         </arguments>

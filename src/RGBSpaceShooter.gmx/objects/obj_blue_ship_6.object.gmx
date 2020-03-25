@@ -36,7 +36,8 @@ _speed_y = irandom_range(15,25)
 _shoot_in    = 14 // fires in each n seconds 
 _weapon_type = global.WEAPON_ENERGY_BALL_V 
 
-_shadow = 0
+_is_ship_6 = true
+
 alarm[0] = 10
 
 
@@ -120,13 +121,14 @@ alarm[0] = 1
             <kind>1</kind>
             <string>event_inherited()
 
+/*
 if (_shadow == 0) {
     show_debug_message("shadow created")
     _shadow = instance_create(x + 30, y -30, obj_shadow_ship_6)
-}
-
-_shadow.x = x + 40
-_shadow.y = y + 50
+} else {
+    _shadow.x = x + 40
+    _shadow.y = y + 50
+}*/
 
 if (y &gt; room_height + 60) {
     instance_destroy()

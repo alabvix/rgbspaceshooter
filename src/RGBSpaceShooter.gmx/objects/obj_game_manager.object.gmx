@@ -49,12 +49,11 @@ _counter_show_boss_warning = 0
 _counter_boss_fighting = 0
 _show_boss_warning_msg = false
 _counter_for_boss = false
+_counter_create_building = 0
 
 // ANIMATIONS FOR GAME_STATE_SUB_BOSS_DEFEATED
-//_player_ship_centralized = false
 _planet_moved = false
 _player_ship_landed = false
-//_player_ship_has_moved = false
 _planet = 0
 //---------
 
@@ -173,6 +172,9 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         CreateAmmo()
     }
     
+    if (global.selected_planet == global.PLANET_AURORA_LAND) {
+        CreateBuildings()
+    }
    
 }
 

@@ -37,7 +37,10 @@ _hp            = 0 // Health points
 _type          = 0 // ship_1, ship_2, monster, etc...
 
 _is_cargo_ship = false
+_is_ship_6     = false
 _color         = 0
+
+_shadow = 0
 
 </string>
           </argument>
@@ -67,6 +70,23 @@ image_angle = direction
 
 // Moves the sprite in Y axis.
 y += _speed_y * (delta_time / 100000);// move 100 pixels
+
+// Creates shadowns for phase in planets lands
+if (global.selected_planet == global.PLANET_AURORA_LAND) {
+    if (_shadow == 0) {
+        if (_is_cargo_ship) {
+            _shadow = instance_create(x + 40, y+ 40, obj_shadow_carg_ship)            
+        }
+        if (_is_ship_6) {
+            _shadow = instance_create(x + 30, y -30, obj_shadow_ship_6)           
+        }
+    }
+}
+
+if (_shadow != 0) {
+    _shadow.x = x + 40
+    _shadow.y = y + 40
+}
 
 // Shoot control
 if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)

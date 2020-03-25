@@ -51,6 +51,7 @@ if (enemy) {
         show_debug_message("Player Score:" + string(obj_player_ship._score));
         if (enemy._is_cargo_ship) {
             GenerateRandomItem(x,y)
+            instance_destroy(enemy._shadow)
         }
         instance_destroy(enemy)
         instance_create(x,y, obj_rainbow_energy)
