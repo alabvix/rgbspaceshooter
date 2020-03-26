@@ -46,6 +46,7 @@
       <sprite>sprites\spt_blue_laser</sprite>
       <sprite>sprites\spt_weapon_1_fire</sprite>
       <sprite>sprites\spt_rainbow_energy</sprite>
+      <sprite>sprites\spt_special_w_1</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
@@ -288,6 +289,7 @@
       <object>objects\obj_special_weapon_base</object>
       <object>objects\obj_special_weapon_1_fire</object>
       <object>objects\obj_player_ship_shadow</object>
+      <object>objects\obj_special_w_1</object>
     </objects>
     <objects name="itens">
       <object>objects\obj_item_base</object>

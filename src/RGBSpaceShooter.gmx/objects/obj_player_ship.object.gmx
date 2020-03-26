@@ -52,6 +52,13 @@ _fire_green_held_down = 0
 if (global.selected_planet == global.PLANET_AURORA_LAND) {
     instance_create(obj_player_ship.x + 50, obj_player_ship.y + 50,obj_player_ship_shadow)
 }
+
+_special_weapon = 0
+if (global.player_weapon_special == global.SPECIAL_WEAPON_1) {
+    _special_weapon = instance_create(obj_player_ship.x, obj_player_ship.y - 40, obj_special_w_1)
+}
+
+
     
 
 
@@ -134,6 +141,10 @@ if (instance_exists(obj_player_ship_shadow)) {
     obj_player_ship_shadow.y = obj_player_ship.y + 50   
 }
 
+// Move special weapon
+_special_weapon.x = x
+_special_weapon.y = y - 40
+
 // Handle collisions with enemy shot
 shoot = instance_place(x,y,obj_enemy_weapon_base)
 if (shoot != noone) {
@@ -145,6 +156,7 @@ if (shoot != noone) {
     // Ship destroyed
     if (_hull &lt; 0) {
         _hull = 0
+        instance_destroy(_special_weapon)
         SetShipExplosion()
     }
 }
@@ -153,6 +165,7 @@ if (shoot != noone) {
 enemy = instance_place(x,y,obj_base_enemy)
 if (enemy != noone) {
     _hull = 0
+    instance_destroy(_special_weapon)
     SetShipExplosion()
 }
 
