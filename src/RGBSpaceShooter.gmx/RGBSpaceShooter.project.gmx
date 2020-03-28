@@ -60,6 +60,8 @@
         <sprite>sprites\spr_red_alien_1</sprite>
         <sprite>sprites\spt_red_cargo_ship</sprite>
         <sprite>sprites\spt_red_ship_6</sprite>
+        <sprite>sprites\spt_red_tank_1</sprite>
+        <sprite>sprites\spt_red_cannon_1</sprite>
       </sprites>
       <sprites name="green">
         <sprite>sprites\spt_green_ship_1</sprite>
@@ -94,7 +96,7 @@
       <sprite>sprites\spt_hud_laser_greend</sprite>
       <sprite>sprites\spt_hud_laser_blue</sprite>
       <sprite>sprites\spt_hud_laser_green</sprite>
-      <sprite>sprites\spt_hud_laser_blued</sprite>
+      <sprite>sprites\spt_hud_laser_rgb</sprite>
       <sprite>sprites\spt_weapon_1</sprite>
       <sprite>sprites\spt_weapon_1_ready</sprite>
       <sprite>sprites\spt_weapon_2_icon</sprite>
@@ -169,6 +171,7 @@
     <script>scripts\MoveShipToPlanet.gml</script>
     <script>scripts\GotoPlanet.gml</script>
     <script>scripts\CreateBuildings.gml</script>
+    <script>scripts\CreateLandEnemies.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -189,6 +192,7 @@
       <object>objects\obj_hud_laser_red</object>
       <object>objects\obj_hud_laser_green</object>
       <object>objects\obj_hud_laser_blue</object>
+      <object>objects\obj_hud_laser_rgb</object>
       <object>objects\obj_ship_icon</object>
       <object>objects\obj_base_weapon</object>
       <object>objects\obj_player_weapon_1</object>
@@ -214,6 +218,8 @@
         <object>objects\obj_red_monster_2</object>
         <object>objects\obj_red_bomb</object>
         <object>objects\obj_red_cargo_ship</object>
+        <object>objects\obj_red_tank_1</object>
+        <object>objects\obj_red_cannon_1</object>
       </objects>
       <objects name="green">
         <object>objects\obj_green_base_enemy</object>

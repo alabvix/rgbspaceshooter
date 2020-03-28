@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0.2
-speed = 10
+direction = irandom_range(0,400)
+speed = 2
 </string>
           </argument>
         </arguments>
@@ -50,16 +51,18 @@ speed = 10
           <argument>
             <kind>1</kind>
             <string>// Move to player ship
-move_towards_point( obj_player_ship.x, obj_player_ship.y, 20 );
-image_angle = point_direction(x, y, obj_player_ship.x, obj_player_ship.y);
-
-player_ship = instance_place(x,y, obj_player_ship)
-if (player_ship) {
-    if ( player_ship._rainbow_energy &lt;= player_ship._rainbow_energy_max ) {
-        player_ship._rainbow_energy ++;
+if (distance_to_object( obj_player_ship ) &lt; 100) {
+    speed = 3    
+    move_towards_point( obj_player_ship.x, obj_player_ship.y, 20 );
+    player_ship = instance_place(x,y, obj_player_ship)
+    if (player_ship) {
+        if ( player_ship._rainbow_energy &lt;= player_ship._rainbow_energy_max ) {
+            player_ship._rainbow_energy ++;
+        }
+        instance_destroy()
     }
-    instance_destroy()
 }
+
 </string>
           </argument>
         </arguments>

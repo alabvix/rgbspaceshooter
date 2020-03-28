@@ -126,6 +126,7 @@ if (px &gt; 0 &amp;&amp; px &lt;= room_width) {
 
 // Calculate the first and the last value of x to prevent the ship goes offscreen.
 x = clamp(x, 0 + sprite_width/2, room_width - sprite_width/2);
+//x = clamp(x,view_xview,view_xview+view_wview);
 
 // Moviment of ship on y axis.
 var py = yprevious;
@@ -135,6 +136,11 @@ if (key_up) {
     py += v;
 }
 if (py &gt; 0 &amp;&amp; py &lt;= room_height) y = py;
+
+// Calculate the first and the last value of y to prevent the ship goes offscreen.
+y = clamp(y, 0 + sprite_height/2, room_height - sprite_height/2);
+//y = clamp(y, view_yview, view_yview+view_hview);
+
 
 if (instance_exists(obj_player_ship_shadow)) {
     obj_player_ship_shadow.x = obj_player_ship.x + 50
@@ -175,8 +181,7 @@ if (meteor != noone) {
     SetShipExplosion()
 }
 
-// Calculate the first and the last value of y to prevent the ship goes offscreen.
-y = clamp(y, 0 + sprite_height/2, room_height - sprite_height/2);
+
 
 key_fire_red     = keyboard_check_pressed(ord('A'))
 key_fire_green   = keyboard_check_pressed(ord('S'))

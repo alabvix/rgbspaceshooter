@@ -49,13 +49,17 @@ _counter_show_boss_warning = 0
 _counter_boss_fighting = 0
 _show_boss_warning_msg = false
 _counter_for_boss = false
+
 _counter_create_building = 0
+_counter_create_land_enemies = 0
 
 // ANIMATIONS FOR GAME_STATE_SUB_BOSS_DEFEATED
 _planet_moved = false
 _player_ship_landed = false
 _planet = 0
 //---------
+
+_counter_create_land_obj = 0
 
 
 // nb_show_planet = false
@@ -104,6 +108,8 @@ _total_alien_destroyed = 0
 
 _total_sub_boss_created = 0
 _total_sub_boss_destroyed = 0
+
+
 
 </string>
           </argument>
@@ -163,6 +169,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
             _first_wave_counter = 0
         }
     }
+    
     var isBoss = CreateRegularEnemies()
     if (isBoss) {
         SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)
@@ -173,7 +180,32 @@ if (global.game_state == global.GAME_STATE_PLAY) {
     }
     
     if (global.selected_planet == global.PLANET_AURORA_LAND) {
-        CreateBuildings()
+        _counter_create_building ++
+        if (_counter_create_building == 120) {
+            CreateBuildings()
+            _counter_create_building = 0
+        }
+        
+        _counter_create_land_enemies ++ 
+        if (_counter_create_land_enemies == 400) {
+            CreateLandEnemies()
+            _counter_create_land_enemies = 0
+        }
+        
+        /*
+    
+        if (_counter_create_building &lt; 100) {
+            CreateBuildings()
+            _counter_create_building ++
+        } else {
+            if (_counter_create_land_enemies &lt; 100) {
+                CreateLandEnemies()
+                _counter_create_land_enemies ++            
+            } else {
+                _counter_create_building = 0
+                _counter_create_land_enemies = 0
+            }
+        }*/
     }
    
 }
