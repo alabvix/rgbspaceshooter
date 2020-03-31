@@ -48,7 +48,7 @@ if ( round(_counter_create_enemy) == 10) {
         if (_total_ship_2_created < global.TOTAL_SHIPS_2) {
             CreateEnemy(_enemy_type)    
             _total_ship_2_created ++
-            show_debug_message("Ships 2 created:" + string(_total_ship_2_created))
+           // show_debug_message("Ships 2 created:" + string(_total_ship_2_created))
             _can_create_enemy = false
         }
         if (_total_ship_2_destroyed == global.TOTAL_SHIPS_2) {
@@ -62,7 +62,7 @@ if ( round(_counter_create_enemy) == 10) {
         if (_total_ship_3_created < global.TOTAL_SHIPS_3) {
             CreateEnemy(_enemy_type)    
             _total_ship_3_created ++
-            show_debug_message("Ships 3 created:" + string(_total_ship_3_created))
+           // show_debug_message("Ships 3 created:" + string(_total_ship_3_created))
             _can_create_enemy = false
         }
         if (_total_ship_3_destroyed == global.TOTAL_SHIPS_3) {
@@ -76,7 +76,7 @@ if ( round(_counter_create_enemy) == 10) {
         if (_total_ship_4_created < global.TOTAL_SHIPS_4) {
             CreateEnemy(_enemy_type)    
             _total_ship_4_created ++
-            show_debug_message("Ships 4 created:" + string(_total_ship_4_created))
+            //show_debug_message("Ships 4 created:" + string(_total_ship_4_created))
             _can_create_enemy = false
         }
         if (_total_ship_4_destroyed == global.TOTAL_SHIPS_4) {
@@ -90,7 +90,7 @@ if ( round(_counter_create_enemy) == 10) {
         if (_total_ship_5_created < global.TOTAL_SHIPS_5) {
             CreateEnemy(_enemy_type)    
             _total_ship_5_created ++
-            show_debug_message("Ships 4 created:" + string(_total_ship_5_created))
+           // show_debug_message("Ships 4 created:" + string(_total_ship_5_created))
             _can_create_enemy = false
         }
         if (_total_ship_5_destroyed == global.TOTAL_SHIPS_5) {
@@ -104,7 +104,7 @@ if ( round(_counter_create_enemy) == 10) {
         if (_total_ship_6_created < global.TOTAL_SHIPS_6) {
             CreateEnemy(_enemy_type)    
             _total_ship_6_created ++
-            show_debug_message("Ships 6 created:" + string(_total_ship_6_created))
+            //show_debug_message("Ships 6 created:" + string(_total_ship_6_created))
             _can_create_enemy = false
         }
         if (_total_ship_6_destroyed == global.TOTAL_SHIPS_6) {
@@ -140,7 +140,7 @@ if ( round(_counter_create_enemy) == 10) {
         }
     }
     
-    show_debug_message("Can create enemy: " + string(_can_create_enemy))
+   // show_debug_message("Can create enemy: " + string(_can_create_enemy))
     
     // Determine enemy type
     _counter_create_enemy = 0

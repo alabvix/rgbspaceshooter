@@ -8,6 +8,139 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_change_weapon = false
+_weapon_index = 1
+
+switch (global.player_weapon_special) {
+    case global.SPECIAL_WEAPON_1:
+        obj_special_weapon_display.sprite_index = spt_weapon_1_display
+        obj_player_weapon_1_icon.sprite_index = spt_weapon_1_ready
+        break
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if (_change_weapon) {
+    obj_player_weapon_1_icon.sprite_index = spt_weapon_1_icon
+    obj_player_weapon_2_icon.sprite_index = spt_weapon_2_icon
+    obj_player_weapon_3_icon.sprite_index = spt_weapon_3_icon
+    obj_player_weapon_4_icon.sprite_index = spt_weapon_4_icon
+    obj_player_weapon_5_icon.sprite_index = spt_weapon_5_icon
+    obj_player_weapon_6_icon.sprite_index = spt_weapon_6_icon
+    obj_player_weapon_7_icon.sprite_index = spt_weapon_7_icon
+    obj_player_weapon_8_icon.sprite_index = spt_weapon_8_icon
+    switch(_weapon_index) {
+        case 1:
+            obj_player_weapon_1_icon.sprite_index = spt_weapon_1_ready
+            if (global.player_has_weapon_1) {
+                obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;
+        case 2:
+            obj_player_weapon_2_icon.sprite_index = spt_weapon_2_ready
+            if (global.player_has_weapon_2) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;
+        case 3:
+            obj_player_weapon_3_icon.sprite_index = spt_weapon_3_ready
+             if (global.player_has_weapon_3) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;    
+        case 4:
+            obj_player_weapon_4_icon.sprite_index = spt_weapon_4_ready
+             if (global.player_has_weapon_4) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;
+        case 5:
+            obj_player_weapon_5_icon.sprite_index = spt_weapon_5_ready
+            if (global.player_has_weapon_5) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;
+        case 6:
+            obj_player_weapon_6_icon.sprite_index = spt_weapon_6_ready
+            if (global.player_has_weapon_6) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;
+        case 7:
+            obj_player_weapon_7_icon.sprite_index = spt_weapon_7_ready
+            if (global.player_has_weapon_7) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;
+        case 8:
+            obj_player_weapon_8_icon.sprite_index = spt_weapon_8_ready
+            if (global.player_has_weapon_8) {
+                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
+            } else {
+                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+            }
+            break;                          
+    }
+    _change_weapon = false
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -50,15 +183,27 @@ hull_value = (obj_player_ship._hull / obj_player_ship._hull_max) * 100;
 draw_healthbar(220,20,420,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
 
 // Player Ship power bar
-value = (obj_player_ship._rainbow_energy / obj_player_ship._rainbow_energy_max) * 100;
-draw_healthbar(610,20,810,35, value, c_dkgray, c_dkgray, c_yellow, 0, true, true); 
+//value = (obj_player_ship._rainbow_energy / obj_player_ship._rainbow_energy_max) * 100;
+//draw_healthbar(610,20,810,35, value, c_dkgray, c_dkgray, c_yellow, 0, true, true); 
 
-// Total ammo
+// Player Energy Hud
+/*
+instance_create(17,21, obj_red_energy_tank)
+instance_create(17,54, obj_green_energy_tank)
+instance_create(120,21, obj_blue_energy_tank)
+instance_create(120,54, obj_rgb_energy_tank)
+*/
 draw_set_font( font_10 );
-draw_text_transformed(28,  50, obj_player_ship._red_ammo,1,1,0 );
-draw_text_transformed(80,  50, obj_player_ship._green_ammo,1,1,0 );
-draw_text_transformed(133, 50, obj_player_ship._blue_ammo,1,1,0 );
-draw_text_transformed(183, 50, obj_player_ship._rainbow_energy,1,1,0 );
+var red_energy = string(obj_player_ship._red_energy) + "/" + string(obj_player_ship._red_energy_base)
+var green_energy = string(obj_player_ship._green_energy) + "/" + string(obj_player_ship._green_energy_base)
+var blue_energy = string(obj_player_ship._blue_energy) + "/" + string(obj_player_ship._blue_energy_base)
+var rgb_energy = string(obj_player_ship._rgb_energy) + "/" + string(obj_player_ship._rgb_energy_base)
+
+draw_text_transformed(58, 21, red_energy, 1,1,0 );
+draw_text_transformed(58, 54, green_energy, 1,1,0 );
+draw_text_transformed(163, 21, green_energy, 1,1,0 );
+draw_text_transformed(163, 54, rgb_energy, 1,1,0 );
+
 
 // Destination planet
 switch (global.selected_planet) {
@@ -72,7 +217,7 @@ draw_text_transformed(995, 25, "x" + string(global.player_lives),1,1,0 )
 
 // Boss life
 if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
-    switch (global.game_stage) {
+    switch (global.selected_planet) {
         case 1:
             hp = (obj_sub_boss_1._hp_current / obj_sub_boss_1._hp_max) * 100;
             draw_healthbar(300,80,700,93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
@@ -82,6 +227,62 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
             break
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_weapon_index --
+if (_weapon_index &lt;= 0) {
+    _weapon_index = 8
+}
+_change_weapon = true
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_weapon_index ++
+if (_weapon_index &gt;= 8) {
+    _weapon_index = 1
+}
+_change_weapon = true
+
+
 </string>
           </argument>
         </arguments>

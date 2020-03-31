@@ -1,6 +1,7 @@
 ///DefineGlobals
 
 global.test_super_hit = false
+global.test_ship_undestrutible = false
 
 global.RED   = 1
 global.GREEN = 2
@@ -119,20 +120,29 @@ global.WEAPON_BIO_BALL          = 4
 global.WEAPON_BIO_VERM          = 5
 global.WEAPON_ENERGY_BALL_V     = 6
 
+
+//////////////////////////////////
+// player stuff
+global.player_lives = 2
+global.player_has_weapon_1 = true
+global.player_has_weapon_2 = false
+global.player_has_weapon_3 = false
+global.player_has_weapon_4 = false
+global.player_has_weapon_5 = false
+global.player_has_weapon_6 = false
+global.player_has_weapon_7 = false
+global.player_has_weapon_8 = false
+
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
-
-// player 
-global.player_lives = 2
 global.player_weapon = global.PLAYER_SINGLE_LASER
+global.SPECIAL_WEAPON_1 = 1
+global.player_weapon_special = global.SPECIAL_WEAPON_1
 
 // boss names
 global.BOSS_1_NAME = "Visontroy"
 
-
-global.SPECIAL_WEAPON_1 = 1
-global.player_weapon_special = global.SPECIAL_WEAPON_1
 
 global.dir_array[0] = 0
 global.dir_array[1] = 30

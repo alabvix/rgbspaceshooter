@@ -48,14 +48,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (_type) {
-    case 1:
-        if (obj_player_ship._rainbow_energy &gt; 20 ) {
-            sprite_index = spt_weapon_1_ready
-        } else {
-            sprite_index = spt_weapon_1
-        }
-}        
+            <string>
+//switch (_type) {
+//    case 1:
+//        if (obj_player_ship._rgb_energy &gt; 20 ) {
+//            sprite_index = spt_weapon_1_ready
+//        } else {
+//            sprite_index = spt_weapon_1
+//        }
+//}        
         
 </string>
           </argument>

@@ -161,7 +161,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
     // Count time for lauch first wave
     if (_wave_counter) {
         _first_wave_counter += 1
-        show_debug_message(string(_first_wave_counter ))
+        //show_debug_message(string(_first_wave_counter ))
         if ( _first_wave_counter &lt;= 100) {
             exit
         } else {
@@ -180,6 +180,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
     }
     
     if (global.selected_planet == global.PLANET_AURORA_LAND) {
+        
         _counter_create_building ++
         if (_counter_create_building == 120) {
             CreateBuildings()
@@ -191,21 +192,6 @@ if (global.game_state == global.GAME_STATE_PLAY) {
             CreateLandEnemies()
             _counter_create_land_enemies = 0
         }
-        
-        /*
-    
-        if (_counter_create_building &lt; 100) {
-            CreateBuildings()
-            _counter_create_building ++
-        } else {
-            if (_counter_create_land_enemies &lt; 100) {
-                CreateLandEnemies()
-                _counter_create_land_enemies ++            
-            } else {
-                _counter_create_building = 0
-                _counter_create_land_enemies = 0
-            }
-        }*/
     }
    
 }
@@ -213,7 +199,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
 if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
     if ( ! _show_boss_warning_msg) {
         _counter_show_boss_warning ++    
-        show_debug_message("couter boss message:" + string(_counter_show_boss_warning))
+        //show_debug_message("couter boss message:" + string(_counter_show_boss_warning))
     }
     if (_counter_show_boss_warning == 160 &amp;&amp; ! _counter_for_boss) {
         _show_boss_warning_msg = true
@@ -222,7 +208,7 @@ if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
     }
     if (_counter_for_boss) {
         _counter_boss_fighting ++
-        show_debug_message("couter boss fight:" + string(_counter_boss_fighting))
+        //show_debug_message("couter boss fight:" + string(_counter_boss_fighting))
     }
     if (_counter_boss_fighting == 140) {
         _show_boss_warning_msg = false
@@ -249,7 +235,7 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
         _planet.image_yscale += 0.01
         if (_planet.y == 200) {
             _planet_moved = true   
-           show_debug_message("planet moved and preparaed")
+           //show_debug_message("planet moved and preparaed")
         }
     }
     // Move the player ship into the planet

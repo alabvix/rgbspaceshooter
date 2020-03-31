@@ -38,6 +38,7 @@ if (inst != noone) {
     if (_is_cargo_ship ) {
         GenerateRandomItem(x,y)
     }
+    instance_create(x,y, obj_rainbow_energy)
     instance_destroy()
 }     
 </string>

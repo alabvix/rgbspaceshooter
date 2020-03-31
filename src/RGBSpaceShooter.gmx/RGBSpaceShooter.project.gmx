@@ -45,7 +45,7 @@
       <sprite>sprites\spt_green_laser</sprite>
       <sprite>sprites\spt_blue_laser</sprite>
       <sprite>sprites\spt_weapon_1_fire</sprite>
-      <sprite>sprites\spt_rainbow_energy</sprite>
+      <sprite>sprites\spt_rgb_energy</sprite>
       <sprite>sprites\spt_special_w_1</sprite>
     </sprites>
     <sprites name="enemies">
@@ -97,15 +97,30 @@
       <sprite>sprites\spt_hud_laser_blue</sprite>
       <sprite>sprites\spt_hud_laser_green</sprite>
       <sprite>sprites\spt_hud_laser_rgb</sprite>
-      <sprite>sprites\spt_weapon_1</sprite>
+      <sprite>sprites\spt_weapon_1_icon</sprite>
       <sprite>sprites\spt_weapon_1_ready</sprite>
       <sprite>sprites\spt_weapon_2_icon</sprite>
+      <sprite>sprites\spt_weapon_2_ready</sprite>
       <sprite>sprites\spt_weapon_3_icon</sprite>
+      <sprite>sprites\spt_weapon_3_ready</sprite>
       <sprite>sprites\spt_weapon_4_icon</sprite>
+      <sprite>sprites\spt_weapon_4_ready</sprite>
       <sprite>sprites\spt_weapon_5_icon</sprite>
+      <sprite>sprites\spt_weapon_5_ready</sprite>
       <sprite>sprites\spt_weapon_6_icon</sprite>
+      <sprite>sprites\spt_weapon_6_ready</sprite>
       <sprite>sprites\spt_weapon_7_icon</sprite>
+      <sprite>sprites\spt_weapon_7_ready</sprite>
       <sprite>sprites\spt_weapon_8_icon</sprite>
+      <sprite>sprites\spt_weapon_8_ready</sprite>
+      <sprite>sprites\spt_red_energy_tank</sprite>
+      <sprite>sprites\spt_blue_energy_tank</sprite>
+      <sprite>sprites\spt_green_energy_tank</sprite>
+      <sprite>sprites\spt_rgb_energy_tank</sprite>
+      <sprite>sprites\spt_weapon_display</sprite>
+      <sprite>sprites\spt_weapon_dislpay</sprite>
+      <sprite>sprites\spt_weapon_1_display</sprite>
+      <sprite>sprites\spt_weapon_display_not_found</sprite>
     </sprites>
     <sprites name="itens">
       <sprite>sprites\spt_blue_laser_refil</sprite>
@@ -159,7 +174,6 @@
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
     <script>scripts\ContinueGame.gml</script>
     <script>scripts\InitGameVars.gml</script>
-    <script>scripts\CalculateParabole1.gml</script>
     <script>scripts\FireBossWeapon.gml</script>
     <script>scripts\CreateRegularEnemies.gml</script>
     <script>scripts\CreateSecondaryEnemies.gml</script>
@@ -195,7 +209,7 @@
       <object>objects\obj_hud_laser_rgb</object>
       <object>objects\obj_ship_icon</object>
       <object>objects\obj_base_weapon</object>
-      <object>objects\obj_player_weapon_1</object>
+      <object>objects\obj_player_weapon_1_icon</object>
       <object>objects\obj_player_weapon_2_icon</object>
       <object>objects\obj_player_weapon_3_icon</object>
       <object>objects\obj_player_weapon_4_icon</object>
@@ -203,6 +217,13 @@
       <object>objects\obj_player_weapon_6_icon</object>
       <object>objects\obj_player_weapon_7_icon</object>
       <object>objects\obj_player_weapon_8_icon</object>
+      <object>objects\obj_red_energy_tank</object>
+      <object>objects\obj_green_energy_tank</object>
+      <object>objects\obj_blue_energy_tank</object>
+      <object>objects\obj_rgb_energy_tank</object>
+      <object>objects\obj_weapon_display</object>
+      <object>objects\obj_special_weapon_display</object>
+      <object>objects\obj_weapon_1_display</object>
     </objects>
     <objects name="enemies">
       <object>objects\obj_base_enemy</object>
