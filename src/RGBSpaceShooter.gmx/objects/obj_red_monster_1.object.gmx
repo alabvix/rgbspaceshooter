@@ -35,6 +35,7 @@ _speed_y = 0
 
 _shoot_in    = 30 // fires in each n seconds 
 _weapon_type = global.WEAPON_ENERGY_BALL_SPIN 
+_is_monster = true
 
 
 </string>

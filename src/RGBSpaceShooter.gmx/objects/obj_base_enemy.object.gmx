@@ -39,6 +39,7 @@ _type          = 0 // ship_1, ship_2, monster, etc...
 _is_cargo_ship = false
 _is_ship_6     = false
 _color         = 0
+_is_monster    = false
 
 _shadow = 0
 

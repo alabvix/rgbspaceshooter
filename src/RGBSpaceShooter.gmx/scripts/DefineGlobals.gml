@@ -13,6 +13,7 @@ global.ITEM_BLUE_AMMO    = 3
 global.ITEM_SINGLE_LASER = 4
 global.ITEM_DOUBLE_LASER = 5
 global.ITEM_TRI_LASER    = 6
+global.ITEM_RGB_ENERGY   = 7
 
 // Game States
 global.GAME_STATE_MAIN_MENU      = 1

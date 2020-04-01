@@ -4,7 +4,28 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_player_normal_laser_1</sound>
+    <sound>sound\snd_player_normal_laser_2</sound>
+    <sound>sound\snd_player_normal_laser_3</sound>
+    <sound>sound\snd_player_normal_laser_4</sound>
+    <sound>sound\snd_rgb_item_collected</sound>
+    <sound>sound\snd_energy_item_collected</sound>
+    <sound>sound\snd_double_laser_1</sound>
+    <sound>sound\snd_double_laser_2</sound>
+    <sound>sound\snd_explo_0</sound>
+    <sound>sound\snd_explo_1</sound>
+    <sound>sound\snd_explo_2</sound>
+    <sound>sound\snd_explo_3</sound>
+    <sound>sound\snd_vox_double_laser</sound>
+    <sound>sound\snd_vox_single_laser</sound>
+    <sound>sound\snd_vox_tri_laser</sound>
+    <sound>sound\snd_monster_killed_1</sound>
+    <sound>sound\snd_monster_killed_2</sound>
+    <sound>sound\snd_monster_killed_3</sound>
+    <sound>sound\snd_monster_killed_4</sound>
+    <sound>sound\snd_special_weapon_1</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
     <sprite>sprites\spt_star_1</sprite>
@@ -186,6 +207,11 @@
     <script>scripts\GotoPlanet.gml</script>
     <script>scripts\CreateBuildings.gml</script>
     <script>scripts\CreateLandEnemies.gml</script>
+    <script>scripts\PlayShipLaser.gml</script>
+    <script>scripts\PlayItemSound.gml</script>
+    <script>scripts\PlaySoundExplosion.gml</script>
+    <script>scripts\PlayMonsterDieSound.gml</script>
+    <script>scripts\PlaySpecialWeapon.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -312,7 +338,7 @@
       <object>objects\obj_red_fire_concetrate</object>
       <object>objects\obj_green_fire_concetrate</object>
       <object>objects\obj_blue_fire_concetrate</object>
-      <object>objects\obj_rainbow_energy</object>
+      <object>objects\obj_rgb_energy</object>
       <object>objects\obj_special_weapon_base</object>
       <object>objects\obj_special_weapon_1_fire</object>
       <object>objects\obj_player_ship_shadow</object>

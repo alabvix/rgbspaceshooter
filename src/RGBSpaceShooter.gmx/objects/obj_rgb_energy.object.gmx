@@ -60,6 +60,7 @@ if (distance_to_object( obj_player_ship ) &lt; 100) {
             player_ship._rgb_energy ++;
         }
         instance_destroy()
+        PlayItemSound(global.ITEM_RGB_ENERGY)    
     }
 }
 

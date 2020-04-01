@@ -62,6 +62,7 @@ if (enemy) {
     instance_destroy()
 }
 
+// Collision with enemy
 enemy = instance_place(x,y, obj_base_enemy)
 if (enemy) {
     enemy._hp -= _demage
@@ -80,8 +81,13 @@ if (enemy) {
                 LiberateIten(global.BLUE,x,y)
             }
         }
+        if (enemy._is_monster) {
+            PlayMonsterDieSound()
+        } else {
+            PlaySoundExplosion()
+        }
         instance_destroy(enemy)
-        instance_create(x,y, obj_rainbow_energy)
+        instance_create(x,y, obj_rgb_energy)
     }
 }
 

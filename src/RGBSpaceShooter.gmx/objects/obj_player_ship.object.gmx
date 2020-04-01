@@ -263,6 +263,7 @@ if (key_fire_red &amp;&amp; _red_energy &gt; 0) {
     if (_red_energy &lt; 0) {
         _red_energy = 0
     }
+    PlayShipLaser();
 }
 if (key_fire_green &amp;&amp; _green_energy &gt; 0) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
@@ -285,6 +286,7 @@ if (key_fire_green &amp;&amp; _green_energy &gt; 0) {
     if (_green_energy &lt; 0) {
         _green_energy = 0
     }
+    PlayShipLaser();
 }
 if (key_fire_blue &amp;&amp; _blue_energy &gt; 0) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
@@ -307,6 +309,7 @@ if (key_fire_blue &amp;&amp; _blue_energy &gt; 0) {
     if (_blue_energy &lt; 0) {
         _blue_energy = 0
     }
+    PlayShipLaser();
 }
 
 // Special weapon fired
@@ -321,6 +324,7 @@ if (key_fire_special) {
             if (_rgb_energy &lt;=0) {
                 _rgb_energy = 0
             }
+            PlaySpecialWeapon()
     }        
 }
 
@@ -332,6 +336,7 @@ if (refil != noone) {
         _red_energy = _red_energy_base
     }
     instance_destroy(refil)
+    PlayItemSound(global.ITEM_RED_AMMO)
 }
 refil = instance_place(x,y, obj_item_green_ammo)
 if (refil != noone) {
@@ -340,6 +345,7 @@ if (refil != noone) {
         _green_energy = _green_energy_base
     }
     instance_destroy(refil);
+    PlayItemSound(global.ITEM_GREEN_AMMO)
 }
 refil = instance_place(x,y, obj_item_blue_ammo)
 if (refil != noone) {
@@ -348,6 +354,7 @@ if (refil != noone) {
         _blue_energy = _blue_energy_base
     }
     instance_destroy(refil);
+    PlayItemSound(global.ITEM_BLUE_AMMO)
 }
 
 // collision with weapon itens
@@ -356,6 +363,7 @@ if (double_laser) {
     _message = "Double Laser" 
     global.player_weapon = global.PLAYER_DOUBLE_LASER
     instance_destroy(double_laser);
+    PlayItemSound(global.ITEM_DOUBLE_LASER)
 }
 
 single_laser = instance_place(x,y, obj_item_single_laser) 
@@ -363,6 +371,7 @@ if (single_laser) {
     _message = "Single Laser" 
     global.player_weapon = global.PLAYER_SINGLE_LASER
     instance_destroy(single_laser);
+    PlayItemSound(global.ITEM_SINGLE_LASER)    
 }
 
 tri_laser = instance_place(x,y, obj_item_tri_laser) 
@@ -370,8 +379,8 @@ if (tri_laser) {
     _message = "Tri Laser" 
     global.player_weapon = global.PLAYER_TRI_LASER
     instance_destroy(tri_laser);
+    PlayItemSound(global.ITEM_TRI_LASER)    
 }
-
 
 
 </string>
