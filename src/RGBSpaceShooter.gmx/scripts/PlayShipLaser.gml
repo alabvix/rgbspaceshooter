@@ -1,7 +1,5 @@
 
-if (global.player_weapon == global.PLAYER_SINGLE_LASER || 
-    global.player_weapon == global.PLAYER_TRI_LASER
-) {
+if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
     switch (irandom_range(1,4)) {
         case 1:
             audio_play_sound(snd_player_normal_laser_1, 1, false);
@@ -27,6 +25,18 @@ if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
             break;        
     }
 } 
+if (global.player_weapon == global.PLAYER_TRI_LASER) {
+    switch (irandom_range(1,2)) {
+        case 1:
+            audio_play_sound(snd_tri_laser_1, 1, false);
+            break;
+        case 2:
+            audio_play_sound(snd_tri_laser_2, 1, false);
+            break;        
+    }
+} 
+
+ 
 
 
 

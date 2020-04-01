@@ -25,6 +25,8 @@
     <sound>sound\snd_monster_killed_3</sound>
     <sound>sound\snd_monster_killed_4</sound>
     <sound>sound\snd_special_weapon_1</sound>
+    <sound>sound\snd_tri_laser_1</sound>
+    <sound>sound\snd_tri_laser_2</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
