@@ -221,6 +221,14 @@ if (basic_player_shot) {
     event_inherited()
 }
 
+var special_player_shot = instance_place(x,y, obj_special_weapon_base)
+if (special_player_shot) {
+    _hp_current -= special_player_shot._demage
+    instance_create(special_player_shot.x, special_player_shot.y, obj_bio_explosion)
+    instance_destroy(special_player_shot)
+    event_inherited()
+}
+
 
 
             

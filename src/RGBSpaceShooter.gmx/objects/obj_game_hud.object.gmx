@@ -201,7 +201,7 @@ var rgb_energy = string(obj_player_ship._rgb_energy) + "/" + string(obj_player_s
 
 draw_text_transformed(58, 21, red_energy, 1,1,0 );
 draw_text_transformed(58, 54, green_energy, 1,1,0 );
-draw_text_transformed(163, 21, green_energy, 1,1,0 );
+draw_text_transformed(163, 21, blue_energy, 1,1,0 );
 draw_text_transformed(163, 54, rgb_energy, 1,1,0 );
 
 

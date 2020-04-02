@@ -27,6 +27,8 @@
     <sound>sound\snd_special_weapon_1</sound>
     <sound>sound\snd_tri_laser_1</sound>
     <sound>sound\snd_tri_laser_2</sound>
+    <sound>sound\snd_sub_boss_1_laser</sound>
+    <sound>sound\snd_sub_boss_1_laser_2</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -214,6 +216,7 @@
     <script>scripts\PlaySoundExplosion.gml</script>
     <script>scripts\PlayMonsterDieSound.gml</script>
     <script>scripts\PlaySpecialWeapon.gml</script>
+    <script>scripts\PlayBossFireShot.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>

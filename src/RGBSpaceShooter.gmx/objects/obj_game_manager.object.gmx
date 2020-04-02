@@ -244,7 +244,7 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
         obj_player_ship.image_xscale -= 0.01;
         obj_player_ship.image_yscale -= 0.01;
         show_debug_message("ship y :" + string(obj_player_ship.y))
-        if (obj_player_ship.image_xscale == 0.00) {
+        if (obj_player_ship.image_xscale &lt;= 0.00) {
            _player_ship_landed = true
         }
     }

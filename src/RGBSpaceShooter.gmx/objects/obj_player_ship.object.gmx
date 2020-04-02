@@ -183,6 +183,12 @@ if (meteor != noone) {
     SetShipExplosion()
 }
 
+boss = instance_place(x,y,obj_boss_base)
+if (boss != noone) {
+    _hull = 0
+    SetShipExplosion()
+}
+
 key_fire_red     = keyboard_check_pressed(ord('A'))
 key_fire_green   = keyboard_check_pressed(ord('S'))
 key_fire_blue    = keyboard_check_pressed(ord('D'))
