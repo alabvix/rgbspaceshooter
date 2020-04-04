@@ -54,7 +54,7 @@ _name = ""
             <string>/// Check for boss destruction
 if (_hp_current &lt;=0) {
     SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
-    obj_player_ship._score += _points
+    global.player_score += _points
     
     instance_create(x+10, y+10, obj_little_explosion)
     PlaySoundExplosion()
@@ -65,6 +65,16 @@ if (_hp_current &lt;=0) {
     instance_create(x-5, y-30, obj_little_explosion)
     PlaySoundExplosion()
     instance_create(x+5, y+30, obj_little_explosion)
+    PlaySoundExplosion()
+    instance_create(x+50, y+50, obj_little_explosion)
+    PlaySoundExplosion()
+    instance_create(x-50, y-50, obj_little_explosion)
+    PlaySoundExplosion()
+    instance_create(x+20, y-20, obj_little_explosion)
+    PlaySoundExplosion()
+    instance_create(x-60, y+60, obj_little_explosion)
+    PlaySoundExplosion()
+    instance_create(x+27, y+37, obj_little_explosion)
     PlaySoundExplosion()
     
     instance_destroy()

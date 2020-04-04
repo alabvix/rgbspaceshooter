@@ -32,11 +32,10 @@ _anim_speed = 1
 _anim_speed_ratio  = 100000
 _velocity = 6
 
+/*
 _hull = 100
 _hull_max = 100
-
 _score = 0
-
 _blue_energy = 200
 _blue_energy_base = 200
 _red_energy   = 200
@@ -45,7 +44,7 @@ _green_energy = 200
 _green_energy_base = 200
 _rgb_energy = 0
 _rgb_energy_base = 200
-
+*/
 
 
 _fire_red_held_down = 0
@@ -156,14 +155,14 @@ _special_weapon.y = y - 40
 // Handle collisions with enemy shot
 shoot = instance_place(x,y,obj_enemy_weapon_base)
 if (shoot != noone) {
-    _hull -= shoot._demage
+    global.player_hull -= shoot._demage
     instance_create(shoot.x, shoot.y, obj_little_explosion)
     instance_destroy(shoot)
     //show_debug_message("Ship Hull:" + string(_hull));
     
     // Ship destroyed
-    if (_hull &lt; 0) {
-        _hull = 0
+    if (global.player_hull &lt; 0) {
+        global.player_hull = 0
         instance_destroy(_special_weapon)
         SetShipExplosion()
     }
@@ -172,20 +171,20 @@ if (shoot != noone) {
 // Ship is destroyed if collides with meteor or other ship
 enemy = instance_place(x,y,obj_base_enemy)
 if (enemy != noone) {
-    _hull = 0
+    global.player_hull = 0
     instance_destroy(_special_weapon)
     SetShipExplosion()
 }
 
 meteor = instance_place(x,y,obj_meteor_base)
 if (meteor != noone) {
-    _hull = 0
+    global.player_hull = 0
     SetShipExplosion()
 }
 
 boss = instance_place(x,y,obj_boss_base)
 if (boss != noone) {
-    _hull = 0
+    global.player_hull = 0
     SetShipExplosion()
 }
 
@@ -206,11 +205,11 @@ if (
 if keyboard_check(ord('A')) {
     show_debug_message("Key A held down")
     _fire_red_held_down ++
-    if (_fire_red_held_down &gt; 20 &amp;&amp; _red_energy &gt; 0) {
+    if (_fire_red_held_down &gt; 20 &amp;&amp; global.player_red_energy &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_red_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_red_fire_concetrate)
-        _red_energy -= 2
-        if (_red_energy &lt; 0) _red_energy = 0   
+        global.player_red_energy -= 2
+        if (global.player_red_energy &lt; 0) global.player_red_energy = 0   
         exit
     } 
 } else {
@@ -221,11 +220,11 @@ if keyboard_check(ord('A')) {
 if keyboard_check(ord('D')) {
     show_debug_message("Key D held down")
     _fire_blue_held_down ++
-    if (_fire_blue_held_down &gt; 20 &amp;&amp; _blue_energy &gt; 0) {
+    if (_fire_blue_held_down &gt; 20 &amp;&amp; global.player_blue_energy &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_blue_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_blue_fire_concetrate)
-        _blue_energy -= 2
-        if (_blue_energy &lt; 0) _blue_energy = 0
+        global.player_blue_energy -= 2
+        if (global.player_blue_energy &lt; 0) global.player_blue_energy = 0
         exit
     }
 } else {
@@ -236,10 +235,11 @@ if keyboard_check(ord('D')) {
 if keyboard_check(ord('S')) {
     show_debug_message("Key S held down")
     _fire_green_held_down ++
-    if (_fire_green_held_down &gt; 20) {
+    if (_fire_green_held_down &gt; 20 &amp;&amp; global.player_green_energy &gt; 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_green_fire_concetrate)
         instance_create(x+25, y + irandom_range(1,5), obj_green_fire_concetrate)
-        if (_green_energy &lt; 0) _green_energy = 0
+        global.player_green_energy -= 2
+        if (global.player_green_energy &lt; 0) global.player_green_energy = 0
         exit
     }
 } else {
@@ -248,7 +248,7 @@ if keyboard_check(ord('S')) {
 
 // Fire
 var fire_cost = 1;
-if (key_fire_red &amp;&amp; _red_energy &gt; 0) {
+if (key_fire_red &amp;&amp; global.player_red_energy &gt; 0) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
         instance_create(x, y - 60, obj_red_laser)
     }
@@ -265,13 +265,13 @@ if (key_fire_red &amp;&amp; _red_energy &gt; 0) {
         mr._move_right = true
         fire_cost = 3
     }
-    _red_energy -= fire_cost;
-    if (_red_energy &lt; 0) {
-        _red_energy = 0
+    global.player_red_energy -= fire_cost;
+    if (global.player_red_energy &lt; 0) {
+        global.player_red_energy = 0
     }
     PlayShipLaser();
 }
-if (key_fire_green &amp;&amp; _green_energy &gt; 0) {
+if (key_fire_green &amp;&amp; global.player_green_energy &gt; 0) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
         instance_create(x, y - 60, obj_green_laser)
     }
@@ -288,13 +288,13 @@ if (key_fire_green &amp;&amp; _green_energy &gt; 0) {
         mr._move_right = true
         fire_cost = 3
     }
-    _green_energy -= fire_cost;
-    if (_green_energy &lt; 0) {
-        _green_energy = 0
+    global.player_green_energy -= fire_cost;
+    if (global.player_green_energy &lt; 0) {
+        global.player_green_energy = 0
     }
     PlayShipLaser();
 }
-if (key_fire_blue &amp;&amp; _blue_energy &gt; 0) {
+if (key_fire_blue &amp;&amp;  global.player_blue_energy &gt; 0) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
         instance_create(x, y - 60, obj_blue_laser)
     }
@@ -311,24 +311,24 @@ if (key_fire_blue &amp;&amp; _blue_energy &gt; 0) {
         mr._move_right = true
         fire_cost = 3
     }
-    _blue_energy -= fire_cost;
-    if (_blue_energy &lt; 0) {
-        _blue_energy = 0
+    global.player_blue_energy -= fire_cost;
+    if (global.player_blue_energy &lt; 0) {
+        global.player_blue_energy = 0
     }
     PlayShipLaser();
 }
 
 // Special weapon fired
 if (key_fire_special) {
-    if (_rgb_energy &lt;= 0) {
+    if (global.player_rgb_energy &lt;= 0) {
         exit
     }    
     switch (global.player_weapon_special) {
         case global.SPECIAL_WEAPON_1:
             var weapon = instance_create(x,y-20, obj_special_weapon_1_fire)
-            _rgb_energy = _rgb_energy - weapon._cost
-            if (_rgb_energy &lt;=0) {
-                _rgb_energy = 0
+            global.player_rgb_energy = global.player_rgb_energy - weapon._cost
+            if (global.player_rgb_energy &lt;=0) {
+                global.player_rgb_energy = 0
             }
             PlaySpecialWeapon()
     }        
@@ -337,27 +337,27 @@ if (key_fire_special) {
 // Collision with itens
 var refil = instance_place(x,y, obj_item_red_ammo)
 if (refil != noone) {
-    _red_energy += refil._ammo
-    if (_red_energy &gt; _red_energy_base) {
-        _red_energy = _red_energy_base
+    global.player_red_energy += refil._ammo
+    if (global.player_red_energy &gt; global.player_red_energy_base) {
+        global.player_red_energy = global.player_red_energy_base
     }
     instance_destroy(refil)
     PlayItemSound(global.ITEM_RED_AMMO)
 }
 refil = instance_place(x,y, obj_item_green_ammo)
 if (refil != noone) {
-    _green_energy += refil._ammo
-    if (_green_energy &gt; _green_energy_base) {
-        _green_energy = _green_energy_base
+    global.player_green_energy += refil._ammo
+    if (global.player_green_energy &gt; global.player_green_energy_base) {
+        global.player_green_energy = global.player_green_energy_base
     }
     instance_destroy(refil);
     PlayItemSound(global.ITEM_GREEN_AMMO)
 }
 refil = instance_place(x,y, obj_item_blue_ammo)
 if (refil != noone) {
-    _blue_energy += refil._ammo
-    if (_blue_energy &gt; _blue_energy_base) {
-        _blue_energy = _blue_energy_base
+    global.player_blue_energy += refil._ammo
+    if (global.player_blue_energy &gt; global.player_blue_energy_base) {
+        global.player_blue_energy = global.player_blue_energy_base
     }
     instance_destroy(refil);
     PlayItemSound(global.ITEM_BLUE_AMMO)

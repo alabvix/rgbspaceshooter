@@ -149,7 +149,9 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         // Next player life
         _respaw_count = 0
         global.player_weapon = global.PLAYER_SINGLE_LASER
-        room_restart();
+        global.player_score = 0
+        ResetShipAttributes()
+        room_restart()
         SetGameState(global.GAME_STATE_PLAY)
     }
 }

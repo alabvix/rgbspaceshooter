@@ -56,8 +56,8 @@ if (distance_to_object( obj_player_ship ) &lt; 100) {
     move_towards_point( obj_player_ship.x, obj_player_ship.y, 20 );
     player_ship = instance_place(x,y, obj_player_ship)
     if (player_ship) {
-        if ( player_ship._rgb_energy &lt;= player_ship._rgb_energy_base ) {
-            player_ship._rgb_energy ++;
+        if ( global.player_rgb_energy &lt;= global.player_rgb_energy_base ) {
+            global.player_rgb_energy ++;
         }
         instance_destroy()
         PlayItemSound(global.ITEM_RGB_ENERGY)    

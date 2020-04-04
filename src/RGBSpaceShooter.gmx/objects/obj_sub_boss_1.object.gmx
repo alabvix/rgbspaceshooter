@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited()
 _name  = global.BOSS_1_NAME
-_pontos = 300
+_points = 300
 
 _hp_max = 800
 _hp_current = _hp_max

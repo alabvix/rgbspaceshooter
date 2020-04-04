@@ -44,11 +44,11 @@ enemy = instance_place(x,y, obj_red_base_enemy)
 if (enemy) {
     enemy._hp -= _demage
     instance_create(x, y, obj_little_explosion)
-    show_debug_message("Enemy HP:" + string(enemy._hp));
+    //show_debug_message("Enemy HP:" + string(enemy._hp));
     instance_destroy()
     if (enemy._hp &lt; 0) {
-        obj_player_ship._score += enemy._points
-        show_debug_message("Player Score:" + string(obj_player_ship._score));
+        global.player_score += enemy._points
+        //show_debug_message("Player Score:" + string(obj_player_ship._score));
         if (enemy._is_cargo_ship) {
             GenerateRandomItem(x,y)
             instance_destroy(enemy._shadow)
