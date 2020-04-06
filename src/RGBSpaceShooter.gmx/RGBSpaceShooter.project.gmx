@@ -29,6 +29,9 @@
     <sound>sound\snd_tri_laser_2</sound>
     <sound>sound\snd_sub_boss_1_laser</sound>
     <sound>sound\snd_sub_boss_1_laser_2</sound>
+    <sound>sound\snd_music_main_theme</sound>
+    <sound>sound\snd_music_planet_selection</sound>
+    <sound>sound\snd_music_aurora_space</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>

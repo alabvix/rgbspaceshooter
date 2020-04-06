@@ -13,7 +13,11 @@
   <code>instance_destroy(obj_transiction)
 
 background_hspeed[0] = 2;
-//background_vspeed[0] = 2;</code>
+//background_vspeed[0] = 2;
+//audio_stop_sound(snd_music_main_theme);
+audio_stop_all();
+audio_play_sound(snd_music_planet_selection, 1, true);
+audio_sound_gain(snd_music_planet_selection, 0.3, 0);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
