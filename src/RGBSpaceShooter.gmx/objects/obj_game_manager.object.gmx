@@ -59,6 +59,8 @@ _player_ship_landed = false
 _planet = 0
 //---------
 
+_game_over_menu_draw = false
+
 _counter_create_land_obj = 0
 
 
@@ -290,14 +292,17 @@ var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
 
 // Game Over
-if (global.game_state == global.GAME_STATE_GAME_OVER) {
-    window_set_cursor(cr_default)
+if (global.game_state == global.GAME_STATE_GAME_OVER ) {
     draw_set_color(c_aqua);
     draw_set_font( font_40 );
     draw_text_transformed(centro_room_x, centro_room_y-100, "GAME OVER",1,1,0 );
-    instance_create(centro_room_x,  centro_room_y + 50, obj_frame_medium)
-    instance_create(centro_room_x - 100,  centro_room_y + 40, obj_btn_game_over_continue)
-    instance_create(centro_room_x + 50,   centro_room_y + 40, obj_btn_game_over_main_menu)
+    if (!_game_over_menu_draw) {
+        window_set_cursor(cr_default)
+        instance_create(centro_room_x,  centro_room_y + 50, obj_frame_medium)
+        instance_create(centro_room_x - 100,  centro_room_y + 40, obj_btn_game_over_continue)
+        instance_create(centro_room_x + 50,   centro_room_y + 40, obj_btn_game_over_main_menu)
+        _game_over_menu_draw = true
+    }
 }
 
 if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {

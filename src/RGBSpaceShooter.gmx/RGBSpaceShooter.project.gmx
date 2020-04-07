@@ -157,6 +157,7 @@
       <sprite>sprites\spt_single_laser</sprite>
       <sprite>sprites\spt_double_laser</sprite>
       <sprite>sprites\spt_tri_laser</sprite>
+      <sprite>sprites\spt_hud_refil</sprite>
     </sprites>
     <sprites name="boss">
       <sprite>sprites\spt_sub_boss_1</sprite>
@@ -362,6 +363,7 @@
       <object>objects\obj_item_double_laser</object>
       <object>objects\obj_item_single_laser</object>
       <object>objects\obj_item_tri_laser</object>
+      <object>objects\obj_hull_refil_20</object>
     </objects>
     <objects name="boss">
       <object>objects\obj_boss_base</object>

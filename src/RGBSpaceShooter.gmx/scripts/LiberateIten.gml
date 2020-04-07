@@ -29,7 +29,10 @@ switch (item) {
         break;                        
    case global.ITEM_TRI_LASER:
         instance_create(vx, vy, obj_item_tri_laser)
-        break;                                
+        break;                
+   case global.HUD_REFIL_20:
+        instance_create(vx, vy, obj_hull_refil_20)
+        break;
              
 }
 

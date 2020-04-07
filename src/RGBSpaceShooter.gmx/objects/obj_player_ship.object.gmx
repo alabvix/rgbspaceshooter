@@ -362,6 +362,16 @@ if (refil != noone) {
     instance_destroy(refil);
     PlayItemSound(global.ITEM_BLUE_AMMO)
 }
+hul = instance_place(x,y, obj_hull_refil_20) 
+if (hul != noone) {
+    global.player_hull += hul._val
+    if (global.player_hull &gt; global.player_hull_max) {
+        global.player_hull = global.player_hull_max
+    }
+    instance_destroy(hul);
+    PlayItemSound(global.ITEM_BLUE_AMMO)
+}
+
 
 // collision with weapon itens
 double_laser = instance_place(x,y, obj_item_double_laser) 

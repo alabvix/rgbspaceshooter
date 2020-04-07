@@ -30,7 +30,7 @@
 // Collision with player laser concetrate Fire
 inst = instance_place(x, y, obj_blue_fire_concetrate) 
 if (inst != noone) {
-    obj_player_ship._score += _points
+    global.player_score += _points
     instance_create(x, y, obj_little_explosion)
     if (_shadow != 0) {
         instance_destroy(_shadow)
