@@ -170,7 +170,7 @@ if (shoot != noone) {
 
 // Ship is destroyed if collides with meteor or other ship
 enemy = instance_place(x,y,obj_base_enemy)
-if (enemy != noone) {
+if (enemy != noone &amp;&amp; ! enemy._is_tank) {
     global.player_hull = 0
     instance_destroy(_special_weapon)
     SetShipExplosion()

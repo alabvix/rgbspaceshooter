@@ -2,6 +2,14 @@
 
 var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
+
+if (argument[0] == global.ENEMY_TANK_1) {
+    var bx = irandom_range(0, room_width - 80)
+    var by = irandom_range(-10, -400)
+    tank = instance_create(bx, by, obj_red_tank_1)
+    canon = instance_create(bx, by, obj_red_cannon_1)
+    tank._my_canon = canon
+}
  
 if (argument[0] == global.SPECIAL_CARGO_SHIP) {
     var color = irandom_range(1,3) 

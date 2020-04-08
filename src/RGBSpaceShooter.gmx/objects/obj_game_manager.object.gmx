@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>// Counter for respaw player ship
 _respaw_count = 0
+_play_boss_fight_music = false
 
 _can_create_enemy = true 
 _can_create_enemy2 = true 
@@ -63,12 +64,12 @@ _game_over_menu_draw = false
 
 _counter_create_land_obj = 0
 
-
 // nb_show_planet = false
 //_counter_enter_planet_flag = true
 //_counter_enter_planet = 0
 //_counter_for_landing = 0
 
+_create_building = true
 
 
 // counter for firs wave
@@ -110,6 +111,9 @@ _total_alien_destroyed = 0
 
 _total_sub_boss_created = 0
 _total_sub_boss_destroyed = 0
+
+_total_tank_1_created = 0
+_total_tank_1_destroyed = 0
 
 
 
@@ -174,28 +178,36 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         }
     }
     
-    var isBoss = CreateRegularEnemies()
-    if (isBoss) {
-        SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)
+    CreateRegularEnemies()
+    if (_enemy_type == global.SUB_BOSS) {
+        SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)    
     } else {
         CreateSecondaryEnemies()
         CreateCargoShips()
         CreateAmmo()
     }
     
+    if (_enemy_type == global.ENEMY_TANK_1) {
+        _create_building = false
+    } else {
+        _create_building = true
+    }
+    
     if (global.selected_planet == global.PLANET_AURORA_LAND) {
         
-        _counter_create_building ++
-        if (_counter_create_building == 120) {
-            CreateBuildings()
-            _counter_create_building = 0
+        if (_create_building) {
+            _counter_create_building ++
+            if (_counter_create_building == 120) {
+                CreateBuildings()
+                _counter_create_building = 0
+            }
         }
         
-        _counter_create_land_enemies ++ 
-        if (_counter_create_land_enemies == 400) {
-            CreateLandEnemies()
-            _counter_create_land_enemies = 0
-        }
+        //_counter_create_land_enemies ++ 
+        //if (_counter_create_land_enemies == 400) {
+        //    CreateLandEnemies()
+        //    _counter_create_land_enemies = 0
+        //}
     }
    
 }
@@ -226,6 +238,13 @@ if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
 
 if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
     CreateAmmo()
+    
+    if (!_play_boss_fight_music) {
+        audio_stop_all();
+        audio_play_sound(snd_music_boss_fight, 1, true);
+        audio_sound_gain(snd_music_boss_fight, 0.3, 0);
+        _play_boss_fight_music = true
+    }
 }
 
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {

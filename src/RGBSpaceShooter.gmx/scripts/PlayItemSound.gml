@@ -20,12 +20,15 @@ switch (item) {
         audio_play_sound(snd_energy_item_collected, 2, false);
         break;                
     case global.ITEM_SINGLE_LASER:
-        audio_play_sound(snd_vox_single_laser, 2, false);
+        audio_play_sound(snd_vox_single_laser, 3, false);
+        audio_sound_gain(snd_vox_single_laser, 1.3, 0);
         break;                        
     case global.ITEM_DOUBLE_LASER:
-        audio_play_sound(snd_vox_double_laser, 2, false);
+        audio_play_sound(snd_vox_double_laser, 3, false);
+        audio_sound_gain(snd_vox_double_laser, 1.3, 0);
         break;                                
     case global.ITEM_TRI_LASER:
-        audio_play_sound(snd_vox_tri_laser, 2, false);
+        audio_play_sound(snd_vox_tri_laser, 3, false);
+        audio_sound_gain(snd_vox_tri_laser, 1.3, 0);
         break;                                        
 }        

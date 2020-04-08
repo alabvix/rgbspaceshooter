@@ -54,6 +54,7 @@ global.ENEMY_MONSTER_9   = 19
 global.ENEMY_MONSTER_10  = 20
 global.ENEMY_BOMB        = 21
 global.ENEMY_ALIEN       = 22
+global.ENEMY_TANK_1      = 23
 
 global.BOSS       = 500
 global.SUB_BOSS   = 501
@@ -71,6 +72,7 @@ global.TOTAL_MONSTERS_2 = 7
 
 global.TOTAL_BOMBS = 30
 global.TOTAL_ALIEN = 20
+global.TOTAL_TANK_1 = 6
 
 // enemies in second wave
 global.SECOND_WAVE_ENEMY_METEOR = 100
@@ -103,7 +105,7 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,12] = global.SUB_BOSS
 
 // Enemy Waves on planet Aurora land
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,0]  = global.ENEMY_SHIP_6
-//global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,1]  = global.ENEMY_SHIP_6
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,1]  = global.ENEMY_TANK_1
 //global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,2]  = global.ENEMY_SHIP_1
 //global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,3]  = global.ENEMY_MONSTER_2
 //global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,4]  = global.ENEMY_SHIP_2

@@ -12,7 +12,7 @@
   <showcolour>-1</showcolour>
   <code>audio_stop_all();
 audio_play_sound(snd_music_main_theme, 1, true);
-audio_sound_gain(snd_music_main_theme, 0.3, 0);</code>
+audio_sound_gain(snd_music_main_theme, 0.2, 0);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -33,9 +33,9 @@ audio_sound_gain(snd_music_main_theme, 0.3, 0);</code>
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="background1" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="3" stretch="0"/>
-    <background visible="-1" foreground="0" name="background1" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="2" stretch="0"/>
-    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="background0" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="2" stretch="0"/>
+    <background visible="-1" foreground="0" name="bkg_aurora_1" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="3" stretch="0"/>
+    <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="1" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>

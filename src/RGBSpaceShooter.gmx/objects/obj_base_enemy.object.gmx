@@ -40,6 +40,7 @@ _is_cargo_ship = false
 _is_ship_6     = false
 _color         = 0
 _is_monster    = false
+_is_tank       = false
 
 _shadow = 0
 

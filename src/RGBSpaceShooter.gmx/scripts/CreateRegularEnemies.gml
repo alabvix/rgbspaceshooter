@@ -2,7 +2,20 @@ _counter_create_enemy += 1
 if ( round(_counter_create_enemy) == 10) {
     if (_enemy_type == global.SUB_BOSS) {
         _counter_create_enemy = 0
-        return true
+        exit 
+    }
+    
+    if (_enemy_type == global.ENEMY_TANK_1) {
+       if (_total_tank_1_created < global.TOTAL_TANK_1 ) {
+           CreateEnemy(_enemy_type)    
+           _total_tank_1_created ++;
+           _can_create_enemy = false
+       } 
+       if (_total_tank_1_destroyed == global.TOTAL_TANK_1) {
+           _total_tank_1_created = 0
+           _total_tank_1_destroyed = 0
+           _can_create_enemy = true
+       }
     }
 
     if (_enemy_type == global.ENEMY_MONSTER_1) {

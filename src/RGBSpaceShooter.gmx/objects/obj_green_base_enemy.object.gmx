@@ -37,7 +37,8 @@ if (inst != noone) {
     if (_is_cargo_ship ) {
         GenerateRandomItem(x,y)
     }
-    instance_create(x,y, obj_rainbow_energy)
+    instance_create(x,y, obj_rgb_energy)
+    PlaySoundExplosion()
     instance_create(x, y, obj_little_explosion)
     instance_destroy()
 }     
