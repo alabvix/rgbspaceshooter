@@ -1,11 +1,13 @@
 ///DefineGlobals
-
 global.test_super_hit = false
-global.test_ship_undestrutible = false
+global.test_ship_undestrutible = false//false
 
 global.RED   = 1
 global.GREEN = 2
 global.BLUE  = 3
+
+global.is_gamepad_connected = false
+global.GAME_PAD_1 = 0
 
 // ITENS
 global.ITEM_RED_AMMO     = 1

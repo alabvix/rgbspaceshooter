@@ -201,6 +201,7 @@
   </paths>
   <scripts name="scripts">
     <script>scripts\DefineGlobals.gml</script>
+    <script>scripts\InitializeSystem.gml</script>
     <script>scripts\CreateEnemy.gml</script>
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
@@ -222,13 +223,15 @@
     <script>scripts\CreateBuildings.gml</script>
     <script>scripts\CreateLandEnemies.gml</script>
     <script>scripts\PlayShipLaser.gml</script>
-    <script>scripts\PlayItemSound.gml</script>
     <script>scripts\PlaySoundExplosion.gml</script>
+    <script>scripts\PlayItemSound.gml</script>
     <script>scripts\PlayMonsterDieSound.gml</script>
     <script>scripts\PlaySpecialWeapon.gml</script>
     <script>scripts\PlayBossFireShot.gml</script>
     <script>scripts\DrawHUDObjects.gml</script>
     <script>scripts\ResetShipAttributes.gml</script>
+    <script>scripts\GamePadHandler.gml</script>
+    <script>scripts\KeyboardHandler.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
