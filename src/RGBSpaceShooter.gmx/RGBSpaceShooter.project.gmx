@@ -60,6 +60,7 @@
       <sprite>sprites\spt_btn_go</sprite>
       <sprite>sprites\spt_btn_game_over_continue</sprite>
       <sprite>sprites\spt_btn_game_over_go_menu</sprite>
+      <sprite>sprites\spt_menu_button</sprite>
     </sprites>
     <sprites name="player">
       <sprite>sprites\spt_player_ship_explosion</sprite>
@@ -100,6 +101,8 @@
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_cargo_ship</sprite>
         <sprite>sprites\spt_green_ship_6</sprite>
+        <sprite>sprites\spt_green_tank_1</sprite>
+        <sprite>sprites\spt_green_cannon_1</sprite>
       </sprites>
       <sprites name="blue">
         <sprite>sprites\spt_blue_ship_1</sprite>
@@ -109,6 +112,8 @@
         <sprite>sprites\spt_blue_moster_1</sprite>
         <sprite>sprites\spt_blue_cargo_ship</sprite>
         <sprite>sprites\spt_blue_ship_6</sprite>
+        <sprite>sprites\spt_blue_tank_1</sprite>
+        <sprite>sprites\spt_blue_cannon_1</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
       <sprite>sprites\spt_enemy_weapon_3</sprite>
@@ -289,6 +294,8 @@
         <object>objects\obj_green_ship_6</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_cargo_ship</object>
+        <object>objects\obj_green_tank_1</object>
+        <object>objects\obj_green_cannon_1</object>
       </objects>
       <objects name="blue">
         <object>objects\obj_blue_base_enemy</object>
@@ -299,6 +306,8 @@
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_bomb</object>
         <object>objects\obj_blue_cargo_ship</object>
+        <object>objects\obj_blue_tank_1</object>
+        <object>objects\obj_blue_cannon_1</object>
       </objects>
       <object>objects\obj_shadow_ship_6</object>
       <object>objects\obj_shadow_carg_ship</object>
@@ -331,6 +340,7 @@
       <object>objects\obj_frame_medium</object>
       <object>objects\obj_btn_game_over_continue</object>
       <object>objects\obj_btn_game_over_main_menu</object>
+      <object>objects\obj_menu_button</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>

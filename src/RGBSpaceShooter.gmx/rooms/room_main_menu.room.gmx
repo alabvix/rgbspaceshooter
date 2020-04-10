@@ -58,6 +58,7 @@ audio_sound_gain(snd_music_main_theme, 0.2, 0);</code>
     <instance objName="obj_game_title" x="527" y="160" name="inst_B1ED8739" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_tutorial" x="533" y="359" name="inst_77494EBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_continue" x="518" y="398" name="inst_23C43794" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_button" x="512" y="448" name="inst_78021484" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

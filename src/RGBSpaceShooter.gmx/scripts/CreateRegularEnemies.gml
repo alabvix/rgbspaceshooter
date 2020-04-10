@@ -7,6 +7,7 @@ if ( round(_counter_create_enemy) == 10) {
     
     if (_enemy_type == global.ENEMY_TANK_1) {
        if (_total_tank_1_created < global.TOTAL_TANK_1 ) {
+           show_debug_message("Enemy type: " + string( _enemy_type))
            CreateEnemy(_enemy_type)    
            _total_tank_1_created ++;
            _can_create_enemy = false

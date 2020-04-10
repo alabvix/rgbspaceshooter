@@ -59,6 +59,9 @@ if (enemy) {
         } else {
             PlaySoundExplosion()
         }
+        if (enemy._is_tank) {
+            instance_destroy(enemy._my_canon)
+        }
         instance_destroy(enemy)
     }
 }
