@@ -1,3 +1,6 @@
+if (!global.option_sound_efx) {
+    exit
+}
 switch (global.player_weapon_special) {
         case global.SPECIAL_WEAPON_1:
             audio_play_sound(snd_special_weapon_1, 1, false);

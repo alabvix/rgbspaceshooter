@@ -1,3 +1,6 @@
+if (!global.option_sound_efx) {
+    exit
+}
 var boss_name = argument[0]
 var weapon = argument[1]
 

@@ -1,5 +1,5 @@
 _counter_create_enemy += 1 
-if ( round(_counter_create_enemy) == 10) {
+if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     if (_enemy_type == global.SUB_BOSS) {
         _counter_create_enemy = 0
         exit 
@@ -133,6 +133,7 @@ if ( round(_counter_create_enemy) == 10) {
             CreateEnemy(_enemy_type)    
             _total_bomb_created ++;
             _can_create_enemy = false
+            show_debug_message("Bomb created" + string(_total_bomb_created))
         }
         if (_total_bomb_destroyed == global.TOTAL_BOMBS) {
             _total_bomb_destroyed = 0

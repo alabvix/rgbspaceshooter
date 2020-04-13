@@ -1,3 +1,6 @@
+if (!global.option_sound_efx) {
+    exit
+}
 switch (irandom_range(1,4)) {
         case 1:
             audio_play_sound(snd_explo_0, 1, false);

@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -28,11 +28,14 @@
             <string>// Counter for respaw player ship
 _respaw_count = 0
 _play_boss_fight_music = false
+_play_boss_defeated_music = false
 
 _can_create_enemy = true 
 _can_create_enemy2 = true 
 //_boss_fight = false
 //_boss_created = false
+_start_count_move_planet = true
+_count_move_planet = 0
 
 SUB_BOSS_MESSAGE = "WARNING: ENEMY SQUAD LEADER IN COMBAT RANGE"
 
@@ -238,16 +241,30 @@ if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
 
 if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
     CreateAmmo()
-    
     if (!_play_boss_fight_music) {
-        audio_stop_all();
-        audio_play_sound(snd_music_boss_fight, 1, true);
-        audio_sound_gain(snd_music_boss_fight, 0.3, 0);
+        PlayMusic(snd_music_boss_fight)
         _play_boss_fight_music = true
     }
 }
 
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
+    if (!_play_boss_defeated_music) {
+        PlayMusic(snd_music_boss_defeated)
+        _play_boss_defeated_music = true
+    }
+    
+    // count to move planet
+    
+    if (_start_count_move_planet) {
+        _count_move_planet++
+        if (_count_move_planet==200) {
+            _start_count_move_planet = false
+            _count_move_planet = false
+        } else {
+            exit
+        }
+    }
+    
     // Moves the planet    
     if (! _planet_moved) {
         if (_planet == 0) {
@@ -261,6 +278,8 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
            //show_debug_message("planet moved and preparaed")
         }
     }
+    
+    
     // Move the player ship into the planet
     if (_planet_moved) {
         MoveShipToPlanet()

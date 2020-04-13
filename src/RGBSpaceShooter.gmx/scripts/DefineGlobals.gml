@@ -29,9 +29,22 @@ global.GAME_STATE_BOSS_FIGHT         = 6
 global.GAME_STATE_PREPARE_BOSS_FIGHT = 7
 global.GAME_STATE_SUB_BOSS_DEFEATED  = 8
 global.GAME_STATE_BOSS_DEFEATED      = 9
+global.GAME_STATE_TRANSICATION       = 10
 global.GAME_STATE_GAME_OVER          = 99
 
 global.game_state = global.GAME_STATE_MAIN_MENU
+
+// Game Options
+global.difficulty_level_easy = 1
+global.difficulty_level_normal = 2
+global.difficulty_level_hard = 3
+
+global.option_sound_efx = true
+global.option_music = true
+global.option_difficulty_level = global.difficulty_level_easy
+
+// time to create enemy for game difficulty
+global.counter_create_enemy_limit = 10
 
 // Enemy Types
 global.ENEMY_SHIP_1      = 1
@@ -71,7 +84,6 @@ global.TOTAL_SHIPS_5 = 5
 global.TOTAL_SHIPS_6 = 8
 global.TOTAL_MONSTERS_1 = 7 
 global.TOTAL_MONSTERS_2 = 7
-
 global.TOTAL_BOMBS = 30
 global.TOTAL_ALIEN = 20
 global.TOTAL_TANK_1 = 6
@@ -159,12 +171,11 @@ global.player_green_energy_base = 200
 global.player_rgb_energy = 0
 global.player_rgb_energy_base = 200
 
-
-
-// boss names
+// boss data
 global.BOSS_1_NAME = "Visontroy"
+global.BOSS_1_HP_MAX = 800
 
-
+// fire directions
 global.dir_array[0] = 0
 global.dir_array[1] = 30
 global.dir_array[2] = 45
@@ -184,5 +195,5 @@ global.dir_array[15] = 330
 
 global.dir_array_lenght = array_length_1d(global.dir_array)
 
-
+global.main_music_playing = false
 

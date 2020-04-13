@@ -33,6 +33,8 @@
     <sound>sound\snd_music_planet_selection</sound>
     <sound>sound\snd_music_aurora_space</sound>
     <sound>sound\snd_music_boss_fight</sound>
+    <sound>sound\snd_music_boss_defeated</sound>
+    <sound>sound\snd_music_aurora_ground</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -61,6 +63,8 @@
       <sprite>sprites\spt_btn_game_over_continue</sprite>
       <sprite>sprites\spt_btn_game_over_go_menu</sprite>
       <sprite>sprites\spt_menu_button</sprite>
+      <sprite>sprites\spt_state_menu</sprite>
+      <sprite>sprites\spt_controls</sprite>
     </sprites>
     <sprites name="player">
       <sprite>sprites\spt_player_ship_explosion</sprite>
@@ -232,6 +236,8 @@
     <script>scripts\ResetShipAttributes.gml</script>
     <script>scripts\GamePadHandler.gml</script>
     <script>scripts\KeyboardHandler.gml</script>
+    <script>scripts\PlayMusic.gml</script>
+    <script>scripts\ApplyDifficulty.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -343,7 +349,17 @@
       <object>objects\obj_frame_medium</object>
       <object>objects\obj_btn_game_over_continue</object>
       <object>objects\obj_btn_game_over_main_menu</object>
-      <object>objects\obj_menu_button</object>
+      <object>objects\obj_room_help</object>
+      <object>objects\obj_menu_btn_base</object>
+      <object>objects\obj_menu_btn_new_game</object>
+      <object>objects\obj_menu_btn_options</object>
+      <object>objects\obj_menu_btn_help</object>
+      <object>objects\obj_menu_btn_dificult</object>
+      <object>objects\obj_menu_btn_menu</object>
+      <object>objects\obj_state_menu_base</object>
+      <object>objects\obj_state_menu_controls</object>
+      <object>objects\obj_state_menu_weapons</object>
+      <object>objects\obj_controls</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>
@@ -399,6 +415,7 @@
     <room>rooms\room_planet_selection</room>
     <room>rooms\room_planet_aurora_space</room>
     <room>rooms\room_planet_aurora_land</room>
+    <room>rooms\room_help</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

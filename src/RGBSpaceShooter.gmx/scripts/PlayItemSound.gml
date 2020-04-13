@@ -1,3 +1,6 @@
+if (!global.option_sound_efx) {
+    exit
+}
 //global.ITEM_RED_AMMO     = 1
 //global.ITEM_GREEN_AMMO   = 2
 //global.ITEM_BLUE_AMMO    = 3

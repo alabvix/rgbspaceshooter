@@ -7,6 +7,6 @@ global.player_red_energy = 200
 global.player_red_energy_base = 200
 global.player_green_energy = 200
 global.player_green_energy_base = 200
-global.player_rgb_energy = 200
+global.player_rgb_energy = 0
 global.player_rgb_energy_base = 200
 

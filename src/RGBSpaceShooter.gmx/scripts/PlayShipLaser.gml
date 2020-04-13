@@ -1,3 +1,6 @@
+if (!global.option_sound_efx) {
+    exit
+}
 
 if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
     switch (irandom_range(1,4)) {

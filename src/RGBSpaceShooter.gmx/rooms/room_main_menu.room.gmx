@@ -10,9 +10,10 @@
   <persistent>0</persistent>
   <colour>4194304</colour>
   <showcolour>-1</showcolour>
-  <code>audio_stop_all();
-audio_play_sound(snd_music_main_theme, 1, true);
-audio_sound_gain(snd_music_main_theme, 0.2, 0);</code>
+  <code>if (!global.main_music_playing) {
+    PlayMusic(snd_music_main_theme)
+    global.main_music_playing =  true
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -54,10 +55,11 @@ audio_sound_gain(snd_music_main_theme, 0.2, 0);</code>
   </views>
   <instances>
     <instance objName="obj_room_main_menu" x="224" y="288" name="inst_127D8B9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_new_game" x="526" y="320" name="inst_A9AF4995" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_game_title" x="527" y="160" name="inst_B1ED8739" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_tutorial" x="533" y="359" name="inst_77494EBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_continue" x="518" y="398" name="inst_23C43794" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_btn_new_game" x="529" y="288" name="inst_66421530" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_btn_dificult" x="529" y="332" name="inst_FF49805C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_btn_help" x="528" y="374" name="inst_1AC2F426" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_btn_options" x="528" y="417" name="inst_2563C90E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
