@@ -238,6 +238,10 @@
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
     <script>scripts\ApplyDifficulty.gml</script>
+    <scripts name="file_operations">
+      <script>scripts\SaveDifficulty.gml</script>
+      <script>scripts\LoadDifficulty.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -356,6 +360,7 @@
       <object>objects\obj_menu_btn_help</object>
       <object>objects\obj_menu_btn_dificult</object>
       <object>objects\obj_menu_btn_menu</object>
+      <object>objects\obj_menu_btn_goto_menu</object>
       <object>objects\obj_state_menu_base</object>
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>

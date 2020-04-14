@@ -1,4 +1,6 @@
 ///DefineGlobals
+global.version = "0.2.0"
+
 global.test_super_hit = false
 global.test_ship_undestrutible = false//false
 
@@ -18,6 +20,9 @@ global.ITEM_DOUBLE_LASER = 5
 global.ITEM_TRI_LASER    = 6
 global.ITEM_RGB_ENERGY   = 7
 global.HUD_REFIL_20      = 8
+
+// game files
+global.FILE_GAME_SETTINGS = "game_settings.ini"
 
 // Game States
 global.GAME_STATE_MAIN_MENU      = 1

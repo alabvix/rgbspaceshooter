@@ -48,9 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.game_state = global.GAME_STATE_TRANSICATION  
-var inst = instance_create(x,y, obj_transiction);
-inst.target = obj_player_shio_selector
+            <string>//global.game_state = global.GAME_STATE_TRANSICATION  
+//var inst = instance_create(x,y, obj_transiction);
+//inst.target = obj_player_shio_selector
 </string>
           </argument>
         </arguments>

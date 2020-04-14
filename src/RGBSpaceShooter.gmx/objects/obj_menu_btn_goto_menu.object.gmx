@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_menu_btn_base</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,20 +25,55 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
-_diff = LoadDifficulty()
-switch (_diff) {
-    case 1:
-        _diff_name = "Easy"
-        break;
-    case 2:
-        _diff_name = "Normal"
-        break;        
-    case 3:
-        _diff_name = "Hard"
-        break;                
-}
-
+            <string>_mouse_over = false
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_mouse_over = false
+window_set_cursor(cr_default)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_mouse_over = true
+window_set_cursor(cr_handpoint)
 </string>
           </argument>
         </arguments>
@@ -61,24 +96,8 @@ switch (_diff) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (_diff) {
-    case 1:
-        _diff = 2
-        _diff_name = "Normal"
-        global.option_difficulty_level = global.difficulty_level_normal
-        break;
-    case 2:
-        _diff = 3
-        _diff_name = "Hard"
-        global.option_difficulty_level = global.difficulty_level_hard
-        break;        
-    case 3:
-        _diff = 1
-        _diff_name = "Easy"
-        global.option_difficulty_level = global.difficulty_level_easy
-        break;                
-}        
-SaveDifficulty(_diff)
+            <string>SetGameState(global.GAME_STATE_MAIN_MENU)
+room_goto(room_main_menu)
 
 </string>
           </argument>
@@ -102,13 +121,17 @@ SaveDifficulty(_diff)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
-if (global.game_state != global.GAME_STATE_MAIN_MENU ) {
-    exit
+            <string>draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+draw_set_font(font_12)
+
+if (_mouse_over) {
+    draw_set_color(c_lime)
+} else {
+    draw_set_color(c_gray)
 }
 
-draw_set_color(c_lime)
-draw_text_transformed(x,y,_diff_name,1,1,0 );
+draw_text_transformed(x,y,"Main Menu",1,1,0 );
 </string>
           </argument>
         </arguments>

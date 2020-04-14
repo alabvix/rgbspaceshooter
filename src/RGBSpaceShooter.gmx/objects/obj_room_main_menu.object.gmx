@@ -40,6 +40,14 @@ draw_text(
      "RGB Starfighter"
 )
 */
+draw_set_color(c_yellow);
+draw_set_font(font_10);
+draw_text(
+             centro_room_x, 
+             room_height - 20,
+             global.version
+        )
+
 </string>
           </argument>
         </arguments>
