@@ -113,7 +113,8 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
                     sphere.speed = 7
                     sphere.direction = global.dir_array[i]
                 }
-                break;         
+                break;   
+             
         }
         _shoot_counter = 0
     }

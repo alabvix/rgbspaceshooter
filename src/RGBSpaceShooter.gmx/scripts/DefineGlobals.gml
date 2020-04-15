@@ -142,6 +142,7 @@ global.WEAPON_ENERGY_BALL_STAR  = 3
 global.WEAPON_BIO_BALL          = 4
 global.WEAPON_BIO_VERM          = 5
 global.WEAPON_ENERGY_BALL_V     = 6
+global.WEAPON_TANK_FIRE         = 7
 
 
 //////////////////////////////////

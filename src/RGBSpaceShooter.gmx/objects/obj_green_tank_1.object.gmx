@@ -33,6 +33,10 @@ _hp      = 50
 _my_canon = 0
 
 vspeed = 3
+
+_shoot_in    = 35 // fires in each n seconds 
+_weapon_type = global.WEAPON_TANK_FIRE  
+
 </string>
           </argument>
         </arguments>

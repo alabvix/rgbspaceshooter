@@ -127,6 +127,7 @@
       <sprite>sprites\spt_shadow_ship_6</sprite>
       <sprite>sprites\spt_enemy_weapon_6</sprite>
       <sprite>sprites\spt_shadow_cargo_ship</sprite>
+      <sprite>sprites\spt_tank_weapon</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -210,7 +211,7 @@
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
     <script>scripts\LiberateIten.gml</script>
-    <script>scripts\GenerateRandomItem.gml</script>
+    <script>scripts\GenerateCargoItem.gml</script>
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
     <script>scripts\ContinueGame.gml</script>
     <script>scripts\InitGameVars.gml</script>
@@ -238,6 +239,7 @@
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
     <script>scripts\ApplyDifficulty.gml</script>
+    <script>scripts\GenerateRGBItemEnergy.gml</script>
     <scripts name="file_operations">
       <script>scripts\SaveDifficulty.gml</script>
       <script>scripts\LoadDifficulty.gml</script>
@@ -283,6 +285,7 @@
     </objects>
     <objects name="enemies">
       <object>objects\obj_base_enemy</object>
+      <object>objects\obj_cannon_base</object>
       <objects name="red">
         <object>objects\obj_red_base_enemy</object>
         <object>objects\obj_red_ship_1</object>
@@ -333,6 +336,7 @@
       <object>objects\obj_enemy_weapon_4</object>
       <object>objects\obj_enemy_weapon_5</object>
       <object>objects\obj_enemy_weapon_6</object>
+      <object>objects\obj_enemy_weapon_7</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_planet_base</object>

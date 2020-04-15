@@ -29,7 +29,7 @@
 _name  = global.BOSS_1_NAME
 _points = 300
 
-_hp_max = global.BOSS_1_HP_MAX =
+_hp_max = global.BOSS_1_HP_MAX
 _hp_current = _hp_max
 
 INIT              = 0

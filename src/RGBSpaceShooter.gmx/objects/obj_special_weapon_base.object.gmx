@@ -71,15 +71,8 @@ if (enemy) {
         global.player_score += enemy._points
         //show_debug_message("Player Score:" + string(obj_player_ship._score));
         if (enemy._is_cargo_ship) {
-            if (enemy._color == global.RED) {
-                LiberateIten(global.RED,x,y)
-            }
-            if (enemy._color == global.GREEN) {
-                LiberateIten(global.GREEN,x,y)
-            }
-            if (enemy._color == global.BLUE) {
-                LiberateIten(global.BLUE,x,y)
-            }
+            GenerateCargoItem(x,y)
+            instance_destroy(enemy._shadow)
         }
         if (enemy._is_monster) {
             PlayMonsterDieSound()
@@ -90,7 +83,7 @@ if (enemy) {
             instance_destroy(enemy._my_canon)
         }
         instance_destroy(enemy)
-        instance_create(x,y, obj_rgb_energy)
+        GenerateRGBItemEnergy(x,y)
     }
 }
 

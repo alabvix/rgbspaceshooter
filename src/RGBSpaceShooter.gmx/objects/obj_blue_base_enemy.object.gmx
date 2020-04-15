@@ -29,16 +29,16 @@
 
 // Collision with player laser concetrate Fire
 inst = instance_place(x, y, obj_blue_fire_concetrate) 
-if (inst != noone) {
+if (inst != noone &amp;&amp; ! _is_tank) {
     global.player_score += _points
     instance_create(x, y, obj_little_explosion)
     if (_shadow != 0) {
         instance_destroy(_shadow)
     }
     if (_is_cargo_ship ) {
-        GenerateRandomItem(x,y)
+        GenerateCargoItem(x,y)
     }
-    instance_create(x,y, obj_rgb_energy)
+    GenerateRGBItemEnergy(x,y)
     PlaySoundExplosion()
     instance_destroy()
 }     
