@@ -45,8 +45,9 @@ global.difficulty_level_normal = 2
 global.difficulty_level_hard = 3
 
 global.option_sound_efx = true
-global.option_music = true
-global.option_difficulty_level = global.difficulty_level_easy
+global.option_music = false
+global.option_difficulty_level = LoadDifficulty()
+global.main_music_playing = false
 
 // time to create enemy for game difficulty
 global.counter_create_enemy_limit = 10
@@ -87,6 +88,7 @@ global.TOTAL_SHIPS_3 = 6
 global.TOTAL_SHIPS_4 = 5
 global.TOTAL_SHIPS_5 = 5
 global.TOTAL_SHIPS_6 = 8
+global.TOTAL_SHIPS_7 = 3
 global.TOTAL_MONSTERS_1 = 7 
 global.TOTAL_MONSTERS_2 = 7
 global.TOTAL_BOMBS = 30
@@ -125,7 +127,7 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,12] = global.SUB_BOSS
 // Enemy Waves on planet Aurora land
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,0]  = global.ENEMY_SHIP_6
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,1]  = global.ENEMY_TANK_1
-//global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,2]  = global.ENEMY_SHIP_1
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,2]  = global.ENEMY_SHIP_7
 //global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,3]  = global.ENEMY_MONSTER_2
 //global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,4]  = global.ENEMY_SHIP_2
 //global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,5]  = global.ENEMY_MONSTER_1
@@ -143,6 +145,7 @@ global.WEAPON_BIO_BALL          = 4
 global.WEAPON_BIO_VERM          = 5
 global.WEAPON_ENERGY_BALL_V     = 6
 global.WEAPON_TANK_FIRE         = 7
+global.WEAPON_ENERGY_MISSILE    = 8
 
 
 //////////////////////////////////
@@ -201,5 +204,11 @@ global.dir_array[15] = 330
 
 global.dir_array_lenght = array_length_1d(global.dir_array)
 
-global.main_music_playing = false
+global.ship_7_ix = 0
+global.ship_7_pos_x[0] = 128
+global.ship_7_pos_x[1] = 1024/2
+global.ship_7_pos_x[2] = 900
+
+
+
 

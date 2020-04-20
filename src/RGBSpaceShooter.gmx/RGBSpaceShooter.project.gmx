@@ -96,6 +96,7 @@
         <sprite>sprites\spt_red_ship_6</sprite>
         <sprite>sprites\spt_red_tank_1</sprite>
         <sprite>sprites\spt_red_cannon_1</sprite>
+        <sprite>sprites\spt_red_ship_7</sprite>
       </sprites>
       <sprites name="green">
         <sprite>sprites\spt_green_ship_1</sprite>
@@ -107,17 +108,19 @@
         <sprite>sprites\spt_green_ship_6</sprite>
         <sprite>sprites\spt_green_tank_1</sprite>
         <sprite>sprites\spt_green_cannon_1</sprite>
+        <sprite>sprites\spt_green_ship_7</sprite>
       </sprites>
       <sprites name="blue">
+        <sprite>sprites\spt_blue_bomb</sprite>
+        <sprite>sprites\spt_blue_cannon_1</sprite>
+        <sprite>sprites\spt_blue_cargo_ship</sprite>
+        <sprite>sprites\spt_blue_moster_1</sprite>
         <sprite>sprites\spt_blue_ship_1</sprite>
         <sprite>sprites\spt_blue_ship_2</sprite>
         <sprite>sprites\spt_blue_ship_4</sprite>
-        <sprite>sprites\spt_blue_bomb</sprite>
-        <sprite>sprites\spt_blue_moster_1</sprite>
-        <sprite>sprites\spt_blue_cargo_ship</sprite>
         <sprite>sprites\spt_blue_ship_6</sprite>
         <sprite>sprites\spt_blue_tank_1</sprite>
-        <sprite>sprites\spt_blue_cannon_1</sprite>
+        <sprite>sprites\spt_blue_ship_7</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
       <sprite>sprites\spt_enemy_weapon_3</sprite>
@@ -128,6 +131,7 @@
       <sprite>sprites\spt_enemy_weapon_6</sprite>
       <sprite>sprites\spt_shadow_cargo_ship</sprite>
       <sprite>sprites\spt_tank_weapon</sprite>
+      <sprite>sprites\spt_enemy_missile</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -300,6 +304,7 @@
         <object>objects\obj_red_cargo_ship</object>
         <object>objects\obj_red_tank_1</object>
         <object>objects\obj_red_cannon_1</object>
+        <object>objects\obj_red_ship_7</object>
       </objects>
       <objects name="green">
         <object>objects\obj_green_base_enemy</object>
@@ -312,6 +317,7 @@
         <object>objects\obj_green_cargo_ship</object>
         <object>objects\obj_green_tank_1</object>
         <object>objects\obj_green_cannon_1</object>
+        <object>objects\obj_green_ship_7</object>
       </objects>
       <objects name="blue">
         <object>objects\obj_blue_base_enemy</object>
@@ -324,6 +330,7 @@
         <object>objects\obj_blue_cargo_ship</object>
         <object>objects\obj_blue_tank_1</object>
         <object>objects\obj_blue_cannon_1</object>
+        <object>objects\obj_blue_ship_7</object>
       </objects>
       <object>objects\obj_shadow_ship_6</object>
       <object>objects\obj_shadow_carg_ship</object>
@@ -337,6 +344,7 @@
       <object>objects\obj_enemy_weapon_5</object>
       <object>objects\obj_enemy_weapon_6</object>
       <object>objects\obj_enemy_weapon_7</object>
+      <object>objects\obj_enemy_weapon_8</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_planet_base</object>

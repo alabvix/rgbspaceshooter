@@ -103,6 +103,18 @@ _total_ship_5_destroyed = 0
 _total_ship_6_created   = 0
 _total_ship_6_destroyed = 0
 
+_total_ship_7_created   = 0
+_total_ship_7_destroyed = 0
+
+_total_ship_8_created   = 0
+_total_ship_8_destroyed = 0
+
+_total_ship_9_created   = 0
+_total_ship_9_destroyed = 0
+
+_total_ship_10_created   = 0
+_total_ship_10_destroyed = 0
+
 _total_bomb_created     = 0
 _total_bomb_destroyed   = 0
 

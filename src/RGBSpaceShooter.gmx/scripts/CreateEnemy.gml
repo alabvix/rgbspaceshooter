@@ -25,6 +25,24 @@ if (argument[0] == global.ENEMY_TANK_1) {
             break;        
     }
 }
+
+if (argument[0] == global.ENEMY_SHIP_7) {
+    var color = irandom_range(1,3)
+    if (color == 1) {
+        instance_create(global.ship_7_pos_x[global.ship_7_ix], -130, obj_red_ship_7)
+    }
+    if (color == 2) {
+        instance_create(global.ship_7_pos_x[global.ship_7_ix], -130, obj_green_ship_7)
+    }
+    if (color == 3) {
+        instance_create(global.ship_7_pos_x[global.ship_7_ix], -130, obj_blue_ship_7)
+    }
+    global.ship_7_ix ++
+    if (global.ship_7_ix > 2){
+        global.ship_7_ix = 0
+    } 
+     
+}
  
 if (argument[0] == global.SPECIAL_CARGO_SHIP) {
     var color = irandom_range(1,3) 

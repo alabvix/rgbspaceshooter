@@ -113,8 +113,12 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
                     sphere.speed = 7
                     sphere.direction = global.dir_array[i]
                 }
-                break;   
-             
+                break;  
+            case global.WEAPON_ENERGY_MISSILE:
+                
+                    instance_create(x,y,obj_enemy_weapon_8)
+                
+                break;
         }
         _shoot_counter = 0
     }
@@ -129,6 +133,13 @@ if (_type == global.ENEMY_SHIP_4) {
         }
     }
 }
+
+if (_type = global.ENEMY_SHIP_7) {
+    if (y &gt; 192){
+        speed = 0
+    }
+}     
+
     
 
 
