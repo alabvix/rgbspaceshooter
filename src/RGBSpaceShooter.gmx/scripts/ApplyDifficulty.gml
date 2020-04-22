@@ -10,6 +10,7 @@ switch (global.option_difficulty_level) {
         global.TOTAL_SHIPS_7 = 1
         global.TOTAL_MONSTERS_1 = 3 
         global.TOTAL_MONSTERS_2 = 3
+        global.TOTAL_MONSTERS_3 = 3
         global.TOTAL_BOMBS = 7
         global.TOTAL_ALIEN = 8
         global.TOTAL_TANK_1 = 2
@@ -27,6 +28,7 @@ switch (global.option_difficulty_level) {
         global.TOTAL_SHIPS_7 = 2
         global.TOTAL_MONSTERS_1 = 5 
         global.TOTAL_MONSTERS_2 = 5
+        global.TOTAL_MONSTERS_3 = 5
         global.TOTAL_BOMBS = 15
         global.TOTAL_ALIEN = 15
         global.TOTAL_TANK_1 = 4        
@@ -43,6 +45,7 @@ switch (global.option_difficulty_level) {
         global.TOTAL_SHIPS_7 = 3
         global.TOTAL_MONSTERS_1 = 7 
         global.TOTAL_MONSTERS_2 = 7
+        global.TOTAL_MONSTERS_3 = 7
         global.TOTAL_BOMBS = 30
         global.TOTAL_ALIEN = 20
         global.TOTAL_TANK_1 = 6    

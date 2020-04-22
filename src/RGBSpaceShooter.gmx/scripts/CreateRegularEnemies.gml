@@ -58,6 +58,19 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
        }
     }
     
+    if (_enemy_type == global.ENEMY_MONSTER_3) {
+       if (_total_monsters_3_created < global.TOTAL_MONSTERS_3 ) {
+           CreateEnemy(_enemy_type)    
+           _total_monsters_3_created ++;
+           _can_create_enemy = false
+       } 
+       if (_total_monster_3_killed == global.TOTAL_MONSTERS_3) {
+           _total_monsters_3_created = 0
+           _total_monster_3_killed = 0
+           _can_create_enemy = true
+       }
+    }
+    
     if (_enemy_type == global.ENEMY_SHIP_1) {
         if (_total_ship_1_created < global.TOTAL_SHIPS_1) {
             CreateEnemy(_enemy_type)    

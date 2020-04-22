@@ -192,8 +192,6 @@ if (argument[0] == global.ENEMY_BOMB ) {
     }
 }
 
-
-
 if (argument[0] == global.ENEMY_ALIEN ) {
     var color = irandom_range(1,1) 
     var vx = obj_player_ship.x
@@ -243,7 +241,6 @@ if (argument[0] == global.ENEMY_MONSTER_1 ) {
 
 if (argument[0] == global.ENEMY_MONSTER_2 ) {
     var color = irandom_range(1,3) 
-    color = 1
     if (color == 1) {
         vx = 800
         vy = -32
@@ -255,7 +252,7 @@ if (argument[0] == global.ENEMY_MONSTER_2 ) {
     if (color == 2) {
         vx = 800
         vy = -32
-        monster = instance_create(vx, vy, obj_blue_monster_1)
+        monster = instance_create(vx, vy, obj_blue_monster_2)
         with (monster){
             path_start(path1, 8, path_action_continue, 0)
         }
@@ -263,11 +260,40 @@ if (argument[0] == global.ENEMY_MONSTER_2 ) {
     if (color == 3) {
         vx = 800
         vy = -32
-        monster = instance_create(vx, vy, obj_green_monster_1)
+        monster = instance_create(vx, vy, obj_green_monster_2)
         with (monster){
             path_start(path1, 8, path_action_continue, 0)
         }
     }
+}
+
+if (argument[0] ==global.ENEMY_MONSTER_3) {
+    var color = irandom_range(1,3) 
+    if (color == 1) {
+        vx = 448
+        vy = -32
+        monster = instance_create(vx, vy, obj_red_monster_3)
+        with (monster){
+            path_start(path_monster_3, 8, path_action_continue, 0)
+        }
+    }
+    if (color == 2) {
+        vx = 448
+        vy = -32
+        monster = instance_create(vx, vy, obj_blue_monster_3)
+        with (monster){
+            path_start(path_monster_3, 8, path_action_continue, 0)
+        }
+    }
+    if (color == 3) {
+        vx = 448
+        vy = -32
+        monster = instance_create(vx, vy, obj_green_monster_3)
+        with (monster){
+            path_start(path_monster_3, 8, path_action_continue, 0)
+        }
+    }
+    
 }
 
 if (argument[0] == global.SECOND_WAVE_ENEMY_METEOR) {

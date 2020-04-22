@@ -68,7 +68,9 @@ _shadow = 0
             <kind>1</kind>
             <string>
 // Points the sprite image to the object direction.
-image_angle = direction
+if (_type != global.ENEMY_MONSTER_3) {
+    image_angle = direction
+}
 
 // Moves the sprite in Y axis.
 y += _speed_y * (delta_time / 100000);// move 100 pixels
@@ -115,10 +117,11 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
                 }
                 break;  
             case global.WEAPON_ENERGY_MISSILE:
-                
-                    instance_create(x,y,obj_enemy_weapon_8)
-                
+                instance_create(x,y,obj_enemy_weapon_8)
                 break;
+            case global.WEAPON_PURSUIT_MISSILE:
+                instance_create(x,y,obj_enemy_weapon_9)
+                break;    
         }
         _shoot_counter = 0
     }

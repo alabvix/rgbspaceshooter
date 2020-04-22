@@ -88,8 +88,9 @@
         <sprite>sprites\spt_red_ship_2</sprite>
         <sprite>sprites\spt_red_ship_3</sprite>
         <sprite>sprites\spt_red_ship_4</sprite>
-        <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
+        <sprite>sprites\spt_red_monster_2</sprite>
+        <sprite>sprites\spt_red_monster_3</sprite>
         <sprite>sprites\spt_red_bomb</sprite>
         <sprite>sprites\spr_red_alien_1</sprite>
         <sprite>sprites\spt_red_cargo_ship</sprite>
@@ -104,17 +105,22 @@
         <sprite>sprites\spt_green_ship_4</sprite>
         <sprite>sprites\spt_green_ship_5</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
+        <sprite>sprites\spt_green_monster_2</sprite>
+        <sprite>sprites\spt_green_monster_3</sprite>
         <sprite>sprites\spt_green_cargo_ship</sprite>
         <sprite>sprites\spt_green_ship_6</sprite>
         <sprite>sprites\spt_green_tank_1</sprite>
         <sprite>sprites\spt_green_cannon_1</sprite>
         <sprite>sprites\spt_green_ship_7</sprite>
+        <sprite>sprites\sprite131</sprite>
       </sprites>
       <sprites name="blue">
         <sprite>sprites\spt_blue_bomb</sprite>
         <sprite>sprites\spt_blue_cannon_1</sprite>
         <sprite>sprites\spt_blue_cargo_ship</sprite>
-        <sprite>sprites\spt_blue_moster_1</sprite>
+        <sprite>sprites\spt_blue_monster_1</sprite>
+        <sprite>sprites\spt_blue_monster_2</sprite>
+        <sprite>sprites\spt_blue_monster_3</sprite>
         <sprite>sprites\spt_blue_ship_1</sprite>
         <sprite>sprites\spt_blue_ship_2</sprite>
         <sprite>sprites\spt_blue_ship_4</sprite>
@@ -132,6 +138,7 @@
       <sprite>sprites\spt_shadow_cargo_ship</sprite>
       <sprite>sprites\spt_tank_weapon</sprite>
       <sprite>sprites\spt_enemy_missile</sprite>
+      <sprite>sprites\spt_pursuit_missile</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -207,11 +214,14 @@
     <path>paths\path_sub_boss_1</path>
     <path>paths\path_fighter_1</path>
     <path>paths\path_fighter_2</path>
+    <path>paths\path_monster_3</path>
   </paths>
   <scripts name="scripts">
+    <script>scripts\ApplyDifficulty.gml</script>
     <script>scripts\DefineGlobals.gml</script>
     <script>scripts\InitializeSystem.gml</script>
     <script>scripts\CreateEnemy.gml</script>
+    <script>scripts\CreateRegularEnemies.gml</script>
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
     <script>scripts\LiberateIten.gml</script>
@@ -220,7 +230,6 @@
     <script>scripts\ContinueGame.gml</script>
     <script>scripts\InitGameVars.gml</script>
     <script>scripts\FireBossWeapon.gml</script>
-    <script>scripts\CreateRegularEnemies.gml</script>
     <script>scripts\CreateSecondaryEnemies.gml</script>
     <script>scripts\CreateCargoShips.gml</script>
     <script>scripts\CreateAmmo.gml</script>
@@ -242,7 +251,6 @@
     <script>scripts\GamePadHandler.gml</script>
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
-    <script>scripts\ApplyDifficulty.gml</script>
     <script>scripts\GenerateRGBItemEnergy.gml</script>
     <scripts name="file_operations">
       <script>scripts\SaveDifficulty.gml</script>
@@ -297,14 +305,15 @@
         <object>objects\obj_red_ship_3</object>
         <object>objects\obj_red_ship_4</object>
         <object>objects\obj_red_ship_6</object>
+        <object>objects\obj_red_ship_7</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
+        <object>objects\obj_red_monster_3</object>
         <object>objects\obj_red_bomb</object>
         <object>objects\obj_red_cargo_ship</object>
         <object>objects\obj_red_tank_1</object>
         <object>objects\obj_red_cannon_1</object>
-        <object>objects\obj_red_ship_7</object>
       </objects>
       <objects name="green">
         <object>objects\obj_green_base_enemy</object>
@@ -313,11 +322,13 @@
         <object>objects\obj_green_ship_4</object>
         <object>objects\obj_green_ship_5</object>
         <object>objects\obj_green_ship_6</object>
+        <object>objects\obj_green_ship_7</object>
         <object>objects\obj_green_monster_1</object>
+        <object>objects\obj_green_monster_2</object>
+        <object>objects\obj_green_monster_3</object>
         <object>objects\obj_green_cargo_ship</object>
         <object>objects\obj_green_tank_1</object>
         <object>objects\obj_green_cannon_1</object>
-        <object>objects\obj_green_ship_7</object>
       </objects>
       <objects name="blue">
         <object>objects\obj_blue_base_enemy</object>
@@ -326,6 +337,8 @@
         <object>objects\obj_blue_ship_4</object>
         <object>objects\obj_blue_ship_6</object>
         <object>objects\obj_blue_monster_1</object>
+        <object>objects\obj_blue_monster_2</object>
+        <object>objects\obj_blue_monster_3</object>
         <object>objects\obj_blue_bomb</object>
         <object>objects\obj_blue_cargo_ship</object>
         <object>objects\obj_blue_tank_1</object>
@@ -345,6 +358,7 @@
       <object>objects\obj_enemy_weapon_6</object>
       <object>objects\obj_enemy_weapon_7</object>
       <object>objects\obj_enemy_weapon_8</object>
+      <object>objects\obj_enemy_weapon_9</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_planet_base</object>
