@@ -45,9 +45,13 @@ global.difficulty_level_normal = 2
 global.difficulty_level_hard = 3
 
 global.option_sound_efx = true
-global.option_music = false
+global.option_music = LoadMusic()
 global.option_difficulty_level = LoadDifficulty()
 global.main_music_playing = false
+
+if (global.option_music) {
+    PlayMusic(snd_music_main_theme)
+}
 
 // time to create enemy for game difficulty
 global.counter_create_enemy_limit = 10
@@ -149,6 +153,7 @@ global.WEAPON_ENERGY_BALL_V     = 6
 global.WEAPON_TANK_FIRE         = 7
 global.WEAPON_ENERGY_MISSILE    = 8
 global.WEAPON_PURSUIT_MISSILE   = 9
+global.WEAPON_PURSUIT_AMEBA     = 10
 
 
 //////////////////////////////////

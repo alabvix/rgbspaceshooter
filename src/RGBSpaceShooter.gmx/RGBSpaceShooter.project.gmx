@@ -65,6 +65,8 @@
       <sprite>sprites\spt_menu_button</sprite>
       <sprite>sprites\spt_state_menu</sprite>
       <sprite>sprites\spt_controls</sprite>
+      <sprite>sprites\spt_panel</sprite>
+      <sprite>sprites\spt_item_option</sprite>
     </sprites>
     <sprites name="player">
       <sprite>sprites\spt_player_ship_explosion</sprite>
@@ -139,6 +141,7 @@
       <sprite>sprites\spt_tank_weapon</sprite>
       <sprite>sprites\spt_enemy_missile</sprite>
       <sprite>sprites\spt_pursuit_missile</sprite>
+      <sprite>sprites\spt_pursuit_ameba</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -255,7 +258,10 @@
     <scripts name="file_operations">
       <script>scripts\SaveDifficulty.gml</script>
       <script>scripts\LoadDifficulty.gml</script>
+      <script>scripts\SaveMusic.gml</script>
+      <script>scripts\LoadMusic.gml</script>
     </scripts>
+    <script>scripts\StopMusic.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -359,6 +365,7 @@
       <object>objects\obj_enemy_weapon_7</object>
       <object>objects\obj_enemy_weapon_8</object>
       <object>objects\obj_enemy_weapon_9</object>
+      <object>objects\obj_enemy_weapon_10</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_planet_base</object>
@@ -380,6 +387,7 @@
       <object>objects\obj_btn_game_over_continue</object>
       <object>objects\obj_btn_game_over_main_menu</object>
       <object>objects\obj_room_help</object>
+      <object>objects\obj_room_options</object>
       <object>objects\obj_menu_btn_base</object>
       <object>objects\obj_menu_btn_new_game</object>
       <object>objects\obj_menu_btn_options</object>
@@ -387,10 +395,14 @@
       <object>objects\obj_menu_btn_dificult</object>
       <object>objects\obj_menu_btn_menu</object>
       <object>objects\obj_menu_btn_goto_menu</object>
+      <object>objects\obj_menu_btn_continue</object>
       <object>objects\obj_state_menu_base</object>
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>
       <object>objects\obj_controls</object>
+      <object>objects\obj_panel</object>
+      <object>objects\obj_sound_option</object>
+      <object>objects\obj_music_option</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>
@@ -447,6 +459,7 @@
     <room>rooms\room_planet_aurora_space</room>
     <room>rooms\room_planet_aurora_land</room>
     <room>rooms\room_help</room>
+    <room>rooms\room_options</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

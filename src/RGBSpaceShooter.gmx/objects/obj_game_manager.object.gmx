@@ -352,8 +352,8 @@ if (global.game_state == global.GAME_STATE_GAME_OVER ) {
     if (!_game_over_menu_draw) {
         window_set_cursor(cr_default)
         instance_create(centro_room_x,  centro_room_y + 50, obj_frame_medium)
-        instance_create(centro_room_x - 100,  centro_room_y + 40, obj_btn_game_over_continue)
-        instance_create(centro_room_x + 50,   centro_room_y + 40, obj_btn_game_over_main_menu)
+        instance_create(centro_room_x - 100, centro_room_y + 40, obj_menu_btn_continue)
+        instance_create(centro_room_x + 100, centro_room_y + 40, obj_menu_btn_goto_menu)
         _game_over_menu_draw = true
     }
 }

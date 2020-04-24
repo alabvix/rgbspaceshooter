@@ -33,8 +33,8 @@ _points  = 17
 _hp      = 50
 _speed_y = 0
 
-_shoot_in    = 40 // fires in each n seconds 
-_weapon_type = global.WEAPON_PURSUIT_MISSILE
+_shoot_in    = 35 // fires in each n seconds 
+_weapon_type = global.WEAPON_PURSUIT_AMEBA
 _is_monster = true
 _type = global.ENEMY_MONSTER_3 
 

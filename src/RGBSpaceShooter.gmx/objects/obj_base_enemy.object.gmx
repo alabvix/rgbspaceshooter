@@ -121,7 +121,10 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
                 break;
             case global.WEAPON_PURSUIT_MISSILE:
                 instance_create(x,y,obj_enemy_weapon_9)
-                break;    
+                break;
+            case global.WEAPON_PURSUIT_AMEBA:
+                instance_create(x,y,obj_enemy_weapon_10)
+                break;         
         }
         _shoot_counter = 0
     }

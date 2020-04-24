@@ -74,10 +74,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (global.game_state != global.GAME_STATE_MAIN_MENU ) {
-    exit
-}
-draw_text_transformed(x,y,"Main Menu",1,1,0 );
+draw_text_transformed(x,y,"Main Menu",1,1,0 )
 </string>
           </argument>
         </arguments>
