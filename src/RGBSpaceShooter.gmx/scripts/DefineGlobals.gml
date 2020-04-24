@@ -1,5 +1,5 @@
 ///DefineGlobals
-global.version = "0.2.0"
+global.version = "0.3.0"
 
 global.test_super_hit = false
 global.test_ship_undestrutible = false//false
