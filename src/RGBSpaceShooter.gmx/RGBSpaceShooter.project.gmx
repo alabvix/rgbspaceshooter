@@ -196,6 +196,7 @@
     <sprites name="buidings">
       <sprite>sprites\spt_aurora_bulding_1</sprite>
       <sprite>sprites\spt_aurora_building_2</sprite>
+      <sprite>sprites\spt_aurora_building_large</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -260,8 +261,14 @@
       <script>scripts\LoadDifficulty.gml</script>
       <script>scripts\SaveMusic.gml</script>
       <script>scripts\LoadMusic.gml</script>
+      <script>scripts\SavePlayerState.gml</script>
+      <script>scripts\SaveCurrentPlanet.gml</script>
+      <script>scripts\LoadCurrentPlanet.gml</script>
+      <script>scripts\SaveHasGameSavedFlag.gml</script>
+      <script>scripts\LoadHasGameSavedFlag.gml</script>
     </scripts>
     <script>scripts\StopMusic.gml</script>
+    <script>scripts\HandlePlayerAttributes.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -450,6 +457,7 @@
     <objects name="buildings">
       <object>objects\obj_building_base</object>
       <object>objects\obj_aurora_building_1</object>
+      <object>objects\obj_aurora_building_large</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -1,6 +1,8 @@
 ///DefineGlobals
 global.version = "0.3.0"
 
+global.has_game_saved = LoadHasGameSavedFlag()
+
 global.test_super_hit = false
 global.test_ship_undestrutible = false//false
 
@@ -171,22 +173,9 @@ global.player_has_weapon_8 = false
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
-global.player_weapon = global.PLAYER_SINGLE_LASER
 global.SPECIAL_WEAPON_1 = 1
 
-global.player_weapon_special = global.SPECIAL_WEAPON_1
-global.player_lives = 2
-global.player_score = 0
-global.player_hull = 100
-global.player_hull_max = 100
-global.player_blue_energy = 200
-global.player_blue_energy_base = 200
-global.player_red_energy = 200
-global.player_red_energy_base = 200
-global.player_green_energy = 200
-global.player_green_energy_base = 200
-global.player_rgb_energy = 0
-global.player_rgb_energy_base = 200
+HandlePlayerAttributes(true)
 
 // boss data
 global.BOSS_1_NAME = "Visontroy"

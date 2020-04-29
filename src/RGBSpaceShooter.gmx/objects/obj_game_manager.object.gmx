@@ -157,7 +157,16 @@ _total_tank_1_destroyed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if (global.game_state == global.GAME_STATE_GAME_OVER) {
+    if (global.selected_planet == global.PLANET_AURORA_LAND) {
+        _counter_create_building ++
+        if (_counter_create_building == 120) {
+            CreateBuildings()
+            _counter_create_building = 0
+        }
+    }
+}
+
 // counts to respaw player ship 
 if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     _respaw_count += 1
@@ -212,7 +221,6 @@ if (global.game_state == global.GAME_STATE_PLAY) {
     }
     
     if (global.selected_planet == global.PLANET_AURORA_LAND) {
-        
         if (_create_building) {
             _counter_create_building ++
             if (_counter_create_building == 120) {
@@ -220,7 +228,6 @@ if (global.game_state == global.GAME_STATE_PLAY) {
                 _counter_create_building = 0
             }
         }
-        
         //_counter_create_land_enemies ++ 
         //if (_counter_create_land_enemies == 400) {
         //    CreateLandEnemies()
@@ -263,13 +270,16 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
 }
 
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
+
+    SavePlayerState()
+    SaveHasGameSavedFlag()
+
     if (!_play_boss_defeated_music) {
         PlayMusic(snd_music_boss_defeated)
         _play_boss_defeated_music = true
     }
     
     // count to move planet
-    
     if (_start_count_move_planet) {
         _count_move_planet++
         if (_count_move_planet==200) {
@@ -293,8 +303,7 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
            //show_debug_message("planet moved and preparaed")
         }
     }
-    
-    
+        
     // Move the player ship into the planet
     if (_planet_moved) {
         MoveShipToPlanet()
