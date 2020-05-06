@@ -93,6 +93,7 @@
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
+        <sprite>sprites\spt_red_monster_4</sprite>
         <sprite>sprites\spt_red_bomb</sprite>
         <sprite>sprites\spr_red_alien_1</sprite>
         <sprite>sprites\spt_red_cargo_ship</sprite>
@@ -109,6 +110,7 @@
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
+        <sprite>sprites\spt_green_monster_4</sprite>
         <sprite>sprites\spt_green_cargo_ship</sprite>
         <sprite>sprites\spt_green_ship_6</sprite>
         <sprite>sprites\spt_green_tank_1</sprite>
@@ -123,6 +125,7 @@
         <sprite>sprites\spt_blue_monster_1</sprite>
         <sprite>sprites\spt_blue_monster_2</sprite>
         <sprite>sprites\spt_blue_monster_3</sprite>
+        <sprite>sprites\spt_blue_monster_4</sprite>
         <sprite>sprites\spt_blue_ship_1</sprite>
         <sprite>sprites\spt_blue_ship_2</sprite>
         <sprite>sprites\spt_blue_ship_4</sprite>
@@ -251,13 +254,13 @@
     <script>scripts\PlaySpecialWeapon.gml</script>
     <script>scripts\PlayBossFireShot.gml</script>
     <script>scripts\DrawHUDObjects.gml</script>
-    <script>scripts\ResetShipAttributes.gml</script>
     <script>scripts\GamePadHandler.gml</script>
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
     <script>scripts\GenerateRGBItemEnergy.gml</script>
     <scripts name="file_operations">
       <script>scripts\SaveDifficulty.gml</script>
+      <script>scripts\HandlePlayerAttributes.gml</script>
       <script>scripts\LoadDifficulty.gml</script>
       <script>scripts\SaveMusic.gml</script>
       <script>scripts\LoadMusic.gml</script>
@@ -265,10 +268,11 @@
       <script>scripts\SaveCurrentPlanet.gml</script>
       <script>scripts\LoadCurrentPlanet.gml</script>
       <script>scripts\SaveHasGameSavedFlag.gml</script>
-      <script>scripts\LoadHasGameSavedFlag.gml</script>
+      <script>scripts\HasGameSaved.gml</script>
+      <script>scripts\SavePlayerLives.gml</script>
     </scripts>
     <script>scripts\StopMusic.gml</script>
-    <script>scripts\HandlePlayerAttributes.gml</script>
+    <script>scripts\ResetPlayerAttributes.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -323,6 +327,7 @@
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
         <object>objects\obj_red_monster_3</object>
+        <object>objects\obj_red_monster_4</object>
         <object>objects\obj_red_bomb</object>
         <object>objects\obj_red_cargo_ship</object>
         <object>objects\obj_red_tank_1</object>

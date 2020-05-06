@@ -1,8 +1,8 @@
 ///DefineGlobals
 global.version = "0.3.0"
-
-global.has_game_saved = LoadHasGameSavedFlag()
-
+// game files
+global.FILE_GAME_SETTINGS = "game_settings.ini"
+global.has_game_saved = HasGameSaved()
 global.test_super_hit = false
 global.test_ship_undestrutible = false//false
 
@@ -23,8 +23,6 @@ global.ITEM_TRI_LASER    = 6
 global.ITEM_RGB_ENERGY   = 7
 global.HUD_REFIL_20      = 8
 
-// game files
-global.FILE_GAME_SETTINGS = "game_settings.ini"
 
 // Game States
 global.GAME_STATE_MAIN_MENU      = 1
@@ -174,6 +172,21 @@ global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
 global.SPECIAL_WEAPON_1 = 1
+
+global.player_weapon = global.PLAYER_SINGLE_LASER
+global.player_weapon_special = global.SPECIAL_WEAPON_1
+global.player_lives = 2
+global.player_score = 0
+global.player_hull = 100
+global.player_hull_max = 100
+global.player_blue_energy = 200
+global.player_blue_energy_base = 200
+global.player_red_energy = 200
+global.player_red_energy_base = 200
+global.player_green_energy = 200
+global.player_green_energy_base = 200
+global.player_rgb_energy = 0
+global.player_rgb_energy_base = 200
 
 HandlePlayerAttributes(true)
 

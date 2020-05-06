@@ -179,11 +179,11 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
             _respaw_count = 0
             exit
         }
-        // Next player life
+        
+        // Next player life. Back to the begging of the room.
+        // Reset player attributes less player lives. 
         _respaw_count = 0
-        global.player_weapon = global.PLAYER_SINGLE_LASER
-        global.player_score = 0
-        ResetShipAttributes()
+        ResetPlayerAttributes()
         room_restart()
         SetGameState(global.GAME_STATE_PLAY)
     }
