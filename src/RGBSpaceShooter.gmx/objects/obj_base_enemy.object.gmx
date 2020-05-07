@@ -42,7 +42,8 @@ _color         = 0
 _is_monster    = false
 _is_tank       = false
 
-_shadow = 0
+_shadow        = 0
+_in_path       = false
 
 </string>
           </argument>
@@ -68,7 +69,7 @@ _shadow = 0
             <kind>1</kind>
             <string>
 // Points the sprite image to the object direction.
-if (_type != global.ENEMY_MONSTER_3) {
+if (_type != global.ENEMY_MONSTER_3 &amp;&amp; _type != global.ENEMY_MONSTER_4) {
     image_angle = direction
 }
 
@@ -91,6 +92,18 @@ if (_shadow != 0) {
     _shadow.x = x + 40
     _shadow.y = y + 40
 }
+
+if (_type == global.ENEMY_MONSTER_4) {
+    if ( ! _in_path ) {
+       if ( point_distance(x, y, 224,144)) &gt; 5 {
+           move_towards_point(224,144, 5);
+       } else {
+           speed = 0
+           _in_path = true
+           path_start(path_monster_4, 8, path_action_continue, true)
+       }
+    }
+} 
 
 // Shoot control
 if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
@@ -125,6 +138,22 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
             case global.WEAPON_PURSUIT_AMEBA:
                 instance_create(x,y,obj_enemy_weapon_10)
                 break;         
+            case global.WEAPON_MONSTER_5:
+                for (i=0; i &lt; 5; i++) {
+                    if (_color == global.RED) {
+                        m5 = instance_create(x, y, obj_red_monster_5)
+                    }
+                    if (_color == global.GREEN) {
+                        m5 = instance_create(x, y, obj_green_monster_5)
+                    }
+                    if (_color == global.BLUE) {
+                        m5 = instance_create(x, y, obj_blue_monster_5)
+                    }
+                    m5.vspeed = irandom_range(3,6)
+                    m5.hspeed = irandom_range(3,6)     
+                    m5.direction = irandom_range(100,360)
+                }
+                break;
         }
         _shoot_counter = 0
     }
@@ -144,14 +173,7 @@ if (_type = global.ENEMY_SHIP_7) {
     if (y &gt; 192){
         speed = 0
     }
-}     
-
-    
-
-
-
-
-
+}
 </string>
           </argument>
         </arguments>

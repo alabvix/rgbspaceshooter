@@ -88,6 +88,12 @@ _total_monsters_2_created = 0
 _total_monster_3_killed   = 0
 _total_monsters_3_created = 0
 
+_total_monster_4_killed   = 0
+_total_monsters_4_created = 0
+
+_total_monster_5_killed   = 0
+_total_monsters_5_created = 0
+
 _total_ship_1_created   = 0
 _total_ship_1_destroyed = 0
 

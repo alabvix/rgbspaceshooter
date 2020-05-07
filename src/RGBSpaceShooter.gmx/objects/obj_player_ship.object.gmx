@@ -143,14 +143,20 @@ if (shoot != noone &amp;&amp; !global.test_ship_undestrutible) {
     }
 }
 
-// Ship is destroyed if collides with meteor or other ship
+// collision with enemy
 enemy = instance_place(x,y,obj_base_enemy)
 if (enemy != noone &amp;&amp; ! enemy._is_tank &amp;&amp; !global.test_ship_undestrutible) {
-    global.player_hull = 0
-    instance_destroy(_special_weapon)
-    SetShipExplosion()
+    global.player_hull -= enemy._hp
+    instance_create(enemy.x, enemy.y, obj_little_explosion)
+    instance_destroy(enemy)
+    if (global.player_hull &lt;= 0) {
+        global.player_hull = 0
+        instance_destroy(_special_weapon)
+        SetShipExplosion()  
+    }
 }
 
+// Ship is destroyed if collides with meteor
 meteor = instance_place(x,y,obj_meteor_base)
 if (meteor != noone &amp;&amp; !global.test_ship_undestrutible) {
     global.player_hull = 0

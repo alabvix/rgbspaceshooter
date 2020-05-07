@@ -213,87 +213,79 @@ if (argument[0] == global.ENEMY_ALIEN ) {
 
 if (argument[0] == global.ENEMY_MONSTER_1 ) {
     var color = irandom_range(1,3) 
-    if (color == 1) {
-        vx = 200
-        vy = -32
-        monster = instance_create(vx, vy, obj_red_monster_1)
-        with (monster){
-            path_start(path0, 8, path_action_continue, 0)
-        }
+    vx = 200
+    vy = -32
+    switch (color) {
+        case 1:
+            monster = instance_create(vx, vy, obj_red_monster_1)
+            break
+        case 2:
+            monster = instance_create(vx, vy, obj_green_monster_1)
+            break
+        case 3:
+            monster = instance_create(vx, vy, obj_blue_monster_1)
+            break
     }
-    if (color == 2) {
-        vx = 200
-        vy = -32
-        monster = instance_create(vx, vy, obj_blue_monster_1)
-        with (monster){
-            path_start(path0, 8, path_action_continue, 0)
-        }
-    }
-    if (color == 3) {
-        vx = 200
-        vy = -32
-        monster = instance_create(vx, vy, obj_green_monster_1)
-        with (monster){
-            path_start(path0, 8, path_action_continue, 0)
-        }
+    with (monster){
+        path_start(path0, 8, path_action_continue, 0)
     }
 }
 
 if (argument[0] == global.ENEMY_MONSTER_2 ) {
     var color = irandom_range(1,3) 
-    if (color == 1) {
-        vx = 800
-        vy = -32
-        monster = instance_create(vx, vy, obj_red_monster_2)
-        with (monster){
-            path_start(path1, 8, path_action_continue, 0)
-        }
+    vx = 800
+    vy = -32
+    switch (color) {
+        case 1:
+            monster = instance_create(vx, vy, obj_red_monster_2)
+            break
+        case 2:
+            monster = instance_create(vx, vy, obj_green_monster_2)
+            break
+        case 3:
+            monster = instance_create(vx, vy, obj_blue_monster_2)
+            break
     }
-    if (color == 2) {
-        vx = 800
-        vy = -32
-        monster = instance_create(vx, vy, obj_blue_monster_2)
-        with (monster){
-            path_start(path1, 8, path_action_continue, 0)
-        }
-    }
-    if (color == 3) {
-        vx = 800
-        vy = -32
-        monster = instance_create(vx, vy, obj_green_monster_2)
-        with (monster){
-            path_start(path1, 8, path_action_continue, 0)
-        }
+    with (monster){
+        path_start(path1, 8, path_action_continue, 0)
     }
 }
 
-if (argument[0] ==global.ENEMY_MONSTER_3) {
+if (argument[0] == global.ENEMY_MONSTER_3) {
     var color = irandom_range(1,3) 
-    if (color == 1) {
-        vx = 448
-        vy = -32
-        monster = instance_create(vx, vy, obj_red_monster_3)
-        with (monster){
-            path_start(path_monster_3, 8, path_action_continue, 0)
-        }
+    vx = 448
+    vy = -32
+    switch (color) {
+        case 1:
+            monster = instance_create(vx, vy, obj_red_monster_3)
+            break
+        case 2:
+            monster = instance_create(vx, vy, obj_green_monster_3)
+            break
+        case 3:
+            monster = instance_create(vx, vy, obj_blue_monster_3)
+            break
     }
-    if (color == 2) {
-        vx = 448
-        vy = -32
-        monster = instance_create(vx, vy, obj_blue_monster_3)
-        with (monster){
-            path_start(path_monster_3, 8, path_action_continue, 0)
-        }
+    with (monster){
+        path_start(path_monster_3, 8, path_action_continue, 0)
     }
-    if (color == 3) {
-        vx = 448
-        vy = -32
-        monster = instance_create(vx, vy, obj_green_monster_3)
-        with (monster){
-            path_start(path_monster_3, 8, path_action_continue, 0)
-        }
+}
+
+if (argument[0] == global.ENEMY_MONSTER_4) {
+    var color = irandom_range(1,1) 
+    vx = 448
+    vy = -100
+    switch (color) {
+        case 1:
+            monster = instance_create(vx, vy, obj_red_monster_4)
+            break
+        case 2:
+            monster = instance_create(vx, vy, obj_green_monster_4)
+            break
+        case 3:
+            monster = instance_create(vx, vy, obj_blue_monster_4)
+            break
     }
-    
 }
 
 if (argument[0] == global.SECOND_WAVE_ENEMY_METEOR) {

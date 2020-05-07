@@ -96,6 +96,7 @@ global.TOTAL_SHIPS_7 = 3
 global.TOTAL_MONSTERS_1 = 7 
 global.TOTAL_MONSTERS_2 = 7
 global.TOTAL_MONSTERS_3 = 7
+global.TOTAL_MONSTERS_4 = 1
 global.TOTAL_BOMBS = 30
 global.TOTAL_ALIEN = 20
 global.TOTAL_TANK_1 = 6
@@ -130,7 +131,7 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,11] = global.ENEMY_SHIP_4
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,12] = global.SUB_BOSS
 
 // Enemy Waves on planet Aurora land
-global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,0] = global.ENEMY_SHIP_6
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,0] = global.ENEMY_MONSTER_4 //global.ENEMY_SHIP_6
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,1] = global.ENEMY_TANK_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,2] = global.ENEMY_SHIP_7
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,3] = global.ENEMY_MONSTER_3
@@ -154,6 +155,7 @@ global.WEAPON_TANK_FIRE         = 7
 global.WEAPON_ENERGY_MISSILE    = 8
 global.WEAPON_PURSUIT_MISSILE   = 9
 global.WEAPON_PURSUIT_AMEBA     = 10
+global.WEAPON_MONSTER_5         = 11
 
 
 //////////////////////////////////
