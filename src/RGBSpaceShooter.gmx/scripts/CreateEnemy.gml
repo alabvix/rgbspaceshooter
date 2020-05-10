@@ -106,21 +106,26 @@ if (argument[0] == global.ENEMY_SHIP_3) {
 
 if (argument[0] == global.ENEMY_SHIP_4) {
     var color = irandom_range(1,3) 
+    var ship = 0
     if (color == 1) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-71, -1600)
-        instance_create(vx, vy, obj_red_ship_4)
+        ship = instance_create(vx, vy, obj_red_ship_4)
     }
     if (color == 2) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-71, -1600)
-        instance_create(vx, vy, obj_green_ship_4)
+        ship = instance_create(vx, vy, obj_green_ship_4)
     }
     if (color == 3) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-71, -1600)
-        instance_create(vx, vy, obj_blue_ship_4)
+        ship = instance_create(vx, vy, obj_blue_ship_4)
     }
+    with(ship){
+        _speed_y = irandom_range(3,6)
+    }
+    
     show_debug_message("Ship 4 instance created")
 }
 

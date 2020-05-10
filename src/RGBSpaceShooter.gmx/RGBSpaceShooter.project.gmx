@@ -276,6 +276,8 @@
       <script>scripts\SaveHasGameSavedFlag.gml</script>
       <script>scripts\HasGameSaved.gml</script>
       <script>scripts\SavePlayerLives.gml</script>
+      <script>scripts\SaveSound.gml</script>
+      <script>scripts\LoadSound.gml</script>
     </scripts>
     <script>scripts\StopMusic.gml</script>
     <script>scripts\ResetPlayerAttributes.gml</script>

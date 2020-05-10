@@ -74,6 +74,11 @@ window_set_cursor(cr_handpoint)
           <argument>
             <kind>1</kind>
             <string>global.option_sound_efx = ! global.option_sound_efx
+
+if (global.option_sound_efx) {
+    PlayShipLaser()
+} 
+SaveSound(global.option_sound_efx)
 </string>
           </argument>
         </arguments>

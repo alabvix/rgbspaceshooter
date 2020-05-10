@@ -44,7 +44,7 @@ global.difficulty_level_easy = 1
 global.difficulty_level_normal = 2
 global.difficulty_level_hard = 3
 
-global.option_sound_efx = true
+global.option_sound_efx = LoadSound()
 global.option_music = LoadMusic()
 global.option_difficulty_level = LoadDifficulty()
 global.main_music_playing = false
