@@ -41,24 +41,28 @@ if (argument[0] == global.ENEMY_SHIP_7) {
     if (global.ship_7_ix > 2){
         global.ship_7_ix = 0
     } 
-     
+}
+
+if (argument[0] == global.ENEMY_SHIP_8) {
+    var color = irandom_range(1,3)
+     vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -200)
+    if (color == 1) {
+        instance_create(vx, vy, obj_red_ship_8)
+    }
+    if (color == 2) {
+        instance_create(vx, vy, obj_green_ship_8)
+    }
+    if (color == 3) {
+        instance_create(vx, vy, obj_blue_ship_8)
+    }
 }
  
 if (argument[0] == global.SPECIAL_CARGO_SHIP) {
     var color = irandom_range(1,3) 
     vx = irandom_range(1, room_width)
     vy = irandom_range(-100, -200)
-    switch(color) {
-        case 1:
-            instance_create(vx, vy, obj_red_cargo_ship)
-            break;
-        case 2:
-            instance_create(vx, vy, obj_green_cargo_ship)
-            break;    
-        case 3:
-            instance_create(vx, vy, obj_blue_cargo_ship)
-            break;        
-    }
+    instance_create(vx, vy, obj_cargo_ship)
 } 
 
 if (argument[0] == global.ENEMY_SHIP_1 ) {

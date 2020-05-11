@@ -2,6 +2,8 @@ var vx = argument[0]
 var vy = argument[1]
 var item = irandom_range(1,4)
 
+//if (global.
+
 switch (item) {
     case 1:
         LiberateIten(global.ITEM_SINGLE_LASER,vx,vy)

@@ -5,19 +5,6 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
         exit 
     }
     
-    if (_enemy_type == global.ENEMY_SHIP_7) {
-        if (_total_ship_7_created < global.TOTAL_SHIPS_7) {
-            CreateEnemy(_enemy_type)    
-            _total_ship_7_created ++;
-            _can_create_enemy = false
-        }
-        if (_total_ship_7_destroyed == global.TOTAL_SHIPS_7) {
-            _total_ship_7_destroyed = 0
-            _total_ship_7_created = 0
-            _can_create_enemy = true
-        }
-    }
-    
     if (_enemy_type == global.ENEMY_TANK_1) {
        if (_total_tank_1_created < global.TOTAL_TANK_1 ) {
            show_debug_message("Enemy type: " + string( _enemy_type))
@@ -163,6 +150,32 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
         if (_total_ship_6_destroyed == global.TOTAL_SHIPS_6) {
             _total_ship_6_destroyed = 0
             _total_ship_6_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
+    if (_enemy_type == global.ENEMY_SHIP_7) {
+        if (_total_ship_7_created < global.TOTAL_SHIPS_7) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_7_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_ship_7_destroyed == global.TOTAL_SHIPS_7) {
+            _total_ship_7_destroyed = 0
+            _total_ship_7_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
+    if (_enemy_type == global.ENEMY_SHIP_8) {
+        if (_total_ship_8_created < global.TOTAL_SHIPS_8) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_8_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_ship_8_destroyed == global.TOTAL_SHIPS_8) {
+            _total_ship_8_destroyed = 0
+            _total_ship_8_created = 0
             _can_create_enemy = true
         }
     }

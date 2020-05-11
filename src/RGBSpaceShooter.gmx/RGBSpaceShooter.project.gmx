@@ -90,6 +90,9 @@
         <sprite>sprites\spt_red_ship_2</sprite>
         <sprite>sprites\spt_red_ship_3</sprite>
         <sprite>sprites\spt_red_ship_4</sprite>
+        <sprite>sprites\spt_red_ship_6</sprite>
+        <sprite>sprites\spt_red_ship_7</sprite>
+        <sprite>sprites\spt_red_ship_8</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
@@ -99,16 +102,17 @@
         <sprite>sprites\spt_red_bomb</sprite>
         <sprite>sprites\spr_red_alien_1</sprite>
         <sprite>sprites\spt_red_cargo_ship</sprite>
-        <sprite>sprites\spt_red_ship_6</sprite>
         <sprite>sprites\spt_red_tank_1</sprite>
         <sprite>sprites\spt_red_cannon_1</sprite>
-        <sprite>sprites\spt_red_ship_7</sprite>
       </sprites>
       <sprites name="green">
         <sprite>sprites\spt_green_ship_1</sprite>
         <sprite>sprites\spt_green_ship_2</sprite>
         <sprite>sprites\spt_green_ship_4</sprite>
         <sprite>sprites\spt_green_ship_5</sprite>
+        <sprite>sprites\spt_green_ship_6</sprite>
+        <sprite>sprites\spt_green_ship_7</sprite>
+        <sprite>sprites\spt_green_ship_8</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
@@ -116,10 +120,8 @@
         <sprite>sprites\spt_green_monster_5</sprite>
         <sprite>sprites\spt_green_monster_5_child</sprite>
         <sprite>sprites\spt_green_cargo_ship</sprite>
-        <sprite>sprites\spt_green_ship_6</sprite>
         <sprite>sprites\spt_green_tank_1</sprite>
         <sprite>sprites\spt_green_cannon_1</sprite>
-        <sprite>sprites\spt_green_ship_7</sprite>
       </sprites>
       <sprites name="blue">
         <sprite>sprites\spt_blue_bomb</sprite>
@@ -131,12 +133,13 @@
         <sprite>sprites\spt_blue_monster_4</sprite>
         <sprite>sprites\spt_blue_monster_5</sprite>
         <sprite>sprites\spt_blue_monster_5_child</sprite>
+        <sprite>sprites\spt_blue_tank_1</sprite>
         <sprite>sprites\spt_blue_ship_1</sprite>
         <sprite>sprites\spt_blue_ship_2</sprite>
         <sprite>sprites\spt_blue_ship_4</sprite>
         <sprite>sprites\spt_blue_ship_6</sprite>
-        <sprite>sprites\spt_blue_tank_1</sprite>
         <sprite>sprites\spt_blue_ship_7</sprite>
+        <sprite>sprites\spt_blue_ship_8</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
       <sprite>sprites\spt_enemy_weapon_3</sprite>
@@ -150,6 +153,7 @@
       <sprite>sprites\spt_enemy_missile</sprite>
       <sprite>sprites\spt_pursuit_missile</sprite>
       <sprite>sprites\spt_pursuit_ameba</sprite>
+      <sprite>sprites\spt_carg_ship</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -331,6 +335,7 @@
         <object>objects\obj_red_ship_4</object>
         <object>objects\obj_red_ship_6</object>
         <object>objects\obj_red_ship_7</object>
+        <object>objects\obj_red_ship_8</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -351,6 +356,7 @@
         <object>objects\obj_green_ship_5</object>
         <object>objects\obj_green_ship_6</object>
         <object>objects\obj_green_ship_7</object>
+        <object>objects\obj_green_ship_8</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
@@ -367,6 +373,8 @@
         <object>objects\obj_blue_ship_2</object>
         <object>objects\obj_blue_ship_4</object>
         <object>objects\obj_blue_ship_6</object>
+        <object>objects\obj_blue_ship_7</object>
+        <object>objects\obj_blue_ship_8</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
@@ -375,11 +383,11 @@
         <object>objects\obj_blue_cargo_ship</object>
         <object>objects\obj_blue_tank_1</object>
         <object>objects\obj_blue_cannon_1</object>
-        <object>objects\obj_blue_ship_7</object>
         <object>objects\obj_blue_monster_5</object>
       </objects>
       <object>objects\obj_shadow_ship_6</object>
       <object>objects\obj_shadow_carg_ship</object>
+      <object>objects\obj_cargo_ship</object>
     </objects>
     <objects name="enemy_weapon">
       <object>objects\obj_enemy_weapon_base</object>

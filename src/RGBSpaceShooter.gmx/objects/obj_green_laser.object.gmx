@@ -49,10 +49,6 @@ if (enemy) {
     if (enemy._hp &lt; 0) {
         global.player_score += enemy._points
         //show_debug_message("Player Score:" + string(obj_player_ship._score));
-        if (enemy._is_cargo_ship) {
-            GenerateCargoItem(x,y)
-            instance_destroy(enemy._shadow)
-        }
         GenerateRGBItemEnergy(x,y)
         if (enemy._is_monster) {
             PlayMonsterDieSound()
