@@ -83,6 +83,7 @@
       <sprite>sprites\spt_weapon_1_fire</sprite>
       <sprite>sprites\spt_rgb_energy</sprite>
       <sprite>sprites\spt_special_w_1</sprite>
+      <sprite>sprites\spt_honey_badger</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
