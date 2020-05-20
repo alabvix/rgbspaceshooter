@@ -38,8 +38,6 @@ if (global.player_weapon == global.PLAYER_TRI_LASER) {
             break;        
     }
 } 
-
- 
-
-
-
+if (global.player_weapon == global.PLAYER_PURSUIT_LASER) {
+    audio_play_sound(snd_player_pursuit_laser, 1, false);
+}

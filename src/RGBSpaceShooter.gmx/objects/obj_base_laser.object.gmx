@@ -30,6 +30,7 @@ _demage = 8
 
 _move_right = false
 _move_left = false
+_found_enemy = false
 
 if (global.test_super_hit) {
     _demage = 1000
@@ -59,21 +60,44 @@ if (global.test_super_hit) {
             <string>// Calculates y position based on delta to make smoother moviment.
 delta = (60/1000000) * delta_time;
 
-if ( ! _move_right &amp;&amp; ! _move_left) {
-    y -= _velocity * delta;
-    // If goes out of screen.
-    if (y &lt; -5) instance_destroy();
+// if is pursuit laser goes to nerby enemy
+if (global.player_weapon == global.PLAYER_PURSUIT_LASER) {
+    if (! _found_enemy) {
+        y -= _velocity * delta;
+    }
+    if (instance_exists(obj_base_enemy)) {
+        var d = point_distance(x, y, obj_base_enemy.x, obj_base_enemy.y)
+        if (d &lt; 500) {
+            move_towards_point(obj_base_enemy.x, obj_base_enemy.y, _velocity);
+            _found_enemy = true
+        } else {
+            _found_enemy = false
+        }
+    }
+    if (instance_exists(obj_boss_base)) {
+        var d = point_distance(x, y, obj_boss_base.x, obj_boss_base.y)
+        if (d &lt; 500) {
+            move_towards_point(obj_boss_base.x, obj_boss_base.y, _velocity);
+            _found_enemy = true
+        } else {
+            _found_enemy = false
+        }
+    }
+} else {
+    if ( ! _move_right &amp;&amp; ! _move_left) {
+        y -= _velocity * delta;
+    }
+    if (_move_right) {
+        x -= _velocity * delta;
+    }
+    if (_move_left) {
+        x += _velocity * delta;
+    }
 }
 
-if (_move_right) {
-    x -= _velocity * delta;
-    if (x &lt; 0) instance_destroy()
-}
-
-if (_move_left) {
-    x += _velocity * delta;
-    if (x &gt; room_width) instance_destroy()
-}
+if (y &lt; -5) instance_destroy();
+if (x &lt; 0) instance_destroy()
+if (x &gt; room_width) instance_destroy()
 
 // Handle collision with meteor.
 var enemy = instance_place(x,y, obj_meteor_base)

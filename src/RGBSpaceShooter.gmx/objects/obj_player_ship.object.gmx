@@ -188,6 +188,7 @@ if (refil != noone) {
     instance_destroy(refil);
     PlayItemSound(global.ITEM_GREEN_AMMO)
 }
+
 refil = instance_place(x,y, obj_item_blue_ammo)
 if (refil != noone) {
     global.player_blue_energy += refil._ammo
@@ -197,6 +198,7 @@ if (refil != noone) {
     instance_destroy(refil);
     PlayItemSound(global.ITEM_BLUE_AMMO)
 }
+
 hul = instance_place(x,y, obj_hull_refil_20) 
 if (hul != noone) {
     global.player_hull += hul._val
@@ -207,30 +209,37 @@ if (hul != noone) {
     PlayItemSound(global.ITEM_BLUE_AMMO)
 }
 
-
 // collision with weapon itens
-double_laser = instance_place(x,y, obj_item_double_laser) 
-if (double_laser) {
+item = instance_place(x,y, obj_item_double_laser) 
+if (item) {
     _message = "Double Laser" 
     global.player_weapon = global.PLAYER_DOUBLE_LASER
-    instance_destroy(double_laser);
+    instance_destroy(item);
     PlayItemSound(global.ITEM_DOUBLE_LASER)
 }
 
-single_laser = instance_place(x,y, obj_item_single_laser) 
-if (single_laser) {
+item = instance_place(x,y, obj_item_single_laser) 
+if (item) {
     _message = "Single Laser" 
     global.player_weapon = global.PLAYER_SINGLE_LASER
-    instance_destroy(single_laser);
+    instance_destroy(item);
     PlayItemSound(global.ITEM_SINGLE_LASER)    
 }
 
-tri_laser = instance_place(x,y, obj_item_tri_laser) 
-if (tri_laser) {
+item = instance_place(x,y, obj_item_tri_laser) 
+if (item) {
     _message = "Tri Laser" 
     global.player_weapon = global.PLAYER_TRI_LASER
-    instance_destroy(tri_laser);
+    instance_destroy(item);
     PlayItemSound(global.ITEM_TRI_LASER)    
+}
+
+item = instance_place(x,y, obj_item_pursuit_laser) 
+if (item) {
+    _message = "Pursuit Laser" 
+    global.player_weapon = global.PLAYER_PURSUIT_LASER
+    instance_destroy(item);
+    PlayItemSound(global.ITEM_PURSUIT_LASER)    
 }
 
 

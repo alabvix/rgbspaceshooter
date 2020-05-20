@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>event_inherited()
 
-
 // Handle collision with red enemies.
 var enemy = instance_place(x,y, obj_red_base_enemy)
 if (enemy) {

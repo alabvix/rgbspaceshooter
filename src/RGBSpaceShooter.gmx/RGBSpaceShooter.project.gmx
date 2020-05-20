@@ -35,6 +35,8 @@
     <sound>sound\snd_music_boss_fight</sound>
     <sound>sound\snd_music_boss_defeated</sound>
     <sound>sound\snd_music_aurora_ground</sound>
+    <sound>sound\snd_vox_pursuit_laser</sound>
+    <sound>sound\snd_player_pursuit_laser</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -84,6 +86,8 @@
       <sprite>sprites\spt_rgb_energy</sprite>
       <sprite>sprites\spt_special_w_1</sprite>
       <sprite>sprites\spt_honey_badger</sprite>
+      <sprite>sprites\spt_pursuit_red</sprite>
+      <sprite>sprites\spt_pursuit_blue</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
@@ -195,6 +199,7 @@
       <sprite>sprites\spt_single_laser</sprite>
       <sprite>sprites\spt_double_laser</sprite>
       <sprite>sprites\spt_tri_laser</sprite>
+      <sprite>sprites\spt_pursuit_laser</sprite>
       <sprite>sprites\spt_hud_refil</sprite>
     </sprites>
     <sprites name="boss">
@@ -250,14 +255,16 @@
     <script>scripts\SetGameState.gml</script>
     <script>scripts\LiberateIten.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
+    <script>scripts\GamePadHandler.gml</script>
     <script>scripts\GenerateCargoItem.gml</script>
+    <script>scripts\GenerateRGBItemEnergy.gml</script>
+    <script>scripts\GetPlanetForEnter.gml</script>
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
+    <script>scripts\GotoPlanet.gml</script>
     <script>scripts\InitGameVars.gml</script>
     <script>scripts\FireBossWeapon.gml</script>
-    <script>scripts\GetPlanetForEnter.gml</script>
     <script>scripts\MoveToNextStage.gml</script>
     <script>scripts\MoveShipToPlanet.gml</script>
-    <script>scripts\GotoPlanet.gml</script>
     <script>scripts\PlayShipLaser.gml</script>
     <script>scripts\PlaySoundExplosion.gml</script>
     <script>scripts\PlayItemSound.gml</script>
@@ -265,10 +272,8 @@
     <script>scripts\PlaySpecialWeapon.gml</script>
     <script>scripts\PlayBossFireShot.gml</script>
     <script>scripts\DrawHUDObjects.gml</script>
-    <script>scripts\GamePadHandler.gml</script>
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
-    <script>scripts\GenerateRGBItemEnergy.gml</script>
     <scripts name="file_operations">
       <script>scripts\SaveDifficulty.gml</script>
       <script>scripts\HandlePlayerAttributes.gml</script>
@@ -286,6 +291,7 @@
     </scripts>
     <script>scripts\StopMusic.gml</script>
     <script>scripts\ResetPlayerAttributes.gml</script>
+    <script>scripts\GenerateAmmoItemByColor.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -473,6 +479,7 @@
       <object>objects\obj_item_single_laser</object>
       <object>objects\obj_item_tri_laser</object>
       <object>objects\obj_hull_refil_20</object>
+      <object>objects\obj_item_pursuit_laser</object>
     </objects>
     <objects name="boss">
       <object>objects\obj_boss_base</object>

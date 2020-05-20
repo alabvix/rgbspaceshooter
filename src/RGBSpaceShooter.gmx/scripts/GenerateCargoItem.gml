@@ -1,6 +1,6 @@
 var vx = argument[0]
 var vy = argument[1]
-var item = irandom_range(1,4)
+var item = irandom_range(1,5)
 
 //if (global.
 
@@ -17,5 +17,7 @@ switch (item) {
     case 4:
         LiberateIten(global.HUD_REFIL_20,vx,vy)
         break;
-        
+    case 5:
+        LiberateIten(global.ITEM_PURSUIT_LASER,vx,vy)
+        break;
 }         

@@ -11,6 +11,7 @@ item  = argument[0]
 vx    = argument[1]
 vy    = argument[2]
 
+//item = global.ITEM_PURSUIT_LASER;
 switch (item) {
    case global.ITEM_RED_AMMO:
         instance_create(vx, vy, obj_item_red_ammo)
@@ -29,10 +30,12 @@ switch (item) {
         break;                        
    case global.ITEM_TRI_LASER:
         instance_create(vx, vy, obj_item_tri_laser)
-        break;                
+        break; 
+    case global.ITEM_PURSUIT_LASER:
+        instance_create(vx, vy, obj_item_pursuit_laser)
+        break;                     
    case global.HUD_REFIL_20:
         instance_create(vx, vy, obj_hull_refil_20)
-        break;
-             
+        break;               
 }
 

@@ -82,10 +82,10 @@ if gamepad_button_check(global.GAME_PAD_1, gp_face1) {
     _fire_green_held_down = 0
 }
 
-
 // Fire
 if (btn_red && global.player_red_energy > 0) {
-    if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
+    if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
+     global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_red_laser)
     }
     if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
@@ -101,6 +101,9 @@ if (btn_red && global.player_red_energy > 0) {
         mr._move_right = true
         fire_cost = 3
     }
+    if (global.player_weapon == global.PLAYER_PURSUIT_LASER) {
+        fire_cost = 4
+    }
     global.player_red_energy -= fire_cost;
     if (global.player_red_energy < 0) {
         global.player_red_energy = 0
@@ -109,7 +112,8 @@ if (btn_red && global.player_red_energy > 0) {
 }
 
 if (btn_green && global.player_green_energy > 0) {
-    if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
+    if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
+     global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_green_laser)
     }
     if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
@@ -125,6 +129,9 @@ if (btn_green && global.player_green_energy > 0) {
         mr._move_right = true
         fire_cost = 3
     }
+    if (global.player_weapon == global.PLAYER_PURSUIT_LASER) {
+        fire_cost = 4
+    }
     global.player_green_energy -= fire_cost;
     if (global.player_green_energy < 0) {
         global.player_green_energy = 0
@@ -132,7 +139,8 @@ if (btn_green && global.player_green_energy > 0) {
     PlayShipLaser();
 }
 if (btn_blue && global.player_blue_energy > 0) {
-    if (global.player_weapon == global.PLAYER_SINGLE_LASER) {
+    if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
+     global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_blue_laser)
     }
     if (global.player_weapon == global.PLAYER_DOUBLE_LASER) {
@@ -147,6 +155,9 @@ if (btn_blue && global.player_blue_energy > 0) {
         ml._move_left = true
         mr._move_right = true
         fire_cost = 3
+    }
+    if (global.player_weapon == global.PLAYER_PURSUIT_LASER) {
+        fire_cost = 4
     }
     global.player_blue_energy -= fire_cost;
     if (global.player_blue_energy < 0) {

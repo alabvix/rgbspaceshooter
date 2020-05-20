@@ -1,5 +1,5 @@
 ///DefineGlobals
-global.version = "0.3.0"
+global.version = "0.3.1"
 // game files
 global.FILE_GAME_SETTINGS = "game_settings.ini"
 global.has_game_saved = HasGameSaved()
@@ -22,6 +22,7 @@ global.ITEM_DOUBLE_LASER = 5
 global.ITEM_TRI_LASER    = 6
 global.ITEM_RGB_ENERGY   = 7
 global.HUD_REFIL_20      = 8
+global.ITEM_PURSUIT_LASER = 9
 
 
 // Game States
@@ -112,8 +113,12 @@ global.AMMUNITION = 201
 //global.game_stage = 1
 
 global.selected_planet = 0
-global.PLANET_AURORA_SPACE = 1
-global.PLANET_AURORA_LAND  = 2
+global.PLANET_AURORA_SPACE    = 1
+global.PLANET_AURORA_LAND     = 2
+global.PLANET_MIRANDHA_SPACE  = 3
+global.PLANET_MIRANDHA_LAND   = 4
+global.PLANET_NEDOMIA_V_SPACE = 5
+global.PLANET_NEDOMIA_V_LAND  = 6
 
 // Enemy Waves on planet Aurora Space
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,0]  = global.ENEMY_SHIP_1
@@ -174,6 +179,7 @@ global.player_has_weapon_8 = false
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
+global.PLAYER_PURSUIT_LASER = 4
 global.SPECIAL_WEAPON_1 = 1
 
 global.player_weapon = global.PLAYER_SINGLE_LASER

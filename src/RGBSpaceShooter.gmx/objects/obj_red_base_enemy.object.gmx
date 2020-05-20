@@ -39,6 +39,7 @@ if (inst != noone &amp;&amp; ! _is_tank) {
         GenerateCargoItem(x,y)
     }
     GenerateRGBItemEnergy(x,y)
+    GenerateAmmoItemByColor(x,y,global.GREEN)
     PlaySoundExplosion()
     instance_destroy()
     

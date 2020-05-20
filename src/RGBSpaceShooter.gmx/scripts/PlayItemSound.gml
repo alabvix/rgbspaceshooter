@@ -33,5 +33,9 @@ switch (item) {
     case global.ITEM_TRI_LASER:
         audio_play_sound(snd_vox_tri_laser, 3, false);
         audio_sound_gain(snd_vox_tri_laser, 1.3, 0);
-        break;                                        
+        break;
+   case global.ITEM_PURSUIT_LASER:
+        audio_play_sound(snd_vox_pursuit_laser, 3, false);
+        audio_sound_gain(snd_vox_pursuit_laser, 1.3, 0);
+        break;                                            
 }        

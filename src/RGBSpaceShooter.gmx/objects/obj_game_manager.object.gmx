@@ -163,7 +163,10 @@ _total_tank_1_destroyed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.game_state == global.GAME_STATE_GAME_OVER) {
+            <string>////////////////
+// GAME OVER
+////////////////
+if (global.game_state == global.GAME_STATE_GAME_OVER) {
     if (global.selected_planet == global.PLANET_AURORA_LAND) {
         _counter_create_building ++
         if (_counter_create_building == 120) {
@@ -173,6 +176,9 @@ _total_tank_1_destroyed = 0
     }
 }
 
+/////////////////////////////
+// PLAYER SHIP DESTROYED
+/////////////////////////////
 // counts to respaw player ship 
 if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     _respaw_count += 1
@@ -191,10 +197,15 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         _respaw_count = 0
         ResetPlayerAttributes()
         room_restart()
+        _enemy_index = 0
+        _enemy_type  = global.STAGE_ENEMIES[global.selected_planet,_enemy_index]
         SetGameState(global.GAME_STATE_PLAY)
     }
 }
 
+//////////////////////
+// GAME STATE PLAY
+//////////////////////
 if (global.game_state == global.GAME_STATE_PLAY) {
 
     //show_debug_message("Ships 6 destroyed:" + string(_total_ship_6_destroyed))
@@ -211,7 +222,19 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         }
     }
     
-    CreateRegularEnemies()
+    // Certain planets has enemies grouped by color, others has mixed
+    // color enemies in the same group
+    var has_grouped_by_color = false
+    switch (global.selected_planet) {
+        case global.PLANET_MIRANDHA_SPACE:
+            has_grouped_by_color = true;
+            break;
+        case global.PLANET_MIRANDHA_LAND:
+            has_grouped_by_color = true;
+            break;            
+    }
+    
+    CreateRegularEnemies(has_grouped_by_color)
     if (_enemy_type == global.SUB_BOSS) {
         SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)    
     } else {
@@ -234,15 +257,12 @@ if (global.game_state == global.GAME_STATE_PLAY) {
                 _counter_create_building = 0
             }
         }
-        //_counter_create_land_enemies ++ 
-        //if (_counter_create_land_enemies == 400) {
-        //    CreateLandEnemies()
-        //    _counter_create_land_enemies = 0
-        //}
     }
-   
 }
 
+/////////////////////////////
+// PREPARE BOSS FIGHT
+/////////////////////////////
 if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
     if ( ! _show_boss_warning_msg) {
         _counter_show_boss_warning ++    
@@ -267,6 +287,9 @@ if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
     }
 }
 
+/////////////////////////////
+// BOSS FIGHT
+/////////////////////////////
 if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
     CreateAmmo()
     if (!_play_boss_fight_music) {
@@ -275,6 +298,9 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
     }
 }
 
+/////////////////////////////
+// SUB BOSS DEFEATED
+/////////////////////////////
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
 
     SavePlayerState()

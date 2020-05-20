@@ -3,7 +3,7 @@ if ( round(_counter_create_sec_enemy) == 55) {
     if (global.selected_planet == global.PLANET_AURORA_SPACE ) {
         if (_enemy_type2 == global.SECOND_WAVE_ENEMY_METEOR) {
             if (_total_meteor_created < global.TOTAL_METEORS ) {
-                CreateEnemy(_enemy_type2)    
+                CreateEnemy(_enemy_type2,false)    
                _total_meteor_created ++;
                _can_create_enemy2 = false
              } 
