@@ -29,13 +29,13 @@
 _diff = LoadDifficulty()
 switch (_diff) {
     case 1:
-        _diff_name = "Easy"
+        _diff_name = "&lt; Easy &gt;"
         break;
     case 2:
-        _diff_name = "Normal"
+        _diff_name = "&lt; Normal &gt;"
         break;        
     case 3:
-        _diff_name = "Hard"
+        _diff_name = "&lt; Hard&gt;"
         break;                
 }
 
@@ -64,17 +64,17 @@ switch (_diff) {
             <string>switch (_diff) {
     case 1:
         _diff = 2
-        _diff_name = "Normal"
+        _diff_name = "&lt; Normal &gt;"
         global.option_difficulty_level = global.difficulty_level_normal
         break;
     case 2:
         _diff = 3
-        _diff_name = "Hard"
+        _diff_name = "&lt; Hard &gt;"
         global.option_difficulty_level = global.difficulty_level_hard
         break;        
     case 3:
         _diff = 1
-        _diff_name = "Easy"
+        _diff_name = "&lt; Easy &gt;"
         global.option_difficulty_level = global.difficulty_level_easy
         break;                
 }        

@@ -235,7 +235,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
     }
     
     CreateRegularEnemies(has_grouped_by_color)
-    if (_enemy_type == global.SUB_BOSS) {
+    if (_enemy_type == global.SUB_BOSS || _enemy_type == global.BOSS) {
         SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)    
     } else {
         CreateSecondaryEnemies()
@@ -393,7 +393,7 @@ if (global.game_state == global.GAME_STATE_GAME_OVER ) {
     if (!_game_over_menu_draw) {
         window_set_cursor(cr_default)
         instance_create(centro_room_x,  centro_room_y + 50, obj_frame_medium)
-        instance_create(centro_room_x - 100, centro_room_y + 40, obj_menu_btn_continue)
+        instance_create(centro_room_x - 100, centro_room_y + 40, obj_menu_btn_continue_game_over)
         instance_create(centro_room_x + 100, centro_room_y + 40, obj_menu_btn_goto_menu)
         _game_over_menu_draw = true
     }

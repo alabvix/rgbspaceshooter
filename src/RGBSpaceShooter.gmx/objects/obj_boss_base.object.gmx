@@ -29,6 +29,7 @@
 _hp_max = 0
 _hp_current = 0
 _name = ""
+_is_sub_boss = false
 </string>
           </argument>
         </arguments>
@@ -53,8 +54,10 @@ _name = ""
             <kind>1</kind>
             <string>/// Check for boss destruction
 if (_hp_current &lt;=0) {
-    SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
-    global.player_score += _points
+    if (_is_sub_boss) {
+        SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
+        global.player_score += _points
+    }
     
     instance_create(x+10, y+10, obj_little_explosion)
     PlaySoundExplosion()
@@ -78,7 +81,8 @@ if (_hp_current &lt;=0) {
     PlaySoundExplosion()
     
     instance_destroy()
-    if (_name == global.BOSS_1_NAME) {
+    
+    if (_name == global.SUB_BOSS_1_NAME) {
         instance_destroy(obj_boss_force_field)
     }
 }

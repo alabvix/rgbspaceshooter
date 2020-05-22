@@ -8,5 +8,6 @@ switch (global.selected_planet){
         instance_create(subboss.x, subboss.y, obj_boss_force_field)
         break
     case global.PLANET_AURORA_LAND:
+        var boss = instance_create(centro_room_x, -100, obj_boss_1)
         break     
 }

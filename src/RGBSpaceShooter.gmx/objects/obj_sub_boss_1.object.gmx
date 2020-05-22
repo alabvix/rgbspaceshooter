@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-_name  = global.BOSS_1_NAME
+_name  = global.SUB_BOSS_1_NAME
 _points = 300
 
-_hp_max = global.BOSS_1_HP_MAX
+_hp_max = global.SUB_BOSS_1_HP_MAX
 _hp_current = _hp_max
 
 INIT              = 0
@@ -72,6 +72,7 @@ _my = y
 
 _previus_action = 0
 _fire_count_1 = 0
+_is_sub_boss = true
 
 
 

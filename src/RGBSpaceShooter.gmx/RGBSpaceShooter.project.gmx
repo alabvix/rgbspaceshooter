@@ -88,6 +88,7 @@
       <sprite>sprites\spt_honey_badger</sprite>
       <sprite>sprites\spt_pursuit_red</sprite>
       <sprite>sprites\spt_pursuit_blue</sprite>
+      <sprite>sprites\spt_honey_badger_explosion</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
@@ -206,6 +207,7 @@
       <sprite>sprites\spt_sub_boss_1</sprite>
       <sprite>sprites\spt_sub_boss_1_prepare</sprite>
       <sprite>sprites\spt_force_field</sprite>
+      <sprite>sprites\spt_boss_1</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -238,6 +240,7 @@
     <path>paths\path_fighter_2</path>
     <path>paths\path_monster_3</path>
     <path>paths\path_monster_4</path>
+    <path>paths\path_boss_1</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\ApplyDifficulty.gml</script>
@@ -253,8 +256,8 @@
     <script>scripts\DefineGlobals.gml</script>
     <script>scripts\InitializeSystem.gml</script>
     <script>scripts\SetGameState.gml</script>
-    <script>scripts\LiberateIten.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
+    <script>scripts\LiberateIten.gml</script>
     <script>scripts\GamePadHandler.gml</script>
     <script>scripts\GenerateCargoItem.gml</script>
     <script>scripts\GenerateRGBItemEnergy.gml</script>
@@ -292,6 +295,8 @@
     <script>scripts\StopMusic.gml</script>
     <script>scripts\ResetPlayerAttributes.gml</script>
     <script>scripts\GenerateAmmoItemByColor.gml</script>
+    <script>scripts\HasContinueGame.gml</script>
+    <script>scripts\script51.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -426,8 +431,6 @@
       <object>objects\obj_game_title</object>
       <object>objects\obj_btn_go</object>
       <object>objects\obj_frame_medium</object>
-      <object>objects\obj_btn_game_over_continue</object>
-      <object>objects\obj_btn_game_over_main_menu</object>
       <object>objects\obj_room_help</object>
       <object>objects\obj_room_options</object>
       <object>objects\obj_menu_btn_base</object>
@@ -438,6 +441,7 @@
       <object>objects\obj_menu_btn_menu</object>
       <object>objects\obj_menu_btn_goto_menu</object>
       <object>objects\obj_menu_btn_continue</object>
+      <object>objects\obj_menu_btn_continue_game_over</object>
       <object>objects\obj_state_menu_base</object>
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>
@@ -485,6 +489,7 @@
       <object>objects\obj_boss_base</object>
       <object>objects\obj_sub_boss_1</object>
       <object>objects\obj_boss_force_field</object>
+      <object>objects\obj_boss_1</object>
     </objects>
     <objects name="explosion">
       <object>objects\obj_little_explosion</object>

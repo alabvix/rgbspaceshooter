@@ -3,7 +3,9 @@ global.version = "0.3.1"
 // game files
 global.FILE_GAME_SETTINGS = "game_settings.ini"
 global.has_game_saved = HasGameSaved()
-global.test_super_hit = false
+
+// test 
+global.test_super_hit = true
 global.test_ship_undestrutible = false//false
 
 global.RED   = 1
@@ -121,6 +123,7 @@ global.PLANET_NEDOMIA_V_SPACE = 5
 global.PLANET_NEDOMIA_V_LAND  = 6
 
 // Enemy Waves on planet Aurora Space
+/*
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,0]  = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,1]  = global.ENEMY_BOMB
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,2]  = global.ENEMY_MONSTER_1
@@ -132,10 +135,11 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,7]  = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,8]  = global.ENEMY_ALIEN
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,9]  = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,10] = global.ENEMY_BOMB
-global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,11] = global.ENEMY_SHIP_4
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,11] = global.ENEMY_SHIP_4*/
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,12] = global.SUB_BOSS
 
 // Enemy Waves on planet Aurora land
+/*
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,0] = global.ENEMY_SHIP_6
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,1] = global.ENEMY_TANK_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,2] = global.ENEMY_SHIP_7
@@ -147,7 +151,7 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,7] = global.ENEMY_MONSTER_4
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,8] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,9] = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,10] = global.ENEMY_MONSTER_1
-global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7*/
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.BOSS
 
 // enemy weapons
@@ -200,8 +204,11 @@ global.player_rgb_energy_base = 200
 HandlePlayerAttributes(true)
 
 // boss data
-global.BOSS_1_NAME = "Visontroy"
+global.SUB_BOSS_1_NAME = "Visontroy"
+global.SUB_BOSS_1_HP_MAX = 800
+global.BOSS_1_NAME = "Mobile Base"
 global.BOSS_1_HP_MAX = 800
+
 
 // fire directions
 global.dir_array[0] = 0

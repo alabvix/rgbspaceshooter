@@ -265,9 +265,9 @@ if (item) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (sprite_index == spt_player_ship_explosion) {
+            <string>if (sprite_index == spt_honey_badger_explosion) {
     image_speed = 0;
-    image_index = 5;
+    image_index = 30;
 } 
 
 /*
