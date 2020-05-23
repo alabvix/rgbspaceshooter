@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>_planet_name = ""
 _selected_planet = 0
-
+_planet_id = 0
 </string>
           </argument>
         </arguments>
@@ -102,21 +102,35 @@ _selected_planet = 0
 instance_create(x,y, obj_planet_selector)
 
 var angle = 0
-if (global.selected_planet == 1) {
-    angle = point_direction( obj_planet_aurora.x, obj_planet_aurora.y, obj_player_shio_selector.x, obj_player_shio_selector.y)
-}
-if (global.selected_planet == 2) {
-    angle = point_direction( obj_planet_mirandha.x, obj_planet_mirandha.y, obj_player_shio_selector.x, obj_player_shio_selector.y)
-}
-if (global.selected_planet == 3) {
-    angle = point_direction( obj_planet_nedomia_v.x, obj_planet_nedomia_v.y,obj_player_shio_selector.x, obj_player_shio_selector.y)
-}
-
+switch (global.selected_planet) {
+    case global.PLANET_AURORA_SPACE:
+        angle = point_direction(obj_planet_aurora.x, 
+                                obj_planet_aurora.y, 
+                                obj_player_shio_selector.x, 
+                                obj_player_shio_selector.y)
+        break
+    case global.PLANET_MIRANDHA_SPACE:
+        angle = point_direction(obj_planet_mirandha.x,
+                                obj_planet_mirandha.y,
+                                obj_player_shio_selector.x,
+                                obj_player_shio_selector.y)
+        break
+    case global.PLANET_NEDOMIA_V_SPACE:
+        angle = point_direction(obj_planet_nedomia_v.x, 
+                                obj_planet_nedomia_v.y,
+                                obj_player_shio_selector.x, 
+                                obj_player_shio_selector.y)
+        break
+    case global.PLANET_SPACE_LAB:
+        angle = point_direction(obj_space_lab.x,
+                                obj_space_lab.y,
+                                obj_player_shio_selector.x, 
+                                obj_player_shio_selector.y)
+        break
+}    
+    
 // Flip the ship indicator to the planet
 obj_player_shio_selector.image_angle = angle
-
-
-
 
 </string>
           </argument>

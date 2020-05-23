@@ -196,8 +196,12 @@ draw_text_transformed(163, 54, rgb_energy, 1,1,0 );
 
 // Destination planet
 switch (global.selected_planet) {
-    case 1:
+    case global.PLANET_AURORA_SPACE:
         draw_text_transformed(510,  50, "Destination: Aurora",1,1,0 );        
+        break
+   case global.PLANET_SPACE_LAB:
+        draw_text_transformed(510,  50, "Destination: Space Lab",1,1,0 );        
+        break
 }
 
 // lives

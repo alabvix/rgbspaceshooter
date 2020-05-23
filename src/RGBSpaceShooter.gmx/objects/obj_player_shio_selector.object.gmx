@@ -59,7 +59,7 @@ if ( speed &gt; 0 ) {
         if (planet) {
             InitGameVars()
             SetGameState(global.GAME_STATE_PLAY)
-            GotoPlanet(planet)
+            GotoPlanet(planet._planet_id)
         } 
     }
 }

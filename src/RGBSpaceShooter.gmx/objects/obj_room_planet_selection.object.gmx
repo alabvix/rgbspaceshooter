@@ -61,21 +61,25 @@ draw_set_font( font_20 );
 if (instance_exists(obj_planet_selector))
 {
     var planet_name = ""
-    if (global.selected_planet == 1) {
+    if (global.selected_planet == global.PLANET_AURORA_SPACE) {
         planet_name = "Aurora"
         background_hspeed[0] = 2;
         background_vspeed[0] = 0;
     }    
-    if (global.selected_planet == 2) {
+    if (global.selected_planet == global.PLANET_MIRANDHA_SPACE) {
         planet_name = "Mirandha"
         background_hspeed[0] = 2;
         background_vspeed[0] = 2;
     }
-    if (global.selected_planet == 3) {
+    if (global.selected_planet == global.PLANET_NEDOMIA_V_SPACE) {
         planet_name = "Nedomia V"
         background_hspeed[0] = 0;
         background_vspeed[0] = 2;
-
+    }
+    if (global.selected_planet == global.PLANET_SPACE_LAB) {
+        planet_name = "Space Lab"
+        background_hspeed[0] = -2;
+        background_vspeed[0] = -2;
     }
     draw_text(
          obj_planet_selector.x, 
@@ -93,8 +97,11 @@ if (instance_exists(obj_planet_selector))
              "Proceed to " + planet_name + "?"
         )
         // button
-        if ( global.selected_planet == 1) {
+        if ( global.selected_planet == global.PLANET_AURORA_SPACE ||
+             global.selected_planet == global.PLANET_SPACE_LAB) {
+             
             instance_create(centro_room_x, centro_room_y + 115, obj_btn_go)
+            
         } else {
             instance_destroy(obj_btn_go)
         }

@@ -62,6 +62,7 @@ PlayMusic(snd_music_planet_selection)</code>
     <instance objName="obj_room_planet_selection" x="416" y="192" name="inst_664EF015" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player_shio_selector" x="517" y="301" name="inst_2655A713" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_btn_goto_menu" x="512" y="640" name="inst_F7981F0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_space_lab" x="800" y="512" name="inst_62073445" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

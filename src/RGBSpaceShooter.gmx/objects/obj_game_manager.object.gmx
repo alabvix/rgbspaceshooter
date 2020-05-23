@@ -94,6 +94,9 @@ _total_monsters_4_created = 0
 _total_monster_5_killed   = 0
 _total_monsters_5_created = 0
 
+_total_monster_6_killed   = 0
+_total_monsters_6_created = 0
+
 _total_ship_1_created   = 0
 _total_ship_1_destroyed = 0
 
@@ -222,19 +225,15 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         }
     }
     
-    // Certain planets has enemies grouped by color, others has mixed
-    // color enemies in the same group
-    var has_grouped_by_color = false
-    switch (global.selected_planet) {
-        case global.PLANET_MIRANDHA_SPACE:
-            has_grouped_by_color = true;
-            break;
-        case global.PLANET_MIRANDHA_LAND:
-            has_grouped_by_color = true;
-            break;            
+    // Planet with enemies grouped by color
+    var color = 0
+    if (global.selected_planet == global.PLANET_MIRANDHA_SPACE ||
+        global.selected_planet == global.PLANET_MIRANDHA_LAND  ||
+        global.selected_planet == global.PLANET_SPACE_LAB) {
+        color = irandom_range(1,3)
     }
+    CreateRegularEnemies(color)
     
-    CreateRegularEnemies(has_grouped_by_color)
     if (_enemy_type == global.SUB_BOSS || _enemy_type == global.BOSS) {
         SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)    
     } else {
@@ -243,6 +242,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         CreateAmmo()
     }
     
+    // TODO: REFACTOR
     if (_enemy_type == global.ENEMY_TANK_1) {
         _create_building = false
     } else {
@@ -259,7 +259,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         }
     }
 }
-
+    
 /////////////////////////////
 // PREPARE BOSS FIGHT
 /////////////////////////////

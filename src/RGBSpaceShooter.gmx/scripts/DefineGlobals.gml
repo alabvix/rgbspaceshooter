@@ -26,7 +26,6 @@ global.ITEM_RGB_ENERGY   = 7
 global.HUD_REFIL_20      = 8
 global.ITEM_PURSUIT_LASER = 9
 
-
 // Game States
 global.GAME_STATE_MAIN_MENU      = 1
 global.GAME_STATE_SELECT_PLANET  = 2
@@ -96,10 +95,13 @@ global.TOTAL_SHIPS_4 = 5
 global.TOTAL_SHIPS_5 = 5
 global.TOTAL_SHIPS_6 = 8
 global.TOTAL_SHIPS_7 = 3
+global.TOTAL_SHIPS_8 = 3
+global.TOTAL_SHIPS_9 = 2
 global.TOTAL_MONSTERS_1 = 7 
 global.TOTAL_MONSTERS_2 = 7
 global.TOTAL_MONSTERS_3 = 7
 global.TOTAL_MONSTERS_4 = 1
+global.TOTAL_MONSTERS_6 = 1
 global.TOTAL_BOMBS = 30
 global.TOTAL_ALIEN = 20
 global.TOTAL_TANK_1 = 6
@@ -114,6 +116,7 @@ global.AMMUNITION = 201
 
 //global.game_stage = 1
 
+// PLANETS
 global.selected_planet = 0
 global.PLANET_AURORA_SPACE    = 1
 global.PLANET_AURORA_LAND     = 2
@@ -121,6 +124,7 @@ global.PLANET_MIRANDHA_SPACE  = 3
 global.PLANET_MIRANDHA_LAND   = 4
 global.PLANET_NEDOMIA_V_SPACE = 5
 global.PLANET_NEDOMIA_V_LAND  = 6
+global.PLANET_SPACE_LAB       = 7
 
 // Enemy Waves on planet Aurora Space
 /*
@@ -152,7 +156,12 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,8] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,9] = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,10] = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7*/
-global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.BOSS
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.ENEMY_SHIP_1
+
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,0] = global.ENEMY_SHIP_9
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,1] = global.ENEMY_SHIP_9
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,2] = global.ENEMY_SHIP_9
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,3] = global.ENEMY_MONSTER_6
 
 // enemy weapons
 global.WEAPON_ENERGY_BALL       = 1
@@ -235,6 +244,9 @@ global.ship_7_pos_x[0] = 128
 global.ship_7_pos_x[1] = 1024/2
 global.ship_7_pos_x[2] = 900
 
-
+global.color_array[0] = global.RED
+global.color_array[1] = global.BLUE
+global.color_array[2] = global.GREEN
+global.color_index = -1
 
 

@@ -1,5 +1,5 @@
 _counter_create_enemy += 1
-var has_grouped_by_color = argument[0]
+var color = argument[0]
 
 if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     if (_enemy_type == global.SUB_BOSS) {
@@ -10,7 +10,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     if (_enemy_type == global.ENEMY_TANK_1) {
        if (_total_tank_1_created < global.TOTAL_TANK_1 ) {
            show_debug_message("Enemy type: " + string( _enemy_type))
-           CreateEnemy(_enemy_type, has_grouped_by_color)    
+           CreateEnemy(_enemy_type, color)    
            _total_tank_1_created ++;
            _can_create_enemy = false
        } 
@@ -23,7 +23,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
 
     if (_enemy_type == global.ENEMY_MONSTER_1) {
        if (_total_monsters_created < global.TOTAL_MONSTERS_1 ) {
-           CreateEnemy(_enemy_type, has_grouped_by_color)    
+           CreateEnemy(_enemy_type, color)    
            _total_monsters_created ++;
            _can_create_enemy = false
        } 
@@ -36,7 +36,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_MONSTER_2) {
        if (_total_monsters_2_created < global.TOTAL_MONSTERS_2 ) {
-           CreateEnemy(_enemy_type, has_grouped_by_color)    
+           CreateEnemy(_enemy_type, color)    
            _total_monsters_2_created ++;
            _can_create_enemy = false
        } 
@@ -49,7 +49,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_MONSTER_3) {
        if (_total_monsters_3_created < global.TOTAL_MONSTERS_3 ) {
-           CreateEnemy(_enemy_type, has_grouped_by_color)    
+           CreateEnemy(_enemy_type, color)    
            _total_monsters_3_created ++;
            _can_create_enemy = false
        } 
@@ -62,7 +62,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_MONSTER_4) {
        if (_total_monsters_4_created < global.TOTAL_MONSTERS_4 ) {
-           CreateEnemy(_enemy_type, has_grouped_by_color)    
+           CreateEnemy(_enemy_type, color)    
            _total_monsters_4_created ++;
            _can_create_enemy = false
        } 
@@ -73,9 +73,23 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
        }
     }
     
+     // For this type creates all ships once
+    if (_enemy_type == global.ENEMY_MONSTER_6) {
+       if (_total_monsters_6_created < global.TOTAL_MONSTERS_6 ) {
+           CreateEnemy(_enemy_type, color)    
+           _total_monsters_6_created = global.TOTAL_MONSTERS_6
+           _can_create_enemy = false
+       } 
+       if (_total_monster_6_killed == global.TOTAL_MONSTERS_6) {
+           _total_monsters_6_created = 0
+           _total_monster_6_killed = 0
+           _can_create_enemy = true
+       }
+    }
+    
     if (_enemy_type == global.ENEMY_SHIP_1) {
         if (_total_ship_1_created < global.TOTAL_SHIPS_1) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_1_created ++;
             _can_create_enemy = false
         }
@@ -88,7 +102,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_2) {
         if (_total_ship_2_created < global.TOTAL_SHIPS_2) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_2_created ++
            // show_debug_message("Ships 2 created:" + string(_total_ship_2_created))
             _can_create_enemy = false
@@ -102,7 +116,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_3) {
         if (_total_ship_3_created < global.TOTAL_SHIPS_3) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_3_created ++
            // show_debug_message("Ships 3 created:" + string(_total_ship_3_created))
             _can_create_enemy = false
@@ -116,7 +130,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_4) {
         if (_total_ship_4_created < global.TOTAL_SHIPS_4) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_4_created ++
             //show_debug_message("Ships 4 created:" + string(_total_ship_4_created))
             _can_create_enemy = false
@@ -130,7 +144,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_5) {
         if (_total_ship_5_created < global.TOTAL_SHIPS_5) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_5_created ++
            // show_debug_message("Ships 4 created:" + string(_total_ship_5_created))
             _can_create_enemy = false
@@ -144,7 +158,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_6) {
         if (_total_ship_6_created < global.TOTAL_SHIPS_6) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_6_created ++
             //show_debug_message("Ships 6 created:" + string(_total_ship_6_created))
             _can_create_enemy = false
@@ -158,7 +172,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_7) {
         if (_total_ship_7_created < global.TOTAL_SHIPS_7) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_7_created ++;
             _can_create_enemy = false
         }
@@ -171,7 +185,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_SHIP_8) {
         if (_total_ship_8_created < global.TOTAL_SHIPS_8) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_ship_8_created ++;
             _can_create_enemy = false
         }
@@ -182,9 +196,24 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
         }
     }
     
+    // For this type creates all ships once
+    if (_enemy_type == global.ENEMY_SHIP_9) {
+        show_debug_message("Ships 9 created:" + string(_total_ship_9_created))    
+        if (_total_ship_9_created < global.TOTAL_SHIPS_9) {
+            CreateEnemy(_enemy_type, color)    
+            _total_ship_9_created = global.TOTAL_SHIPS_9;
+            _can_create_enemy = false
+        }
+        if (_total_ship_9_destroyed == global.TOTAL_SHIPS_9) {
+            _total_ship_9_destroyed = 0
+            _total_ship_9_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
     if (_enemy_type == global.ENEMY_BOMB) {
         if (_total_bomb_created < global.TOTAL_BOMBS) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_bomb_created ++;
             _can_create_enemy = false
             show_debug_message("Bomb created" + string(_total_bomb_created))
@@ -198,7 +227,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_ALIEN) {
         if (_total_alien_created < global.TOTAL_ALIEN) {
-            CreateEnemy(_enemy_type, has_grouped_by_color)    
+            CreateEnemy(_enemy_type, color)    
             _total_alien_created ++;
             _can_create_enemy = false
         }

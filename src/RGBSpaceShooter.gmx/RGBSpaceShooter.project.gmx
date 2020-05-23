@@ -99,17 +99,20 @@
         <sprite>sprites\spt_red_ship_6</sprite>
         <sprite>sprites\spt_red_ship_7</sprite>
         <sprite>sprites\spt_red_ship_8</sprite>
+        <sprite>sprites\spt_red_ship_9</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
         <sprite>sprites\spt_red_monster_4</sprite>
         <sprite>sprites\spt_red_monster_5</sprite>
         <sprite>sprites\spt_red_monster_5_child</sprite>
+        <sprite>sprites\spt_red_monster_6</sprite>
         <sprite>sprites\spt_red_bomb</sprite>
         <sprite>sprites\spr_red_alien_1</sprite>
         <sprite>sprites\spt_red_cargo_ship</sprite>
         <sprite>sprites\spt_red_tank_1</sprite>
         <sprite>sprites\spt_red_cannon_1</sprite>
+        <sprite>sprites\spt_red_energy_absorver</sprite>
       </sprites>
       <sprites name="green">
         <sprite>sprites\spt_green_ship_1</sprite>
@@ -119,12 +122,14 @@
         <sprite>sprites\spt_green_ship_6</sprite>
         <sprite>sprites\spt_green_ship_7</sprite>
         <sprite>sprites\spt_green_ship_8</sprite>
+        <sprite>sprites\spt_green_ship_9</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
         <sprite>sprites\spt_green_monster_4</sprite>
         <sprite>sprites\spt_green_monster_5</sprite>
         <sprite>sprites\spt_green_monster_5_child</sprite>
+        <sprite>sprites\spt_green_monster_6</sprite>
         <sprite>sprites\spt_green_cargo_ship</sprite>
         <sprite>sprites\spt_green_tank_1</sprite>
         <sprite>sprites\spt_green_cannon_1</sprite>
@@ -139,6 +144,7 @@
         <sprite>sprites\spt_blue_monster_4</sprite>
         <sprite>sprites\spt_blue_monster_5</sprite>
         <sprite>sprites\spt_blue_monster_5_child</sprite>
+        <sprite>sprites\spt_blue_monster_6</sprite>
         <sprite>sprites\spt_blue_tank_1</sprite>
         <sprite>sprites\spt_blue_ship_1</sprite>
         <sprite>sprites\spt_blue_ship_2</sprite>
@@ -146,6 +152,7 @@
         <sprite>sprites\spt_blue_ship_6</sprite>
         <sprite>sprites\spt_blue_ship_7</sprite>
         <sprite>sprites\spt_blue_ship_8</sprite>
+        <sprite>sprites\spt_blue_ship_9</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
       <sprite>sprites\spt_enemy_weapon_3</sprite>
@@ -218,6 +225,7 @@
       <sprite>sprites\spt_aurora_building_2</sprite>
       <sprite>sprites\spt_aurora_building_large</sprite>
     </sprites>
+    <sprite>sprites\spt_space_station</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -229,6 +237,8 @@
     <background>background\bk_planet_1</background>
     <background>background\bkg_planet_aurora</background>
     <background>background\background8</background>
+    <background>background\bkg_space_lab_1</background>
+    <background>background\bkg_space_lab_2</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -241,6 +251,7 @@
     <path>paths\path_monster_3</path>
     <path>paths\path_monster_4</path>
     <path>paths\path_boss_1</path>
+    <path>paths\path_monster_6</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\ApplyDifficulty.gml</script>
@@ -296,7 +307,7 @@
     <script>scripts\ResetPlayerAttributes.gml</script>
     <script>scripts\GenerateAmmoItemByColor.gml</script>
     <script>scripts\HasContinueGame.gml</script>
-    <script>scripts\script51.gml</script>
+    <script>scripts\HandleColor.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -348,6 +359,7 @@
         <object>objects\obj_red_ship_6</object>
         <object>objects\obj_red_ship_7</object>
         <object>objects\obj_red_ship_8</object>
+        <object>objects\obj_red_ship_9</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -355,6 +367,7 @@
         <object>objects\obj_red_monster_4</object>
         <object>objects\obj_red_monster_5</object>
         <object>objects\obj_red_monster_5_child</object>
+        <object>objects\obj_red_monster_6</object>
         <object>objects\obj_red_bomb</object>
         <object>objects\obj_red_cargo_ship</object>
         <object>objects\obj_red_tank_1</object>
@@ -369,12 +382,14 @@
         <object>objects\obj_green_ship_6</object>
         <object>objects\obj_green_ship_7</object>
         <object>objects\obj_green_ship_8</object>
+        <object>objects\obj_green_ship_9</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
         <object>objects\obj_green_monster_4</object>
         <object>objects\obj_green_monster_5</object>
         <object>objects\obj_green_monster_5_child</object>
+        <object>objects\obj_green_monster_6</object>
         <object>objects\obj_green_cargo_ship</object>
         <object>objects\obj_green_tank_1</object>
         <object>objects\obj_green_cannon_1</object>
@@ -387,15 +402,17 @@
         <object>objects\obj_blue_ship_6</object>
         <object>objects\obj_blue_ship_7</object>
         <object>objects\obj_blue_ship_8</object>
+        <object>objects\obj_blue_ship_9</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
         <object>objects\obj_blue_monster_4</object>
+        <object>objects\obj_blue_monster_5</object>
+        <object>objects\obj_blue_monster_6</object>
         <object>objects\obj_blue_bomb</object>
         <object>objects\obj_blue_cargo_ship</object>
         <object>objects\obj_blue_tank_1</object>
         <object>objects\obj_blue_cannon_1</object>
-        <object>objects\obj_blue_monster_5</object>
       </objects>
       <object>objects\obj_shadow_ship_6</object>
       <object>objects\obj_shadow_carg_ship</object>
@@ -415,21 +432,23 @@
       <object>objects\obj_enemy_weapon_10</object>
     </objects>
     <objects name="planets">
+      <object>objects\obj_room_planet_selection</object>
+      <object>objects\obj_btn_go</object>
+      <object>objects\obj_player_shio_selector</object>
       <object>objects\obj_planet_base</object>
       <object>objects\obj_planet_aurora</object>
       <object>objects\obj_planet_mirandha</object>
       <object>objects\obj_planet_nedomia_v</object>
+      <object>objects\obj_space_lab</object>
       <object>objects\obj_planet_selector</object>
     </objects>
     <objects name="ui">
       <object>objects\obj_frame_1</object>
       <object>objects\obj_room_main_menu</object>
-      <object>objects\obj_room_planet_selection</object>
       <object>objects\obj_menu_new_game</object>
       <object>objects\obj_menu_tutorial</object>
       <object>objects\obj_menu_continue</object>
       <object>objects\obj_game_title</object>
-      <object>objects\obj_btn_go</object>
       <object>objects\obj_frame_medium</object>
       <object>objects\obj_room_help</object>
       <object>objects\obj_room_options</object>
@@ -460,7 +479,6 @@
     </objects>
     <objects name="player">
       <object>objects\obj_player_ship</object>
-      <object>objects\obj_player_shio_selector</object>
       <object>objects\obj_base_laser</object>
       <object>objects\obj_red_laser</object>
       <object>objects\obj_blue_laser</object>
@@ -509,6 +527,7 @@
     <room>rooms\room_planet_aurora_land</room>
     <room>rooms\room_help</room>
     <room>rooms\room_options</room>
+    <room>rooms\room_space_lab</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
