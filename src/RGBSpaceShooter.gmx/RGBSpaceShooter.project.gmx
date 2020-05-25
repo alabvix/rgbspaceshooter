@@ -86,6 +86,7 @@
       <sprite>sprites\spt_rgb_energy</sprite>
       <sprite>sprites\spt_special_w_1</sprite>
       <sprite>sprites\spt_honey_badger</sprite>
+      <sprite>sprites\spt_honey_badger_icon</sprite>
       <sprite>sprites\spt_pursuit_red</sprite>
       <sprite>sprites\spt_pursuit_blue</sprite>
       <sprite>sprites\spt_honey_badger_explosion</sprite>
@@ -261,6 +262,7 @@
     <script>scripts\CreateCargoShips.gml</script>
     <script>scripts\CreateAmmo.gml</script>
     <script>scripts\CreateBuildings.gml</script>
+    <script>scripts\CreateHudElements.gml</script>
     <script>scripts\CreateSecondaryEnemies.gml</script>
     <script>scripts\CreateLandEnemies.gml</script>
     <script>scripts\ContinueGame.gml</script>
@@ -491,6 +493,7 @@
       <object>objects\obj_special_weapon_1_fire</object>
       <object>objects\obj_player_ship_shadow</object>
       <object>objects\obj_special_w_1</object>
+      <object>objects\obj_honey_badger_icon</object>
     </objects>
     <objects name="itens">
       <object>objects\obj_item_base</object>

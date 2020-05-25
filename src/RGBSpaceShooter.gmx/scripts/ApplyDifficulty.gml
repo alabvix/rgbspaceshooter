@@ -14,7 +14,9 @@ switch (global.option_difficulty_level) {
         global.TOTAL_MONSTERS_2 = 3
         global.TOTAL_MONSTERS_3 = 3
         global.TOTAL_MONSTERS_4 = 1
-        global.TOTAL_MONSTERS_6 = 4
+        global.TOTAL_MONSTERS_6_RED   = 4
+        global.TOTAL_MONSTERS_6_GREEN = 4
+        global.TOTAL_MONSTERS_6_BLUE  = 4
         global.TOTAL_BOMBS = 7
         global.TOTAL_ALIEN = 8
         global.TOTAL_TANK_1 = 2
@@ -36,7 +38,9 @@ switch (global.option_difficulty_level) {
         global.TOTAL_MONSTERS_2 = 5
         global.TOTAL_MONSTERS_3 = 5
         global.TOTAL_MONSTERS_4 = 2
-        global.TOTAL_MONSTERS_6 = 6
+        global.TOTAL_MONSTERS_6_RED   = 6
+        global.TOTAL_MONSTERS_6_GREEN = 6
+        global.TOTAL_MONSTERS_6_BLUE  = 6
         global.TOTAL_BOMBS = 15
         global.TOTAL_ALIEN = 15
         global.TOTAL_TANK_1 = 4        
@@ -57,7 +61,9 @@ switch (global.option_difficulty_level) {
         global.TOTAL_MONSTERS_2 = 7
         global.TOTAL_MONSTERS_3 = 7
         global.TOTAL_MONSTERS_4 = 3
-        global.TOTAL_MONSTERS_6 = 8
+        global.TOTAL_MONSTERS_6_RED   = 8
+        global.TOTAL_MONSTERS_6_GREEN = 8
+        global.TOTAL_MONSTERS_6_BLUE  = 8
         global.TOTAL_BOMBS = 30
         global.TOTAL_ALIEN = 20
         global.TOTAL_TANK_1 = 6    

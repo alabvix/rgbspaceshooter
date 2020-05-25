@@ -74,14 +74,17 @@ global.ENEMY_MONSTER_2   = 12
 global.ENEMY_MONSTER_3   = 13
 global.ENEMY_MONSTER_4   = 14
 global.ENEMY_MONSTER_5   = 15
-global.ENEMY_MONSTER_6   = 16
-global.ENEMY_MONSTER_7   = 17
-global.ENEMY_MONSTER_8   = 18
-global.ENEMY_MONSTER_9   = 19
-global.ENEMY_MONSTER_10  = 20
-global.ENEMY_BOMB        = 21
-global.ENEMY_ALIEN       = 22
-global.ENEMY_TANK_1      = 23
+global.ENEMY_MONSTER_6_RED   = 16
+global.ENEMY_MONSTER_6_BLUE  = 17
+global.ENEMY_MONSTER_6_GREEN = 18
+global.ENEMY_MONSTER_7   = 19
+global.ENEMY_MONSTER_8   = 20
+global.ENEMY_MONSTER_9   = 21
+global.ENEMY_MONSTER_10  = 22
+global.ENEMY_BOMB        = 23
+global.ENEMY_ALIEN       = 24
+global.ENEMY_TANK_1      = 25
+
 
 global.BOSS       = 500
 global.SUB_BOSS   = 501
@@ -101,7 +104,9 @@ global.TOTAL_MONSTERS_1 = 7
 global.TOTAL_MONSTERS_2 = 7
 global.TOTAL_MONSTERS_3 = 7
 global.TOTAL_MONSTERS_4 = 1
-global.TOTAL_MONSTERS_6 = 1
+global.TOTAL_MONSTERS_6_RED = 1
+global.TOTAL_MONSTERS_6_GREEN = 1
+global.TOTAL_MONSTERS_6_BLUE = 1
 global.TOTAL_BOMBS = 30
 global.TOTAL_ALIEN = 20
 global.TOTAL_TANK_1 = 6
@@ -158,10 +163,11 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,10] = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7*/
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.ENEMY_SHIP_1
 
-global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,0] = global.ENEMY_SHIP_9
-global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,1] = global.ENEMY_SHIP_9
-global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,2] = global.ENEMY_SHIP_9
-global.STAGE_ENEMIES[global.PLANET_SPACE_LAB,3] = global.ENEMY_MONSTER_6
+// SPACE LAB ENEMIES
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 0] = global.ENEMY_SHIP_9
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 1] = global.ENEMY_SHIP_9
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 2] = global.ENEMY_SHIP_9
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 3] = global.ENEMY_MONSTER_6_RED
 
 // enemy weapons
 global.WEAPON_ENERGY_BALL       = 1

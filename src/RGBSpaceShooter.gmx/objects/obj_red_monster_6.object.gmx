@@ -37,7 +37,7 @@ _color   = global.RED
 _shoot_in    = 25 // fires in each n seconds 
 _weapon_type = global.WEAPON_ENERGY_BALL_STAR
 _is_monster = true
-_type = global.ENEMY_MONSTER_6 
+_type = global.ENEMY_MONSTER_6_RED 
 
 _in_path = false
 
@@ -66,7 +66,7 @@ path_start(path_monster_6, 8, path_action_continue, 0)
           <argument>
             <kind>1</kind>
             <string>with(obj_game_manager) {
-    _total_monster_6_killed ++
+    _total_monster_6_red_killed ++
 }
 </string>
           </argument>

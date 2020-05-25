@@ -302,29 +302,22 @@ if (enemy_type == global.ENEMY_MONSTER_4) {
     }
 }
 
-if (enemy_type == global.ENEMY_MONSTER_6) {
-    var color = HandleColor(a_color)
+if (enemy_type == global.ENEMY_MONSTER_6_RED) {
     vx = 48
     vy = -68
-    
-    if (color == 1) {
-       for (i=0; i<global.TOTAL_MONSTERS_6; i++) {
-            instance_create(vx, vy,  obj_red_monster_6)
-            vy -= 60
-       } 
-    }
-    if (color == 2) {
-        for (i=0; i<global.TOTAL_MONSTERS_6; i++) {
-            instance_create(vx, vy, obj_green_monster_6)
-            vy -= 60
-        } 
-    }
-    if (color == 3) {
-        for (i=0; i<global.TOTAL_SHIPS_9; i++) {
-            instance_create(vx, vy, obj_blue_monster_6)
-            vy -= 60
-        } 
-    }
+    instance_create(vx, vy, obj_red_monster_6)
+}
+
+if (enemy_type == global.ENEMY_MONSTER_6_GREEN) {
+    vx = 48
+    vy = -68
+    instance_create(vx, vy, obj_red_monster_6)
+}
+
+if (enemy_type == global.ENEMY_MONSTER_6_BLUE) {
+    vx = 48
+    vy = -68
+    instance_create(vx, vy, obj_red_monster_6)
 }
 
 if (enemy_type == global.SECOND_WAVE_ENEMY_METEOR) {

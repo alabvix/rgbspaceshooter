@@ -71,18 +71,17 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
            _total_monster_4_killed = 0
            _can_create_enemy = true
        }
-    }
-    
-     // For this type creates all ships once
-    if (_enemy_type == global.ENEMY_MONSTER_6) {
-       if (_total_monsters_6_created < global.TOTAL_MONSTERS_6 ) {
-           CreateEnemy(_enemy_type, color)    
-           _total_monsters_6_created = global.TOTAL_MONSTERS_6
+    }    
+
+    if (_enemy_type == global.ENEMY_MONSTER_6_RED) {
+       if (_total_monsters_6_red_created < global.TOTAL_MONSTERS_6_RED ) {
+           CreateEnemy(_enemy_type, 0)    
+           _total_monsters_6_red_created ++
            _can_create_enemy = false
        } 
-       if (_total_monster_6_killed == global.TOTAL_MONSTERS_6) {
-           _total_monsters_6_created = 0
-           _total_monster_6_killed = 0
+       if (_total_monster_6_red_killed == global.TOTAL_MONSTERS_6_RED) {
+           _total_monsters_6_red_created = 0
+           _total_monster_6_red_killed = 0
            _can_create_enemy = true
        }
     }
