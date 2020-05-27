@@ -34,7 +34,7 @@ _hp      = 30
 _color   = global.GREEN
 
 _shoot_in    = 25 // fires in each n seconds 
-_weapon_type = global.WEAPON_ENERGY_BALL_STAR
+_weapon_type = global.WEAPON_ENERGY_BALL
 _is_monster = true
 _type = global.ENEMY_MONSTER_6_GREEN 
 

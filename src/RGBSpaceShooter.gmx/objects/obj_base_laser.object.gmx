@@ -35,6 +35,9 @@ _found_enemy = false
 if (global.test_super_hit) {
     _demage = 1000
 }
+
+_color = 0
+
 </string>
           </argument>
         </arguments>
@@ -59,6 +62,34 @@ if (global.test_super_hit) {
             <kind>1</kind>
             <string>// Calculates y position based on delta to make smoother moviment.
 delta = (60/1000000) * delta_time;
+
+if (instance_exists(obj_base_energy_absorver)) {
+    
+    switch(_color) {
+        case global.RED:
+            if (distance_to_object(obj_red_energy_absorver)&lt;100) {
+                move_towards_point(obj_red_energy_absorver.x, obj_red_energy_absorver.y, _velocity);    
+            } else {
+                y -= _velocity * delta;
+            }
+            break;
+        case global.GREEN:
+            if (distance_to_object(obj_green_energy_absorver)&lt;100) {
+                move_towards_point(obj_green_energy_absorver.x, obj_green_energy_absorver.y, _velocity);    
+            } else {
+                y -= _velocity * delta;
+            }
+            break;
+        case global.BLUE:
+            if (distance_to_object(obj_blue_energy_absorver)&lt;100) {
+                move_towards_point(obj_blue_energy_absorver.x, obj_blue_energy_absorver.y, _velocity);  
+            } else {
+                y -= _velocity * delta;
+            }
+            break;      
+    }
+    exit
+}
 
 // if is pursuit laser goes to nerby enemy
 if (global.player_weapon == global.PLAYER_PURSUIT_LASER) {

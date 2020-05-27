@@ -1,12 +1,13 @@
 ///DefineGlobals
-global.version = "0.3.1"
+global.version = "0.4.0"
+
 // game files
 global.FILE_GAME_SETTINGS = "game_settings.ini"
 global.has_game_saved = HasGameSaved()
 
 // test 
-global.test_super_hit = true
-global.test_ship_undestrutible = false//false
+global.test_super_hit = false
+global.test_ship_undestrutible = false
 
 global.RED   = 1
 global.GREEN = 2
@@ -74,9 +75,9 @@ global.ENEMY_MONSTER_2   = 12
 global.ENEMY_MONSTER_3   = 13
 global.ENEMY_MONSTER_4   = 14
 global.ENEMY_MONSTER_5   = 15
-global.ENEMY_MONSTER_6_RED   = 16
-global.ENEMY_MONSTER_6_BLUE  = 17
-global.ENEMY_MONSTER_6_GREEN = 18
+global.ENEMY_MONSTER_6_RED = 16
+global.ENEMY_MONSTER_6_GREEN = 17
+global.ENEMY_MONSTER_6_BLUE = 18
 global.ENEMY_MONSTER_7   = 19
 global.ENEMY_MONSTER_8   = 20
 global.ENEMY_MONSTER_9   = 21
@@ -84,7 +85,6 @@ global.ENEMY_MONSTER_10  = 22
 global.ENEMY_BOMB        = 23
 global.ENEMY_ALIEN       = 24
 global.ENEMY_TANK_1      = 25
-
 
 global.BOSS       = 500
 global.SUB_BOSS   = 501
@@ -161,7 +161,7 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,8] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,9] = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,10] = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7*/
-global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.ENEMY_SHIP_1
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.BOSS
 
 // SPACE LAB ENEMIES
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 0] = global.ENEMY_SHIP_9

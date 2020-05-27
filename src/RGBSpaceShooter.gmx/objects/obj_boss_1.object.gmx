@@ -54,6 +54,23 @@ _move_to_right = false
 _counter_running = false
 _counter_to_move = 0
 
+_LIMIT_ENERGY_ABSORVER = 200
+_counter_to_energy_absorver = 0
+
+_count_to_attack_1 = 0
+_LIMIT_ATTACK_1 = 40
+_start_attack_1 = false
+
+_count_to_attack_2 = 0
+_LIMIT_ATTACK_2 = 40
+
+_start_attack_2 = false
+
+_observer_flag = false
+
+
+
+
 
 </string>
           </argument>
@@ -87,13 +104,20 @@ if (_move_forward) {
     if (y &gt; 220) {
         _move_forward = false
         _counter_running = true
-        
+        CreateOrbitObject(obj_red_energy_absorver,  self, 3, 0, x, y) 
+        CreateOrbitObject(obj_green_energy_absorver,self, 3, 60,  x, y) 
+        CreateOrbitObject(obj_blue_energy_absorver, self, 3, 120, x, y) 
+        CreateOrbitObject(obj_red_energy_absorver,  self, 3, 180, x, y) 
+        CreateOrbitObject(obj_green_energy_absorver,self, 3, 240, x, y) 
+        CreateOrbitObject(obj_blue_energy_absorver, self, 3, 300, x, y) 
+        _start_attack_1 = true
     }
 }
 
 if (_counter_running) {
     _counter_to_move ++
     if (_counter_to_move == 100) {
+        _start_attack_1 = false
     
         // get next position to move
         _position_index ++
@@ -110,6 +134,7 @@ if (_counter_running) {
     }
 }
 
+// Go left
 if (_move_to_left &amp;&amp; ! _counter_running) {
     x -= _speed * delta;
     if (x &lt; 200) {
@@ -118,6 +143,7 @@ if (_move_to_left &amp;&amp; ! _counter_running) {
     }
 }
 
+// Go center
 if (_move_to_center &amp;&amp; ! _counter_running) {
     if (x &gt; _center_x) {
         x -= _speed * delta;
@@ -134,15 +160,72 @@ if (_move_to_center &amp;&amp; ! _counter_running) {
             _counter_running = true
         }
     }
+    _start_attack_1 = true
 }
 
+// Go Right
 if (_move_to_right &amp;&amp; ! _counter_running) {
+    _start_attack_1 = false
     x += _speed * delta;
     if (x &gt; 900) {
         _move_to_right = false
         _counter_running = true
     }
+}
+
+/*
+if (! instance_exists(obj_base_energy_absorver)) {
+    _counter_to_energy_absorver ++
+    _start_attack_1 = false
+    show_debug_message(_counter_to_energy_absorver)
+}
+*/
+
+/*
+if (_counter_to_energy_absorver == _LIMIT_ENERGY_ABSORVER) {
+   show_debug_message("creating energy absorvers")
+   instance_create(x, y + 200, obj_red_energy_absorver)
+   
+   var pos_x_1 = x - 150
+   var pos_x_2 = x + 150
+   
+   if (_observer_flag) {
+       instance_create(pos_x_1, y + 200, obj_green_energy_absorver)
+       instance_create(pos_x_2, y + 200, obj_blue_energy_absorver)
+       _observer_flag = false
+   } else {
+       instance_create(pos_x_2, y + 200, obj_green_energy_absorver)
+       instance_create(pos_x_1, y + 200, obj_blue_energy_absorver)
+       _observer_flag = true
+   }
+
+   _start_attack_1 = true
+   _counter_to_energy_absorver = 0
 } 
+
+if (instance_exists(obj_red_energy_absorver)) {
+    obj_red_energy_absorver.x = x
+    obj_red_energy_absorver.y = y + 200
+}
+
+if (instance_exists(obj_green_energy_absorver)) {
+    obj_green_energy_absorver.x = x - 150
+    obj_green_energy_absorver.y = y + 200
+}
+
+if (instance_exists(obj_blue_energy_absorver)) {
+   obj_blue_energy_absorver.x = x + 150
+   obj_blue_energy_absorver.y = y + 200
+}*/
+
+if (_start_attack_1) {
+    _count_to_attack_1 ++
+    if (_count_to_attack_1 == _LIMIT_ATTACK_1) {
+        CreateEnemyEnergyBallStar()
+        _count_to_attack_1 = 0
+    }
+}
+
  
 
 </string>

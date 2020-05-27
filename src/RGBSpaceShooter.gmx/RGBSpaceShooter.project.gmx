@@ -89,7 +89,6 @@
       <sprite>sprites\spt_honey_badger_icon</sprite>
       <sprite>sprites\spt_pursuit_red</sprite>
       <sprite>sprites\spt_pursuit_blue</sprite>
-      <sprite>sprites\spt_honey_badger_explosion</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
@@ -134,6 +133,7 @@
         <sprite>sprites\spt_green_cargo_ship</sprite>
         <sprite>sprites\spt_green_tank_1</sprite>
         <sprite>sprites\spt_green_cannon_1</sprite>
+        <sprite>sprites\spt_green_energy_absorver</sprite>
       </sprites>
       <sprites name="blue">
         <sprite>sprites\spt_blue_bomb</sprite>
@@ -154,6 +154,7 @@
         <sprite>sprites\spt_blue_ship_7</sprite>
         <sprite>sprites\spt_blue_ship_8</sprite>
         <sprite>sprites\spt_blue_ship_9</sprite>
+        <sprite>sprites\spt_blue_energy_absorver</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
       <sprite>sprites\spt_enemy_weapon_3</sprite>
@@ -219,6 +220,7 @@
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
+      <sprite>sprites\spt_honey_badger_explosion</sprite>
       <sprite>sprites\spt_bio_explosion</sprite>
     </sprites>
     <sprites name="buidings">
@@ -310,6 +312,10 @@
     <script>scripts\GenerateAmmoItemByColor.gml</script>
     <script>scripts\HasContinueGame.gml</script>
     <script>scripts\HandleColor.gml</script>
+    <scripts name="enemy_weapon">
+      <script>scripts\CreateEnemyEnergyBallStar.gml</script>
+    </scripts>
+    <script>scripts\CreateOrbitObject.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -325,6 +331,9 @@
     <object>objects\obj_meteor_2</object>
     <object>objects\obj_laser_selector</object>
     <object>objects\obj_ship_fire</object>
+    <objects name="base_moviment_objects">
+      <object>objects\obj_orbit_base</object>
+    </objects>
     <objects name="hud">
       <object>objects\obj_game_hud</object>
       <object>objects\obj_hud_laser_red</object>
@@ -352,6 +361,7 @@
     <objects name="enemies">
       <object>objects\obj_base_enemy</object>
       <object>objects\obj_cannon_base</object>
+      <object>objects\obj_cargo_ship</object>
       <objects name="red">
         <object>objects\obj_red_base_enemy</object>
         <object>objects\obj_red_ship_1</object>
@@ -416,9 +426,18 @@
         <object>objects\obj_blue_tank_1</object>
         <object>objects\obj_blue_cannon_1</object>
       </objects>
-      <object>objects\obj_shadow_ship_6</object>
-      <object>objects\obj_shadow_carg_ship</object>
-      <object>objects\obj_cargo_ship</object>
+      <objects name="boss">
+        <object>objects\obj_boss_base</object>
+        <object>objects\obj_sub_boss_1</object>
+        <object>objects\obj_boss_force_field</object>
+        <object>objects\obj_boss_1</object>
+      </objects>
+      <objects name="energy_absorvers">
+        <object>objects\obj_base_energy_absorver</object>
+        <object>objects\obj_green_energy_absorver</object>
+        <object>objects\obj_red_energy_absorver</object>
+        <object>objects\obj_blue_energy_absorver</object>
+      </objects>
     </objects>
     <objects name="enemy_weapon">
       <object>objects\obj_enemy_weapon_base</object>
@@ -481,6 +500,7 @@
     </objects>
     <objects name="player">
       <object>objects\obj_player_ship</object>
+      <object>objects\obj_honey_badger_icon</object>
       <object>objects\obj_base_laser</object>
       <object>objects\obj_red_laser</object>
       <object>objects\obj_blue_laser</object>
@@ -493,7 +513,6 @@
       <object>objects\obj_special_weapon_1_fire</object>
       <object>objects\obj_player_ship_shadow</object>
       <object>objects\obj_special_w_1</object>
-      <object>objects\obj_honey_badger_icon</object>
     </objects>
     <objects name="itens">
       <object>objects\obj_item_base</object>
@@ -505,12 +524,6 @@
       <object>objects\obj_item_tri_laser</object>
       <object>objects\obj_hull_refil_20</object>
       <object>objects\obj_item_pursuit_laser</object>
-    </objects>
-    <objects name="boss">
-      <object>objects\obj_boss_base</object>
-      <object>objects\obj_sub_boss_1</object>
-      <object>objects\obj_boss_force_field</object>
-      <object>objects\obj_boss_1</object>
     </objects>
     <objects name="explosion">
       <object>objects\obj_little_explosion</object>

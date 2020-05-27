@@ -1,4 +1,4 @@
-var planet_id = argument[0]
+var planet_id = global.PLANET_AURORA_LAND //argument[0]
 
 global.selected_planet = planet_id
 
