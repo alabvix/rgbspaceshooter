@@ -169,6 +169,7 @@
       <sprite>sprites\spt_pursuit_missile</sprite>
       <sprite>sprites\spt_pursuit_ameba</sprite>
       <sprite>sprites\spt_carg_ship</sprite>
+      <sprite>sprites\spt_atomic_blaster</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -314,6 +315,7 @@
     <script>scripts\HandleColor.gml</script>
     <scripts name="enemy_weapon">
       <script>scripts\CreateEnemyEnergyBallStar.gml</script>
+      <script>scripts\CreateEnemyAtomicBlaster.gml</script>
     </scripts>
     <script>scripts\CreateOrbitObject.gml</script>
   </scripts>
@@ -451,6 +453,7 @@
       <object>objects\obj_enemy_weapon_8</object>
       <object>objects\obj_enemy_weapon_9</object>
       <object>objects\obj_enemy_weapon_10</object>
+      <object>objects\obj_atomic_blaster</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_room_planet_selection</object>
