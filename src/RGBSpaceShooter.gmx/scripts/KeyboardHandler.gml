@@ -92,7 +92,7 @@ if keyboard_check(ord('S')) {
 
 // Fire
 var fire_cost = 1;
-if (key_fire_red && global.player_red_energy > 0) {
+if (key_fire_red) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
      global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_red_laser)
@@ -119,7 +119,7 @@ if (key_fire_red && global.player_red_energy > 0) {
     }
     PlayShipLaser();
 }
-if (key_fire_green && global.player_green_energy > 0) {
+if (key_fire_green) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
      global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_green_laser)
@@ -146,7 +146,7 @@ if (key_fire_green && global.player_green_energy > 0) {
     }
     PlayShipLaser();
 }
-if (key_fire_blue &&  global.player_blue_energy > 0) {
+if (key_fire_blue) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
      global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_blue_laser)

@@ -30,6 +30,8 @@ _hp_max = 0
 _hp_current = 0
 _name = ""
 _is_sub_boss = false
+_id = 0
+_destroyed = false
 </string>
           </argument>
         </arguments>
@@ -58,6 +60,10 @@ if (basic_player_shot) {
     instance_create(basic_player_shot.x, basic_player_shot.y, obj_bio_explosion)
     instance_destroy(basic_player_shot)
     
+    if (global.test_super_hit) {
+        _hp_current = 0
+    }
+    
 }
 
 var special_player_shot = instance_place(x,y, obj_special_weapon_base)
@@ -69,14 +75,17 @@ if (special_player_shot) {
 
 /// Check for boss destruction
 if (_hp_current &lt;=0) {
+    global.player_score += _points
+    _destroyed = true
     if (_is_sub_boss) {
         SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
-        global.player_score += _points
+    } else {
+        SetGameState(global.GAME_STATE_BOSS_DEFEATED)
     }
     
-    instance_create(x+10, y+10, obj_little_explosion)
+    instance_create(x+10, y+10, obj_mid_explosion)
     PlaySoundExplosion()
-    instance_create(x-10, y-10, obj_little_explosion)
+    instance_create(x-10, y-10, obj_mid_explosion)
     PlaySoundExplosion()
     instance_create(x+20, y-20, obj_little_explosion)
     PlaySoundExplosion()
@@ -84,15 +93,15 @@ if (_hp_current &lt;=0) {
     PlaySoundExplosion()
     instance_create(x+5, y+30, obj_little_explosion)
     PlaySoundExplosion()
-    instance_create(x+50, y+50, obj_little_explosion)
+    instance_create(x+50, y+50, obj_mid_explosion)
     PlaySoundExplosion()
     instance_create(x-50, y-50, obj_little_explosion)
     PlaySoundExplosion()
-    instance_create(x+20, y-20, obj_little_explosion)
+    instance_create(x+20, y-20, obj_mid_explosion)
     PlaySoundExplosion()
     instance_create(x-60, y+60, obj_little_explosion)
     PlaySoundExplosion()
-    instance_create(x+27, y+37, obj_little_explosion)
+    instance_create(x+27, y+37, obj_mid_explosion)
     PlaySoundExplosion()
     
     instance_destroy()
@@ -100,6 +109,9 @@ if (_hp_current &lt;=0) {
     if (_name == global.SUB_BOSS_1_NAME) {
         instance_destroy(obj_boss_force_field)
     }
+      
+    
+
 }
 </string>
           </argument>

@@ -51,9 +51,9 @@ _planet_id = global.PLANET_SPACE_LAB
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//_planet_name = "Aurora"
-global.selected_planet = global.PLANET_SPACE_LAB
+            <string>global.selected_planet = global.PLANET_SPACE_LAB
 event_inherited() 
+
 </string>
           </argument>
         </arguments>

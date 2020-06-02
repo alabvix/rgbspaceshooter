@@ -6,7 +6,7 @@ global.FILE_GAME_SETTINGS = "game_settings.ini"
 global.has_game_saved = HasGameSaved()
 
 // test 
-global.test_super_hit = false
+global.test_super_hit = true
 global.test_ship_undestrutible = false
 
 global.RED   = 1
@@ -38,6 +38,7 @@ global.GAME_STATE_PREPARE_BOSS_FIGHT = 7
 global.GAME_STATE_SUB_BOSS_DEFEATED  = 8
 global.GAME_STATE_BOSS_DEFEATED      = 9
 global.GAME_STATE_TRANSICATION       = 10
+global.GAME_STATE_BOSS_DEFEATED  = 11
 global.GAME_STATE_GAME_OVER          = 99
 
 global.game_state = global.GAME_STATE_MAIN_MENU
@@ -86,9 +87,15 @@ global.ENEMY_BOMB        = 23
 global.ENEMY_ALIEN       = 24
 global.ENEMY_TANK_1      = 25
 
+// BOSS AND SUB-BOSS
 global.BOSS       = 500
 global.SUB_BOSS   = 501
 global.TOTAL_SUB_BOSS = 1
+
+global.SUB_BOSS_1_NAME = "Visontroy"
+global.SUB_BOSS_1_HP_MAX = 800
+global.BOSS_1_NAME = "Mobile Base"
+global.BOSS_1_HP_MAX = 800
 
 // TODO: needs to be a array
 global.TOTAL_SHIPS_1 = 6
@@ -130,6 +137,12 @@ global.PLANET_MIRANDHA_LAND   = 4
 global.PLANET_NEDOMIA_V_SPACE = 5
 global.PLANET_NEDOMIA_V_LAND  = 6
 global.PLANET_SPACE_LAB       = 7
+
+global.PLANET_AURORA_NAME    = "Aurora"
+global.PLANET_MIRANDHA_NAME  = "Mirandha"
+global.PLANET_NEDOMIA_V_NAME = "Nedomia V"
+global.PLANET_SPACE_LAB_NAME = "Space Lab"
+
 
 // Enemy Waves on planet Aurora Space
 /*
@@ -186,7 +199,7 @@ global.WEAPON_MONSTER_5         = 11
 //////////////////////////////////
 // player stuff
 
-global.player_has_weapon_1 = true
+global.player_has_weapon_1 = false
 global.player_has_weapon_2 = false
 global.player_has_weapon_3 = false
 global.player_has_weapon_4 = false
@@ -199,10 +212,18 @@ global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
 global.PLAYER_PURSUIT_LASER = 4
+
 global.SPECIAL_WEAPON_1 = 1
+global.SPECIAL_WEAPON_2 = 2
+global.SPECIAL_WEAPON_3 = 3
+global.SPECIAL_WEAPON_4 = 4
+global.SPECIAL_WEAPON_5 = 5
+global.SPECIAL_WEAPON_6 = 6
+global.SPECIAL_WEAPON_7 = 7
+global.SPECIAL_WEAPON_8 = 8
 
 global.player_weapon = global.PLAYER_SINGLE_LASER
-global.player_weapon_special = global.SPECIAL_WEAPON_1
+global.player_weapon_special = 0
 global.player_lives = 2
 global.player_score = 0
 global.player_hull = 100
@@ -218,11 +239,7 @@ global.player_rgb_energy_base = 200
 
 HandlePlayerAttributes(true)
 
-// boss data
-global.SUB_BOSS_1_NAME = "Visontroy"
-global.SUB_BOSS_1_HP_MAX = 800
-global.BOSS_1_NAME = "Mobile Base"
-global.BOSS_1_HP_MAX = 800
+
 
 
 // fire directions

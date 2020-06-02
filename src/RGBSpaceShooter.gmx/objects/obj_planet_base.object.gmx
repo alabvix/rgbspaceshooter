@@ -28,6 +28,7 @@
             <string>_planet_name = ""
 _selected_planet = 0
 _planet_id = 0
+_planet_free = 0
 </string>
           </argument>
         </arguments>
@@ -108,26 +109,32 @@ switch (global.selected_planet) {
                                 obj_planet_aurora.y, 
                                 obj_player_shio_selector.x, 
                                 obj_player_shio_selector.y)
+        _planet_free = LoadPlanetState(global.PLANET_AURORA_LAND)                                
         break
     case global.PLANET_MIRANDHA_SPACE:
         angle = point_direction(obj_planet_mirandha.x,
                                 obj_planet_mirandha.y,
                                 obj_player_shio_selector.x,
                                 obj_player_shio_selector.y)
+        _planet_free = LoadPlanetState(global.PLANET_MIRANDHA_LAND)                                
         break
     case global.PLANET_NEDOMIA_V_SPACE:
         angle = point_direction(obj_planet_nedomia_v.x, 
                                 obj_planet_nedomia_v.y,
                                 obj_player_shio_selector.x, 
                                 obj_player_shio_selector.y)
+        _planet_free = LoadPlanetState(global.PLANET_NEDOMIA_V_LAND)                                
         break
     case global.PLANET_SPACE_LAB:
         angle = point_direction(obj_space_lab.x,
                                 obj_space_lab.y,
                                 obj_player_shio_selector.x, 
                                 obj_player_shio_selector.y)
+        _planet_free = LoadPlanetState(global.PLANET_SPACE_LAB)                                
         break
-}    
+}
+
+show_debug_message("left button 1 obj-planet-base " + string(_planet_free))
     
 // Flip the ship indicator to the planet
 obj_player_shio_selector.image_angle = angle

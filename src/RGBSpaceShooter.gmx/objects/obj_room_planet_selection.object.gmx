@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>_going_to_planet = false
+
 </string>
           </argument>
         </arguments>
@@ -54,12 +55,12 @@ var centro_room_y = room_height/2;
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_aqua);
-draw_set_font( font_20 );
-
-//show_debug_message( string(_selected_planet))
+draw_set_font(font_20);
 
 if (instance_exists(obj_planet_selector))
 {
+    show_debug_message(string(obj_planet_base._planet_free))
+    
     var planet_name = ""
     if (global.selected_planet == global.PLANET_AURORA_SPACE) {
         planet_name = "Aurora"
@@ -91,17 +92,25 @@ if (instance_exists(obj_planet_selector))
     if ( ! _going_to_planet) {
         draw_set_font( font_10 );
         instance_create(centro_room_x, centro_room_y + 100, obj_frame_1)
-        draw_text(
+        
+        if (obj_planet_base._planet_free == 0) {
+            draw_text(
              centro_room_x, 
              centro_room_y + 70,
              "Proceed to " + planet_name + "?"
-        )
+            )
+        } else {
+            draw_text(
+             centro_room_x, 
+             centro_room_y + 70,
+             planet_name + " was freed"
+            )
+        }
+        
         // button
-        if ( global.selected_planet == global.PLANET_AURORA_SPACE ||
-             global.selected_planet == global.PLANET_SPACE_LAB) {
-             
+        if ( (global.selected_planet == global.PLANET_AURORA_SPACE ||
+             global.selected_planet == global.PLANET_SPACE_LAB) &amp;&amp; obj_planet_base._planet_free == 0) {
             instance_create(centro_room_x, centro_room_y + 115, obj_btn_go)
-            
         } else {
             instance_destroy(obj_btn_go)
         }

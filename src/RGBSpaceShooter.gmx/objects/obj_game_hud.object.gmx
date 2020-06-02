@@ -29,6 +29,9 @@
 _weapon_index = 1
 
 switch (global.player_weapon_special) {
+    case 0:
+        obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
+        break
     case global.SPECIAL_WEAPON_1:
         obj_special_weapon_display.sprite_index = spt_weapon_1_display
         obj_player_weapon_1_icon.sprite_index = spt_weapon_1_ready
@@ -67,6 +70,9 @@ if (_change_weapon) {
     obj_player_weapon_7_icon.sprite_index = spt_weapon_7_icon
     obj_player_weapon_8_icon.sprite_index = spt_weapon_8_icon
     switch(_weapon_index) {
+        case 0:
+            obj_special_weapon_display.sprite_index = spt_weapon_display_not_found;
+            break
         case 1:
             obj_player_weapon_1_icon.sprite_index = spt_weapon_1_ready
             if (global.player_has_weapon_1) {
@@ -182,7 +188,7 @@ draw_text_transformed(centro_room_x, 27, score_show,1,1,0 );
 hull_value = (global.player_hull / global.player_hull_max) * 100;
 draw_healthbar(220,20,420,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
 
-
+// Energy icons
 draw_set_font( font_10 );
 var red_energy = string(global.player_red_energy) + "/" + string(global.player_red_energy_base)
 var green_energy = string(global.player_green_energy) + "/" + string(global.player_green_energy_base)

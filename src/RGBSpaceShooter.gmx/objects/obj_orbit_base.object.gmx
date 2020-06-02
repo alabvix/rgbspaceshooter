@@ -52,7 +52,11 @@ _current_orbit_position = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = _target.x + lengthdir_x(_distance_to_target, _current_orbit_position)
+            <string>if (! instance_exists(_target)) {
+    exit
+}
+
+x = _target.x + lengthdir_x(_distance_to_target, _current_orbit_position)
 y = (_target.y) + lengthdir_y(_distance_to_target, _current_orbit_position)
 _current_orbit_position += _orbit_speed
 

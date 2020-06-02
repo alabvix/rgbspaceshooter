@@ -53,6 +53,7 @@ _counter_show_boss_warning = 0
 _counter_boss_fighting = 0
 _show_boss_warning_msg = false
 _counter_for_boss = false
+_counter_to_resume = 0
 
 _counter_create_building = 0
 _counter_create_land_enemies = 0
@@ -303,13 +304,29 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
     }
 }
 
+/////////////////////////////////
+// BOSS DEFEATED
+////////////////////////////////
+if (global.game_state == global.GAME_STATE_BOSS_DEFEATED) {
+
+    // Save game data...
+    SaveGameState()
+    SavePlanetState()
+
+    // count to go to resume planet screen
+    _counter_to_resume ++
+    if (_counter_to_resume == 100) {
+        room_goto(room_planet_resume)
+    }
+} 
+
 /////////////////////////////
 // SUB BOSS DEFEATED
 /////////////////////////////
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
 
-    SavePlayerState()
-    SaveHasGameSavedFlag()
+    //SavePlayerState()
+    //SaveHasGameSavedFlag()
 
     if (!_play_boss_defeated_music) {
         PlayMusic(snd_music_boss_defeated)

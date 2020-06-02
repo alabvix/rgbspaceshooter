@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited()
 _planet_id = global.PLANET_AURORA_SPACE
+
 </string>
           </argument>
         </arguments>
@@ -49,9 +50,9 @@ _planet_id = global.PLANET_AURORA_SPACE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//_planet_name = "Aurora"
-global.selected_planet = global.PLANET_AURORA_SPACE
+            <string>global.selected_planet = global.PLANET_AURORA_SPACE
 event_inherited() 
+
 </string>
           </argument>
         </arguments>

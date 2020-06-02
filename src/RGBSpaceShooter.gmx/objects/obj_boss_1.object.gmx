@@ -109,6 +109,33 @@ _atomic_blaster = 0
 
 delta = (60/1000000) * delta_time;
 
+if (_destroyed) {
+    if (instance_exists(_absorver_1)) {
+        instance_create(_absorver_1.x, _absorver_1.y, obj_mid_explosion)
+        instance_destroy(_absorver_1)
+    }
+    if (instance_exists(_absorver_2)) {
+        instance_create(_absorver_2.x, _absorver_2.y, obj_mid_explosion)
+        instance_destroy(_absorver_2)
+    }
+    if (instance_exists(_absorver_3)) {
+        instance_create(_absorver_3.x, _absorver_3.y, obj_mid_explosion)
+        instance_destroy(_absorver_3)        
+    }
+    if (instance_exists(_absorver_4)) {
+        instance_create(_absorver_4.x, _absorver_4.y, obj_mid_explosion)
+        instance_destroy(_absorver_4)        
+    }
+    if (instance_exists(_absorver_5)) {
+        instance_create(_absorver_5.x, _absorver_5.y, obj_mid_explosion)
+        instance_destroy(_absorver_5)        
+    }
+    if (instance_exists(_absorver_6)) {
+        instance_create(_absorver_6.x, _absorver_6.y, obj_mid_explosion)
+        instance_destroy(_absorver_6)
+    }
+}
+
 // move forward and stop in the center of the screen
 if (_move_forward) {
     y += _speed * delta;

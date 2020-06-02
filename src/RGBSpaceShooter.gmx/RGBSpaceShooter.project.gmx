@@ -79,9 +79,6 @@
       <sprite>sprites\spt_blue_laser_concetrate</sprite>
       <sprite>sprites\spt_player_ship</sprite>
       <sprite>sprites\spt_player_ship_shadow</sprite>
-      <sprite>sprites\spt_red_laser</sprite>
-      <sprite>sprites\spt_green_laser</sprite>
-      <sprite>sprites\spt_blue_laser</sprite>
       <sprite>sprites\spt_weapon_1_fire</sprite>
       <sprite>sprites\spt_rgb_energy</sprite>
       <sprite>sprites\spt_special_w_1</sprite>
@@ -89,6 +86,9 @@
       <sprite>sprites\spt_honey_badger_icon</sprite>
       <sprite>sprites\spt_pursuit_red</sprite>
       <sprite>sprites\spt_pursuit_blue</sprite>
+      <sprite>sprites\spt_red_player_energy_shot</sprite>
+      <sprite>sprites\spt_blue_player_energy_shot</sprite>
+      <sprite>sprites\spt_green_player_energy_shot</sprite>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
@@ -294,19 +294,21 @@
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
     <scripts name="file_operations">
-      <script>scripts\SaveDifficulty.gml</script>
       <script>scripts\HandlePlayerAttributes.gml</script>
       <script>scripts\LoadDifficulty.gml</script>
-      <script>scripts\SaveMusic.gml</script>
       <script>scripts\LoadMusic.gml</script>
-      <script>scripts\SavePlayerState.gml</script>
+      <script>scripts\SaveDifficulty.gml</script>
+      <script>scripts\SaveMusic.gml</script>
+      <script>scripts\SaveGameState.gml</script>
+      <script>scripts\SavePlanetState.gml</script>
       <script>scripts\SaveCurrentPlanet.gml</script>
-      <script>scripts\LoadCurrentPlanet.gml</script>
-      <script>scripts\SaveHasGameSavedFlag.gml</script>
-      <script>scripts\HasGameSaved.gml</script>
       <script>scripts\SavePlayerLives.gml</script>
       <script>scripts\SaveSound.gml</script>
+      <script>scripts\SaveHasGameSavedFlag.gml</script>
+      <script>scripts\LoadCurrentPlanet.gml</script>
+      <script>scripts\HasGameSaved.gml</script>
       <script>scripts\LoadSound.gml</script>
+      <script>scripts\LoadPlanetState.gml</script>
     </scripts>
     <script>scripts\StopMusic.gml</script>
     <script>scripts\ResetPlayerAttributes.gml</script>
@@ -317,7 +319,10 @@
       <script>scripts\CreateEnemyEnergyBallStar.gml</script>
       <script>scripts\CreateEnemyAtomicBlaster.gml</script>
     </scripts>
-    <script>scripts\CreateOrbitObject.gml</script>
+    <scripts name="utils">
+      <script>scripts\GetPercentual.gml</script>
+      <script>scripts\CreateOrbitObject.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -359,6 +364,7 @@
       <object>objects\obj_weapon_display</object>
       <object>objects\obj_special_weapon_display</object>
       <object>objects\obj_weapon_1_display</object>
+      <object>objects\obj_planet_resume</object>
     </objects>
     <objects name="enemies">
       <object>objects\obj_base_enemy</object>
@@ -485,6 +491,7 @@
       <object>objects\obj_menu_btn_goto_menu</object>
       <object>objects\obj_menu_btn_continue</object>
       <object>objects\obj_menu_btn_continue_game_over</object>
+      <object>objects\obj_btn_ok_resume_planet</object>
       <object>objects\obj_state_menu_base</object>
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>
@@ -531,6 +538,7 @@
     <objects name="explosion">
       <object>objects\obj_little_explosion</object>
       <object>objects\obj_bio_explosion</object>
+      <object>objects\obj_mid_explosion</object>
     </objects>
     <objects name="buildings">
       <object>objects\obj_building_base</object>
@@ -547,6 +555,7 @@
     <room>rooms\room_help</room>
     <room>rooms\room_options</room>
     <room>rooms\room_space_lab</room>
+    <room>rooms\room_planet_resume</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -83,7 +83,7 @@ if gamepad_button_check(global.GAME_PAD_1, gp_face1) {
 }
 
 // Fire
-if (btn_red && global.player_red_energy > 0) {
+if (btn_red) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
      global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_red_laser)
@@ -111,7 +111,7 @@ if (btn_red && global.player_red_energy > 0) {
     PlayShipLaser();
 }
 
-if (btn_green && global.player_green_energy > 0) {
+if (btn_green) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
      global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_green_laser)
@@ -138,7 +138,7 @@ if (btn_green && global.player_green_energy > 0) {
     }
     PlayShipLaser();
 }
-if (btn_blue && global.player_blue_energy > 0) {
+if (btn_blue) {
     if (global.player_weapon == global.PLAYER_SINGLE_LASER ||
      global.player_weapon == global.PLAYER_PURSUIT_LASER) {
         instance_create(x, y - 60, obj_blue_laser)
