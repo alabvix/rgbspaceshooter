@@ -57,59 +57,66 @@ draw_set_valign(fa_middle);
 draw_set_color(c_aqua);
 draw_set_font(font_20);
 
+var planet_free = 0
 if (instance_exists(obj_planet_selector))
 {
-    show_debug_message(string(obj_planet_base._planet_free))
     
     var planet_name = ""
     if (global.selected_planet == global.PLANET_AURORA_SPACE) {
         planet_name = "Aurora"
         background_hspeed[0] = 2;
         background_vspeed[0] = 0;
+        planet_free = obj_planet_aurora._planet_free
     }    
     if (global.selected_planet == global.PLANET_MIRANDHA_SPACE) {
         planet_name = "Mirandha"
         background_hspeed[0] = 2;
         background_vspeed[0] = 2;
+                planet_free = obj_planet_mirandha._planet_free
     }
     if (global.selected_planet == global.PLANET_NEDOMIA_V_SPACE) {
         planet_name = "Nedomia V"
         background_hspeed[0] = 0;
         background_vspeed[0] = 2;
+        planet_free = obj_planet_nedomia_v._planet_free
     }
     if (global.selected_planet == global.PLANET_SPACE_LAB) {
         planet_name = "Space Lab"
         background_hspeed[0] = -2;
         background_vspeed[0] = -2;
+        planet_free = obj_space_lab._planet_free
     }
     draw_text(
          obj_planet_selector.x, 
          obj_planet_selector.y + 80,
          planet_name
     )
+    show_debug_message(string(planet_free))
     
     // Draw text in the dialog box
     if ( ! _going_to_planet) {
-        draw_set_font( font_10 );
+        draw_set_font(font_10);
         instance_create(centro_room_x, centro_room_y + 100, obj_frame_1)
         
-        if (obj_planet_base._planet_free == 0) {
+        if (planet_free == 0) {
             draw_text(
              centro_room_x, 
              centro_room_y + 70,
              "Proceed to " + planet_name + "?"
             )
         } else {
+            draw_set_font(font_12);
+            draw_set_color(c_white);
             draw_text(
              centro_room_x, 
              centro_room_y + 70,
-             planet_name + " was freed"
+             planet_name + "was realeased!"
             )
         }
         
         // button
         if ( (global.selected_planet == global.PLANET_AURORA_SPACE ||
-             global.selected_planet == global.PLANET_SPACE_LAB) &amp;&amp; obj_planet_base._planet_free == 0) {
+             global.selected_planet == global.PLANET_SPACE_LAB) &amp;&amp; planet_free == 0) {
             instance_create(centro_room_x, centro_room_y + 115, obj_btn_go)
         } else {
             instance_destroy(obj_btn_go)

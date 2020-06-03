@@ -49,7 +49,7 @@ _has_coninue = HasContinueGame()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ContinueGame()
+            <string>ContinueFromMainMenu()
 
 
 </string>

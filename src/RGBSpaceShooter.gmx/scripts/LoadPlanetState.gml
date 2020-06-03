@@ -1,3 +1,6 @@
+// Load a the planet state, wich cab be:
+// 0 - Planet not completed by the player
+// 1 - Planet completed by the player
 var planet_id = argument[0]
 var state = 0
 

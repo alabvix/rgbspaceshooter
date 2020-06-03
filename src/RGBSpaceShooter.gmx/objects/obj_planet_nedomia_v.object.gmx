@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited()
 _planet_id = global.PLANET_NEDOMIA_V_SPACE
+_planet_free = LoadPlanetState(global.PLANET_NEDOMIA_V_LAND)  
 </string>
           </argument>
         </arguments>

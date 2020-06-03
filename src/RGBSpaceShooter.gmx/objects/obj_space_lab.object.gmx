@@ -28,6 +28,7 @@
             <string>event_inherited()
 _planet_name = "Space Lab"
 _planet_id = global.PLANET_SPACE_LAB
+_planet_free = LoadPlanetState(global.PLANET_SPACE_LAB)       
 
 </string>
           </argument>

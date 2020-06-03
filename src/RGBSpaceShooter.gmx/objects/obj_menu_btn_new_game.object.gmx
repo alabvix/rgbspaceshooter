@@ -48,11 +48,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.game_state = global.GAME_STATE_TRANSICATION  
-global.main_music_playing = false
-ApplyDifficulty();
-var inst = instance_create(x,y, obj_transiction);
-inst.target = obj_player_shio_selector
+            <string>var has_continue = HasContinueGame()
+
+if (has_continue) {
+    room_goto(room_confirm_new_game)
+} else {
+    global.game_state = global.GAME_STATE_TRANSICATION  
+    global.main_music_playing = false
+    ApplyDifficulty();
+    var inst = instance_create(x,y, obj_transiction);
+    inst.target = obj_player_shio_selector
+}
+
 </string>
           </argument>
         </arguments>

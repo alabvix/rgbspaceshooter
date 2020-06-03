@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>event_inherited()
 _planet_id = global.PLANET_AURORA_SPACE
+_planet_free = LoadPlanetState(global.PLANET_AURORA_LAND)  
+if (_planet_free == 1) {
+    instance_create(x, y, obj_planet_free)
+}
+
 
 </string>
           </argument>

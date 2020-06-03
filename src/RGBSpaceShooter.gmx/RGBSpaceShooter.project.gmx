@@ -52,6 +52,7 @@
       <sprite>sprites\spt_planet_nedomia_v</sprite>
       <sprite>sprites\sprite37</sprite>
       <sprite>sprites\spt_planet_selector</sprite>
+      <sprite>sprites\spt_planet_free</sprite>
     </sprites>
     <sprites name="ui">
       <sprite>sprites\spt_btn_new_game</sprite>
@@ -300,6 +301,7 @@
       <script>scripts\SaveDifficulty.gml</script>
       <script>scripts\SaveMusic.gml</script>
       <script>scripts\SaveGameState.gml</script>
+      <script>scripts\LoadGameState.gml</script>
       <script>scripts\SavePlanetState.gml</script>
       <script>scripts\SaveCurrentPlanet.gml</script>
       <script>scripts\SavePlayerLives.gml</script>
@@ -323,6 +325,7 @@
       <script>scripts\GetPercentual.gml</script>
       <script>scripts\CreateOrbitObject.gml</script>
     </scripts>
+    <script>scripts\ContinueFromMainMenu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -471,6 +474,7 @@
       <object>objects\obj_planet_nedomia_v</object>
       <object>objects\obj_space_lab</object>
       <object>objects\obj_planet_selector</object>
+      <object>objects\obj_planet_free</object>
     </objects>
     <objects name="ui">
       <object>objects\obj_frame_1</object>
@@ -492,6 +496,8 @@
       <object>objects\obj_menu_btn_continue</object>
       <object>objects\obj_menu_btn_continue_game_over</object>
       <object>objects\obj_btn_ok_resume_planet</object>
+      <object>objects\obj_btn_confirm_yes</object>
+      <object>objects\obj_btn_confirm_no</object>
       <object>objects\obj_state_menu_base</object>
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>
@@ -499,6 +505,7 @@
       <object>objects\obj_panel</object>
       <object>objects\obj_sound_option</object>
       <object>objects\obj_music_option</object>
+      <object>objects\obj_room_confirm_new_game</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>
@@ -556,6 +563,7 @@
     <room>rooms\room_options</room>
     <room>rooms\room_space_lab</room>
     <room>rooms\room_planet_resume</room>
+    <room>rooms\room_confirm_new_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
