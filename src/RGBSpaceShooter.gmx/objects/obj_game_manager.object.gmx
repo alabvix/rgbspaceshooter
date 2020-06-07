@@ -193,8 +193,9 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     _respaw_count += 1
     if (_respaw_count == 150) {
         // End of game
-        global.player_lives --
-        if (global.player_lives &lt; 0) {
+        var plives = global.player_lives
+        plives = plives - 1
+        if (plives &lt; 0) {
             global.player_lives = 0
             SetGameState(global.GAME_STATE_GAME_OVER)
             _respaw_count = 0
@@ -204,8 +205,9 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         // Next player life. Back to the begging of the room.
         // Reset player attributes less player lives. 
         _respaw_count = 0
-        ResetPlayerAttributes()
+        LoadGameState()
         room_restart()
+        global.player_lives = plives
         _enemy_index = 0
         _enemy_type  = global.STAGE_ENEMIES[global.selected_planet,_enemy_index]
         SetGameState(global.GAME_STATE_PLAY)

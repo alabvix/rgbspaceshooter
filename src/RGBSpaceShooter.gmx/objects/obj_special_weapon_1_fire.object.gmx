@@ -31,8 +31,9 @@ image_speed = 0.5
 image_angle = direction
 
 _velocity = 5
-_demage = 10
-_cost   = 1
+_cost   = SW_FR300.cost
+_demage = SW_FR300.demage
+
 
 //trail_x = ds_list_create();
 //trail_y = ds_list_create();

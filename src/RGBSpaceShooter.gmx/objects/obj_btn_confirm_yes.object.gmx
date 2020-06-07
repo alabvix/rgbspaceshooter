@@ -25,8 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//room_goto(room_planet_selection)
-
+            <string>CancelContinueGame()
+InitGameVars()
+ApplyDifficulty()
+global.game_state = global.GAME_STATE_TRANSICATION  
+global.main_music_playing = false
+room_goto(room_planet_selection)
 
 </string>
           </argument>

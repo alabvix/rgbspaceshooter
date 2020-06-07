@@ -291,7 +291,6 @@
     <script>scripts\PlayMonsterDieSound.gml</script>
     <script>scripts\PlaySpecialWeapon.gml</script>
     <script>scripts\PlayBossFireShot.gml</script>
-    <script>scripts\DrawHUDObjects.gml</script>
     <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
     <scripts name="file_operations">
@@ -311,9 +310,9 @@
       <script>scripts\HasGameSaved.gml</script>
       <script>scripts\LoadSound.gml</script>
       <script>scripts\LoadPlanetState.gml</script>
+      <script>scripts\CancelContinueGame.gml</script>
     </scripts>
     <script>scripts\StopMusic.gml</script>
-    <script>scripts\ResetPlayerAttributes.gml</script>
     <script>scripts\GenerateAmmoItemByColor.gml</script>
     <script>scripts\HasContinueGame.gml</script>
     <script>scripts\HandleColor.gml</script>

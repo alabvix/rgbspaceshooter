@@ -1,7 +1,7 @@
 ini_open(global.FILE_GAME_SETTINGS)
 
 global.player_weapon = ini_read_real("player-state", "weapon", global.player_weapon);
-global.player_weapon_special = ini_read_real("player-state", "weapon_special", global.player_weapon_special);
+global.player_weapon_special = ini_read_real("player-state", "weapon_special", 0);
 global.player_lives = ini_read_real("player-state", "lives", global.player_lives);
 global.player_score = ini_read_real("player-state", "score", global.player_score);
 global.player_hull = ini_read_real("player-state", "hull", global.player_hull);

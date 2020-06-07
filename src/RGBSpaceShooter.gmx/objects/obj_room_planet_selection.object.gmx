@@ -72,7 +72,7 @@ if (instance_exists(obj_planet_selector))
         planet_name = "Mirandha"
         background_hspeed[0] = 2;
         background_vspeed[0] = 2;
-                planet_free = obj_planet_mirandha._planet_free
+        planet_free = obj_planet_mirandha._planet_free
     }
     if (global.selected_planet == global.PLANET_NEDOMIA_V_SPACE) {
         planet_name = "Nedomia V"
@@ -110,7 +110,7 @@ if (instance_exists(obj_planet_selector))
             draw_text(
              centro_room_x, 
              centro_room_y + 70,
-             planet_name + "was realeased!"
+             planet_name + " was realeased!"
             )
         }
         

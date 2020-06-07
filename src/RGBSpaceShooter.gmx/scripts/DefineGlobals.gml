@@ -222,6 +222,17 @@ global.SPECIAL_WEAPON_6 = 6
 global.SPECIAL_WEAPON_7 = 7
 global.SPECIAL_WEAPON_8 = 8
 
+// weapons
+enum SW_FR300 { cost=1, demage=10 }
+enum SW_PRISM_CANON { cost=2, demage=15 }
+enum SW_MEGA_STORM { cost=3, demage=18 }
+enum SW_Z_LASER { cost=4, demage=21 }
+enum SW_ASTRO_BLASTER { cost=5, demage=25 }
+enum SW_TX_555 { cost=7, demage=10 }
+enum SW_VACUM_STORM { cost=8, demage=28 }
+enum SW_THERMO_LASER { cost=10, demage=30 }
+enum SW_FORCE_SHILD { cost=1, demage=0 } // subtracts -1 for enemy demage and aplies the result to the Force Field HP
+
 global.player_weapon = global.PLAYER_SINGLE_LASER
 global.player_weapon_special = 0
 global.player_lives = 2
