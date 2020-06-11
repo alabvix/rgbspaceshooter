@@ -57,7 +57,12 @@ if ( speed &gt; 0 ) {
         _scale_counter = 0
         planet = instance_place(x,y,obj_planet_base)
         if (planet) {
-            InitGameVars()
+            if (HasGameSaved()) {
+                HandlePlayerAttributes(false)
+            } else {
+                HandlePlayerAttributes(true)
+            }
+            InitPlayerAttributes()
             SetGameState(global.GAME_STATE_PLAY)
             GotoPlanet(planet._planet_id)
         } 

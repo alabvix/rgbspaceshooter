@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>CancelContinueGame()
-InitGameVars()
 ApplyDifficulty()
 global.game_state = global.GAME_STATE_TRANSICATION  
 global.main_music_playing = false

@@ -6,7 +6,7 @@ global.FILE_GAME_SETTINGS = "game_settings.ini"
 global.has_game_saved = HasGameSaved()
 
 // test 
-global.test_super_hit = true
+global.test_super_hit = false
 global.test_ship_undestrutible = false
 
 global.RED   = 1
@@ -38,8 +38,9 @@ global.GAME_STATE_PREPARE_BOSS_FIGHT = 7
 global.GAME_STATE_SUB_BOSS_DEFEATED  = 8
 global.GAME_STATE_BOSS_DEFEATED      = 9
 global.GAME_STATE_TRANSICATION       = 10
-global.GAME_STATE_BOSS_DEFEATED  = 11
-global.GAME_STATE_GAME_OVER          = 99
+global.GAME_STATE_BOSS_DEFEATED      = 11
+global.GAME_STATE_PLANET_RESUME      = 12
+global.GAME_STATE_GAME_OVER  = 99
 
 global.game_state = global.GAME_STATE_MAIN_MENU
 
@@ -56,6 +57,15 @@ global.main_music_playing = false
 if (global.option_music) {
     PlayMusic(snd_music_main_theme)
 }
+
+// statistics
+global.total_red_created = 0
+global.total_green_created = 0
+global.total_blue_created = 0
+
+global.total_red_eliminated   = 0
+global.total_green_eliminated = 0
+global.total_blue_eliminated = 0
 
 // time to create enemy for game difficulty
 global.counter_create_enemy_limit = 10
@@ -86,6 +96,8 @@ global.ENEMY_MONSTER_10  = 22
 global.ENEMY_BOMB        = 23
 global.ENEMY_ALIEN       = 24
 global.ENEMY_TANK_1      = 25
+
+global.total_bomb_destroyed = 0
 
 // BOSS AND SUB-BOSS
 global.BOSS       = 500
@@ -143,9 +155,7 @@ global.PLANET_MIRANDHA_NAME  = "Mirandha"
 global.PLANET_NEDOMIA_V_NAME = "Nedomia V"
 global.PLANET_SPACE_LAB_NAME = "Space Lab"
 
-
 // Enemy Waves on planet Aurora Space
-/*
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,0]  = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,1]  = global.ENEMY_BOMB
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,2]  = global.ENEMY_MONSTER_1
@@ -157,11 +167,10 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,7]  = global.ENEMY_MONSTER_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,8]  = global.ENEMY_ALIEN
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,9]  = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,10] = global.ENEMY_BOMB
-global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,11] = global.ENEMY_SHIP_4*/
+global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,11] = global.ENEMY_SHIP_4
 global.STAGE_ENEMIES[global.PLANET_AURORA_SPACE,12] = global.SUB_BOSS
 
 // Enemy Waves on planet Aurora land
-/*
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,0] = global.ENEMY_SHIP_6
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,1] = global.ENEMY_TANK_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,2] = global.ENEMY_SHIP_7
@@ -173,7 +182,7 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,7] = global.ENEMY_MONSTER_4
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,8] = global.ENEMY_BOMB
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,9] = global.ENEMY_SHIP_1
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,10] = global.ENEMY_MONSTER_1
-global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7*/
+global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.BOSS
 
 // SPACE LAB ENEMIES
@@ -198,60 +207,12 @@ global.WEAPON_MONSTER_5         = 11
 
 //////////////////////////////////
 // player stuff
-
-global.player_has_weapon_1 = false
-global.player_has_weapon_2 = false
-global.player_has_weapon_3 = false
-global.player_has_weapon_4 = false
-global.player_has_weapon_5 = false
-global.player_has_weapon_6 = false
-global.player_has_weapon_7 = false
-global.player_has_weapon_8 = false
-
 global.PLAYER_SINGLE_LASER = 1
 global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
 global.PLAYER_PURSUIT_LASER = 4
 
-global.SPECIAL_WEAPON_1 = 1
-global.SPECIAL_WEAPON_2 = 2
-global.SPECIAL_WEAPON_3 = 3
-global.SPECIAL_WEAPON_4 = 4
-global.SPECIAL_WEAPON_5 = 5
-global.SPECIAL_WEAPON_6 = 6
-global.SPECIAL_WEAPON_7 = 7
-global.SPECIAL_WEAPON_8 = 8
-
-// weapons
-enum SW_FR300 { cost=1, demage=10 }
-enum SW_PRISM_CANON { cost=2, demage=15 }
-enum SW_MEGA_STORM { cost=3, demage=18 }
-enum SW_Z_LASER { cost=4, demage=21 }
-enum SW_ASTRO_BLASTER { cost=5, demage=25 }
-enum SW_TX_555 { cost=7, demage=10 }
-enum SW_VACUM_STORM { cost=8, demage=28 }
-enum SW_THERMO_LASER { cost=10, demage=30 }
-enum SW_FORCE_SHILD { cost=1, demage=0 } // subtracts -1 for enemy demage and aplies the result to the Force Field HP
-
-global.player_weapon = global.PLAYER_SINGLE_LASER
-global.player_weapon_special = 0
-global.player_lives = 2
-global.player_score = 0
-global.player_hull = 100
-global.player_hull_max = 100
-global.player_blue_energy = 200
-global.player_blue_energy_base = 200
-global.player_red_energy = 200
-global.player_red_energy_base = 200
-global.player_green_energy = 200
-global.player_green_energy_base = 200
-global.player_rgb_energy = 0
-global.player_rgb_energy_base = 200
-
 HandlePlayerAttributes(true)
-
-
-
 
 // fire directions
 global.dir_array[0] = 0

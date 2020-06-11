@@ -62,12 +62,12 @@ if (enemy_type == global.ENEMY_SHIP_2) {
             instance_create(vx, vy, obj_blue_ship_2)
             break;        
     }
-    show_debug_message("Ships 2 instance created:")
+    //show_debug_message("Ships 2 instance created:")
 }
 
 if (enemy_type == global.ENEMY_SHIP_3) {
     var ship3 = instance_create(90, -100, obj_red_ship_3)
-    show_debug_message("Ships 3 instance created:")
+    //show_debug_message("Ships 3 instance created:")
     with (ship3){
         path_start(path3, 8, path_action_reverse, 0)
     }
@@ -95,14 +95,14 @@ if (enemy_type == global.ENEMY_SHIP_4) {
         _speed_y = irandom_range(3,6)
     }
     
-    show_debug_message("Ship 4 instance created")
+    //show_debug_message("Ship 4 instance created")
 }
 
 if (enemy_type == global.ENEMY_SHIP_5) {
     vx = irandom_range(1, room_width)
     vy = irandom_range(-71, -1600)
     instance_create(vx, vy, obj_green_ship_5)
-    show_debug_message("Ship 5 instance created")
+    //show_debug_message("Ship 5 instance created")
 }
 
 if (enemy_type == global.ENEMY_SHIP_6) {
@@ -125,7 +125,7 @@ if (enemy_type == global.ENEMY_SHIP_6) {
         vy = irandom_range(-71, -90)
         ship = instance_create(vx, vy, obj_blue_ship_6)
     }
-    show_debug_message("Ship 6 instance created")
+    //show_debug_message("Ship 6 instance created")
 }
 
 if (enemy_type == global.ENEMY_SHIP_7) {
@@ -197,12 +197,18 @@ if (enemy_type == global.ENEMY_BOMB ) {
     if (color == 1) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-100, -1600)
-        instance_create(vx, vy, obj_red_bomb)
+        var i = instance_create(vx, vy, obj_red_bomb)
+        
     }
     if (color == 2) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-100, -1600)
-        instance_create(vx, vy, obj_blue_bomb)
+        instance_create(vx, vy, obj_green_bomb)        
+    }
+    if (color == 3) {
+        vx = irandom_range(1, room_width)
+        vy = irandom_range(-100, -1600)
+        instance_create(vx, vy, obj_blue_bomb)        
     }
 }
 

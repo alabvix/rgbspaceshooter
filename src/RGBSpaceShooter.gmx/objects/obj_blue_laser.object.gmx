@@ -109,6 +109,7 @@ if (enemy) {
             instance_destroy(enemy._my_canon)
         }
         instance_destroy(enemy)
+        global.total_blue_eliminated ++
     }
 }
 

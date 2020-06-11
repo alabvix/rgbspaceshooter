@@ -168,13 +168,10 @@ if (btn_blue) {
 
 // Special weapon fired
 if (btn_rgb && global.player_rgb_energy > 0) {
-    switch (global.player_weapon_special) {
-        case global.SPECIAL_WEAPON_1:
-            var weapon = instance_create(x,y-20, obj_special_weapon_1_fire)
-            global.player_rgb_energy = global.player_rgb_energy - weapon._cost
-            if (global.player_rgb_energy <=0) {
-                global.player_rgb_energy = 0
-            }
-            PlaySpecialWeapon()
-    }        
+    var weapon = instance_create(x,y-20, obj_special_weapon_1_fire)
+    global.player_rgb_energy = global.player_rgb_energy - weapon._cost
+    if (global.player_rgb_energy <=0) {
+        global.player_rgb_energy = 0
+    }
+    PlaySpecialWeapon()
 }

@@ -44,6 +44,7 @@ _is_tank       = false
 
 _shadow        = 0
 _in_path       = false
+_id = 0
 
 </string>
           </argument>

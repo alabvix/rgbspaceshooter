@@ -57,9 +57,8 @@ _speed_y = irandom_range(21,28)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_game_manager) {
-    _total_bomb_destroyed ++
-}
+            <string>obj_game_manager._total_bomb_destroyed ++
+
 </string>
           </argument>
         </arguments>
@@ -85,6 +84,7 @@ _speed_y = irandom_range(21,28)
             <string>event_inherited()
 
 if (y &gt; room_height + 60) {
+    show_debug_message("bomb blue destroyed:" + string(obj_game_manager._total_bomb_destroyed))
     instance_destroy()
 }
 </string>

@@ -90,6 +90,9 @@
       <sprite>sprites\spt_red_player_energy_shot</sprite>
       <sprite>sprites\spt_blue_player_energy_shot</sprite>
       <sprite>sprites\spt_green_player_energy_shot</sprite>
+      <sprites name="special_weapons">
+        <sprite>sprites\spt_special_weapon_1_large</sprite>
+      </sprites>
     </sprites>
     <sprites name="enemies">
       <sprites name="red">
@@ -117,6 +120,7 @@
       </sprites>
       <sprites name="green">
         <sprite>sprites\spt_green_ship_1</sprite>
+        <sprite>sprites\spt_green_bomb</sprite>
         <sprite>sprites\spt_green_ship_2</sprite>
         <sprite>sprites\spt_green_ship_4</sprite>
         <sprite>sprites\spt_green_ship_5</sprite>
@@ -180,12 +184,16 @@
       <sprite>sprites\spt_hud_laser_green</sprite>
       <sprite>sprites\spt_hud_laser_rgb</sprite>
       <sprite>sprites\spt_weapon_1_icon</sprite>
+      <sprite>sprites\spt_weapon_1_not_found</sprite>
       <sprite>sprites\spt_weapon_1_ready</sprite>
       <sprite>sprites\spt_weapon_2_icon</sprite>
+      <sprite>sprites\spt_weapon_2_not_found</sprite>
       <sprite>sprites\spt_weapon_2_ready</sprite>
       <sprite>sprites\spt_weapon_3_icon</sprite>
+      <sprite>sprites\spt_weapon_3_not_found</sprite>
       <sprite>sprites\spt_weapon_3_ready</sprite>
       <sprite>sprites\spt_weapon_4_icon</sprite>
+      <sprite>sprites\spt_weapon_4_not_found</sprite>
       <sprite>sprites\spt_weapon_4_ready</sprite>
       <sprite>sprites\spt_weapon_5_icon</sprite>
       <sprite>sprites\spt_weapon_5_ready</sprite>
@@ -270,52 +278,56 @@
     <script>scripts\CreateSecondaryEnemies.gml</script>
     <script>scripts\CreateLandEnemies.gml</script>
     <script>scripts\ContinueGame.gml</script>
+    <script>scripts\ContinueFromMainMenu.gml</script>
     <script>scripts\DefineGlobals.gml</script>
-    <script>scripts\InitializeSystem.gml</script>
-    <script>scripts\SetGameState.gml</script>
-    <script>scripts\SetShipExplosion.gml</script>
-    <script>scripts\LiberateIten.gml</script>
-    <script>scripts\GamePadHandler.gml</script>
+    <script>scripts\FireBossWeapon.gml</script>
     <script>scripts\GenerateCargoItem.gml</script>
     <script>scripts\GenerateRGBItemEnergy.gml</script>
     <script>scripts\GetPlanetForEnter.gml</script>
+    <script>scripts\InitializeSystem.gml</script>
+    <script>scripts\InitPlayerAttributes.gml</script>
+    <script>scripts\SetGameState.gml</script>
+    <script>scripts\SetShipExplosion.gml</script>
+    <script>scripts\LiberateIten.gml</script>
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
     <script>scripts\GotoPlanet.gml</script>
-    <script>scripts\InitGameVars.gml</script>
-    <script>scripts\FireBossWeapon.gml</script>
     <script>scripts\MoveToNextStage.gml</script>
     <script>scripts\MoveShipToPlanet.gml</script>
     <script>scripts\PlayShipLaser.gml</script>
     <script>scripts\PlaySoundExplosion.gml</script>
+    <script>scripts\RestartGame.gml</script>
     <script>scripts\PlayItemSound.gml</script>
     <script>scripts\PlayMonsterDieSound.gml</script>
     <script>scripts\PlaySpecialWeapon.gml</script>
     <script>scripts\PlayBossFireShot.gml</script>
-    <script>scripts\KeyboardHandler.gml</script>
     <script>scripts\PlayMusic.gml</script>
-    <scripts name="file_operations">
-      <script>scripts\HandlePlayerAttributes.gml</script>
-      <script>scripts\LoadDifficulty.gml</script>
-      <script>scripts\LoadMusic.gml</script>
-      <script>scripts\SaveDifficulty.gml</script>
-      <script>scripts\SaveMusic.gml</script>
-      <script>scripts\SaveGameState.gml</script>
-      <script>scripts\LoadGameState.gml</script>
-      <script>scripts\SavePlanetState.gml</script>
-      <script>scripts\SaveCurrentPlanet.gml</script>
-      <script>scripts\SavePlayerLives.gml</script>
-      <script>scripts\SaveSound.gml</script>
-      <script>scripts\SaveHasGameSavedFlag.gml</script>
-      <script>scripts\LoadCurrentPlanet.gml</script>
-      <script>scripts\HasGameSaved.gml</script>
-      <script>scripts\LoadSound.gml</script>
-      <script>scripts\LoadPlanetState.gml</script>
-      <script>scripts\CancelContinueGame.gml</script>
-    </scripts>
     <script>scripts\StopMusic.gml</script>
     <script>scripts\GenerateAmmoItemByColor.gml</script>
-    <script>scripts\HasContinueGame.gml</script>
     <script>scripts\HandleColor.gml</script>
+    <scripts name="input_handlers">
+      <script>scripts\KeyboardHandler.gml</script>
+      <script>scripts\GamePadHandler.gml</script>
+    </scripts>
+    <scripts name="file_operations">
+      <script>scripts\CancelContinueGame.gml</script>
+      <script>scripts\HandlePlayerAttributes.gml</script>
+      <script>scripts\HasGameSaved.gml</script>
+      <script>scripts\LoadDifficulty.gml</script>
+      <script>scripts\LoadMusic.gml</script>
+      <script>scripts\LoadSound.gml</script>
+      <script>scripts\LoadPlanetState.gml</script>
+      <script>scripts\LoadForceField.gml</script>
+      <script>scripts\LoadGameState.gml</script>
+      <script>scripts\LoadCurrentPlanet.gml</script>
+      <script>scripts\SavePlanetState.gml</script>
+      <script>scripts\SaveGameState.gml</script>
+      <script>scripts\SaveCurrentPlanet.gml</script>
+      <script>scripts\SaveForceShield.gml</script>
+      <script>scripts\SaveDifficulty.gml</script>
+      <script>scripts\SavePlayerLives.gml</script>
+      <script>scripts\SaveMusic.gml</script>
+      <script>scripts\SaveSound.gml</script>
+    </scripts>
     <scripts name="enemy_weapon">
       <script>scripts\CreateEnemyEnergyBallStar.gml</script>
       <script>scripts\CreateEnemyAtomicBlaster.gml</script>
@@ -324,7 +336,6 @@
       <script>scripts\GetPercentual.gml</script>
       <script>scripts\CreateOrbitObject.gml</script>
     </scripts>
-    <script>scripts\ContinueFromMainMenu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -366,7 +377,6 @@
       <object>objects\obj_weapon_display</object>
       <object>objects\obj_special_weapon_display</object>
       <object>objects\obj_weapon_1_display</object>
-      <object>objects\obj_planet_resume</object>
     </objects>
     <objects name="enemies">
       <object>objects\obj_base_enemy</object>
@@ -415,6 +425,7 @@
         <object>objects\obj_green_cargo_ship</object>
         <object>objects\obj_green_tank_1</object>
         <object>objects\obj_green_cannon_1</object>
+        <object>objects\obj_green_bomb</object>
       </objects>
       <objects name="blue">
         <object>objects\obj_blue_base_enemy</object>
@@ -505,10 +516,10 @@
       <object>objects\obj_sound_option</object>
       <object>objects\obj_music_option</object>
       <object>objects\obj_room_confirm_new_game</object>
+      <object>objects\obj_room_planet_resume</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>
-      <object>objects\obj_weapon_selector</object>
     </objects>
     <objects name="efx">
       <object>objects\obj_transiction</object>
@@ -529,6 +540,7 @@
       <object>objects\obj_special_weapon_1_fire</object>
       <object>objects\obj_player_ship_shadow</object>
       <object>objects\obj_special_w_1</object>
+      <object>objects\obj_special_weapon_1_large</object>
     </objects>
     <objects name="itens">
       <object>objects\obj_item_base</object>

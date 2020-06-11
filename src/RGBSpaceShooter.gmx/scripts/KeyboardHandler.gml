@@ -47,7 +47,7 @@ if (
 
 // Held down red fire key
 if keyboard_check(ord('A')) {
-    show_debug_message("Key A held down")
+    //show_debug_message("Key A held down")
     _fire_red_held_down ++
     if (_fire_red_held_down > 20 && global.player_red_energy > 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_red_fire_concetrate)
@@ -62,7 +62,7 @@ if keyboard_check(ord('A')) {
 
 // Held down blue fire key
 if keyboard_check(ord('D')) {
-    show_debug_message("Key D held down")
+    //show_debug_message("Key D held down")
     _fire_blue_held_down ++
     if (_fire_blue_held_down > 20 && global.player_blue_energy > 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_blue_fire_concetrate)
@@ -77,7 +77,7 @@ if keyboard_check(ord('D')) {
 
 // Held down green fire key
 if keyboard_check(ord('S')) {
-    show_debug_message("Key S held down")
+    //show_debug_message("Key S held down")
     _fire_green_held_down ++
     if (_fire_green_held_down > 20 && global.player_green_energy > 0) {
         instance_create(x-25, y + irandom_range(1,5), obj_green_fire_concetrate)
@@ -176,15 +176,12 @@ if (key_fire_blue) {
 
 // Special weapon fired
 if (key_fire_special && global.player_rgb_energy > 0 ) {
-    switch (global.player_weapon_special) {
-        case global.SPECIAL_WEAPON_1:
-            var weapon = instance_create(x,y-20, obj_special_weapon_1_fire)
-            global.player_rgb_energy = global.player_rgb_energy - weapon._cost
-            if (global.player_rgb_energy <=0) {
-                global.player_rgb_energy = 0
-            }
-            PlaySpecialWeapon()
-    }        
+    var weapon = instance_create(x,y-20, obj_special_weapon_1_fire)
+    global.player_rgb_energy = global.player_rgb_energy - weapon._cost
+    if (global.player_rgb_energy <=0) {
+        global.player_rgb_energy = 0
+    }
+    PlaySpecialWeapon()
 }
 
 

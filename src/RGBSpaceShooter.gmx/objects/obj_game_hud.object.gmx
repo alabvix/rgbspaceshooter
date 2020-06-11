@@ -25,19 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>_change_weapon = false
-_weapon_index = 1
-
-switch (global.player_weapon_special) {
-    case 0:
-        obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-        break
-    case global.SPECIAL_WEAPON_1:
-        obj_special_weapon_display.sprite_index = spt_weapon_1_display
-        obj_player_weapon_1_icon.sprite_index = spt_weapon_1_ready
-        break
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -59,90 +47,7 @@ switch (global.player_weapon_special) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if (_change_weapon) {
-    obj_player_weapon_1_icon.sprite_index = spt_weapon_1_icon
-    obj_player_weapon_2_icon.sprite_index = spt_weapon_2_icon
-    obj_player_weapon_3_icon.sprite_index = spt_weapon_3_icon
-    obj_player_weapon_4_icon.sprite_index = spt_weapon_4_icon
-    obj_player_weapon_5_icon.sprite_index = spt_weapon_5_icon
-    obj_player_weapon_6_icon.sprite_index = spt_weapon_6_icon
-    obj_player_weapon_7_icon.sprite_index = spt_weapon_7_icon
-    obj_player_weapon_8_icon.sprite_index = spt_weapon_8_icon
-    switch(_weapon_index) {
-        case 0:
-            obj_special_weapon_display.sprite_index = spt_weapon_display_not_found;
-            break
-        case 1:
-            obj_player_weapon_1_icon.sprite_index = spt_weapon_1_ready
-            if (global.player_has_weapon_1) {
-                obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;
-        case 2:
-            obj_player_weapon_2_icon.sprite_index = spt_weapon_2_ready
-            if (global.player_has_weapon_2) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;
-        case 3:
-            obj_player_weapon_3_icon.sprite_index = spt_weapon_3_ready
-             if (global.player_has_weapon_3) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;    
-        case 4:
-            obj_player_weapon_4_icon.sprite_index = spt_weapon_4_ready
-             if (global.player_has_weapon_4) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;
-        case 5:
-            obj_player_weapon_5_icon.sprite_index = spt_weapon_5_ready
-            if (global.player_has_weapon_5) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;
-        case 6:
-            obj_player_weapon_6_icon.sprite_index = spt_weapon_6_ready
-            if (global.player_has_weapon_6) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;
-        case 7:
-            obj_player_weapon_7_icon.sprite_index = spt_weapon_7_ready
-            if (global.player_has_weapon_7) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;
-        case 8:
-            obj_player_weapon_8_icon.sprite_index = spt_weapon_8_ready
-            if (global.player_has_weapon_8) {
-                //obj_special_weapon_display.sprite_index = spt_weapon_1_display
-            } else {
-                obj_special_weapon_display.sprite_index = spt_weapon_display_not_found
-            }
-            break;                          
-    }
-    _change_weapon = false
-}
-
-
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -188,6 +93,10 @@ draw_text_transformed(centro_room_x, 27, score_show,1,1,0 );
 hull_value = (global.player_hull / global.player_hull_max) * 100;
 draw_healthbar(220,20,420,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
 
+// Player Ship Force Shield
+shield_value = (global.player_shield / global.player_shield_max) * 100;
+draw_healthbar(600,20,800,35, shield_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
+
 // Energy icons
 draw_set_font( font_10 );
 var red_energy = string(global.player_red_energy) + "/" + string(global.player_red_energy_base)
@@ -209,6 +118,24 @@ switch (global.selected_planet) {
         draw_text_transformed(510,  50, "Destination: Space Lab",1,1,0 );        
         break
 }
+
+// current weapon
+var weapon_name = ""
+switch (global.player_weapon) {
+    case global.PLAYER_SINGLE_LASER:
+        weapon_name = "Single Laser"
+        break;
+    case global.PLAYER_DOUBLE_LASER:
+        weapon_name = "Double Laser"
+        break;
+    case global.PLAYER_TRI_LASER:
+        weapon_name = "Tri Laser"
+        break;
+    case global.PLAYER_PURSUIT_LASER:
+        weapon_name = "Pursuit Laser"
+        break;
+}
+draw_text_transformed(870, 30, weapon_name,1,1,0 )
 
 // lives
 draw_set_font( font_12 );
@@ -239,62 +166,6 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
             break    
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="90">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>_weapon_index --
-if (_weapon_index &lt;= 0) {
-    _weapon_index = 8
-}
-_change_weapon = true
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="88">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>_weapon_index ++
-if (_weapon_index &gt;= 8) {
-    _weapon_index = 1
-}
-_change_weapon = true
-
-
 </string>
           </argument>
         </arguments>

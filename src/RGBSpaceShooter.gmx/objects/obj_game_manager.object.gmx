@@ -205,7 +205,17 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         // Next player life. Back to the begging of the room.
         // Reset player attributes less player lives. 
         _respaw_count = 0
-        LoadGameState()
+        if (HasGameSaved()) {
+            HandlePlayerAttributes(false)
+        } else {
+            HandlePlayerAttributes(true)
+        }
+        global.total_red_created = 0
+        global.total_green_created = 0
+        global.total_blue_created = 0
+        global.total_red_eliminated = 0
+        global.total_green_eliminated = 0
+        global.total_blue_eliminated = 0
         room_restart()
         global.player_lives = plives
         _enemy_index = 0
@@ -249,6 +259,16 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         CreateCargoShips()
         CreateAmmo()
     }
+    
+    //show_debug_message("total bombs destroyed:" + string(_total_bomb_destroyed))
+    show_debug_message("total red created:" + string(global.total_red_created))
+    show_debug_message("total red destroyed:" + string(global.total_red_eliminated))
+    
+    show_debug_message("total green created:" + string(global.total_green_created))
+    show_debug_message("total green destroyed:" + string(global.total_green_eliminated))
+    
+    show_debug_message("total blue created:" + string(global.total_blue_created))
+    show_debug_message("total blue destroyed:" + string(global.total_blue_eliminated))
     
     // TODO: REFACTOR
     if (_enemy_type == global.ENEMY_TANK_1) {
@@ -314,10 +334,11 @@ if (global.game_state == global.GAME_STATE_BOSS_DEFEATED) {
     // Save game data...
     SaveGameState()
     SavePlanetState()
-
+    
     // count to go to resume planet screen
     _counter_to_resume ++
     if (_counter_to_resume == 100) {
+        SetGameState(global.GAME_STATE_PLANET_RESUME)
         room_goto(room_planet_resume)
     }
 } 
@@ -326,9 +347,6 @@ if (global.game_state == global.GAME_STATE_BOSS_DEFEATED) {
 // SUB BOSS DEFEATED
 /////////////////////////////
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
-
-    //SavePlayerState()
-    //SaveHasGameSavedFlag()
 
     if (!_play_boss_defeated_music) {
         PlayMusic(snd_music_boss_defeated)
@@ -365,7 +383,7 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
         MoveShipToPlanet()
         obj_player_ship.image_xscale -= 0.01;
         obj_player_ship.image_yscale -= 0.01;
-        show_debug_message("ship y :" + string(obj_player_ship.y))
+        //show_debug_message("ship y :" + string(obj_player_ship.y))
         if (obj_player_ship.image_xscale &lt;= 0.00) {
            _player_ship_landed = true
         }
@@ -379,7 +397,6 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
         MoveToNextStage()
         exit
     }
- 
 }
 </string>
           </argument>

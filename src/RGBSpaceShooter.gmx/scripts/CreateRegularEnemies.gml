@@ -9,7 +9,7 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
     
     if (_enemy_type == global.ENEMY_TANK_1) {
        if (_total_tank_1_created < global.TOTAL_TANK_1 ) {
-           show_debug_message("Enemy type: " + string( _enemy_type))
+          
            CreateEnemy(_enemy_type, color)    
            _total_tank_1_created ++;
            _can_create_enemy = false
@@ -215,12 +215,13 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
             CreateEnemy(_enemy_type, color)    
             _total_bomb_created ++;
             _can_create_enemy = false
-            show_debug_message("Bomb created" + string(_total_bomb_created))
+            show_debug_message("Bomb created" + string(_total_bomb_created) + "/" + string(global.TOTAL_BOMBS))
         }
-        if (_total_bomb_destroyed == global.TOTAL_BOMBS) {
+        if (_total_bomb_destroyed == global.TOTAL_BOMBS) { //bug!
             _total_bomb_destroyed = 0
             _total_bomb_created = 0
             _can_create_enemy = true
+            show_debug_message("All Bombs destroyed")
         }
     }
     
@@ -247,8 +248,11 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
           _enemy_index = 0
        }
        _enemy_type = global.STAGE_ENEMIES[global.selected_planet, _enemy_index]
+       show_debug_message("Enemy type: " + string( _enemy_type))
        show_debug_message("Creating enemy of: " + string(_enemy_type))
+       show_debug_message("enemy index:" + string(_enemy_index))
     }
+    
     
 }
 

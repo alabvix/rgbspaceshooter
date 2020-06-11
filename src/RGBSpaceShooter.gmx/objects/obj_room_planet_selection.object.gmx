@@ -91,7 +91,7 @@ if (instance_exists(obj_planet_selector))
          obj_planet_selector.y + 80,
          planet_name
     )
-    show_debug_message(string(planet_free))
+    //show_debug_message(string(planet_free))
     
     // Draw text in the dialog box
     if ( ! _going_to_planet) {

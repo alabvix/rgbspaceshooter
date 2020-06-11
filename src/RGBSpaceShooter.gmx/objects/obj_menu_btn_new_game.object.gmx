@@ -48,11 +48,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var has_continue = HasContinueGame()
-
-if (has_continue) {
+            <string>
+if (HasGameSaved()) {
     room_goto(room_confirm_new_game)
 } else {
+    // starting game from scratch
     global.game_state = global.GAME_STATE_TRANSICATION  
     global.main_music_playing = false
     ApplyDifficulty();
