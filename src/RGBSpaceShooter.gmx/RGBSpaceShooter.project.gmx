@@ -104,6 +104,7 @@
         <sprite>sprites\spt_red_ship_7</sprite>
         <sprite>sprites\spt_red_ship_8</sprite>
         <sprite>sprites\spt_red_ship_9</sprite>
+        <sprite>sprites\spt_red_ship_10</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
@@ -128,6 +129,7 @@
         <sprite>sprites\spt_green_ship_7</sprite>
         <sprite>sprites\spt_green_ship_8</sprite>
         <sprite>sprites\spt_green_ship_9</sprite>
+        <sprite>sprites\spt_green_ship_10</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
@@ -159,6 +161,7 @@
         <sprite>sprites\spt_blue_ship_7</sprite>
         <sprite>sprites\spt_blue_ship_8</sprite>
         <sprite>sprites\spt_blue_ship_9</sprite>
+        <sprite>sprites\spt_blue_ship_10</sprite>
         <sprite>sprites\spt_blue_energy_absorver</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
@@ -175,6 +178,7 @@
       <sprite>sprites\spt_pursuit_ameba</sprite>
       <sprite>sprites\spt_carg_ship</sprite>
       <sprite>sprites\spt_atomic_blaster</sprite>
+      <sprite>sprites\spt_laser_torpedo</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -303,7 +307,7 @@
     <script>scripts\PlayMusic.gml</script>
     <script>scripts\StopMusic.gml</script>
     <script>scripts\GenerateAmmoItemByColor.gml</script>
-    <script>scripts\HandleColor.gml</script>
+    <script>scripts\GetColor.gml</script>
     <scripts name="input_handlers">
       <script>scripts\KeyboardHandler.gml</script>
       <script>scripts\GamePadHandler.gml</script>
@@ -392,6 +396,7 @@
         <object>objects\obj_red_ship_7</object>
         <object>objects\obj_red_ship_8</object>
         <object>objects\obj_red_ship_9</object>
+        <object>objects\obj_red_ship_10</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -415,6 +420,7 @@
         <object>objects\obj_green_ship_7</object>
         <object>objects\obj_green_ship_8</object>
         <object>objects\obj_green_ship_9</object>
+        <object>objects\obj_green_ship_10</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
@@ -436,6 +442,7 @@
         <object>objects\obj_blue_ship_7</object>
         <object>objects\obj_blue_ship_8</object>
         <object>objects\obj_blue_ship_9</object>
+        <object>objects\obj_blue_ship_10</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
@@ -473,6 +480,7 @@
       <object>objects\obj_enemy_weapon_9</object>
       <object>objects\obj_enemy_weapon_10</object>
       <object>objects\obj_atomic_blaster</object>
+      <object>objects\obj_torpedo_laser</object>
     </objects>
     <objects name="planets">
       <object>objects\obj_room_planet_selection</object>

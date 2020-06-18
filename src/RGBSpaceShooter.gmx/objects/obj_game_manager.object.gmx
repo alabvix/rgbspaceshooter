@@ -95,13 +95,8 @@ _total_monsters_4_created = 0
 _total_monster_5_killed   = 0
 _total_monsters_5_created = 0
 
-_total_monster_6_red_killed   = 0
-_total_monsters_6_red_created = 0
-_total_monster_6_green_killed   = 0
-_total_monsters_6_green_created = 0
-_total_monster_6_blue_killed   = 0
-_total_monsters_6_blue_created = 0
-
+_total_monster_6_killed   = 0
+_total_monsters_6_created = 0
 
 _total_ship_1_created   = 0
 _total_ship_1_destroyed = 0

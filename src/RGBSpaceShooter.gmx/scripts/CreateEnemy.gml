@@ -1,14 +1,12 @@
 // argument[0]: enemy type
-// argument[1]: grouped by color
+var enemy_type = argument[0]
 
 var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
 
-var enemy_type = argument[0]
-var a_color = argument[1]
+var color = GetColor()
 
 if (enemy_type == global.ENEMY_TANK_1) {
-    var color = HandleColor(a_color)
     var bx = irandom_range(0, room_width - 80)
     var by = irandom_range(-10, -400)
     switch(color) {
@@ -31,7 +29,6 @@ if (enemy_type == global.ENEMY_TANK_1) {
 }
 
 if (enemy_type == global.ENEMY_SHIP_1 ) {
-    var color = HandleColor(a_color)
     vx = irandom_range(1, room_width)
     vy = irandom_range(-100, -600)
     switch(color) {
@@ -47,8 +44,25 @@ if (enemy_type == global.ENEMY_SHIP_1 ) {
     }
 }
 
+if (enemy_type == global.ENEMY_SHIP_1_RED) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -600)
+    instance_create(vx, vy, obj_red_ship_1)
+}
+
+if (enemy_type == global.ENEMY_SHIP_1_GREEN) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -600)
+    instance_create(vx, vy, obj_green_ship_1)
+}
+
+if (enemy_type == global.ENEMY_SHIP_1_BLUE) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -600)
+    instance_create(vx, vy, obj_blue_ship_1)
+}
+
 if (enemy_type == global.ENEMY_SHIP_2) {
-    var color = HandleColor(a_color)
     vx = irandom_range(128, room_width-300)
     vy = irandom_range(-130, -430)
     switch(color) {
@@ -74,7 +88,6 @@ if (enemy_type == global.ENEMY_SHIP_3) {
 }
 
 if (enemy_type == global.ENEMY_SHIP_4) {
-    var color = HandleColor(a_color) 
     var ship = 0
     if (color == 1) {
         vx = irandom_range(1, room_width)
@@ -94,21 +107,16 @@ if (enemy_type == global.ENEMY_SHIP_4) {
     with(ship){
         _speed_y = irandom_range(3,6)
     }
-    
-    //show_debug_message("Ship 4 instance created")
 }
 
 if (enemy_type == global.ENEMY_SHIP_5) {
     vx = irandom_range(1, room_width)
     vy = irandom_range(-71, -1600)
     instance_create(vx, vy, obj_green_ship_5)
-    //show_debug_message("Ship 5 instance created")
 }
 
 if (enemy_type == global.ENEMY_SHIP_6) {
-    var color = HandleColor(a_color) 
     var ship = 0
-    
     if (color == 1) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-71, -90)
@@ -125,11 +133,9 @@ if (enemy_type == global.ENEMY_SHIP_6) {
         vy = irandom_range(-71, -90)
         ship = instance_create(vx, vy, obj_blue_ship_6)
     }
-    //show_debug_message("Ship 6 instance created")
 }
 
 if (enemy_type == global.ENEMY_SHIP_7) {
-    var color = HandleColor(a_color)
     if (color == 1) {
         instance_create(global.ship_7_pos_x[global.ship_7_ix], -130, obj_red_ship_7)
     }
@@ -146,7 +152,6 @@ if (enemy_type == global.ENEMY_SHIP_7) {
 }
 
 if (enemy_type == global.ENEMY_SHIP_8) {
-    var color = HandleColor(a_color)
     vx = irandom_range(1, room_width)
     vy = irandom_range(-100, -200)
     if (color == 1) {
@@ -160,9 +165,40 @@ if (enemy_type == global.ENEMY_SHIP_8) {
     }
 }
 
+if (enemy_type == global.ENEMY_SHIP_10) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -400)
+    if (color == 1) {
+        instance_create(vx, vy, obj_red_ship_10)
+    }
+    if (color == 2) {
+        instance_create(vx, vy, obj_green_ship_10)
+    }
+    if (color == 3) {
+        instance_create(vx, vy, obj_blue_ship_10)
+    }
+}
+
+if (enemy_type == global.ENEMY_SHIP_10_RED) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -400)
+    instance_create(vx, vy, obj_red_ship_10)
+}
+
+if (enemy_type == global.ENEMY_SHIP_10_GREEN) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -400)
+    instance_create(vx, vy, obj_green_ship_10)
+}
+
+if (enemy_type == global.ENEMY_SHIP_10_BLUE) {
+    vx = irandom_range(1, room_width)
+    vy = irandom_range(-100, -400)
+    instance_create(vx, vy, obj_blue_ship_10)
+}
+
 // this type create all once
 if (enemy_type == global.ENEMY_SHIP_9) {
-    var color = HandleColor(a_color)
     vx = irandom_range(1, room_width - 200)
     vy = irandom_range(-100, -200)
     if (color == 1) {
@@ -184,6 +220,33 @@ if (enemy_type == global.ENEMY_SHIP_9) {
         } 
     }
 }
+
+if (enemy_type == global.ENEMY_SHIP_9_RED) {
+    vx = irandom_range(1, room_width - 200)
+    vy = irandom_range(-100, -200)
+    for (i=0; i<global.TOTAL_SHIPS_9; i++) {
+        ship = instance_create(vx, vy, obj_red_ship_9)
+        vx += 60
+    } 
+}
+
+if (enemy_type == global.ENEMY_SHIP_9_GREEN) {
+    vx = irandom_range(1, room_width - 200)
+    vy = irandom_range(-100, -200)
+    for (i=0; i<global.TOTAL_SHIPS_9; i++) {
+        ship = instance_create(vx, vy, obj_green_ship_9)
+        vx += 60
+    } 
+}
+
+if (enemy_type == global.ENEMY_SHIP_9_BLUE) {
+    vx = irandom_range(1, room_width - 200)
+    vy = irandom_range(-100, -200)
+    for (i=0; i<global.TOTAL_SHIPS_9; i++) {
+        ship = instance_create(vx, vy, obj_blue_ship_9)
+        vx += 60
+    } 
+}
  
 if (enemy_type == global.SPECIAL_CARGO_SHIP) {
     vx = irandom_range(1, room_width)
@@ -193,7 +256,6 @@ if (enemy_type == global.SPECIAL_CARGO_SHIP) {
 
 
 if (enemy_type == global.ENEMY_BOMB ) {
-    var color = HandleColor(a_color) 
     if (color == 1) {
         vx = irandom_range(1, room_width)
         vy = irandom_range(-100, -1600)
@@ -213,7 +275,6 @@ if (enemy_type == global.ENEMY_BOMB ) {
 }
 
 if (enemy_type == global.ENEMY_ALIEN ) {
-    var color = irandom_range(1,1) 
     var vx = obj_player_ship.x
     
     if (color == 1) {
@@ -232,7 +293,6 @@ if (enemy_type == global.ENEMY_ALIEN ) {
 }
 
 if (enemy_type == global.ENEMY_MONSTER_1 ) {
-    var color = HandleColor(a_color)
     vx = 200
     vy = -32
     switch (color) {
@@ -252,7 +312,6 @@ if (enemy_type == global.ENEMY_MONSTER_1 ) {
 }
 
 if (enemy_type == global.ENEMY_MONSTER_2 ) {
-    var color = HandleColor(a_color)
     vx = 800
     vy = -32
     switch (color) {
@@ -272,7 +331,6 @@ if (enemy_type == global.ENEMY_MONSTER_2 ) {
 }
 
 if (enemy_type == global.ENEMY_MONSTER_3) {
-    var color = HandleColor(a_color)
     vx = 448
     vy = -32
     switch (color) {
@@ -292,7 +350,6 @@ if (enemy_type == global.ENEMY_MONSTER_3) {
 }
 
 if (enemy_type == global.ENEMY_MONSTER_4) {
-    var color = irandom_range(1,1) 
     vx = 448
     vy = -100
     switch (color) {
@@ -317,13 +374,40 @@ if (enemy_type == global.ENEMY_MONSTER_6_RED) {
 if (enemy_type == global.ENEMY_MONSTER_6_GREEN) {
     vx = 48
     vy = -68
-    instance_create(vx, vy, obj_red_monster_6)
+    instance_create(vx, vy, obj_green_monster_6)
 }
 
 if (enemy_type == global.ENEMY_MONSTER_6_BLUE) {
     vx = 48
     vy = -68
-    instance_create(vx, vy, obj_red_monster_6)
+    instance_create(vx, vy, obj_blue_monster_6)
+}
+
+if (enemy_type == global.ENEMY_MONSTER_1_RED) {
+    vx = 200
+    vy = -32
+    var m = instance_create(vx, vy, obj_red_monster_1)
+    with (m){
+        path_start(path0, 8, path_action_continue, 0)
+    }
+}
+
+if (enemy_type == global.ENEMY_MONSTER_1_GREEN) {
+    vx = 200
+    vy = -32
+    m = instance_create(vx, vy, obj_green_monster_1)
+    with (m){
+        path_start(path0, 8, path_action_continue, 0)
+    }
+}
+
+if (enemy_type == global.ENEMY_MONSTER_1_BLUE) {
+    vx = 200
+    vy = -32
+    m = instance_create(vx, vy, obj_blue_monster_1)
+    with (m){
+        path_start(path0, 8, path_action_continue, 0)
+    }
 }
 
 if (enemy_type == global.SECOND_WAVE_ENEMY_METEOR) {

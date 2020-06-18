@@ -151,6 +151,9 @@ if (_shoot_in != 0 &amp;&amp; global.game_state == global.GAME_STATE_PLAY)
                     m5.direction = irandom_range(100,360)
                 }
                 break;
+            case global.WEAPON_TORPEDO_LASER:    
+                instance_create(x,y,obj_torpedo_laser)
+                break;
         }
         _shoot_counter = 0
     }

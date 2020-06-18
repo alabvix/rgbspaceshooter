@@ -66,7 +66,7 @@ path_start(path_monster_6, 8, path_action_continue, 0)
           <argument>
             <kind>1</kind>
             <string>with(obj_game_manager) {
-    _total_monster_6_red_killed ++
+    _total_monster_6_killed ++
 }
 </string>
           </argument>
