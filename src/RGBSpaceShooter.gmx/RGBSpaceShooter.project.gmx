@@ -179,6 +179,7 @@
       <sprite>sprites\spt_carg_ship</sprite>
       <sprite>sprites\spt_atomic_blaster</sprite>
       <sprite>sprites\spt_laser_torpedo</sprite>
+      <sprite>sprites\spt_drone_1</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -231,6 +232,8 @@
       <sprite>sprites\spt_sub_boss_1_prepare</sprite>
       <sprite>sprites\spt_force_field</sprite>
       <sprite>sprites\spt_boss_1</sprite>
+      <sprite>sprites\sub_boss_space_lab</sprite>
+      <sprite>sprites\spt_boss_computer_p1</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -256,6 +259,7 @@
     <background>background\background8</background>
     <background>background\bkg_space_lab_1</background>
     <background>background\bkg_space_lab_2</background>
+    <background>background\bkg_space_lab_land</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -286,15 +290,16 @@
     <script>scripts\DefineGlobals.gml</script>
     <script>scripts\FireBossWeapon.gml</script>
     <script>scripts\GenerateCargoItem.gml</script>
+    <script>scripts\GenerateAmmoItemByColor.gml</script>
     <script>scripts\GenerateRGBItemEnergy.gml</script>
     <script>scripts\GetPlanetForEnter.gml</script>
+    <script>scripts\GotoPlanet.gml</script>
     <script>scripts\InitializeSystem.gml</script>
     <script>scripts\InitPlayerAttributes.gml</script>
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
     <script>scripts\LiberateIten.gml</script>
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
-    <script>scripts\GotoPlanet.gml</script>
     <script>scripts\MoveToNextStage.gml</script>
     <script>scripts\MoveShipToPlanet.gml</script>
     <script>scripts\PlayShipLaser.gml</script>
@@ -306,7 +311,6 @@
     <script>scripts\PlayBossFireShot.gml</script>
     <script>scripts\PlayMusic.gml</script>
     <script>scripts\StopMusic.gml</script>
-    <script>scripts\GenerateAmmoItemByColor.gml</script>
     <script>scripts\GetColor.gml</script>
     <scripts name="input_handlers">
       <script>scripts\KeyboardHandler.gml</script>
@@ -386,6 +390,7 @@
       <object>objects\obj_base_enemy</object>
       <object>objects\obj_cannon_base</object>
       <object>objects\obj_cargo_ship</object>
+      <object>objects\obj_drone_1</object>
       <objects name="red">
         <object>objects\obj_red_base_enemy</object>
         <object>objects\obj_red_ship_1</object>
@@ -459,6 +464,8 @@
         <object>objects\obj_sub_boss_1</object>
         <object>objects\obj_boss_force_field</object>
         <object>objects\obj_boss_1</object>
+        <object>objects\obj_sub_boss_space_lab</object>
+        <object>objects\obj_boss_space_lab_p1</object>
       </objects>
       <objects name="energy_absorvers">
         <object>objects\obj_base_energy_absorver</object>
@@ -575,14 +582,17 @@
   <rooms name="rooms">
     <room>rooms\room_init</room>
     <room>rooms\room_main_menu</room>
-    <room>rooms\room_planet_selection</room>
-    <room>rooms\room_planet_aurora_space</room>
-    <room>rooms\room_planet_aurora_land</room>
     <room>rooms\room_help</room>
     <room>rooms\room_options</room>
     <room>rooms\room_space_lab</room>
-    <room>rooms\room_planet_resume</room>
     <room>rooms\room_confirm_new_game</room>
+    <room>rooms\room_planet_selection</room>
+    <room>rooms\room_planet_resume</room>
+    <room>rooms\room_planet_aurora_land</room>
+    <room>rooms\room_planet_aurora_space</room>
+    <room>rooms\room_planet_splace_lab_land</room>
+    <room>rooms\room_planet_mirandha_v_land</room>
+    <room>rooms\room_planet_nedomia_v_land</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

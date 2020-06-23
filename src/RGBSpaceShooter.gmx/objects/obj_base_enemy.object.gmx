@@ -41,6 +41,7 @@ _is_ship_6     = false
 _color         = 0
 _is_monster    = false
 _is_tank       = false
+_is_drone      = false
 
 _shadow        = 0
 _in_path       = false

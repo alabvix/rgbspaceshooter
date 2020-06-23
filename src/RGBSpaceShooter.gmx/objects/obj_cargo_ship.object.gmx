@@ -31,7 +31,7 @@ image_speed = 0.2
 
 _is_cargo_ship = true
 
-_points  = 3
+_points  = 10
 _hp      = 20
 _speed_y = 10
 

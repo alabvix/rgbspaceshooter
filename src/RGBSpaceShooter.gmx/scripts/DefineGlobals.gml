@@ -6,7 +6,7 @@ global.FILE_GAME_SETTINGS = "game_settings.ini"
 global.has_game_saved = HasGameSaved()
 
 // test 
-global.test_super_hit = false
+global.test_super_hit = true //false
 global.test_ship_undestrutible = false
 
 global.RED   = 1
@@ -110,16 +110,18 @@ global.ENEMY_SHIP_9_RED = 36
 global.ENEMY_SHIP_9_GREEN = 37
 global.ENEMY_SHIP_9_BLUE = 38
 
-
 // BOSS AND SUB-BOSS
 global.BOSS       = 500
-global.SUB_BOSS   = 501
+global.SUB_BOSS   = 601
 global.TOTAL_SUB_BOSS = 1
 
 global.SUB_BOSS_1_NAME = "Visontroy"
 global.SUB_BOSS_1_HP_MAX = 800
 global.BOSS_1_NAME = "Mobile Base"
 global.BOSS_1_HP_MAX = 800
+
+global.SUB_BOSS_SPACE_LAB_NAME = "Cruzader"
+global.SUB_BOSS_SPACE_LAB_HP_MAX = 600
 
 // TODO: needs to be a array
 global.TOTAL_SHIPS_1 = 6
@@ -160,6 +162,7 @@ global.PLANET_MIRANDHA_LAND   = 4
 global.PLANET_NEDOMIA_V_SPACE = 5
 global.PLANET_NEDOMIA_V_LAND  = 6
 global.PLANET_SPACE_LAB       = 7
+global.PLANET_SPACE_LAB_LAND  = 8
 
 global.PLANET_AURORA_NAME    = "Aurora"
 global.PLANET_MIRANDHA_NAME  = "Mirandha"
@@ -197,6 +200,8 @@ global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,11] = global.ENEMY_SHIP_7
 global.STAGE_ENEMIES[global.PLANET_AURORA_LAND,12] = global.BOSS
 
 // SPACE LAB SPACE
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 0] = global.SUB_BOSS
+/*
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 0] = global.ENEMY_SHIP_9_RED
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 1] = global.ENEMY_SHIP_9_GREEN
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 2] = global.ENEMY_SHIP_9_BLUE
@@ -212,6 +217,11 @@ global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 11] = global.ENEMY_SHIP_1_BLUE
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 12] = global.ENEMY_MONSTER_6_RED
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 13] = global.ENEMY_SHIP_10_RED
 global.STAGE_ENEMIES[global.PLANET_SPACE_LAB, 14] = global.SUB_BOSS
+*/
+
+// SPACE LAB LAND
+global.STAGE_ENEMIES[global.PLANET_SPACE_LAB_LAND,0] = global.BOSS 
+//global.STAGE_ENEMIES[global.PLANET_SPACE_LAB_LAND,1] = global.ENEMY_TANK_1
 
 // enemy weapons
 global.WEAPON_ENERGY_BALL       = 1
