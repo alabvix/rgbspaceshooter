@@ -123,6 +123,9 @@ global.BOSS_1_HP_MAX = 800
 global.SUB_BOSS_SPACE_LAB_NAME = "Cruzader"
 global.SUB_BOSS_SPACE_LAB_HP_MAX = 600
 
+global.BOSS_SPACE_LAB_NAME = "MasterMind"
+global.BOSS_SPACE_LAB_HP_MAX = 750
+
 // TODO: needs to be a array
 global.TOTAL_SHIPS_1 = 6
 global.TOTAL_SHIPS_2 = 2

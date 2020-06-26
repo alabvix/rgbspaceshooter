@@ -234,6 +234,15 @@
       <sprite>sprites\spt_boss_1</sprite>
       <sprite>sprites\sub_boss_space_lab</sprite>
       <sprite>sprites\spt_boss_computer_p1</sprite>
+      <sprite>sprites\spt_boss_space_lab_master_mind</sprite>
+      <sprite>sprites\spt_boss_space_lab_master_mind_bolt</sprite>
+      <sprite>sprites\spt_boss_computer_p2</sprite>
+      <sprite>sprites\spt_enemy_antenna</sprite>
+      <sprite>sprites\spt_moving_engine_idle</sprite>
+      <sprite>sprites\spt_moving_engine_to_left</sprite>
+      <sprite>sprites\spt_moving_engine_to_right</sprite>
+      <sprite>sprites\spt_bolt_1</sprite>
+      <sprite>sprites\spt_bolt_2</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -466,6 +475,14 @@
         <object>objects\obj_boss_1</object>
         <object>objects\obj_sub_boss_space_lab</object>
         <object>objects\obj_boss_space_lab_p1</object>
+        <object>objects\obj_boss_space_lab_mastermind</object>
+        <object>objects\obj_boss_space_lab_p2</object>
+        <object>objects\obj_enemy_antenna</object>
+        <object>objects\obj_moving_engine_base</object>
+        <object>objects\obj_moving_engine_left</object>
+        <object>objects\obj_moving_engine_right</object>
+        <object>objects\obj_bolt_1</object>
+        <object>objects\obj_bolt_2</object>
       </objects>
       <objects name="energy_absorvers">
         <object>objects\obj_base_energy_absorver</object>
