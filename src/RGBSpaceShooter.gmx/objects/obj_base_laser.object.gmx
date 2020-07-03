@@ -157,6 +157,7 @@ if (enemy != noone &amp;&amp; enemy._is_cargo_ship) {
 }
 
 // Handle collision with drone
+enemy = instance_place(x,y, obj_base_enemy)
 if (enemy != noone &amp;&amp; enemy._is_drone) {
     global.player_score += enemy._points
     instance_create(x, y, obj_little_explosion)
@@ -169,6 +170,13 @@ if (enemy != noone &amp;&amp; enemy._is_drone) {
 
 // Handle collision with moving engine
 enemy = instance_place(x,y, obj_moving_engine_base)
+if (enemy != noone) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
+// Handle collisin with splace lab boss p2
+enemy = instance_place(x,y, obj_boss_space_lab_p2)
 if (enemy != noone) {
     instance_create(x, y, obj_little_explosion)
     instance_destroy()

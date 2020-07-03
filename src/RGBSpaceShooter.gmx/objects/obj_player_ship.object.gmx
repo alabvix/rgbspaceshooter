@@ -164,16 +164,26 @@ if (drone != noone &amp;&amp;!global.test_ship_undestrutible) {
 }
 
 // Ship is destroyed if collides with meteor
-meteor = instance_place(x,y,obj_meteor_base)
+var meteor = instance_place(x,y,obj_meteor_base)
 if (meteor != noone &amp;&amp; !global.test_ship_undestrutible) {
     global.player_hull = 0
     SetShipExplosion()
 }
 
-boss = instance_place(x,y,obj_boss_base)
+var boss = instance_place(x,y,obj_boss_base)
 if (boss != noone &amp;&amp; !global.test_ship_undestrutible) {
     global.player_hull = 0
     SetShipExplosion()
+}
+
+var bolt = instance_place(x, y, obj_bolt_base)
+if (bolt != noone) {
+    instance_create(x, y, obj_little_explosion)
+    global.player_hull -= bolt._demage
+    if (global.player_hull &lt; 0) {
+       global.player_hull = 0
+       SetShipExplosion()
+    }
 }
 
 // Collision with itens

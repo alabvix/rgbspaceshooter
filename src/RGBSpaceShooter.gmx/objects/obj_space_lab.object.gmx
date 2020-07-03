@@ -28,8 +28,11 @@
             <string>event_inherited()
 _planet_name = "Space Lab"
 _planet_id = global.PLANET_SPACE_LAB
-_planet_free = LoadPlanetState(global.PLANET_SPACE_LAB)       
-
+_planet_free = LoadPlanetState(global.PLANET_SPACE_LAB_LAND)       
+show_debug_message("Planet free?" + string(_planet_free))
+if (_planet_free == 1) {
+    instance_create(x, y, obj_planet_free)
+}
 </string>
           </argument>
         </arguments>

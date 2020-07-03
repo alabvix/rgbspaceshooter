@@ -32,6 +32,8 @@ _initial_x = x
 _count_limit = 20
 _count_to_move = 0
 _is_moving = false
+
+_move_to_center = true
 </string>
           </argument>
         </arguments>
@@ -54,7 +56,14 @@ _is_moving = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if (_move_to_center) {
+    y += 10
+    if (y &gt;= 250) {
+        _move_to_center = false
+    }
+    exit
+}
+
 if (!_is_moving) {
     _count_to_move ++
     if (_count_to_move == _count_limit) {

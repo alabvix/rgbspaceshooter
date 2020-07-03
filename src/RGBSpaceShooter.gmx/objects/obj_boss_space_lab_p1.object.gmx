@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0.1
+
+_move_to_center = true
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var basic_player_shot = instance_place(x,y, obj_base_laser)
+            <string>if (_move_to_center) {
+    y += 10
+    if (y &gt;= 200) {
+        _move_to_center = false
+    }
+    exit
+}
+
+var basic_player_shot = instance_place(x,y, obj_base_laser)
 if (basic_player_shot) {
     instance_destroy(basic_player_shot)
 }

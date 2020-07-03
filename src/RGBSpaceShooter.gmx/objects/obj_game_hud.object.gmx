@@ -174,6 +174,16 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
             draw_set_color(c_white);
             draw_text_transformed(500, 105, obj_sub_boss_space_lab._name,1,1,0 )
             break          
+        case global.PLANET_SPACE_LAB_LAND:
+            if (! instance_exists(obj_boss_space_lab_mastermind)) {
+                exit
+            }
+            hp = (obj_boss_space_lab_mastermind._hp_current / obj_boss_space_lab_mastermind._hp_max) * 100;
+            draw_healthbar(350, 40, 660, 55, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 62, obj_boss_space_lab_mastermind._name,1,1,0 )
+            break                      
     }
 }
 </string>

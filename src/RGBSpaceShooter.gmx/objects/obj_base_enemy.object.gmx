@@ -75,25 +75,14 @@ if (_type != global.ENEMY_MONSTER_3 &amp;&amp; _type != global.ENEMY_MONSTER_4) 
     image_angle = direction
 }
 
-// Moves the sprite in Y axis.
-y += _speed_y * (delta_time / 100000);// move 100 pixels
+show_debug_message("Ship type:" + string(_type))
 
-// Creates shadowns for phase in planets lands
-/*
-if (global.selected_planet == global.PLANET_AURORA_LAND) {
-    if (_shadow == 0) {
-        if (_is_cargo_ship) {
-            _shadow = instance_create(x + 40, y+ 40, obj_shadow_carg_ship)            
-        }
-        if (_is_ship_6) {
-            _shadow = instance_create(x + 30, y -30, obj_shadow_ship_6)           
-        }
-    }
+// Moves the sprite in Y axis except for that ones who uses paths
+if (_type != global.ENEMY_SHIP_12_RED &amp;&amp;
+    _type != global.ENEMY_SHIP_12_GREEN &amp;&amp;
+    _type != global.ENEMY_SHIP_12_BLUE) {
+    y += _speed_y * (delta_time / 100000);// move 100 pixels
 }
-if (_shadow != 0) {
-    _shadow.x = x + 40
-    _shadow.y = y + 40
-}*/
 
 if (_type == global.ENEMY_MONSTER_4) {
     if ( ! _in_path ) {
@@ -175,6 +164,16 @@ if (_type = global.ENEMY_SHIP_7) {
         speed = 0
     }
 }
+
+// For enemies that follow a path, in the end of path destroy the instance
+if (_type == global.ENEMY_SHIP_12_RED ||
+    _type == global.ENEMY_SHIP_12_GREEN ||
+    _type == global.ENEMY_SHIP_12_BLUE) {
+    if (path_position == 1){
+       instance_destroy()
+    }
+}
+
 </string>
           </argument>
         </arguments>

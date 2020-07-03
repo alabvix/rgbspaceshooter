@@ -11,6 +11,11 @@ switch (global.option_difficulty_level) {
         global.TOTAL_SHIPS_8 = 4
         global.TOTAL_SHIPS_9 = 2
         global.TOTAL_SHIPS_10 = 1
+        global.TOTAL_SHIPS_11 = 2
+        global.TOTAL_SHIPS_12 = 3
+        global.TOTAL_SHIPS_13 = 3
+        global.TOTAL_SHIPS_14 = 3
+        global.TOTAL_SHIPS_15 = 3
         global.TOTAL_MONSTERS_1 = 3 
         global.TOTAL_MONSTERS_2 = 3
         global.TOTAL_MONSTERS_3 = 3
@@ -34,6 +39,11 @@ switch (global.option_difficulty_level) {
         global.TOTAL_SHIPS_8 = 6
         global.TOTAL_SHIPS_9 = 4
         global.TOTAL_SHIPS_10 = 2
+        global.TOTAL_SHIPS_11 = 4
+        global.TOTAL_SHIPS_12 = 4
+        global.TOTAL_SHIPS_13 = 4
+        global.TOTAL_SHIPS_14 = 4
+        global.TOTAL_SHIPS_15 = 4        
         global.TOTAL_MONSTERS_1 = 5 
         global.TOTAL_MONSTERS_2 = 5
         global.TOTAL_MONSTERS_3 = 5
@@ -55,7 +65,12 @@ switch (global.option_difficulty_level) {
         global.TOTAL_SHIPS_7 = 3
         global.TOTAL_SHIPS_8 = 8
         global.TOTAL_SHIPS_9 = 6    
-        global.TOTAL_SHIPS_10 = 4    
+        global.TOTAL_SHIPS_10 = 4   
+        global.TOTAL_SHIPS_11 = 6   
+        global.TOTAL_SHIPS_12 = 6      
+        global.TOTAL_SHIPS_13 = 6
+        global.TOTAL_SHIPS_14 = 6
+        global.TOTAL_SHIPS_15 = 6        
         global.TOTAL_MONSTERS_1 = 7 
         global.TOTAL_MONSTERS_2 = 7
         global.TOTAL_MONSTERS_3 = 7

@@ -128,6 +128,21 @@ _total_ship_9_destroyed = 0
 _total_ship_10_created   = 0
 _total_ship_10_destroyed = 0
 
+_total_ship_11_created   = 0
+_total_ship_11_destroyed = 0
+
+_total_ship_12_created   = 0
+_total_ship_12_destroyed = 0
+
+_total_ship_13_created   = 0
+_total_ship_13_destroyed = 0
+
+_total_ship_14_created   = 0
+_total_ship_14_destroyed = 0
+
+_total_ship_15_created   = 0
+_total_ship_15_destroyed = 0
+
 _total_bomb_created     = 0
 _total_bomb_destroyed   = 0
 
@@ -256,14 +271,14 @@ if (global.game_state == global.GAME_STATE_PLAY) {
     }
     
     //show_debug_message("total bombs destroyed:" + string(_total_bomb_destroyed))
-    show_debug_message("total red created:" + string(global.total_red_created))
-    show_debug_message("total red destroyed:" + string(global.total_red_eliminated))
+//    show_debug_message("total red created:" + string(global.total_red_created))
+//    show_debug_message("total red destroyed:" + string(global.total_red_eliminated))
     
-    show_debug_message("total green created:" + string(global.total_green_created))
-    show_debug_message("total green destroyed:" + string(global.total_green_eliminated))
+//    show_debug_message("total green created:" + string(global.total_green_created))
+  //  show_debug_message("total green destroyed:" + string(global.total_green_eliminated))
     
-    show_debug_message("total blue created:" + string(global.total_blue_created))
-    show_debug_message("total blue destroyed:" + string(global.total_blue_eliminated))
+    //show_debug_message("total blue created:" + string(global.total_blue_created))
+//    show_debug_message("total blue destroyed:" + string(global.total_blue_eliminated))
     
     // TODO: REFACTOR
     if (_enemy_type == global.ENEMY_TANK_1) {
@@ -383,12 +398,14 @@ if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
            _player_ship_landed = true
         }
     }
+    
     // Player ship landed on planet. Move to next stage
     if (_player_ship_landed) {
         instance_destroy(_planet)
         SetGameState(global.GAME_STATE_PLAY)
         _planet_moved = false
         _player_ship_landed = false
+        InitPlayerAttributes()
         MoveToNextStage()
         exit
     }

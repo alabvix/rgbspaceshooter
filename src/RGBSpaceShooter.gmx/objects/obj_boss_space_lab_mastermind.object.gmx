@@ -34,6 +34,7 @@ _hp_current = _hp_max
 
 image_speed = 0.2
 
+_move_to_center = true
 
 _count_to_attack_1 = 0
 _count_to_attack_2 = 0
@@ -41,9 +42,49 @@ _count_to_attack_2 = 0
 _launch_attack_1 = true
 _launch_attack_2 = false
 
-//CLOSING_GATE = 1
+_count_to_bolt = 0
+_count_to_laser = 0
 
-//_actions[0] = CLOSE_GATE
+// Apply difficult to antenna and bolt attacks
+_laser_limit = 0
+_bolt_limit = 0
+switch(global.option_difficulty_level){
+    case global.difficulty_level_easy:
+        _laser_limit = 100
+        _bolt_limit = 14
+        break
+    case global.difficulty_level_normal:
+        _laser_limit = 40
+        _bolt_limit = 10
+        break
+    case global.difficulty_level_hard:
+        _laser_limit = 20
+        _bolt_limit = 6
+        break
+}
+
+// Index 1=X, index 2=Y
+BOLT_MAP[1,1] = 450 
+BOLT_MAP[1,2] = 350 
+BOLT_MAP[2,1] = 500
+BOLT_MAP[2,2] = 400
+BOLT_MAP[3,1] = 550
+BOLT_MAP[3,2] = 350
+BOLT_MAP[4,1] = 550
+BOLT_MAP[4,2] = 450
+BOLT_MAP[5,1] = 400
+BOLT_MAP[5,2] = 500
+BOLT_MAP[6,1] = 630
+BOLT_MAP[6,2] = 600
+BOLT_MAP[7,1] = 430
+BOLT_MAP[7,2] = 600
+BOLT_MAP[8,1] = 530
+BOLT_MAP[8,2] = 450
+BOLT_MAP[9,1] = 630
+BOLT_MAP[9,2] = 640
+_index = 1
+
+
 </string>
           </argument>
         </arguments>
@@ -66,19 +107,56 @@ _launch_attack_2 = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
+            <string>if (_move_to_center) {
+    y += 10
+    if (y &gt;= 140) {
+        _move_to_center = false
+    }
+    exit
+}
 
+event_inherited()
+
+// Starts with attack 1, then count to launch attack 2
 if (!_launch_attack_2 &amp;&amp; _launch_attack_1) {
+
+    if (_count_to_laser == 0) {
+        obj_enemy_antenna._fire = true
+    } else {
+        obj_enemy_antenna._fire = false
+    }
+    
+    _count_to_laser ++
+    if (_count_to_laser == _laser_limit) {
+        _count_to_laser = 0
+    }
+
     _count_to_attack_2 ++
     if (_count_to_attack_2 == 200) {
         sprite_index = spt_boss_space_lab_master_mind_bolt
         _launch_attack_2 = true
         _launch_attack_1 = false
         _count_to_attack_2 = 0
+        //BossAttackBolt()
     }
 }
 
 if (_launch_attack_2 &amp;&amp; !_launch_attack_1) {
+
+    // create bolt storm
+    if (_count_to_bolt == 0) {
+        var bolt = choose(obj_bolt_1, obj_bolt_2)
+        instance_create(BOLT_MAP[_index,1], BOLT_MAP[_index,2], bolt)
+    }
+    _count_to_bolt ++
+    if (_count_to_bolt == _bolt_limit) {
+        _count_to_bolt = 0
+        _index ++
+        if (_index &gt; 9){
+            _index = 1
+        }
+    }
+
     _count_to_attack_1 ++
     if (_count_to_attack_1 == 200) {
         _launch_attack_2 = false

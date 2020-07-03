@@ -15,7 +15,7 @@ switch (planet_id) {
     case global.PLANET_NEDOMIA_V_LAND:
         state = ini_read_real("planet-state", "nedomia-v", 0);
         break
-    case global.PLANET_SPACE_LAB:
+    case global.PLANET_SPACE_LAB_LAND:
         state = ini_read_real("planet-state", "space-lab", 0);
         break;
 }     

@@ -53,6 +53,7 @@
       <sprite>sprites\sprite37</sprite>
       <sprite>sprites\spt_planet_selector</sprite>
       <sprite>sprites\spt_planet_free</sprite>
+      <sprite>sprites\spt_planet_irania</sprite>
     </sprites>
     <sprites name="ui">
       <sprite>sprites\spt_btn_new_game</sprite>
@@ -105,6 +106,8 @@
         <sprite>sprites\spt_red_ship_8</sprite>
         <sprite>sprites\spt_red_ship_9</sprite>
         <sprite>sprites\spt_red_ship_10</sprite>
+        <sprite>sprites\spt_red_ship_11</sprite>
+        <sprite>sprites\spt_red_ship_12</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
@@ -130,6 +133,8 @@
         <sprite>sprites\spt_green_ship_8</sprite>
         <sprite>sprites\spt_green_ship_9</sprite>
         <sprite>sprites\spt_green_ship_10</sprite>
+        <sprite>sprites\spt_green_ship_11</sprite>
+        <sprite>sprites\spt_green_ship_12</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
@@ -162,6 +167,8 @@
         <sprite>sprites\spt_blue_ship_8</sprite>
         <sprite>sprites\spt_blue_ship_9</sprite>
         <sprite>sprites\spt_blue_ship_10</sprite>
+        <sprite>sprites\spt_blue_ship_11</sprite>
+        <sprite>sprites\spt_blue_ship_12</sprite>
         <sprite>sprites\spt_blue_energy_absorver</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
@@ -243,6 +250,7 @@
       <sprite>sprites\spt_moving_engine_to_right</sprite>
       <sprite>sprites\spt_bolt_1</sprite>
       <sprite>sprites\spt_bolt_2</sprite>
+      <sprite>sprites\spt_cannon_1</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -282,6 +290,9 @@
     <path>paths\path_monster_4</path>
     <path>paths\path_boss_1</path>
     <path>paths\path_monster_6</path>
+    <path>paths\path_ship_12_1</path>
+    <path>paths\path_ship_12_2</path>
+    <path>paths\path_ship_12_3</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\ApplyDifficulty.gml</script>
@@ -411,6 +422,8 @@
         <object>objects\obj_red_ship_8</object>
         <object>objects\obj_red_ship_9</object>
         <object>objects\obj_red_ship_10</object>
+        <object>objects\obj_red_ship_11</object>
+        <object>objects\obj_red_ship_12</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -435,6 +448,8 @@
         <object>objects\obj_green_ship_8</object>
         <object>objects\obj_green_ship_9</object>
         <object>objects\obj_green_ship_10</object>
+        <object>objects\obj_green_ship_11</object>
+        <object>objects\obj_green_ship_12</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
@@ -457,6 +472,8 @@
         <object>objects\obj_blue_ship_8</object>
         <object>objects\obj_blue_ship_9</object>
         <object>objects\obj_blue_ship_10</object>
+        <object>objects\obj_blue_ship_11</object>
+        <object>objects\obj_blue_ship_12</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
@@ -481,8 +498,10 @@
         <object>objects\obj_moving_engine_base</object>
         <object>objects\obj_moving_engine_left</object>
         <object>objects\obj_moving_engine_right</object>
+        <object>objects\obj_bolt_base</object>
         <object>objects\obj_bolt_1</object>
         <object>objects\obj_bolt_2</object>
+        <object>objects\obj_cannon_1</object>
       </objects>
       <objects name="energy_absorvers">
         <object>objects\obj_base_energy_absorver</object>
@@ -517,17 +536,19 @@
       <object>objects\obj_space_lab</object>
       <object>objects\obj_planet_selector</object>
       <object>objects\obj_planet_free</object>
+      <object>objects\obj_planet_irania</object>
     </objects>
     <objects name="ui">
       <object>objects\obj_frame_1</object>
       <object>objects\obj_room_main_menu</object>
+      <object>objects\obj_room_confirm_new_game</object>
+      <object>objects\obj_room_planet_resume</object>
+      <object>objects\obj_room_help</object>
+      <object>objects\obj_room_options</object>
       <object>objects\obj_menu_new_game</object>
       <object>objects\obj_menu_tutorial</object>
       <object>objects\obj_menu_continue</object>
-      <object>objects\obj_game_title</object>
       <object>objects\obj_frame_medium</object>
-      <object>objects\obj_room_help</object>
-      <object>objects\obj_room_options</object>
       <object>objects\obj_menu_btn_base</object>
       <object>objects\obj_menu_btn_new_game</object>
       <object>objects\obj_menu_btn_options</object>
@@ -544,11 +565,10 @@
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>
       <object>objects\obj_controls</object>
+      <object>objects\obj_game_title</object>
       <object>objects\obj_panel</object>
       <object>objects\obj_sound_option</object>
       <object>objects\obj_music_option</object>
-      <object>objects\obj_room_confirm_new_game</object>
-      <object>objects\obj_room_planet_resume</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>

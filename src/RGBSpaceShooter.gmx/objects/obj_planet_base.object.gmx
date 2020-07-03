@@ -130,8 +130,13 @@ switch (global.selected_planet) {
                                 obj_space_lab.y,
                                 obj_player_shio_selector.x, 
                                 obj_player_shio_selector.y)
-                                 
         break
+    case global.PLANET_IRANIA_SPACE:
+        angle = point_direction(obj_planet_irania.x,
+                                obj_planet_irania.y,
+                                obj_player_shio_selector.x, 
+                                obj_player_shio_selector.y)   
+        break     
 }
 
 show_debug_message("left button 1 obj-planet-base " + string(_planet_free))

@@ -15,5 +15,4 @@ switch (global.selected_planet) {
         global.selected_planet = global.PLANET_NEDOMIA_V_LAND
         room_goto(room_planet_nedomia_v_land)
         break                
-        
 }

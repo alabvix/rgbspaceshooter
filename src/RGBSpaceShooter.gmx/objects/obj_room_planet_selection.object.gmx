@@ -60,11 +60,10 @@ draw_set_font(font_20);
 var planet_free = 0
 if (instance_exists(obj_planet_selector))
 {
-    
     var planet_name = ""
     if (global.selected_planet == global.PLANET_AURORA_SPACE) {
         planet_name = "Aurora"
-        background_hspeed[0] = 2;
+        background_hspeed[0] = -2;
         background_vspeed[0] = 0;
         planet_free = obj_planet_aurora._planet_free
     }    
@@ -82,10 +81,18 @@ if (instance_exists(obj_planet_selector))
     }
     if (global.selected_planet == global.PLANET_SPACE_LAB) {
         planet_name = "Space Lab"
-        background_hspeed[0] = -2;
+        background_hspeed[0] = 2;
         background_vspeed[0] = 0;
         planet_free = obj_space_lab._planet_free
     }
+    if (global.selected_planet == global.PLANET_IRANIA_SPACE) {
+        planet_name = "Irania"
+        background_hspeed[0] = -2;
+        background_vspeed[0] = 2;
+        planet_free = obj_space_lab._planet_free
+    }
+    
+    
     draw_text(
          obj_planet_selector.x, 
          obj_planet_selector.y + 80,
@@ -133,7 +140,7 @@ draw_set_font( font_20 );
 draw_text(
          centro_room_x, 
          20,
-         "Choose a planet to set free"
+         "Choose your destination"
     )
 /*
 draw_set_color(c_white);    
