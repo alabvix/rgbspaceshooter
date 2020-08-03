@@ -60,9 +60,71 @@ _color = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Calculates y position based on delta to make smoother moviment.
+            <string>// Handle collision with barrier
+var barrier = instance_place(x, y, obj_barrier_1) 
+if (barrier != noone) {
+    instance_create(barrier.x, barrier.y, obj_little_explosion)
+    instance_destroy()
+}
+
+// Handle collision with meteor.
+var enemy = instance_place(x,y, obj_meteor_base)
+if (enemy) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
+// Handle collision with Boss force field
+var laser = instance_place(x, y, obj_boss_force_field)
+if (laser) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
+// Handle collision with white enemy, can be destroy by any laser
+enemy = instance_place(x,y, obj_base_enemy)
+if (enemy != noone &amp;&amp; enemy._is_cargo_ship) {
+    instance_create(x, y, obj_little_explosion)
+    enemy._hp -= _demage
+    global.player_score += enemy._points
+    if (enemy._hp &lt; 0) {
+        instance_destroy(enemy)
+        GenerateCargoItem(x,y)
+    }  
+    instance_destroy()
+}
+
+// Handle collision with drone
+enemy = instance_place(x,y, obj_base_enemy)
+if (enemy != noone &amp;&amp; enemy._is_drone) {
+    global.player_score += enemy._points
+    instance_create(x, y, obj_little_explosion)
+    enemy._hp -= _demage
+    if (enemy._hp &lt; 0) {
+        instance_destroy(enemy)
+    }  
+    instance_destroy()
+}
+
+// Handle collision with moving engine
+enemy = instance_place(x,y, obj_moving_engine_base)
+if (enemy != noone) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
+// Handle collisin with splace lab boss p2
+enemy = instance_place(x,y, obj_boss_space_lab_p2)
+if (enemy != noone) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
+
+// Calculates y position based on delta to make smoother moviment.
 delta = (60/1000000) * delta_time;
 
+// Move the bullet to the energy absorver
 if (instance_exists(obj_base_energy_absorver)) {
     switch(_color) {
         case global.RED:
@@ -129,58 +191,6 @@ if (y &lt; -5) instance_destroy();
 if (x &lt; 0) instance_destroy()
 if (x &gt; room_width) instance_destroy()
 
-// Handle collision with meteor.
-var enemy = instance_place(x,y, obj_meteor_base)
-if (enemy) {
-    instance_create(x, y, obj_little_explosion)
-    instance_destroy()
-}
-
-// Boss force field
-var laser = instance_place(x, y, obj_boss_force_field)
-if (laser) {
-    instance_create(x, y, obj_little_explosion)
-    instance_destroy()
-}
-
-// Handle collision with white enemy, can be destroy by any laser
-enemy = instance_place(x,y, obj_base_enemy)
-if (enemy != noone &amp;&amp; enemy._is_cargo_ship) {
-    instance_create(x, y, obj_little_explosion)
-    enemy._hp -= _demage
-    global.player_score += enemy._points
-    if (enemy._hp &lt; 0) {
-        instance_destroy(enemy)
-        GenerateCargoItem(x,y)
-    }  
-    instance_destroy()
-}
-
-// Handle collision with drone
-enemy = instance_place(x,y, obj_base_enemy)
-if (enemy != noone &amp;&amp; enemy._is_drone) {
-    global.player_score += enemy._points
-    instance_create(x, y, obj_little_explosion)
-    enemy._hp -= _demage
-    if (enemy._hp &lt; 0) {
-        instance_destroy(enemy)
-    }  
-    instance_destroy()
-}
-
-// Handle collision with moving engine
-enemy = instance_place(x,y, obj_moving_engine_base)
-if (enemy != noone) {
-    instance_create(x, y, obj_little_explosion)
-    instance_destroy()
-}
-
-// Handle collisin with splace lab boss p2
-enemy = instance_place(x,y, obj_boss_space_lab_p2)
-if (enemy != noone) {
-    instance_create(x, y, obj_little_explosion)
-    instance_destroy()
-}
 
 
 

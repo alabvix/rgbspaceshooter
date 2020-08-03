@@ -63,8 +63,7 @@ alarm[0] = 10
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy(_shadow)
-with (obj_game_manager) {
+            <string>with (obj_game_manager) {
     _total_ship_6_destroyed ++
 }
 </string>

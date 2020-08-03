@@ -37,6 +37,8 @@
     <sound>sound\snd_music_aurora_ground</sound>
     <sound>sound\snd_vox_pursuit_laser</sound>
     <sound>sound\snd_player_pursuit_laser</sound>
+    <sound>sound\snd_music_space_lab</sound>
+    <sound>sound\snd_music_space_lab_ground</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -54,6 +56,7 @@
       <sprite>sprites\spt_planet_selector</sprite>
       <sprite>sprites\spt_planet_free</sprite>
       <sprite>sprites\spt_planet_irania</sprite>
+      <sprite>sprites\spt_space_station</sprite>
     </sprites>
     <sprites name="ui">
       <sprite>sprites\spt_btn_new_game</sprite>
@@ -108,8 +111,9 @@
         <sprite>sprites\spt_red_ship_10</sprite>
         <sprite>sprites\spt_red_ship_11</sprite>
         <sprite>sprites\spt_red_ship_12</sprite>
-        <sprite>sprites\spt_red_monster_1</sprite>
+        <sprite>sprites\spt_red_ship_13</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
+        <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
         <sprite>sprites\spt_red_monster_4</sprite>
         <sprite>sprites\spt_red_monster_5</sprite>
@@ -135,6 +139,7 @@
         <sprite>sprites\spt_green_ship_10</sprite>
         <sprite>sprites\spt_green_ship_11</sprite>
         <sprite>sprites\spt_green_ship_12</sprite>
+        <sprite>sprites\spt_green_ship_13</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
@@ -169,6 +174,7 @@
         <sprite>sprites\spt_blue_ship_10</sprite>
         <sprite>sprites\spt_blue_ship_11</sprite>
         <sprite>sprites\spt_blue_ship_12</sprite>
+        <sprite>sprites\spt_blue_ship_13</sprite>
         <sprite>sprites\spt_blue_energy_absorver</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
@@ -187,6 +193,19 @@
       <sprite>sprites\spt_atomic_blaster</sprite>
       <sprite>sprites\spt_laser_torpedo</sprite>
       <sprite>sprites\spt_drone_1</sprite>
+      <sprites name="capita_ship">
+        <sprite>sprites\spt_inside_ship_bar</sprite>
+        <sprite>sprites\spt_cannon_2</sprite>
+        <sprite>sprites\spt_barrier_1</sprite>
+        <sprite>sprites\spt_big_ship</sprite>
+        <sprite>sprites\spt_big_ship_hangar</sprite>
+        <sprite>sprites\spt_cannon_base</sprite>
+        <sprite>sprites\spt_inside_indicator</sprite>
+        <sprite>sprites\spt_capital_ship_front</sprite>
+        <sprite>sprites\spt_capital_ship_middle</sprite>
+        <sprite>sprites\spt_capital_ship_end</sprite>
+        <sprite>sprites\spt_exit_ship</sprite>
+      </sprites>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -262,7 +281,9 @@
       <sprite>sprites\spt_aurora_building_2</sprite>
       <sprite>sprites\spt_aurora_building_large</sprite>
     </sprites>
-    <sprite>sprites\spt_space_station</sprite>
+    <sprites name="backgroud">
+      <sprite>sprites\spt_bkg_ship_1</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -277,6 +298,14 @@
     <background>background\bkg_space_lab_1</background>
     <background>background\bkg_space_lab_2</background>
     <background>background\bkg_space_lab_land</background>
+    <background>background\bkg_inside_ship</background>
+    <background>background\bkg_planet_mirandha</background>
+    <background>background\bkg_mirandha_space_1</background>
+    <background>background\bkg_mirandha_space_2</background>
+    <background>background\bkg_nedomia_space_1</background>
+    <background>background\bkg_nedomia_space_2</background>
+    <background>background\bkg_planet_irania_1</background>
+    <background>background\bkg_planet_irania_2</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -293,6 +322,7 @@
     <path>paths\path_ship_12_1</path>
     <path>paths\path_ship_12_2</path>
     <path>paths\path_ship_12_3</path>
+    <path>paths\path_inside_big_ship_1</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\ApplyDifficulty.gml</script>
@@ -305,6 +335,7 @@
     <script>scripts\CreateHudElements.gml</script>
     <script>scripts\CreateSecondaryEnemies.gml</script>
     <script>scripts\CreateLandEnemies.gml</script>
+    <script>scripts\CreateBackObjects.gml</script>
     <script>scripts\ContinueGame.gml</script>
     <script>scripts\ContinueFromMainMenu.gml</script>
     <script>scripts\DefineGlobals.gml</script>
@@ -333,7 +364,7 @@
     <script>scripts\StopMusic.gml</script>
     <script>scripts\GetColor.gml</script>
     <scripts name="input_handlers">
-      <script>scripts\KeyboardHandler.gml</script>
+      <script>scripts\InputAndMovimentHandler.gml</script>
       <script>scripts\GamePadHandler.gml</script>
     </scripts>
     <scripts name="file_operations">
@@ -364,6 +395,9 @@
       <script>scripts\GetPercentual.gml</script>
       <script>scripts\CreateOrbitObject.gml</script>
     </scripts>
+    <script>scripts\EnterBigShip.gml</script>
+    <script>scripts\HandleCollisionInsideShip.gml</script>
+    <script>scripts\GetCurrentRoom.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -424,6 +458,7 @@
         <object>objects\obj_red_ship_10</object>
         <object>objects\obj_red_ship_11</object>
         <object>objects\obj_red_ship_12</object>
+        <object>objects\obj_red_ship_13</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -450,6 +485,7 @@
         <object>objects\obj_green_ship_10</object>
         <object>objects\obj_green_ship_11</object>
         <object>objects\obj_green_ship_12</object>
+        <object>objects\obj_green_ship_13</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
@@ -474,6 +510,7 @@
         <object>objects\obj_blue_ship_10</object>
         <object>objects\obj_blue_ship_11</object>
         <object>objects\obj_blue_ship_12</object>
+        <object>objects\obj_blue_ship_13</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
@@ -508,6 +545,23 @@
         <object>objects\obj_green_energy_absorver</object>
         <object>objects\obj_red_energy_absorver</object>
         <object>objects\obj_blue_energy_absorver</object>
+      </objects>
+      <objects name="capital_ship">
+        <object>objects\obj_inside_ship_manager</object>
+        <object>objects\obj_barrier_1</object>
+        <object>objects\obj_cannon_2</object>
+        <object>objects\obj_cannon_2_external</object>
+        <object>objects\obj_big_ship_hangar</object>
+        <object>objects\obj_inside_ship_progress_bar</object>
+        <object>objects\obj_big_ship_1</object>
+        <object>objects\obj_cannon_base_2</object>
+        <object>objects\obj_inside_ship_indicator</object>
+        <object>objects\obj_red_ship_1_inside</object>
+        <object>objects\obj_capital_ship_base</object>
+        <object>objects\obj_capital_ship_front</object>
+        <object>objects\obj_capital_ship_middle</object>
+        <object>objects\obj_capital_ship_end</object>
+        <object>objects\obj_exit_ship</object>
       </objects>
     </objects>
     <objects name="enemy_weapon">
@@ -615,6 +669,9 @@
       <object>objects\obj_aurora_building_1</object>
       <object>objects\obj_aurora_building_large</object>
     </objects>
+    <objects name="background">
+      <object>objects\obj_bkg_ship_1</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>
@@ -628,8 +685,10 @@
     <room>rooms\room_planet_aurora_land</room>
     <room>rooms\room_planet_aurora_space</room>
     <room>rooms\room_planet_splace_lab_land</room>
-    <room>rooms\room_planet_mirandha_v_land</room>
-    <room>rooms\room_planet_nedomia_v_land</room>
+    <room>rooms\room_inside_ship</room>
+    <room>rooms\room_planet_mirandha_space</room>
+    <room>rooms\room_planet_nedomia_space</room>
+    <room>rooms\room_planet_irania_space</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

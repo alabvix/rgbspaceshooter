@@ -2,7 +2,7 @@
 <room>
   <caption></caption>
   <width>1024</width>
-  <height>668</height>
+  <height>682</height>
   <vsnap>32</vsnap>
   <hsnap>32</hsnap>
   <isometric>0</isometric>
@@ -11,6 +11,7 @@
   <colour>4194304</colour>
   <showcolour>-1</showcolour>
   <code>window_set_cursor(cr_none)
+PlayMusic(snd_music_space_lab)
 CreateHudElements()</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

@@ -122,8 +122,12 @@ if (instance_exists(obj_planet_selector))
         }
         
         // button
-        if ( (global.selected_planet == global.PLANET_AURORA_SPACE ||
-             global.selected_planet == global.PLANET_SPACE_LAB) &amp;&amp; planet_free == 0) {
+        if ((global.selected_planet == global.PLANET_AURORA_SPACE ||
+             global.selected_planet == global.PLANET_SPACE_LAB ||
+             global.selected_planet == global.PLANET_MIRANDHA_SPACE ||
+             global.selected_planet == global.PLANET_NEDOMIA_V_SPACE ||
+             global.selected_planet == global.PLANET_IRANIA_SPACE)
+             &amp;&amp; planet_free == 0) {
             instance_create(centro_room_x, centro_room_y + 115, obj_btn_go)
         } else {
             instance_destroy(obj_btn_go)

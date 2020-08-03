@@ -110,12 +110,7 @@ delta = (60/1000000) * delta_time;
 // Determines velocity based on delta.
 var v = _velocity * delta;
 
-// Handles ship moviment and shots
-if (global.is_gamepad_connected){
-    GamePadHandler(v)
-} else {
-    KeyboardHandler(v)
-}
+InputAndMovimentHandler(v)
 
 // Move shadow
 if (instance_exists(obj_player_ship_shadow)) {
@@ -169,6 +164,9 @@ if (meteor != noone &amp;&amp; !global.test_ship_undestrutible) {
     global.player_hull = 0
     SetShipExplosion()
 }
+
+// Collision inside big ship
+HandleCollisionInsideShip()
 
 var boss = instance_place(x,y,obj_boss_base)
 if (boss != noone &amp;&amp; !global.test_ship_undestrutible) {

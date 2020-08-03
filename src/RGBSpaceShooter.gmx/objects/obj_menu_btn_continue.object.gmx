@@ -87,7 +87,7 @@ if (_has_coninue) {
     draw_set_color(c_gray)
 }
 
-draw_text_transformed(x,y,"Continue",1,1,0 );
+draw_text_transformed(x,y-5,"Continue",1,1,0 );
 </string>
           </argument>
         </arguments>

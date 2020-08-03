@@ -78,7 +78,7 @@ room_goto(room_options)
 if (global.game_state != global.GAME_STATE_MAIN_MENU ) {
     exit
 }
-draw_text_transformed(x,y,"Options",1,1,0 );
+draw_text_transformed(x,y-5,"Options",1,1,0 );
 </string>
           </argument>
         </arguments>

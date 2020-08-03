@@ -1,3 +1,6 @@
+// TODO: this was merged in InputAndMovimentHandler
+// delete after success input test
+
 var v = argument[0]
 var fire_cost = 1;
 
@@ -6,8 +9,7 @@ var btn_green = gamepad_button_check_pressed(global.GAME_PAD_1, gp_face1);
 var btn_blue = gamepad_button_check_pressed(global.GAME_PAD_1, gp_face3);
 var btn_rgb = gamepad_button_check_pressed(global.GAME_PAD_1, gp_face4);
 
-
-// Ship moviment on X axis
+// Gamepad Ship moviment on X axis
 var h_axis = gamepad_axis_value(global.GAME_PAD_1, gp_axislh);
 var px = xprevious;
 if ( h_axis > 0) {

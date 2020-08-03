@@ -86,7 +86,7 @@ if (HasGameSaved()) {
 if (global.game_state != global.GAME_STATE_MAIN_MENU ) {
     exit
 }
-draw_text_transformed(x,y,"New Game",1,1,0 );
+draw_text_transformed(x,y-5,"New Game",1,1,0 );
 </string>
           </argument>
         </arguments>

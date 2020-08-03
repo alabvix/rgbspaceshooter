@@ -58,7 +58,7 @@ draw_set_valign(fa_middle)
 draw_set_font(font_12)
 
 draw_set_color(c_lime)
-draw_text_transformed(x,y,"Yes",1,1,0 );
+draw_text_transformed(x,y-5,"Yes",1,1,0 );
 </string>
           </argument>
         </arguments>

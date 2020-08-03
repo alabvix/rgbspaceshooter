@@ -44,6 +44,9 @@ _enemy_type2 = irandom_range(6, 6)
 _enemy_index = 0 // the enemy index in the stage enemy array
 _enemy_type  = global.STAGE_ENEMIES[global.selected_planet,_enemy_index] //irandom_range(2, 5)
 
+// holds the _enemy_index before the player enter big ship
+_current_enemy_index = 0
+
 // counter for create an enemy
 _counter_create_enemy = 0
 _counter_create_sec_enemy = 0
@@ -158,6 +161,9 @@ _total_sub_boss_destroyed = 0
 _total_tank_1_created = 0
 _total_tank_1_destroyed = 0
 
+_total_big_ship_1_created = 0
+_total_big_ship_1_destroyed = 0
+
 
 
 </string>
@@ -226,7 +232,15 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         global.total_red_eliminated = 0
         global.total_green_eliminated = 0
         global.total_blue_eliminated = 0
-        room_restart()
+        
+        // Player was inside big ship when died
+        if (global.PLAYER_INSIDE_BIG_SHIP) {
+            global.PLAYER_INSIDE_BIG_SHIP = false
+            room_goto(GetCurrentRoom())
+        } else {
+            room_restart()
+        }
+        
         global.player_lives = plives
         _enemy_index = 0
         _enemy_type  = global.STAGE_ENEMIES[global.selected_planet,_enemy_index]
@@ -239,12 +253,19 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
 //////////////////////
 if (global.game_state == global.GAME_STATE_PLAY) {
 
-    //show_debug_message("Ships 6 destroyed:" + string(_total_ship_6_destroyed))
+    if (global.PLAYER_INSIDE_BIG_SHIP) {
+        _current_enemy_index =_enemy_index
+        exit
+    }
+    
+    if (global.PLAYER_EXIT_BIG_SHIP) {
+        _enemy_index = _current_enemy_index
+        global.PLAYER_EXIT_BIG_SHIP = false
+    }
 
     // Count time for lauch first wave
     if (_wave_counter) {
         _first_wave_counter += 1
-        //show_debug_message(string(_first_wave_counter ))
         if ( _first_wave_counter &lt;= 100) {
             exit
         } else {
@@ -253,14 +274,7 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         }
     }
     
-    // Planet with enemies grouped by color
-    var color = 0
-    if (global.selected_planet == global.PLANET_MIRANDHA_SPACE ||
-        global.selected_planet == global.PLANET_MIRANDHA_LAND  ||
-        global.selected_planet == global.PLANET_SPACE_LAB) {
-        color = irandom_range(1,3)
-    }
-    CreateRegularEnemies(color)
+    CreateRegularEnemies()
     
     if (_enemy_type == global.SUB_BOSS || _enemy_type == global.BOSS) {
         SetGameState(global.GAME_STATE_PREPARE_BOSS_FIGHT)    
@@ -270,16 +284,6 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         CreateAmmo()
     }
     
-    //show_debug_message("total bombs destroyed:" + string(_total_bomb_destroyed))
-//    show_debug_message("total red created:" + string(global.total_red_created))
-//    show_debug_message("total red destroyed:" + string(global.total_red_eliminated))
-    
-//    show_debug_message("total green created:" + string(global.total_green_created))
-  //  show_debug_message("total green destroyed:" + string(global.total_green_eliminated))
-    
-    //show_debug_message("total blue created:" + string(global.total_blue_created))
-//    show_debug_message("total blue destroyed:" + string(global.total_blue_eliminated))
-    
     // TODO: REFACTOR
     if (_enemy_type == global.ENEMY_TANK_1) {
         _create_building = false
@@ -287,15 +291,21 @@ if (global.game_state == global.GAME_STATE_PLAY) {
         _create_building = true
     }
     
-    if (global.selected_planet == global.PLANET_AURORA_LAND) {
-        if (_create_building) {
-            _counter_create_building ++
-            if (_counter_create_building == 120) {
-                CreateBuildings()
-                _counter_create_building = 0
+    switch (global.selected_planet) {
+        case global.PLANET_AURORA_LAND:
+            if (_create_building) {
+                _counter_create_building ++
+                if (_counter_create_building == 120) {
+                    CreateBuildings()
+                    _counter_create_building = 0
+                }
             }
-        }
+            break
+        case global.PLANET_SPACE_LAB:
+            //CreateBackObjects()
+            break    
     }
+    
 }
     
 /////////////////////////////
