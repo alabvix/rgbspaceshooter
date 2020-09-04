@@ -37,8 +37,10 @@
     <sound>sound\snd_music_aurora_ground</sound>
     <sound>sound\snd_vox_pursuit_laser</sound>
     <sound>sound\snd_player_pursuit_laser</sound>
-    <sound>sound\snd_music_space_lab</sound>
-    <sound>sound\snd_music_space_lab_ground</sound>
+    <sound>sound\snd_music_mirandha_space</sound>
+    <sound>sound\snd_music_space_lab_space</sound>
+    <sound>sound\snd_music_space_lab_land</sound>
+    <sound>sound\snd_music_nedomia_space</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -62,6 +64,7 @@
       <sprite>sprites\spt_btn_new_game</sprite>
       <sprite>sprites\spt_dialog_frame</sprite>
       <sprite>sprites\spt_weapon_selectiion_frame</sprite>
+      <sprite>sprites\spt_frame_game_paused</sprite>
       <sprite>sprites\spt_btn_tutorial</sprite>
       <sprite>sprites\spt_btn_continue</sprite>
       <sprite>sprites\spt_game_title</sprite>
@@ -112,8 +115,9 @@
         <sprite>sprites\spt_red_ship_11</sprite>
         <sprite>sprites\spt_red_ship_12</sprite>
         <sprite>sprites\spt_red_ship_13</sprite>
-        <sprite>sprites\spt_red_monster_2</sprite>
+        <sprite>sprites\spt_red_ship_14</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
+        <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
         <sprite>sprites\spt_red_monster_4</sprite>
         <sprite>sprites\spt_red_monster_5</sprite>
@@ -140,6 +144,7 @@
         <sprite>sprites\spt_green_ship_11</sprite>
         <sprite>sprites\spt_green_ship_12</sprite>
         <sprite>sprites\spt_green_ship_13</sprite>
+        <sprite>sprites\spt_green_ship_14</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
@@ -175,6 +180,7 @@
         <sprite>sprites\spt_blue_ship_11</sprite>
         <sprite>sprites\spt_blue_ship_12</sprite>
         <sprite>sprites\spt_blue_ship_13</sprite>
+        <sprite>sprites\spt_blue_ship_14</sprite>
         <sprite>sprites\spt_blue_energy_absorver</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
@@ -270,6 +276,12 @@
       <sprite>sprites\spt_bolt_1</sprite>
       <sprite>sprites\spt_bolt_2</sprite>
       <sprite>sprites\spt_cannon_1</sprite>
+      <sprite>sprites\spt_mirandha_sub_boss</sprite>
+      <sprite>sprites\spt_mirandha_sub_boss_minion</sprite>
+      <sprite>sprites\spt_boss_metal_head</sprite>
+      <sprite>sprites\spt_boss_metal_head_minion</sprite>
+      <sprite>sprites\spt_boss_metal_head_barrier</sprite>
+      <sprite>sprites\spt_boss_metal_head_laser</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -306,6 +318,7 @@
     <background>background\bkg_nedomia_space_2</background>
     <background>background\bkg_planet_irania_1</background>
     <background>background\bkg_planet_irania_2</background>
+    <background>background\bkg_planet_mirandha_land</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -323,8 +336,12 @@
     <path>paths\path_ship_12_2</path>
     <path>paths\path_ship_12_3</path>
     <path>paths\path_inside_big_ship_1</path>
+    <path>paths\path_1_mirandha_sub_boss</path>
+    <path>paths\path_2_mirandha_sub_boss</path>
+    <path>paths\path_boss_metal_head</path>
   </paths>
   <scripts name="scripts">
+    <script>scripts\ApplyDemageToPlayer.gml</script>
     <script>scripts\ApplyDifficulty.gml</script>
     <script>scripts\CreateEnemy.gml</script>
     <script>scripts\CreateRegularEnemies.gml</script>
@@ -349,6 +366,7 @@
     <script>scripts\InitPlayerAttributes.gml</script>
     <script>scripts\SetGameState.gml</script>
     <script>scripts\SetShipExplosion.gml</script>
+    <script>scripts\StopMusic.gml</script>
     <script>scripts\LiberateIten.gml</script>
     <script>scripts\MoveShipIndicatorToPlanet.gml</script>
     <script>scripts\MoveToNextStage.gml</script>
@@ -361,7 +379,6 @@
     <script>scripts\PlaySpecialWeapon.gml</script>
     <script>scripts\PlayBossFireShot.gml</script>
     <script>scripts\PlayMusic.gml</script>
-    <script>scripts\StopMusic.gml</script>
     <script>scripts\GetColor.gml</script>
     <scripts name="input_handlers">
       <script>scripts\InputAndMovimentHandler.gml</script>
@@ -459,6 +476,7 @@
         <object>objects\obj_red_ship_11</object>
         <object>objects\obj_red_ship_12</object>
         <object>objects\obj_red_ship_13</object>
+        <object>objects\obj_red_ship_14</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -486,6 +504,7 @@
         <object>objects\obj_green_ship_11</object>
         <object>objects\obj_green_ship_12</object>
         <object>objects\obj_green_ship_13</object>
+        <object>objects\obj_green_ship_14</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
@@ -511,6 +530,7 @@
         <object>objects\obj_blue_ship_11</object>
         <object>objects\obj_blue_ship_12</object>
         <object>objects\obj_blue_ship_13</object>
+        <object>objects\obj_blue_ship_14</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
@@ -539,6 +559,13 @@
         <object>objects\obj_bolt_1</object>
         <object>objects\obj_bolt_2</object>
         <object>objects\obj_cannon_1</object>
+        <object>objects\obj_mirandha_sub_boss</object>
+        <object>objects\obj_mirandha_sub_boss_minion</object>
+        <object>objects\obj_minion_base</object>
+        <object>objects\obj_boss_metal_head</object>
+        <object>objects\obj_boss_metal_head_minion</object>
+        <object>objects\obj_boss_metal_head_barrier</object>
+        <object>objects\obj_boss_metal_head_laser</object>
       </objects>
       <objects name="energy_absorvers">
         <object>objects\obj_base_energy_absorver</object>
@@ -615,6 +642,8 @@
       <object>objects\obj_btn_ok_resume_planet</object>
       <object>objects\obj_btn_confirm_yes</object>
       <object>objects\obj_btn_confirm_no</object>
+      <object>objects\obj_btn_back_to_game</object>
+      <object>objects\obj_btn_planet_selection</object>
       <object>objects\obj_state_menu_base</object>
       <object>objects\obj_state_menu_controls</object>
       <object>objects\obj_state_menu_weapons</object>
@@ -687,8 +716,11 @@
     <room>rooms\room_planet_splace_lab_land</room>
     <room>rooms\room_inside_ship</room>
     <room>rooms\room_planet_mirandha_space</room>
+    <room>rooms\room_planet_mirandha_land</room>
     <room>rooms\room_planet_nedomia_space</room>
+    <room>rooms\room_planet_nedomia_land</room>
     <room>rooms\room_planet_irania_space</room>
+    <room>rooms\room_planet_irania_land</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -109,8 +109,10 @@ if (_hp_current &lt;=0) {
     if (_name == global.SUB_BOSS_1_NAME) {
         instance_destroy(obj_boss_force_field)
     }
-      
     
+    if (_name == global.SUB_BOSS_MIRANDHA_NAME) {
+        instance_destroy(obj_mirandha_sub_boss_minion)
+    }
 
 }
 </string>

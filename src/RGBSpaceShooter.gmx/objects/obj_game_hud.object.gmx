@@ -75,6 +75,8 @@ draw_set_valign(fa_middle);
 var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
 
+
+
 // Score border
 draw_set_color(c_black);
 draw_set_font( font_20 );
@@ -183,7 +185,27 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
             draw_set_font( font_10 );
             draw_set_color(c_white);
             draw_text_transformed(500, 62, obj_boss_space_lab_mastermind._name,1,1,0 )
-            break                      
+            break
+       case global.PLANET_MIRANDHA_SPACE:
+            if (! instance_exists(obj_mirandha_sub_boss)) {
+                exit
+            }
+            hp = (obj_mirandha_sub_boss._hp_current / obj_mirandha_sub_boss._hp_max) * 100;
+            draw_healthbar(350, 80, 660, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 105, obj_mirandha_sub_boss._name,1,1,0 )
+            break                                  
+       case global.PLANET_MIRANDHA_LAND:
+            if (! instance_exists(obj_boss_metal_head)) {
+                exit
+            }
+            hp = (obj_boss_metal_head._hp_current / obj_boss_metal_head._hp_max) * 100;
+            draw_healthbar(350, 80, 660, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 105, obj_boss_metal_head._name,1,1,0 )
+            break                                              
     }
 }
 </string>

@@ -10,10 +10,10 @@ switch (global.selected_planet){
     case global.PLANET_AURORA_LAND:
         var boss = instance_create(centro_room_x, -100, obj_boss_1)
         break     
-   case global.PLANET_SPACE_LAB:
+    case global.PLANET_SPACE_LAB:
         var boss = instance_create(centro_room_x, -100, obj_sub_boss_space_lab)
         break     
-  case global.PLANET_SPACE_LAB_LAND:
+    case global.PLANET_SPACE_LAB_LAND:
         var parts_y = centro_room_y - 600
         var board_y = centro_room_y - 600
   
@@ -32,4 +32,11 @@ switch (global.selected_planet){
         
         //room.background_vspeed[0] = 0;
         break          
+    case global.PLANET_MIRANDHA_SPACE:
+        var p1 = instance_create(0,0, obj_mirandha_sub_boss)
+        break
+    case global.PLANET_MIRANDHA_LAND:            
+        var p1 = instance_create(centro_room_x, 192, obj_boss_metal_head)
+        break
+                
 }

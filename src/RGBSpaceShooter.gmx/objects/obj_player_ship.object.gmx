@@ -142,7 +142,7 @@ if (enemy != noone &amp;&amp; ! enemy._is_tank &amp;&amp; !global.test_ship_unde
     instance_destroy(enemy)
     if (global.player_hull &lt;= 0) {
         global.player_hull = 0
-        SetShipExplosion()  
+        
     }
 }
 
@@ -158,15 +158,25 @@ if (drone != noone &amp;&amp;!global.test_ship_undestrutible) {
     }
 }
 
+minion = instance_place(x,y, obj_minion_base) 
+if (minion != noone &amp;&amp;!global.test_ship_undestrutible) {
+    global.player_hull -= minion._demage
+    instance_create(minion.x, minion.y, obj_little_explosion)
+    if (minion._is_destroyable) {
+        instance_destroy(minion)
+    }
+    if (global.player_hull &lt;= 0) {
+        global.player_hull = 0
+        SetShipExplosion()  
+    }
+}
+
 // Ship is destroyed if collides with meteor
 var meteor = instance_place(x,y,obj_meteor_base)
 if (meteor != noone &amp;&amp; !global.test_ship_undestrutible) {
     global.player_hull = 0
     SetShipExplosion()
 }
-
-// Collision inside big ship
-HandleCollisionInsideShip()
 
 var boss = instance_place(x,y,obj_boss_base)
 if (boss != noone &amp;&amp; !global.test_ship_undestrutible) {

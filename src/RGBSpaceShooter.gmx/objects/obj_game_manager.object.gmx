@@ -68,6 +68,7 @@ _planet = 0
 //---------
 
 _game_over_menu_draw = false
+_draw_pause_frame = false
 
 _counter_create_land_obj = 0
 
@@ -188,7 +189,8 @@ _total_big_ship_1_destroyed = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>////////////////
+            <string>
+////////////////
 // GAME OVER
 ////////////////
 if (global.game_state == global.GAME_STATE_GAME_OVER) {
@@ -248,10 +250,27 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
     }
 }
 
+
 //////////////////////
 // GAME STATE PLAY
 //////////////////////
 if (global.game_state == global.GAME_STATE_PLAY) {
+    _draw_pause_frame = false
+    
+    // back from pause
+    if (instance_exists(obj_frame_medium)) {
+        instance_destroy(obj_frame_medium)
+        instance_destroy(obj_btn_back_to_game)
+        instance_destroy(obj_btn_planet_selection)
+        instance_activate_all();
+    }
+
+    // HANDLE GAME PAUSE
+    if (keyboard_check_pressed(vk_escape)){
+        show_debug_message("ESC pressionado")
+        SetGameState(global.GAME_STATE_PAUSE)
+        instance_deactivate_all(1);
+    }
 
     if (global.PLAYER_INSIDE_BIG_SHIP) {
         _current_enemy_index =_enemy_index
@@ -462,10 +481,21 @@ if (global.game_state == global.GAME_STATE_GAME_OVER ) {
     }
 }
 
+// game paused
+if (global.game_state == global.GAME_STATE_PAUSE) {
+    if (!_draw_pause_frame) {
+        window_set_cursor(cr_default)
+        instance_create(centro_room_x,  centro_room_y, obj_frame_medium)
+        instance_create(centro_room_x, centro_room_y, obj_btn_back_to_game)            
+        instance_create(centro_room_x, centro_room_y + 40, obj_btn_planet_selection)            
+        _draw_pause_frame = true
+    }
+}
+
 if (global.game_state == global.GAME_STATE_PREPARE_BOSS_FIGHT) {
     if (_show_boss_warning_msg) {
         draw_set_color(c_red);
-        draw_set_font( font_20 );
+        draw_set_font(font_20);
         draw_text_transformed(centro_room_x-1,centro_room_y , SUB_BOSS_MESSAGE,1,1,0 );
     }
 }

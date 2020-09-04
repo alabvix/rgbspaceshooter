@@ -322,6 +322,24 @@ if (enemy_type == global.ENEMY_SHIP_12_GREEN) {
 if (enemy_type == global.ENEMY_SHIP_12_BLUE) {
     instance_create(-80, -80, obj_blue_ship_12)
 }
+
+if (enemy_type == global.ENEMY_SHIP_14_RED) {
+    vx = irandom_range(1, room_width)
+    vy = -129
+    instance_create(vx, vy, obj_red_ship_14)
+}
+
+if (enemy_type == global.ENEMY_SHIP_14_GREEN) {
+    vx = irandom_range(1, room_width)
+    vy = -129
+    instance_create(vx, vy, obj_green_ship_14)
+}
+
+if (enemy_type == global.ENEMY_SHIP_14_BLUE) {
+    vx = irandom_range(1, room_width)
+    vy = -129
+    instance_create(vx, vy, obj_blue_ship_14)
+}
  
 if (enemy_type == global.SPECIAL_CARGO_SHIP) {
     vx = irandom_range(1, room_width)
@@ -383,6 +401,8 @@ if (enemy_type == global.ENEMY_ALIEN ) {
         }
     }
 }
+
+
 
 if (enemy_type == global.ENEMY_MONSTER_1 ) {
     vx = 200
@@ -457,6 +477,7 @@ if (enemy_type == global.ENEMY_MONSTER_4) {
     }
 }
 
+/*
 if (enemy_type == global.ENEMY_BIG_SHIP_1) {
     var front = instance_create(400, -1000, obj_capital_ship_front)
     var middle = instance_create(400, -(1000 + front.sprite_height), obj_capital_ship_middle)
@@ -471,7 +492,7 @@ if (enemy_type == global.ENEMY_BIG_SHIP_1) {
     instance_create(middle3.x, middle3.y, obj_cannon_2_external)
     instance_create(middle4.x, middle4.y, obj_cannon_2_external)
 
-}
+}*/
 
 if (enemy_type == global.ENEMY_MONSTER_6_RED) {
     vx = 48
@@ -515,6 +536,33 @@ if (enemy_type == global.ENEMY_MONSTER_1_BLUE) {
     m = instance_create(vx, vy, obj_blue_monster_1)
     with (m){
         path_start(path0, 8, path_action_continue, 0)
+    }
+}
+
+if (enemy_type == global.ENEMY_MONSTER_2_RED) {
+    vx = 200
+    vy = -32
+    monster = instance_create(vx, vy, obj_red_monster_2)
+    with (monster){
+        path_start(path1, 8, path_action_continue, 0)
+    }
+}
+
+if (enemy_type == global.ENEMY_MONSTER_2_GREEN) {
+    vx = 200
+    vy = -32
+    monster = instance_create(vx, vy, obj_green_monster_2)
+    with (monster){
+        path_start(path1, 8, path_action_continue, 0)
+    }
+}
+
+if (enemy_type == global.ENEMY_MONSTER_2_BLUE) {
+    vx = 200
+    vy = -32
+    monster = instance_create(vx, vy, obj_blue_monster_2)
+    with (monster){
+        path_start(path1, 8, path_action_continue, 0)
     }
 }
 

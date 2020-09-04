@@ -266,6 +266,21 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
         }
     }
     
+    if (_enemy_type == global.ENEMY_SHIP_14_RED ||
+        _enemy_type == global.ENEMY_SHIP_14_GREEN ||
+        _enemy_type == global.ENEMY_SHIP_14_BLUE ) {
+        if (_total_ship_14_created < global.TOTAL_SHIPS_14) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_14_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_ship_14_destroyed == global.TOTAL_SHIPS_14) {
+            _total_ship_14_destroyed = 0
+            _total_ship_14_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
     if (_enemy_type == global.ENEMY_BOMB ||
         _enemy_type == global.ENEMY_BOMB_RED ||
         _enemy_type == global.ENEMY_BOMB_GREEN ||

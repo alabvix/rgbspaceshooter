@@ -65,7 +65,7 @@ _type = 13;
           <argument>
             <kind>1</kind>
             <string>with (obj_game_manager) {
-    _total_ship_13_destroyed ++
+    _total_ship_14_destroyed ++
 }
 </string>
           </argument>

@@ -10,6 +10,12 @@ switch (global.selected_planet) {
    case global.PLANET_SPACE_LAB:
         planet = instance_create(centro_room_x, -60, obj_space_lab)
         break    
+   case global.PLANET_MIRANDHA_SPACE:
+        planet = instance_create(centro_room_x, -60, obj_planet_mirandha)
+        break            
+   case global.PLANET_IRANIA_SPACE:
+        planet = instance_create(centro_room_x, -60, obj_planet_irania)
+        break                    
 }
 
 return planet
