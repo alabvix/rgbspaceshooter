@@ -74,6 +74,13 @@ if (enemy) {
     instance_destroy()
 }
 
+// Handle collision with energy bar.
+var enemy = instance_place(x,y, obj_dead_energy_bar)
+if (enemy) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
+
 // Handle collision with Boss force field
 var laser = instance_place(x, y, obj_boss_force_field)
 if (laser) {
@@ -91,6 +98,12 @@ if (enemy != noone &amp;&amp; enemy._is_cargo_ship) {
         instance_destroy(enemy)
         GenerateCargoItem(x,y)
     }  
+    instance_destroy()
+}
+
+enemy = instance_place(x,y, obj_armored_drone)
+if (enemy != noone &amp;&amp; enemy._is_unbreakable) {
+    instance_create(x, y, obj_little_explosion)
     instance_destroy()
 }
 

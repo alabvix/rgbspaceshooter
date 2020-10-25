@@ -32,6 +32,8 @@ _name = ""
 _is_sub_boss = false
 _id = 0
 _destroyed = false
+
+
 </string>
           </argument>
         </arguments>
@@ -77,11 +79,6 @@ if (special_player_shot) {
 if (_hp_current &lt;=0) {
     global.player_score += _points
     _destroyed = true
-    if (_is_sub_boss) {
-        SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
-    } else {
-        SetGameState(global.GAME_STATE_BOSS_DEFEATED)
-    }
     
     instance_create(x+10, y+10, obj_mid_explosion)
     PlaySoundExplosion()
@@ -103,6 +100,17 @@ if (_hp_current &lt;=0) {
     PlaySoundExplosion()
     instance_create(x+27, y+37, obj_mid_explosion)
     PlaySoundExplosion()
+    
+    if (_is_sub_boss) {
+        if (_id == "icestar") {
+            global.ice_star_destroyed ++
+            show_debug_message("Icestar destroyed:" + string(global.ice_star_destroyed))
+        } else {
+            SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
+        }
+    } else {
+        SetGameState(global.GAME_STATE_BOSS_DEFEATED)
+    }
     
     instance_destroy()
     

@@ -134,6 +134,19 @@ if (shoot != noone &amp;&amp; !global.test_ship_undestrutible) {
     }
 }
 
+enemy = instance_place(x,y,obj_armored_drone)
+if (enemy != noone ) {
+    instance_destroy(enemy)
+    global.player_hull = 0
+    SetShipExplosion()
+}
+
+enemy = instance_place(x,y, obj_dead_energy_bar)
+if (enemy) {
+    global.player_hull = 0
+    SetShipExplosion()
+}
+
 // collision with enemy
 enemy = instance_place(x,y,obj_base_enemy)
 if (enemy != noone &amp;&amp; ! enemy._is_tank &amp;&amp; !global.test_ship_undestrutible) {
@@ -145,6 +158,7 @@ if (enemy != noone &amp;&amp; ! enemy._is_tank &amp;&amp; !global.test_ship_unde
         
     }
 }
+
 
 // collision with drone
 drone = instance_place(x,y, obj_drone_1) 

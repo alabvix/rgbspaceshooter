@@ -147,6 +147,21 @@ _total_ship_14_destroyed = 0
 _total_ship_15_created   = 0
 _total_ship_15_destroyed = 0
 
+_total_ship_16_created   = 0
+_total_ship_16_destroyed = 0
+
+_total_ship_17_created   = 0
+_total_ship_17_destroyed = 0
+
+_total_ship_18_created   = 0
+_total_ship_18_destroyed = 0
+
+_total_ship_19_created   = 0
+_total_ship_19_destroyed = 0
+
+_total_ship_20_created   = 0
+_total_ship_20_destroyed = 0
+
 _total_bomb_created     = 0
 _total_bomb_destroyed   = 0
 
@@ -164,6 +179,9 @@ _total_tank_1_destroyed = 0
 
 _total_big_ship_1_created = 0
 _total_big_ship_1_destroyed = 0
+
+_total_armored_drone_created = 0
+_total_armored_drone_destroyed = 0
 
 
 
@@ -257,6 +275,10 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
 if (global.game_state == global.GAME_STATE_PLAY) {
     _draw_pause_frame = false
     
+    show_debug_message("Total s15 created: " + string(_total_ship_15_created))
+    show_debug_message("Total s15 destroyed: " + string(_total_ship_15_destroyed))
+    show_debug_message("Icestar destroyed:" + string(global.ice_star_destroyed))
+        
     // back from pause
     if (instance_exists(obj_frame_medium)) {
         instance_destroy(obj_frame_medium)
@@ -363,6 +385,10 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
         PlayMusic(snd_music_boss_fight)
         _play_boss_fight_music = true
     }
+    if (global.ice_star_destroyed == 2) {
+        show_debug_message("All ICE STAR DESTROYED")
+        SetGameState(global.GAME_STATE_SUB_BOSS_DEFEATED)
+    }
 }
 
 /////////////////////////////////
@@ -386,6 +412,8 @@ if (global.game_state == global.GAME_STATE_BOSS_DEFEATED) {
 // SUB BOSS DEFEATED
 /////////////////////////////
 if (global.game_state == global.GAME_STATE_SUB_BOSS_DEFEATED) {
+
+    show_debug_message("Game State: SUB BOSS DEFEATED")
 
     if (!_play_boss_defeated_music) {
         PlayMusic(snd_music_boss_defeated)

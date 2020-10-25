@@ -30,7 +30,7 @@
 image_speed = 0.2
 
 _points  = 32
-_hp      = 100
+_hp      = 10
 _speed_y = 0
 
 _shoot_in    = 0 // fires in each n seconds 

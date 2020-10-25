@@ -75,8 +75,6 @@ draw_set_valign(fa_middle);
 var centro_room_x = room_width/2;
 var centro_room_y = room_height/2;
 
-
-
 // Score border
 draw_set_color(c_black);
 draw_set_font( font_20 );
@@ -116,9 +114,19 @@ switch (global.selected_planet) {
     case global.PLANET_AURORA_SPACE:
         draw_text_transformed(510,  50, "Destination: Aurora",1,1,0 );        
         break
-   case global.PLANET_SPACE_LAB:
+    case global.PLANET_SPACE_LAB:
         draw_text_transformed(510,  50, "Destination: Space Lab",1,1,0 );        
         break
+    case global.PLANET_MIRANDHA_SPACE:
+        draw_text_transformed(510,  50, "Destination: Mirandha",1,1,0 );        
+        break    
+    case global.PLANET_NEDOMIA_V_SPACE:
+        draw_text_transformed(510,  50, "Destination: Nedomia V",1,1,0 );        
+        break            
+    case global.PLANET_IRANIA_SPACE:
+        draw_text_transformed(510,  50, "Destination: Irania",1,1,0 );        
+        break
+        
 }
 
 // current weapon
@@ -205,7 +213,23 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
             draw_set_font( font_10 );
             draw_set_color(c_white);
             draw_text_transformed(500, 105, obj_boss_metal_head._name,1,1,0 )
-            break                                              
+            break
+      case  global.PLANET_NEDOMIA_V_SPACE:
+            if (instance_exists(obj_sub_boss_nedonia_space_a)) {
+                hp = (obj_sub_boss_nedonia_space_a._hp_current / obj_sub_boss_nedonia_space_a._hp_max) * 100;
+                draw_healthbar(150, 80, 460, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+                draw_set_font(font_10 );
+                draw_set_color(c_white);
+                draw_text_transformed(200, 105, obj_sub_boss_nedonia_space_a._name,1,1,0 )
+            }
+            if (instance_exists(obj_sub_boss_nedonia_space_b)) {
+                hp = (obj_sub_boss_nedonia_space_b._hp_current / obj_sub_boss_nedonia_space_b._hp_max) * 100;
+                draw_healthbar(550, 80, 860, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+                draw_set_font( font_10 );
+                draw_set_color(c_white);
+                draw_text_transformed(600, 105, obj_sub_boss_nedonia_space_b._name,1,1,0 )
+            }
+            break
     }
 }
 </string>

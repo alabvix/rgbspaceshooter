@@ -35,7 +35,11 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
        }
     }
     
-    if (_enemy_type == global.ENEMY_MONSTER_2) {
+    if (_enemy_type == global.ENEMY_MONSTER_2 ||
+        _enemy_type == global.ENEMY_MONSTER_2_RED ||
+        _enemy_type == global.ENEMY_MONSTER_2_GREEN ||
+        _enemy_type == global.ENEMY_MONSTER_2_BLUE 
+    ) {
        if (_total_monsters_2_created < global.TOTAL_MONSTERS_2 ) {
            CreateEnemy(_enemy_type)    
            _total_monsters_2_created ++;
@@ -48,7 +52,10 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
        }
     }
     
-    if (_enemy_type == global.ENEMY_MONSTER_3) {
+    if (_enemy_type == global.ENEMY_MONSTER_3 ||
+        _enemy_type == global.ENEMY_MONSTER_3_RED ||
+        _enemy_type == global.ENEMY_MONSTER_3_GREEN ||
+        _enemy_type == global.ENEMY_MONSTER_3_BLUE) {
        if (_total_monsters_3_created < global.TOTAL_MONSTERS_3 ) {
            CreateEnemy(_enemy_type)    
            _total_monsters_3_created ++;
@@ -61,7 +68,10 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
        }
     }
     
-    if (_enemy_type == global.ENEMY_MONSTER_4) {
+    if (_enemy_type == global.ENEMY_MONSTER_4 ||
+        _enemy_type == global.ENEMY_MONSTER_4_RED ||
+        _enemy_type == global.ENEMY_MONSTER_4_GREEN ||
+        _enemy_type == global.ENEMY_MONSTER_4_BLUE) {
        if (_total_monsters_4_created < global.TOTAL_MONSTERS_4 ) {
            CreateEnemy(_enemy_type)    
            _total_monsters_4_created ++;
@@ -160,7 +170,10 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
         }
     }
     
-    if (_enemy_type == global.ENEMY_SHIP_6) {
+    if ( _enemy_type == global.ENEMY_SHIP_6 ||
+         _enemy_type == global.ENEMY_SHIP_6_RED ||
+         _enemy_type == global.ENEMY_SHIP_6_GREEN ||
+         _enemy_type == global.ENEMY_SHIP_6_BLUE) {
         if (_total_ship_6_created < global.TOTAL_SHIPS_6) {
             CreateEnemy(_enemy_type)    
             _total_ship_6_created ++
@@ -280,6 +293,37 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
             _can_create_enemy = true
         }
     }
+
+    // Always 2 exists   
+    if (_enemy_type == global.ENEMY_SHIP_15_RED ||
+        _enemy_type == global.ENEMY_SHIP_15_GREEN ||
+        _enemy_type == global.ENEMY_SHIP_15_BLUE ) {
+        if (_total_ship_15_created < 2) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_15_created = 2;
+            _can_create_enemy = false
+        }
+        if (_total_ship_15_destroyed == 2) {
+            _total_ship_15_destroyed = 0
+            _total_ship_15_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
+    if (_enemy_type == global.ENEMY_SHIP_16_RED ||
+        _enemy_type == global.ENEMY_SHIP_16_GREEN ||
+        _enemy_type == global.ENEMY_SHIP_16_BLUE ) {
+        if (_total_ship_16_created < global.TOTAL_SHIPS_16) {
+            CreateEnemy(_enemy_type)    
+            _total_ship_16_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_ship_16_destroyed == global.TOTAL_SHIPS_16) {
+            _total_ship_16_destroyed = 0
+            _total_ship_16_created = 0
+            _can_create_enemy = true
+        }
+    }
     
     if (_enemy_type == global.ENEMY_BOMB ||
         _enemy_type == global.ENEMY_BOMB_RED ||
@@ -319,6 +363,19 @@ if ( round(_counter_create_enemy) == global.counter_create_enemy_limit) {
         if (_total_big_ship_1_destroyed == global.TOTAL_BIG_SHIP_1) {
             _total_big_ship_1_destroyed = 0
             _total_big_ship_1_created = 0
+            _can_create_enemy = true
+        }
+    }
+    
+    if (_enemy_type == global.ENEMY_ARMORED_DRONE) {
+        if (_total_armored_drone_created < global.TOTAL_ENEMY_ARMORED_DRONE) {
+            CreateEnemy(_enemy_type)    
+            _total_armored_drone_created ++;
+            _can_create_enemy = false
+        }
+        if (_total_armored_drone_destroyed == global.TOTAL_ENEMY_ARMORED_DRONE) {
+            _total_armored_drone_destroyed = 0
+            _total_armored_drone_created = 0
             _can_create_enemy = true
         }
     }

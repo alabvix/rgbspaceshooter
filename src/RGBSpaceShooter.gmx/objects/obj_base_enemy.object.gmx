@@ -45,7 +45,8 @@ _is_drone      = false
 
 _shadow        = 0
 _in_path       = false
-_id = 0
+_id            = 0
+_is_unbreakable = false
 
 </string>
           </argument>

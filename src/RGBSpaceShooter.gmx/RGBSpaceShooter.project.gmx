@@ -41,6 +41,7 @@
     <sound>sound\snd_music_space_lab_space</sound>
     <sound>sound\snd_music_space_lab_land</sound>
     <sound>sound\snd_music_nedomia_space</sound>
+    <sound>sound\snd_music_nedomia_ground</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -116,6 +117,8 @@
         <sprite>sprites\spt_red_ship_12</sprite>
         <sprite>sprites\spt_red_ship_13</sprite>
         <sprite>sprites\spt_red_ship_14</sprite>
+        <sprite>sprites\spt_red_ship_15</sprite>
+        <sprite>sprites\spt_red_ship_16</sprite>
         <sprite>sprites\spt_red_monster_1</sprite>
         <sprite>sprites\spt_red_monster_2</sprite>
         <sprite>sprites\spt_red_monster_3</sprite>
@@ -145,6 +148,8 @@
         <sprite>sprites\spt_green_ship_12</sprite>
         <sprite>sprites\spt_green_ship_13</sprite>
         <sprite>sprites\spt_green_ship_14</sprite>
+        <sprite>sprites\spt_green_ship_15</sprite>
+        <sprite>sprites\spt_green_ship_16</sprite>
         <sprite>sprites\spt_green_monster_1</sprite>
         <sprite>sprites\spt_green_monster_2</sprite>
         <sprite>sprites\spt_green_monster_3</sprite>
@@ -181,6 +186,8 @@
         <sprite>sprites\spt_blue_ship_12</sprite>
         <sprite>sprites\spt_blue_ship_13</sprite>
         <sprite>sprites\spt_blue_ship_14</sprite>
+        <sprite>sprites\spt_blue_ship_15</sprite>
+        <sprite>sprites\spt_blue_ship_16</sprite>
         <sprite>sprites\spt_blue_energy_absorver</sprite>
       </sprites>
       <sprite>sprites\spt_enemy_weapon_1</sprite>
@@ -212,6 +219,8 @@
         <sprite>sprites\spt_capital_ship_end</sprite>
         <sprite>sprites\spt_exit_ship</sprite>
       </sprites>
+      <sprite>sprites\spt_armored_drone</sprite>
+      <sprite>sprites\spt_dead_energy_bar</sprite>
     </sprites>
     <sprites name="hud">
       <sprite>sprites\spt_player_ship_icon</sprite>
@@ -282,6 +291,10 @@
       <sprite>sprites\spt_boss_metal_head_minion</sprite>
       <sprite>sprites\spt_boss_metal_head_barrier</sprite>
       <sprite>sprites\spt_boss_metal_head_laser</sprite>
+      <sprite>sprites\spt_nedonia_space_sub_boss</sprite>
+      <sprite>sprites\spt_boss_centoped_head</sprite>
+      <sprite>sprites\spt_boss_centoped_body</sprite>
+      <sprite>sprites\spt_boss_centoped_tail</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -319,6 +332,7 @@
     <background>background\bkg_planet_irania_1</background>
     <background>background\bkg_planet_irania_2</background>
     <background>background\bkg_planet_mirandha_land</background>
+    <background>background\bkg_planet_nedomia_land</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
@@ -339,6 +353,10 @@
     <path>paths\path_1_mirandha_sub_boss</path>
     <path>paths\path_2_mirandha_sub_boss</path>
     <path>paths\path_boss_metal_head</path>
+    <path>paths\path_enemy_16</path>
+    <path>paths\path_enemy_16_2</path>
+    <path>paths\path_nedonia_5_sub_boss_a</path>
+    <path>paths\path_nedonia_5_sub_boss_b</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\ApplyDemageToPlayer.gml</script>
@@ -477,6 +495,8 @@
         <object>objects\obj_red_ship_12</object>
         <object>objects\obj_red_ship_13</object>
         <object>objects\obj_red_ship_14</object>
+        <object>objects\obj_red_ship_15</object>
+        <object>objects\obj_red_ship_16</object>
         <object>objects\obj_red_alien_1</object>
         <object>objects\obj_red_monster_1</object>
         <object>objects\obj_red_monster_2</object>
@@ -505,6 +525,8 @@
         <object>objects\obj_green_ship_12</object>
         <object>objects\obj_green_ship_13</object>
         <object>objects\obj_green_ship_14</object>
+        <object>objects\obj_green_ship_15</object>
+        <object>objects\obj_green_ship_16</object>
         <object>objects\obj_green_monster_1</object>
         <object>objects\obj_green_monster_2</object>
         <object>objects\obj_green_monster_3</object>
@@ -531,6 +553,8 @@
         <object>objects\obj_blue_ship_12</object>
         <object>objects\obj_blue_ship_13</object>
         <object>objects\obj_blue_ship_14</object>
+        <object>objects\obj_blue_ship_15</object>
+        <object>objects\obj_blue_ship_16</object>
         <object>objects\obj_blue_monster_1</object>
         <object>objects\obj_blue_monster_2</object>
         <object>objects\obj_blue_monster_3</object>
@@ -566,6 +590,11 @@
         <object>objects\obj_boss_metal_head_minion</object>
         <object>objects\obj_boss_metal_head_barrier</object>
         <object>objects\obj_boss_metal_head_laser</object>
+        <object>objects\obj_sub_boss_nedonia_space_a</object>
+        <object>objects\obj_sub_boss_nedonia_space_b</object>
+        <object>objects\obj_boss_centoped_head</object>
+        <object>objects\obj_boss_centoped_body</object>
+        <object>objects\obj_boss_centoped_tail</object>
       </objects>
       <objects name="energy_absorvers">
         <object>objects\obj_base_energy_absorver</object>
@@ -590,6 +619,8 @@
         <object>objects\obj_capital_ship_end</object>
         <object>objects\obj_exit_ship</object>
       </objects>
+      <object>objects\obj_armored_drone</object>
+      <object>objects\obj_dead_energy_bar</object>
     </objects>
     <objects name="enemy_weapon">
       <object>objects\obj_enemy_weapon_base</object>

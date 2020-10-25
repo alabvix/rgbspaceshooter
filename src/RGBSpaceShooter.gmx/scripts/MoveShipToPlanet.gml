@@ -9,6 +9,12 @@ switch (global.selected_planet) {
     case global.PLANET_SPACE_LAB:
         planet = obj_space_lab
         break;        
+    case global.PLANET_IRANIA_SPACE:
+        planet = obj_planet_irania
+        break;
+    case global.PLANET_NEDOMIA_V_SPACE:
+        planet = obj_planet_nedomia_v    
+        break;            
 }
 
 with (obj_player_ship) {

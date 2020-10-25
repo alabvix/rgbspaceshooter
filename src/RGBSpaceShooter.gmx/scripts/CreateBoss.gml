@@ -38,5 +38,18 @@ switch (global.selected_planet){
     case global.PLANET_MIRANDHA_LAND:            
         var p1 = instance_create(centro_room_x, 192, obj_boss_metal_head)
         break
+    case global.PLANET_NEDOMIA_V_SPACE:
+        var p1 = instance_create(0, 0, obj_sub_boss_nedonia_space_a)
+        var p2 = instance_create(0, 0, obj_sub_boss_nedonia_space_b)
+        break
+    case global.PLANET_NEDOMIA_V_LAND:
+        var head = instance_create(centro_room_x, 0, obj_boss_centoped_head);
+        var body = instance_create(0, head - 40, obj_boss_centoped_body);
+        var tail = instance_create(0, body - 40, obj_boss_centoped_tail);
+        
+        
+    
+    
+        break
                 
 }

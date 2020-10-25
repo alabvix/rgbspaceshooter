@@ -1,6 +1,5 @@
-var planet_id = global.PLANET_MIRANDHA_LAND //argument[0]
-
-//var planet_id = argument[0]
+//var planet_id = global.PLANET_MIRANDHA_LAND //argument[0]
+var planet_id = argument[0]
 
 global.selected_planet = planet_id
 
