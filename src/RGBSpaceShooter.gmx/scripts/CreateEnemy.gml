@@ -392,7 +392,7 @@ if (enemy_type == global.ENEMY_SHIP_16_GREEN) {
 }
 
 if (enemy_type == global.ENEMY_SHIP_16_BLUE) {
-    instance_create(vx, vy, obj_blue_ship_16)
+    instance_create(0, 0, obj_blue_ship_16)
 }
  
 if (enemy_type == global.SPECIAL_CARGO_SHIP) {

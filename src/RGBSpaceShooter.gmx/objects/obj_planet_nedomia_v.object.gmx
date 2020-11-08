@@ -28,6 +28,9 @@
             <string>event_inherited()
 _planet_id = global.PLANET_NEDOMIA_V_SPACE
 _planet_free = LoadPlanetState(global.PLANET_NEDOMIA_V_LAND)  
+if (_planet_free == 1) {
+    instance_create(x, y, obj_planet_free)
+}
 </string>
           </argument>
         </arguments>

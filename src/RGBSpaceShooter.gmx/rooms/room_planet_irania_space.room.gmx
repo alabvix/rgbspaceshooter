@@ -8,9 +8,10 @@
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
-  <colour>4194304</colour>
+  <colour>2621440</colour>
   <showcolour>-1</showcolour>
   <code>window_set_cursor(cr_none);
+PlayMusic(snd_music_irania_space)
 
 CreateHudElements()</code>
   <enableViews>0</enableViews>

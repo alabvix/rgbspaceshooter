@@ -42,6 +42,7 @@
     <sound>sound\snd_music_space_lab_land</sound>
     <sound>sound\snd_music_nedomia_space</sound>
     <sound>sound\snd_music_nedomia_ground</sound>
+    <sound>sound\snd_music_irania_space</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -292,9 +293,7 @@
       <sprite>sprites\spt_boss_metal_head_barrier</sprite>
       <sprite>sprites\spt_boss_metal_head_laser</sprite>
       <sprite>sprites\spt_nedonia_space_sub_boss</sprite>
-      <sprite>sprites\spt_boss_centoped_head</sprite>
-      <sprite>sprites\spt_boss_centoped_body</sprite>
-      <sprite>sprites\spt_boss_centoped_tail</sprite>
+      <sprite>sprites\spt_nedomia_boss</sprite>
     </sprites>
     <sprites name="explosion">
       <sprite>sprites\spt_little_explosion</sprite>
@@ -357,6 +356,7 @@
     <path>paths\path_enemy_16_2</path>
     <path>paths\path_nedonia_5_sub_boss_a</path>
     <path>paths\path_nedonia_5_sub_boss_b</path>
+    <path>paths\path_boss_nedomia_1</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\ApplyDemageToPlayer.gml</script>
@@ -424,6 +424,7 @@
     </scripts>
     <scripts name="enemy_weapon">
       <script>scripts\CreateEnemyEnergyBallStar.gml</script>
+      <script>scripts\CreateEnemyEnergyBallStar2.gml</script>
       <script>scripts\CreateEnemyAtomicBlaster.gml</script>
     </scripts>
     <scripts name="utils">
@@ -592,9 +593,7 @@
         <object>objects\obj_boss_metal_head_laser</object>
         <object>objects\obj_sub_boss_nedonia_space_a</object>
         <object>objects\obj_sub_boss_nedonia_space_b</object>
-        <object>objects\obj_boss_centoped_head</object>
-        <object>objects\obj_boss_centoped_body</object>
-        <object>objects\obj_boss_centoped_tail</object>
+        <object>objects\obj_boss_nedomia</object>
       </objects>
       <objects name="energy_absorvers">
         <object>objects\obj_base_energy_absorver</object>

@@ -33,9 +33,9 @@ _points  = 45
 _hp      = 80
 _speed_y = 20
 
-_shoot_in    = 0 // fires in each n seconds 
-_weapon_type = global.WEAPON_POD_MISSILE
-path_start(path, s, path_enemy_16, true)
+_shoot_in    = 20 // fires in each n seconds 
+_weapon_type = global.WEAPON_ENERGY_BALL 
+path_start(path_enemy_16, 15, path_action_continue, true)
 
 
 </string>

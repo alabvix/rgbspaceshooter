@@ -43,13 +43,7 @@ switch (global.selected_planet){
         var p2 = instance_create(0, 0, obj_sub_boss_nedonia_space_b)
         break
     case global.PLANET_NEDOMIA_V_LAND:
-        var head = instance_create(centro_room_x, 0, obj_boss_centoped_head);
-        var body = instance_create(0, head - 40, obj_boss_centoped_body);
-        var tail = instance_create(0, body - 40, obj_boss_centoped_tail);
-        
-        
-    
-    
+        var head = instance_create(centro_room_x, -300, obj_boss_nedomia);
         break
                 
 }

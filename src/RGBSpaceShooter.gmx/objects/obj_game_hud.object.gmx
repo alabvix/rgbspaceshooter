@@ -94,11 +94,12 @@ hull_value = (global.player_hull / global.player_hull_max) * 100;
 draw_healthbar(220,20,420,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
 
 // Player Ship Force Shield
-shield_value = (global.player_shield / global.player_shield_max) * 100;
-draw_healthbar(600,20,800,35, shield_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
+//shield_value = (global.player_shield / global.player_shield_max) * 100;
+//draw_healthbar(600,20,800,35, shield_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
+draw_set_font(font_10);
+draw_text_transformed(690,30, "Press ESC for pause",1,1,0 );
 
 // Energy icons
-draw_set_font( font_10 );
 var red_energy = string(global.player_red_energy) + "/" + string(global.player_red_energy_base)
 var green_energy = string(global.player_green_energy) + "/" + string(global.player_green_energy_base)
 var blue_energy = string(global.player_blue_energy) + "/" + string(global.player_blue_energy_base)
@@ -151,7 +152,7 @@ draw_text_transformed(870, 30, weapon_name,1,1,0 )
 draw_set_font( font_12 );
 draw_text_transformed(995, 25, "x" + string(global.player_lives),1,1,0 )
 
-// Boss life
+// Boss life and name
 if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
     switch (global.selected_planet) {
         case global.PLANET_AURORA_SPACE:
@@ -230,6 +231,16 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
                 draw_text_transformed(600, 105, obj_sub_boss_nedonia_space_b._name,1,1,0 )
             }
             break
+       case global.PLANET_NEDOMIA_V_LAND:
+            if (! instance_exists(obj_boss_nedomia)) {
+                exit
+            }
+            hp = (obj_boss_nedomia._hp_current / obj_boss_nedomia._hp_max) * 100;
+            draw_healthbar(350, 80, 660, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 105, obj_boss_nedomia._name,1,1,0 )
+            break            
     }
 }
 </string>
