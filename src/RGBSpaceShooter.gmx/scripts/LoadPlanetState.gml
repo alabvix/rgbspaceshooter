@@ -18,6 +18,9 @@ switch (planet_id) {
     case global.PLANET_SPACE_LAB_LAND:
         state = ini_read_real("planet-state", "space-lab", 0);
         break;
+    case global.PLANET_IRANIA_LAND:
+        state = ini_read_real("planet-state", "irania", 0);
+        break;          
 }     
 ini_close()
 return state

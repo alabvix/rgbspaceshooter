@@ -431,9 +431,8 @@
       <script>scripts\GetPercentual.gml</script>
       <script>scripts\CreateOrbitObject.gml</script>
     </scripts>
-    <script>scripts\EnterBigShip.gml</script>
-    <script>scripts\HandleCollisionInsideShip.gml</script>
     <script>scripts\GetCurrentRoom.gml</script>
+    <script>scripts\GameFinished.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -751,6 +750,7 @@
     <room>rooms\room_planet_nedomia_land</room>
     <room>rooms\room_planet_irania_space</room>
     <room>rooms\room_planet_irania_land</room>
+    <room>rooms\room_credits</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

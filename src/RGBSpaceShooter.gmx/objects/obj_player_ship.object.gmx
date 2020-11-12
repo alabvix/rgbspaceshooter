@@ -51,10 +51,6 @@ _fire_red_held_down = 0
 _fire_blue_held_down = 0
 _fire_green_held_down = 0
 
-// Player ship shadow
-if (global.selected_planet == global.PLANET_AURORA_LAND) {
-    instance_create(obj_player_ship.x + 50, obj_player_ship.y + 50,obj_player_ship_shadow)
-}
 
 _special_weapon = 0
 //if (global.player_weapon_special == global.SPECIAL_WEAPON_1) {
@@ -111,12 +107,6 @@ delta = (60/1000000) * delta_time;
 var v = _velocity * delta;
 
 InputAndMovimentHandler(v)
-
-// Move shadow
-if (instance_exists(obj_player_ship_shadow)) {
-    obj_player_ship_shadow.x = obj_player_ship.x + 50
-    obj_player_ship_shadow.y = obj_player_ship.y + 50   
-}
 
 // Move special weapon
 //_special_weapon.x = x

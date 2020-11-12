@@ -8,7 +8,7 @@ switch (global.selected_planet){
         instance_create(subboss.x, subboss.y, obj_boss_force_field)
         break
     case global.PLANET_AURORA_LAND:
-        var boss = instance_create(centro_room_x, -100, obj_boss_1)
+        instance_create(centro_room_x, -100, obj_boss_1)
         break     
     case global.PLANET_SPACE_LAB:
         var boss = instance_create(centro_room_x, -100, obj_sub_boss_space_lab)
@@ -27,16 +27,15 @@ switch (global.selected_planet){
         instance_create(p1.x, p1.y, obj_enemy_antenna)
         instance_create(p2.x, p2.y, obj_enemy_antenna)
         
-        var e1 = instance_create(p1.x + 150, p1.y, obj_moving_engine_left)
-        var e2 = instance_create(p2.x - 150, p2.y, obj_moving_engine_right)
+        instance_create(p1.x + 150, p1.y, obj_moving_engine_left)
+        instance_create(p2.x - 150, p2.y, obj_moving_engine_right)
         
-        //room.background_vspeed[0] = 0;
         break          
     case global.PLANET_MIRANDHA_SPACE:
-        var p1 = instance_create(0,0, obj_mirandha_sub_boss)
+        instance_create(0,0, obj_mirandha_sub_boss)
         break
     case global.PLANET_MIRANDHA_LAND:            
-        var p1 = instance_create(centro_room_x, 192, obj_boss_metal_head)
+        instance_create(centro_room_x, 192, obj_boss_metal_head)
         break
     case global.PLANET_NEDOMIA_V_SPACE:
         var p1 = instance_create(0, 0, obj_sub_boss_nedonia_space_a)
@@ -45,5 +44,11 @@ switch (global.selected_planet){
     case global.PLANET_NEDOMIA_V_LAND:
         var head = instance_create(centro_room_x, -300, obj_boss_nedomia);
         break
+    case global.PLANET_IRANIA_SPACE:
+        instance_create(0,0, obj_mirandha_sub_boss)
+        break
+    case global.PLANET_IRANIA_LAND:
+        instance_create(centro_room_x, -100, obj_boss_1)
+        break        
                 
 }

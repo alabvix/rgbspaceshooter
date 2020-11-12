@@ -208,6 +208,15 @@ _total_armored_drone_destroyed = 0
           <argument>
             <kind>1</kind>
             <string>
+////////////////////
+// planet selection
+//////////////////////
+if (global.game_state == global.GAME_STATE_SELECT_PLANET) {
+    show_debug_message("PLANET SELECTION")
+    
+    
+}
+
 ////////////////
 // GAME OVER
 ////////////////
