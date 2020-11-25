@@ -43,6 +43,8 @@
     <sound>sound\snd_music_nedomia_space</sound>
     <sound>sound\snd_music_nedomia_ground</sound>
     <sound>sound\snd_music_irania_space</sound>
+    <sound>sound\snd_music_end_credits</sound>
+    <sound>sound\snd_music_irania_ground</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spt_ship_fire</sprite>
@@ -230,26 +232,6 @@
       <sprite>sprites\spt_hud_laser_blue</sprite>
       <sprite>sprites\spt_hud_laser_green</sprite>
       <sprite>sprites\spt_hud_laser_rgb</sprite>
-      <sprite>sprites\spt_weapon_1_icon</sprite>
-      <sprite>sprites\spt_weapon_1_not_found</sprite>
-      <sprite>sprites\spt_weapon_1_ready</sprite>
-      <sprite>sprites\spt_weapon_2_icon</sprite>
-      <sprite>sprites\spt_weapon_2_not_found</sprite>
-      <sprite>sprites\spt_weapon_2_ready</sprite>
-      <sprite>sprites\spt_weapon_3_icon</sprite>
-      <sprite>sprites\spt_weapon_3_not_found</sprite>
-      <sprite>sprites\spt_weapon_3_ready</sprite>
-      <sprite>sprites\spt_weapon_4_icon</sprite>
-      <sprite>sprites\spt_weapon_4_not_found</sprite>
-      <sprite>sprites\spt_weapon_4_ready</sprite>
-      <sprite>sprites\spt_weapon_5_icon</sprite>
-      <sprite>sprites\spt_weapon_5_ready</sprite>
-      <sprite>sprites\spt_weapon_6_icon</sprite>
-      <sprite>sprites\spt_weapon_6_ready</sprite>
-      <sprite>sprites\spt_weapon_7_icon</sprite>
-      <sprite>sprites\spt_weapon_7_ready</sprite>
-      <sprite>sprites\spt_weapon_8_icon</sprite>
-      <sprite>sprites\spt_weapon_8_ready</sprite>
       <sprite>sprites\spt_red_energy_tank</sprite>
       <sprite>sprites\spt_blue_energy_tank</sprite>
       <sprite>sprites\spt_green_energy_tank</sprite>
@@ -307,6 +289,10 @@
     </sprites>
     <sprites name="backgroud">
       <sprite>sprites\spt_bkg_ship_1</sprite>
+    </sprites>
+    <sprites name="end_credits">
+      <sprite>sprites\spt_msg_you_win</sprite>
+      <sprite>sprites\spt_congrats</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -421,6 +407,7 @@
       <script>scripts\SavePlayerLives.gml</script>
       <script>scripts\SaveMusic.gml</script>
       <script>scripts\SaveSound.gml</script>
+      <script>scripts\ResetGame.gml</script>
     </scripts>
     <scripts name="enemy_weapon">
       <script>scripts\CreateEnemyEnergyBallStar.gml</script>
@@ -459,21 +446,10 @@
       <object>objects\obj_hud_laser_rgb</object>
       <object>objects\obj_ship_icon</object>
       <object>objects\obj_base_weapon</object>
-      <object>objects\obj_player_weapon_1_icon</object>
-      <object>objects\obj_player_weapon_2_icon</object>
-      <object>objects\obj_player_weapon_3_icon</object>
-      <object>objects\obj_player_weapon_4_icon</object>
-      <object>objects\obj_player_weapon_5_icon</object>
-      <object>objects\obj_player_weapon_6_icon</object>
-      <object>objects\obj_player_weapon_7_icon</object>
-      <object>objects\obj_player_weapon_8_icon</object>
       <object>objects\obj_red_energy_tank</object>
       <object>objects\obj_green_energy_tank</object>
       <object>objects\obj_blue_energy_tank</object>
       <object>objects\obj_rgb_energy_tank</object>
-      <object>objects\obj_weapon_display</object>
-      <object>objects\obj_special_weapon_display</object>
-      <object>objects\obj_weapon_1_display</object>
     </objects>
     <objects name="enemies">
       <object>objects\obj_base_enemy</object>
@@ -680,7 +656,6 @@
       <object>objects\obj_game_title</object>
       <object>objects\obj_panel</object>
       <object>objects\obj_sound_option</object>
-      <object>objects\obj_music_option</object>
     </objects>
     <objects name="managers">
       <object>objects\obj_game_manager</object>
@@ -730,6 +705,12 @@
     <objects name="background">
       <object>objects\obj_bkg_ship_1</object>
     </objects>
+    <object>objects\obj_music_option</object>
+    <objects name="end_credits">
+      <object>objects\obj_room_credits</object>
+      <object>objects\obj_congratulations</object>
+      <object>objects\obj_you_win</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_init</room>
@@ -743,7 +724,6 @@
     <room>rooms\room_planet_aurora_land</room>
     <room>rooms\room_planet_aurora_space</room>
     <room>rooms\room_planet_splace_lab_land</room>
-    <room>rooms\room_inside_ship</room>
     <room>rooms\room_planet_mirandha_space</room>
     <room>rooms\room_planet_mirandha_land</room>
     <room>rooms\room_planet_nedomia_space</room>
