@@ -58,9 +58,7 @@ if ( speed &gt; 0 ) {
         planet = instance_place(x,y,obj_planet_base)
         if (planet) {
             if (HasGameSaved()) {
-                HandlePlayerAttributes(false)
-            } else {
-                HandlePlayerAttributes(true)
+                LoadDifficulty()
             }
             InitPlayerAttributes()
             SetGameState(global.GAME_STATE_PLAY)

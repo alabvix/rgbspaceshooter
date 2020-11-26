@@ -100,7 +100,7 @@ if (_move_btn_menu) {
     if (obj_menu_btn_menu.y &lt;= 579) {
         _move_btn_menu = false
         ResetGame()
-        HandlePlayerAttributes(true)
+        ResetPlayerAttributes()
         SetGameState(global.GAME_STATE_MAIN_MENU) 
     }
 }

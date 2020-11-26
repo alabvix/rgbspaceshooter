@@ -3,9 +3,9 @@
   <spriteName>spt_menu_button</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
-  <parentName>obj_menu_btn_base</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,13 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
+            <string>_mouse_over = false
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="0">
+    <event eventtype="6" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,10 +48,57 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//global.game_state = global.GAME_STATE_TRANSICATION  
-//var inst = instance_create(x,y, obj_transiction);
-//inst.target = obj_player_shio_selector
-room_goto(room_options)
+            <string>_mouse_over = false
+window_set_cursor(cr_default)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>_mouse_over = true
+window_set_cursor(cr_handpoint)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>SetGameState(global.GAME_STATE_MAIN_MENU)
+room_goto(room_main_menu)
+
 </string>
           </argument>
         </arguments>
@@ -74,11 +121,13 @@ room_goto(room_options)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
-if (global.game_state != global.GAME_STATE_MAIN_MENU ) {
-    exit
-}
-draw_text_transformed(x,y-6,"Options",1,1,0 );
+            <string>draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+draw_set_font(font_12)
+
+draw_set_color(c_lime)
+
+draw_text_transformed(x,y-5,"Main Menu",1,1,0 );
 </string>
           </argument>
         </arguments>

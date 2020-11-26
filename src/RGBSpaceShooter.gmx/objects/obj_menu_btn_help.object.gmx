@@ -72,7 +72,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-draw_text_transformed(x,y-5,"Help",1,1,0 );
+draw_text_transformed(x,y-6,"Help",1,1,0 );
 </string>
           </argument>
         </arguments>

@@ -1,3 +1,5 @@
-LoadGameState()
+LoadDifficulty()
 ApplyDifficulty()
+ResetPlayerAttributes()
+LoadScore()
 room_goto(room_planet_selection)

@@ -69,6 +69,7 @@
       <sprite>sprites\spt_dialog_frame</sprite>
       <sprite>sprites\spt_weapon_selectiion_frame</sprite>
       <sprite>sprites\spt_frame_game_paused</sprite>
+      <sprite>sprites\spt_frame_game_over</sprite>
       <sprite>sprites\spt_btn_tutorial</sprite>
       <sprite>sprites\spt_btn_continue</sprite>
       <sprite>sprites\spt_game_title</sprite>
@@ -390,14 +391,12 @@
     </scripts>
     <scripts name="file_operations">
       <script>scripts\CancelContinueGame.gml</script>
-      <script>scripts\HandlePlayerAttributes.gml</script>
       <script>scripts\HasGameSaved.gml</script>
       <script>scripts\LoadDifficulty.gml</script>
       <script>scripts\LoadMusic.gml</script>
       <script>scripts\LoadSound.gml</script>
       <script>scripts\LoadPlanetState.gml</script>
       <script>scripts\LoadForceField.gml</script>
-      <script>scripts\LoadGameState.gml</script>
       <script>scripts\LoadCurrentPlanet.gml</script>
       <script>scripts\SavePlanetState.gml</script>
       <script>scripts\SaveGameState.gml</script>
@@ -408,6 +407,7 @@
       <script>scripts\SaveMusic.gml</script>
       <script>scripts\SaveSound.gml</script>
       <script>scripts\ResetGame.gml</script>
+      <script>scripts\LoadScore.gml</script>
     </scripts>
     <scripts name="enemy_weapon">
       <script>scripts\CreateEnemyEnergyBallStar.gml</script>
@@ -420,6 +420,7 @@
     </scripts>
     <script>scripts\GetCurrentRoom.gml</script>
     <script>scripts\GameFinished.gml</script>
+    <script>scripts\ResetPlayerAttributes.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_20</font>
@@ -635,6 +636,7 @@
       <object>objects\obj_menu_tutorial</object>
       <object>objects\obj_menu_continue</object>
       <object>objects\obj_frame_medium</object>
+      <object>objects\obj_frame_game_over</object>
       <object>objects\obj_menu_btn_base</object>
       <object>objects\obj_menu_btn_new_game</object>
       <object>objects\obj_menu_btn_options</object>
@@ -642,8 +644,9 @@
       <object>objects\obj_menu_btn_dificult</object>
       <object>objects\obj_menu_btn_menu</object>
       <object>objects\obj_menu_btn_goto_menu</object>
-      <object>objects\obj_menu_btn_continue</object>
+      <object>objects\obj_menu_btn_goto_menu_game_over</object>
       <object>objects\obj_menu_btn_continue_game_over</object>
+      <object>objects\obj_menu_btn_continue</object>
       <object>objects\obj_btn_ok_resume_planet</object>
       <object>objects\obj_btn_confirm_yes</object>
       <object>objects\obj_btn_confirm_no</object>

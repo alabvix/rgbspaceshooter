@@ -240,7 +240,28 @@ if (global.game_state == global.GAME_STATE_BOSS_FIGHT) {
             draw_set_font( font_10 );
             draw_set_color(c_white);
             draw_text_transformed(500, 105, obj_boss_nedomia._name,1,1,0 )
-            break            
+            break  
+            
+       case global.PLANET_IRANIA_SPACE:
+            if (! instance_exists(obj_mirandha_sub_boss)) {
+                exit
+            }
+            hp = (obj_mirandha_sub_boss._hp_current / obj_mirandha_sub_boss._hp_max) * 100;
+            draw_healthbar(350, 80, 660, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 105, obj_mirandha_sub_boss._name,1,1,0 )
+            break
+       case global.PLANET_IRANIA_LAND:
+            if (! instance_exists(obj_boss_1)) {
+                exit
+            }
+            hp = (obj_boss_1._hp_current / obj_boss_1._hp_max) * 100;
+            draw_healthbar(350, 80, 660, 93, hp, c_dkgray, c_dkgray, c_orange, 0, true, true); 
+            draw_set_font( font_10 );
+            draw_set_color(c_white);
+            draw_text_transformed(500, 105, obj_boss_1._name,1,1,0 )
+            break                      
     }
 }
 </string>

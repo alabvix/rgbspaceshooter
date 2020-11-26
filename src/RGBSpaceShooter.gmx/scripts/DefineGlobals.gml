@@ -448,7 +448,7 @@ global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 9] = global.ENEMY_SHIP_8_GREEN
 global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 10] = global.ENEMY_BOMB_RED
 global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 11] = global.ENEMY_BOMB_GREEN
 global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 12] = global.ENEMY_BOMB_BLUE
-global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 13] = global.ENEMY_SHIP_5
+global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 13] = global.ENEMY_SHIP_13_GREEN
 global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 14] = global.ENEMY_SHIP_9_RED
 global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 15] = global.ENEMY_MONSTER_4
 global.STAGE_ENEMIES[global.PLANET_IRANIA_LAND, 16] = global.BOSS 
@@ -475,7 +475,8 @@ global.PLAYER_DOUBLE_LASER = 2
 global.PLAYER_TRI_LASER    = 3
 global.PLAYER_PURSUIT_LASER = 4
 
-HandlePlayerAttributes(true)
+ResetPlayerAttributes()
+LoadScore()
 
 // fire directions
 global.dir_array[0] = 0

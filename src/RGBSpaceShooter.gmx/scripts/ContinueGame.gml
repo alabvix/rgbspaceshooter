@@ -1,7 +1,6 @@
+ResetPlayerAttributes()
 if (HasGameSaved()) {
-    HandlePlayerAttributes(false)
-} else {
-    HandlePlayerAttributes(true)
+    LoadScore()
 }
 room_restart();
 SetGameState(global.GAME_STATE_PLAY)

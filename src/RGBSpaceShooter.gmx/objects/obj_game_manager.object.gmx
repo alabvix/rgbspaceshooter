@@ -248,12 +248,12 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         }
         
         // Next player life. Back to the begging of the room.
-        // Reset player attributes less player lives. 
+        // Reset player attributes . 
         _respaw_count = 0
+        ResetPlayerAttributes()
+        LoadScore()
         if (HasGameSaved()) {
-            HandlePlayerAttributes(false)
-        } else {
-            HandlePlayerAttributes(true)
+            LoadScore()
         }
         global.total_red_created = 0
         global.total_green_created = 0
@@ -262,17 +262,17 @@ if (global.game_state == global.GAME_STATE_SHIP_DESTROYED) {
         global.total_green_eliminated = 0
         global.total_blue_eliminated = 0
         
-        // Player was inside big ship when died
-        if (global.PLAYER_INSIDE_BIG_SHIP) {
-            global.PLAYER_INSIDE_BIG_SHIP = false
-            room_goto(GetCurrentRoom())
-        } else {
-            room_restart()
-        }
+        room_restart()
+        
         
         global.player_lives = plives
         _enemy_index = 0
         _enemy_type  = global.STAGE_ENEMIES[global.selected_planet,_enemy_index]
+        
+        if (global.selected_planet == global.PLANET_NEDOMIA_V_SPACE) {
+            global.ice_star_destroyed = 0
+        }
+        
         SetGameState(global.GAME_STATE_PLAY)
     }
 }
@@ -514,9 +514,9 @@ if (global.game_state == global.GAME_STATE_GAME_OVER ) {
     draw_text_transformed(centro_room_x, centro_room_y-100, "GAME OVER",1,1,0 );
     if (!_game_over_menu_draw) {
         window_set_cursor(cr_default)
-        instance_create(centro_room_x,  centro_room_y + 50, obj_frame_medium)
+        instance_create(centro_room_x,  centro_room_y + 50, obj_frame_game_over)
         instance_create(centro_room_x - 100, centro_room_y + 40, obj_menu_btn_continue_game_over)
-        instance_create(centro_room_x + 100, centro_room_y + 40, obj_menu_btn_goto_menu)
+        instance_create(centro_room_x + 100, centro_room_y + 40, obj_menu_btn_goto_menu_game_over)
         _game_over_menu_draw = true
     }
 }
