@@ -91,7 +91,7 @@ draw_text_transformed(centro_room_x, 27, score_show,1,1,0 );
 
 // Player Ship hull bar
 hull_value = (global.player_hull / global.player_hull_max) * 100;
-draw_healthbar(220,20,420,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
+draw_healthbar(50,20,300,35, hull_value, c_dkgray, c_dkgray, c_lime, 0, true, true); 
 
 // Player Ship Force Shield
 //shield_value = (global.player_shield / global.player_shield_max) * 100;
@@ -100,15 +100,21 @@ draw_set_font(font_10);
 draw_text_transformed(690,30, "Press ESC for pause",1,1,0 );
 
 // Energy icons
+
 var red_energy = string(global.player_red_energy) + "/" + string(global.player_red_energy_base)
 var green_energy = string(global.player_green_energy) + "/" + string(global.player_green_energy_base)
 var blue_energy = string(global.player_blue_energy) + "/" + string(global.player_blue_energy_base)
 var rgb_energy = string(global.player_rgb_energy) + "/" + string(global.player_rgb_energy_base)
 
-draw_text_transformed(58, 21, red_energy, 1,1,0 );
-draw_text_transformed(58, 54, green_energy, 1,1,0 );
-draw_text_transformed(163, 21, blue_energy, 1,1,0 );
-draw_text_transformed(163, 54, rgb_energy, 1,1,0 );
+draw_text_transformed(392, 650, red_energy, 1,1,0 );
+draw_text_transformed(462, 650, green_energy, 1,1,0 );
+draw_text_transformed(532, 650, blue_energy, 1,1,0 );
+draw_text_transformed(607, 650, rgb_energy, 1,1,0 );
+
+draw_text_transformed(obj_red_energy_tank.x + 15, 600, "A", 1,1,0 );
+draw_text_transformed(obj_green_energy_tank.x + 15, 600, "S", 1,1,0 );
+draw_text_transformed(obj_blue_energy_tank.x + 15, 600, "D", 1,1,0 );
+draw_text_transformed(obj_rgb_energy_tank.x + 15, 600, "F", 1,1,0 );
 
 // Destination planet
 switch (global.selected_planet) {

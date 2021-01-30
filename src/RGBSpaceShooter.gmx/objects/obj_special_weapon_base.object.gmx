@@ -101,7 +101,12 @@ if (enemy != noone) {
     instance_destroy()
 }
 
-
+// Handle collision with moving engine
+enemy = instance_place(x,y, obj_moving_engine_base)
+if (enemy != noone) {
+    instance_create(x, y, obj_little_explosion)
+    instance_destroy()
+}
 
 
 </string>

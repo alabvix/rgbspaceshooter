@@ -56,6 +56,7 @@ if (HasGameSaved()) {
     global.game_state = global.GAME_STATE_TRANSICATION  
     global.main_music_playing = false
     ApplyDifficulty();
+    ResetPlayerAttributes()
     var inst = instance_create(x,y, obj_transiction);
     inst.target = obj_player_shio_selector
 }

@@ -96,6 +96,7 @@
       <sprite>sprites\spt_rgb_energy</sprite>
       <sprite>sprites\spt_special_w_1</sprite>
       <sprite>sprites\spt_honey_badger</sprite>
+      <sprite>sprites\spt_ship_selector</sprite>
       <sprite>sprites\spt_honey_badger_icon</sprite>
       <sprite>sprites\spt_pursuit_red</sprite>
       <sprite>sprites\spt_pursuit_blue</sprite>

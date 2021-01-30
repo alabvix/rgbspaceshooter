@@ -145,7 +145,7 @@ if (enemy != noone &amp;&amp; ! enemy._is_tank &amp;&amp; !global.test_ship_unde
     instance_destroy(enemy)
     if (global.player_hull &lt;= 0) {
         global.player_hull = 0
-        
+        SetShipExplosion()  
     }
 }
 

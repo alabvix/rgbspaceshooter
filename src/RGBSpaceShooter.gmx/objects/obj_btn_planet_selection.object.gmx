@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>SetGameState(global.GAME_STATE_SELECT_PLANET)
+ResetPlayerAttributes()
 room_goto(room_planet_selection)
 </string>
           </argument>

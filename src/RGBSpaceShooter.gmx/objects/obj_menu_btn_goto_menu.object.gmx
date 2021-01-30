@@ -97,6 +97,7 @@ window_set_cursor(cr_handpoint)
           <argument>
             <kind>1</kind>
             <string>SetGameState(global.GAME_STATE_MAIN_MENU)
+ResetPlayerAttributes()
 room_goto(room_main_menu)
 
 </string>
