@@ -1,4 +1,4 @@
-# RGB Start Fighter
+# RGB Star Fighter
 
 RGB Starfighter is a old school space shooter made in Game Maker 1.4.
 Commands:
